@@ -27,23 +27,26 @@ namespace NotSteam
         {
             lvAfis.View = View.Details;
             lvAfis.AllowColumnReorder = true;
-            ListViewItem lvgame = new ListViewItem("Game");
-            ListViewItem lvdate = new ListViewItem("date");
+            lvAfis.Columns.Add("nimic-nu sterge ca bubuie", 0, HorizontalAlignment.Left);
+            lvAfis.Columns.Add("Game",120,HorizontalAlignment.Left);
+            lvAfis.Columns.Add("Date bought",120, HorizontalAlignment.Left);
+            
             
             con.Open();
 
-            string query = "select [List of owned games].name, [List of owned games].[date bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = Users.Id";
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = "+userid+"";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            while (reader.Read())
             {
+                ListViewItem lvgame = new ListViewItem();
                 lvgame.SubItems.Add(reader.GetString(0));
-                lvdate.SubItems.Add(reader.GetDateTime(1).ToString());
-                
+                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                lvgame.SubItems.Add(dateValue1);
+                lvAfis.Items.Add(lvgame);   
             }
-            lvAfis.Items.AddRange(new ListViewItem[] {lvgame, lvdate});
             con.Close();
 
         }
