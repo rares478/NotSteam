@@ -25,27 +25,22 @@ namespace NotSteam
 
             lvAfis.View = View.Details;
             lvAfis.AllowColumnReorder = true;
-            lvAfis.Columns.Add("nimic-nu sterge ca bubuie", 0, HorizontalAlignment.Left);
-            lvAfis.Columns.Add("Game",120,HorizontalAlignment.Left);
-            lvAfis.Columns.Add("Date bought",120, HorizontalAlignment.Left);
+            lvAfis.Columns.Add(new ColumnHeader());
+            lvAfis.Columns[0].Text = "nimic-nu sterge ca bubuie";
+            lvAfis.Columns[0].Width = 0;
+            lvAfis.Columns.Add(new ColumnHeader());
+            lvAfis.Columns[1].Text = "Game";
+            lvAfis.Columns[1].Width = 100;
+            lvAfis.Columns.Add(new ColumnHeader());
+            lvAfis.Columns[2].Text = "Date bought";
+            lvAfis.Columns[2].Width = 120;
+            lvAfis.LabelEdit = true;
+            lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
         }
-      
-        private void lvAfis_ColumnClick(object sender, ColumnClickEventArgs e)
+
+        private void ColumnClick(object o, ColumnClickEventArgs e)
         {
-            lvAfis.Items.Clear();
-            con.Open();
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + " order by name desc;";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                ListViewItem lvgame = new ListViewItem();
-                lvgame.SubItems.Add(reader.GetString(0));
-                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
-                lvgame.SubItems.Add(dateValue1);
-                lvAfis.Items.Add(lvgame);
-            }
-            con.Close();
+            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column);
         }
 
         private void btAfis_Click(object sender, EventArgs e)
@@ -137,6 +132,22 @@ namespace NotSteam
         private void btSort_Click(object sender, EventArgs e)
         {
             lvAfis.Sorting = System.Windows.Forms.SortOrder.Ascending;
+        }
+    }
+    class ListViewItemComparer : IComparer
+    {
+        private int col;
+        public ListViewItemComparer()
+        {
+            col = 0;
+        }
+        public ListViewItemComparer(int column)
+        {
+            col = column;
+        }
+        public int Compare(object x, object y)
+        {
+            return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
         }
     }
 }
