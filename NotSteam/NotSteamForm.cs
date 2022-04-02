@@ -46,7 +46,6 @@ namespace NotSteam
         private void btAfis_Click(object sender, EventArgs e)
         {
             lvAfis.Items.Clear();
-            lvAfis.Sorting = System.Windows.Forms.SortOrder.None;
             con.Open();
 
             string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = "+userid+"";
@@ -128,25 +127,22 @@ namespace NotSteam
             joc = 10;
             name = "PUBG";
         }
-
-        private void btSort_Click(object sender, EventArgs e)
-        {
-            lvAfis.Sorting = System.Windows.Forms.SortOrder.Ascending;
-        }
     }
     class ListViewItemComparer : IComparer
     {
         private int col;
-        public ListViewItemComparer()
-        {
-            col = 0;
-        }
         public ListViewItemComparer(int column)
         {
             col = column;
         }
         public int Compare(object x, object y)
         {
+            Type tx = x.GetType();
+
+            if (col == 2)
+            { 
+                return DateTime.Compare(Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text),Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text)); 
+            }
             return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
         }
     }
