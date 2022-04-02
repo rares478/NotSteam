@@ -126,13 +126,12 @@ namespace NotSteam
     class ListViewItemComparer : IComparer
     {
         private int col;
-        private int order;
+        private int order=0;
         public ListViewItemComparer(int column,int c)
         {
             col = column;
             if (c % 2 == 1)
                 order = 1;
-            else order = 0;
         }
         public int Compare(object x, object y)
         {
