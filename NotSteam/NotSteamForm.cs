@@ -137,8 +137,6 @@ namespace NotSteam
         }
         public int Compare(object x, object y)
         {
-            Type tx = x.GetType();
-
             if (col == 2)
             { 
                 return DateTime.Compare(Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text),Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text)); 
