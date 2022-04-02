@@ -37,10 +37,12 @@ namespace NotSteam
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
         }
+        int c = 0;
 
         private void ColumnClick(object o, ColumnClickEventArgs e)
         {
-            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            c++;
+            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column,c);
         }
 
         private void btAfis_Click(object sender, EventArgs e)
@@ -64,7 +66,6 @@ namespace NotSteam
             con.Close();
 
         }
-        int joc;
         string name;
         private void btBuy_Click(object sender, EventArgs e)
         {
@@ -94,54 +95,63 @@ namespace NotSteam
 
         private void rbGTA_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 5;
             name = "GTA";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 6;
             name = "BTD 6";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 7;
             name = "Dying Light";
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 8;
             name = "New World";
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 9;
             name = "CS 1.6";
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            joc = 10;
             name = "PUBG";
         }
     }
     class ListViewItemComparer : IComparer
     {
         private int col;
-        public ListViewItemComparer(int column)
+        private int order;
+        public ListViewItemComparer(int column,int c)
         {
             col = column;
+            if (c % 2 == 1)
+                order = 1;
+            else order = 0;
         }
         public int Compare(object x, object y)
         {
-            if (col == 2)
-            { 
-                return DateTime.Compare(Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text),Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text)); 
+            if (order == 1)
+            {
+                if (col == 2)
+                {
+                    return DateTime.Compare(Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text), Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text));
+                }
+                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
             }
-            return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+            else
+            {
+                if (col == 2)
+                {
+                    return DateTime.Compare(Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text), Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text));
+                }
+                return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
+            }
         }
     }
 }
