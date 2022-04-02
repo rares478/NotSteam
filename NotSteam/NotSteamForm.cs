@@ -41,7 +41,9 @@ namespace NotSteam
 
         private void ColumnClick(object o, ColumnClickEventArgs e)
         {
-            c++;
+            if (c == 1)
+                c = 0;
+            else c = 1;
             lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column,c);
         }
 
@@ -126,12 +128,11 @@ namespace NotSteam
     class ListViewItemComparer : IComparer
     {
         private int col;
-        private int order=0;
+        private int order;
         public ListViewItemComparer(int column,int c)
         {
             col = column;
-            if (c % 2 == 1)
-                order = 1;
+            order = c;
         }
         public int Compare(object x, object y)
         {
