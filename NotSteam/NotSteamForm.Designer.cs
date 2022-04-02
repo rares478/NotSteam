@@ -68,7 +68,7 @@
             this.btBuy.Name = "btBuy";
             this.btBuy.Size = new System.Drawing.Size(75, 23);
             this.btBuy.TabIndex = 2;
-            this.btBuy.Text = "Cumpara";
+            this.btBuy.Text = "Buy";
             this.btBuy.UseVisualStyleBackColor = true;
             this.btBuy.Click += new System.EventHandler(this.btBuy_Click);
             // 
@@ -87,7 +87,7 @@
             this.btAfis.Name = "btAfis";
             this.btAfis.Size = new System.Drawing.Size(75, 23);
             this.btAfis.TabIndex = 4;
-            this.btAfis.Text = "Afis";
+            this.btAfis.Text = "List";
             this.btAfis.UseVisualStyleBackColor = true;
             this.btAfis.Click += new System.EventHandler(this.btAfis_Click);
             // 
