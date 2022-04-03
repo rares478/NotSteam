@@ -37,6 +37,15 @@ namespace NotSteam
             lvAfis.Columns[2].Width = 120;
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            con.Open();
+            string idquery = "select Games.name from Games";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            while (reader.Read())
+            {
+                cbGames.Items.Add(reader.GetString(0));
+            }
+            con.Close();
         }
         int c = 0;
 
@@ -57,7 +66,7 @@ namespace NotSteam
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            while (reader.Read())
             {
                 ListViewItem lvgame = new ListViewItem();
                 lvgame.SubItems.Add(reader.GetString(0));
@@ -72,8 +81,10 @@ namespace NotSteam
         private void btBuy_Click(object sender, EventArgs e)
         {
             con.Open();
+
             string id;
-            string idquery = "select Games.Id from Games where Games.name = '"+ name +"';";
+
+            string idquery = "select Games.Id from Games where Games.name = '"+ cbGames.GetItemText(cbGames.SelectedItem) + "';";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
@@ -100,42 +111,12 @@ namespace NotSteam
                     cmd.CommandType = CommandType.Text;
                     DateTime dateTime = DateTime.Now;
                     var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + name + "', '" + userid + "', '" + dateValue1 + "')";
+                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + cbGames.GetItemText(cbGames.SelectedItem) + "', '" + userid + "', '" + dateValue1 + "')";
                     cmd.ExecuteNonQuery();
                 }
             }
             else MessageBox.Show("Ai deja jocu","Inteleg ca vrei sa imi dai bani da nu mersi",MessageBoxButtons.OK);
             con.Close();
-        }
-
-        private void rbGTA_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "GTA V";
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "BTD 6";
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "Dying Light";
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "New World";
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "CS 1.6";
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-            name = "PUBG";
         }
     }
     class ListViewItemComparer : IComparer
