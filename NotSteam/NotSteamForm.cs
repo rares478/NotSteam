@@ -16,21 +16,17 @@ namespace NotSteam
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
-        public static bool isAdmin = false;
         int userid;
         public NotSteamForm(user user)
         {
             InitializeComponent();
+            if (user.admin != 1)
+                tabControl1.TabPages.Remove(tabPage3);
+
             con.Open();
-            lbUsername.Text = user.username;
+            lbUsername.Text = user.username +"'s games" ;
             label3.Text = user.username;
             userid = user.id;
-
-
-
-
-
-
             lvAfis.View = View.Details;
             lvAfis.AllowColumnReorder = true;
             lvAfis.Columns.Add(new ColumnHeader());
@@ -140,7 +136,65 @@ namespace NotSteam
                 lbdev.Text = readerdev.GetString(0);
                 tbDescriere.Text = readerdev.GetString(1);
             }
+
+            int id;
+
+            string idquery = "select Games.Id from Games where Games.name = '" + cbGames.GetItemText(cbGames.SelectedItem) + "';";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            if (reader.Read())
+            {
+                id = reader.GetInt32(0);
+            }
+            else
+                id = 0;
+            reader.Close();
+
             con.Close();
+            pbPic.Image = imageList1.Images[id];
+        }
+
+        private void btAddNew_Click(object sender, EventArgs e)
+        {
+            if (path == null)
+            {
+                MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
+            }
+            else
+            { 
+                DateTime now = DateTime.Now;
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO Games(name,developer,date,description) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "')";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
+                imageList1.Images.Add(Image.FromFile(path));
+
+            }
+        }
+        string path=null;
+
+        private void btPic_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                path = openFileDialog1.FileName;
+            }
+            else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
+
+            textBox1.Text = path;
+            Bitmap pic = new Bitmap(213, 199);
+            var tempimage = Image.FromFile(path);
+            using (Graphics g = Graphics.FromImage(pic))
+            {
+                g.DrawImage(tempimage, new Rectangle(0,0,pic.Width,pic.Height));
+            }
+            imageList1.Images.Add(pic);
         }
     }
     class ListViewItemComparer : IComparer
