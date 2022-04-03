@@ -36,7 +36,7 @@ namespace NotSteam
 
             try
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
                 string loginquery = "SELECT * FROM Users WHERE username=@username AND password=@password";
                 SqlCommand cmd = new SqlCommand(loginquery, con);
 

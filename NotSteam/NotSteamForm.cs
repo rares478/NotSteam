@@ -14,7 +14,8 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+
         public static bool isAdmin = false;
         int userid;
         public NotSteamForm(user user)
@@ -51,19 +52,18 @@ namespace NotSteam
         {
             lvAfis.Items.Clear();
             con.Open();
-
             string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = "+userid+"";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            if (reader.Read())
             {
                 ListViewItem lvgame = new ListViewItem();
                 lvgame.SubItems.Add(reader.GetString(0));
                 var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
                 lvgame.SubItems.Add(dateValue1);
-                lvAfis.Items.Add(lvgame);   
+                lvAfis.Items.Add(lvgame);
             }
             con.Close();
 
@@ -82,22 +82,35 @@ namespace NotSteam
             }
             else
                 id = null;
+            reader.Close();
+            string nume = null;
+            string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '"+id+"' AND dbo.[List of owned games].UserId = '"+userid+"'";
+            SqlCommand cmdamdeja = new SqlCommand(amdeja, con);
+            SqlDataReader reader1 = cmdamdeja.ExecuteReader();
+            if(reader1.Read())
+            {
+                nume = reader1.GetString(0);
+            }
 
-            if (id!= null)
-                { 
+            if (nume == null)
+            {
+                if (id != null)
+                {
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     DateTime dateTime = DateTime.Now;
                     var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + name + "', '" + userid +"', '"+dateValue1+"')";
+                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + name + "', '" + userid + "', '" + dateValue1 + "')";
                     cmd.ExecuteNonQuery();
-                con.Close();
                 }
+            }
+            else MessageBox.Show("Ai deja jocu","Inteleg ca vrei sa imi dai bani da nu mersi",MessageBoxButtons.OK);
+            con.Close();
         }
 
         private void rbGTA_CheckedChanged(object sender, EventArgs e)
         {
-            name = "GTA";
+            name = "GTA V";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
