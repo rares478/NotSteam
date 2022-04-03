@@ -21,8 +21,15 @@ namespace NotSteam
         public NotSteamForm(user user)
         {
             InitializeComponent();
+            con.Open();
             lbUsername.Text = user.username;
+            label3.Text = user.username;
             userid = user.id;
+
+
+
+
+
 
             lvAfis.View = View.Details;
             lvAfis.AllowColumnReorder = true;
@@ -37,7 +44,7 @@ namespace NotSteam
             lvAfis.Columns[2].Width = 120;
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
-            con.Open();
+            
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
@@ -56,6 +63,7 @@ namespace NotSteam
             else c = 1;
             lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column,c);
         }
+
 
         private void btAfis_Click(object sender, EventArgs e)
         {
@@ -77,7 +85,7 @@ namespace NotSteam
             con.Close();
 
         }
-        string name;
+
         private void btBuy_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -116,6 +124,22 @@ namespace NotSteam
                 }
             }
             else MessageBox.Show("Ai deja jocu","Inteleg ca vrei sa imi dai bani da nu mersi",MessageBoxButtons.OK);
+            con.Close();
+        }
+
+        private void cbGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = cbGames.GetItemText(cbGames.SelectedItem);
+            lbName.Text = name;
+            con.Open();
+            string devquery = "select developer,description from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+            {
+                lbdev.Text = readerdev.GetString(0);
+                tbDescriere.Text = readerdev.GetString(1);
+            }
             con.Close();
         }
     }
