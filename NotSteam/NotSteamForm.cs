@@ -175,7 +175,10 @@ namespace NotSteam
             }
         }
         string path=null;
-
+        private void submit(Image image)
+        {
+            imageList1.Images.Add(image);
+        }
         private void btPic_Click(object sender, EventArgs e)
         {
             
@@ -183,19 +186,23 @@ namespace NotSteam
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                path = openFileDialog1.FileName;
+                pbAdd.Image = new Bitmap(openFileDialog1.FileName);
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
 
-            textBox1.Text = path;
-            Bitmap pic = new Bitmap(213, 199);
-            var tempimage = Image.FromFile(path);
-            using (Graphics g = Graphics.FromImage(pic))
+            /*textBox1.Text = path;
+            PictureBox pic = new PictureBox
             {
-                g.DrawImage(tempimage, new Rectangle(0,0,pic.Width,pic.Height));
-            }
-            imageList1.Images.Add(pic);
+                Name = "ceva",
+                Size = new Size(253, 199),
+                Location = new Point(1, 1),
+                Image = Image.FromFile(path)
+            };*/
+
+            ///pbAdd.Controls.Add(pic);
+            submit(pbAdd.Image);
         }
+        
     }
     class ListViewItemComparer : IComparer
     {

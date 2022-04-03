@@ -55,11 +55,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pbAdd = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -213,6 +215,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pbAdd);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.btPic);
             this.tabPage3.Controls.Add(this.btAddNew);
@@ -323,6 +326,14 @@
             this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
             this.imageList1.Images.SetKeyName(11, "unturned.jpg");
             // 
+            // pbAdd
+            // 
+            this.pbAdd.Location = new System.Drawing.Point(447, 74);
+            this.pbAdd.Name = "pbAdd";
+            this.pbAdd.Size = new System.Drawing.Size(259, 199);
+            this.pbAdd.TabIndex = 9;
+            this.pbAdd.TabStop = false;
+            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +350,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,5 +382,6 @@
         private System.Windows.Forms.Button btAddNew;
         private System.Windows.Forms.Button btPic;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pbAdd;
     }
 }
