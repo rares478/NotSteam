@@ -42,14 +42,12 @@ namespace NotSteam
                     break;
                 }
             }
-            if (user.admin == 1)
-                Application.Run(new AdminNotSteam(user));
-            else if (user != null && user.admin !=1 )
+            
+             if (user != null)
                 Application.Run(new NotSteamForm(user));
             else
                 MessageBox.Show("Auth Failed", "Auth Failed", MessageBoxButtons.OK);
-            if(AdminNotSteam.switchtoNormal)
-                Application.Run(new NotSteamForm(user));
+
         }
     }
 }

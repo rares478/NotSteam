@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotSteamForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.btBuy = new System.Windows.Forms.Button();
@@ -43,12 +44,22 @@
             this.cbGames = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btPic = new System.Windows.Forms.Button();
+            this.btAddNew = new System.Windows.Forms.Button();
+            this.tbDev = new System.Windows.Forms.TextBox();
+            this.rbDesc = new System.Windows.Forms.RichTextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +97,8 @@
             // lvAfis
             // 
             this.lvAfis.HideSelection = false;
-            this.lvAfis.Location = new System.Drawing.Point(116, 117);
+            this.lvAfis.Location = new System.Drawing.Point(70, 106);
+            this.lvAfis.Margin = new System.Windows.Forms.Padding(0);
             this.lvAfis.Name = "lvAfis";
             this.lvAfis.Size = new System.Drawing.Size(197, 277);
             this.lvAfis.TabIndex = 2;
@@ -94,7 +106,7 @@
             // 
             // btAfis
             // 
-            this.btAfis.Location = new System.Drawing.Point(679, 371);
+            this.btAfis.Location = new System.Drawing.Point(676, 370);
             this.btAfis.Name = "btAfis";
             this.btAfis.Size = new System.Drawing.Size(75, 23);
             this.btAfis.TabIndex = 4;
@@ -106,6 +118,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(23, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -132,17 +145,17 @@
             // 
             // tbDescriere
             // 
-            this.tbDescriere.Location = new System.Drawing.Point(276, 207);
+            this.tbDescriere.Location = new System.Drawing.Point(308, 207);
             this.tbDescriere.Name = "tbDescriere";
             this.tbDescriere.ReadOnly = true;
-            this.tbDescriere.Size = new System.Drawing.Size(429, 126);
+            this.tbDescriere.Size = new System.Drawing.Size(397, 126);
             this.tbDescriere.TabIndex = 9;
             this.tbDescriere.Text = "";
             // 
             // lbdev
             // 
             this.lbdev.AutoSize = true;
-            this.lbdev.Location = new System.Drawing.Point(273, 171);
+            this.lbdev.Location = new System.Drawing.Point(305, 171);
             this.lbdev.Name = "lbdev";
             this.lbdev.Size = new System.Drawing.Size(35, 13);
             this.lbdev.TabIndex = 8;
@@ -152,7 +165,7 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(271, 134);
+            this.lbName.Location = new System.Drawing.Point(303, 134);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(70, 25);
             this.lbName.TabIndex = 7;
@@ -162,7 +175,7 @@
             // 
             this.pbPic.Location = new System.Drawing.Point(16, 134);
             this.pbPic.Name = "pbPic";
-            this.pbPic.Size = new System.Drawing.Size(213, 199);
+            this.pbPic.Size = new System.Drawing.Size(259, 199);
             this.pbPic.TabIndex = 6;
             this.pbPic.TabStop = false;
             // 
@@ -187,7 +200,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.lvAfis);
             this.tabPage2.Controls.Add(this.btAfis);
             this.tabPage2.Controls.Add(this.lbUsername);
@@ -199,21 +211,117 @@
             this.tabPage2.Text = "Profile";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.btPic);
+            this.tabPage3.Controls.Add(this.btAddNew);
+            this.tabPage3.Controls.Add(this.tbDev);
+            this.tabPage3.Controls.Add(this.rbDesc);
+            this.tabPage3.Controls.Add(this.tbName);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(757, 472);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Add game";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(430, 306);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(257, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // btPic
+            // 
+            this.btPic.Location = new System.Drawing.Point(206, 250);
+            this.btPic.Name = "btPic";
+            this.btPic.Size = new System.Drawing.Size(75, 23);
+            this.btPic.TabIndex = 7;
+            this.btPic.Text = "Add Picture";
+            this.btPic.UseVisualStyleBackColor = true;
+            this.btPic.Click += new System.EventHandler(this.btPic_Click);
+            // 
+            // btAddNew
+            // 
+            this.btAddNew.Location = new System.Drawing.Point(40, 429);
+            this.btAddNew.Name = "btAddNew";
+            this.btAddNew.Size = new System.Drawing.Size(103, 23);
+            this.btAddNew.TabIndex = 6;
+            this.btAddNew.Text = "Add New Game";
+            this.btAddNew.UseVisualStyleBackColor = true;
+            this.btAddNew.Click += new System.EventHandler(this.btAddNew_Click);
+            // 
+            // tbDev
+            // 
+            this.tbDev.Location = new System.Drawing.Point(146, 159);
+            this.tbDev.Name = "tbDev";
+            this.tbDev.Size = new System.Drawing.Size(224, 20);
+            this.tbDev.TabIndex = 5;
+            // 
+            // rbDesc
+            // 
+            this.rbDesc.Location = new System.Drawing.Point(146, 198);
+            this.rbDesc.Name = "rbDesc";
+            this.rbDesc.Size = new System.Drawing.Size(224, 22);
+            this.rbDesc.TabIndex = 4;
+            this.rbDesc.Text = "";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(146, 117);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(224, 20);
+            this.tbName.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(59, 201);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Description";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(59, 162);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Developer";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(192, 30);
+            this.label2.Location = new System.Drawing.Point(59, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 31);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Games";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Name";
             // 
             // imageList1
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(213, 199);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "White_full.png");
+            this.imageList1.Images.SetKeyName(1, "gta 5.jpg");
+            this.imageList1.Images.SetKeyName(2, "bloons-td6-purple.jpg");
+            this.imageList1.Images.SetKeyName(3, "Dying_Light.jpg");
+            this.imageList1.Images.SetKeyName(4, "new world.jpg");
+            this.imageList1.Images.SetKeyName(5, "cs1.6.jpg");
+            this.imageList1.Images.SetKeyName(6, "pubg.jpg");
+            this.imageList1.Images.SetKeyName(7, "sims4.jpg");
+            this.imageList1.Images.SetKeyName(8, "csgo.png");
+            this.imageList1.Images.SetKeyName(9, "Farming simulator.jpg");
+            this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
+            this.imageList1.Images.SetKeyName(11, "unturned.jpg");
             // 
             // NotSteamForm
             // 
@@ -229,6 +337,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -244,12 +354,21 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbGames;
         private System.Windows.Forms.Label lbdev;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.PictureBox pbPic;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.RichTextBox tbDescriere;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox tbDev;
+        private System.Windows.Forms.RichTextBox rbDesc;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btAddNew;
+        private System.Windows.Forms.Button btPic;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
