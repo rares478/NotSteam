@@ -156,29 +156,25 @@ namespace NotSteam
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
-            if (path == null)
+            if (pbAdd.Image == null)
             {
                 MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
             }
             else
             { 
-                DateTime now = DateTime.Now;
+                /*DateTime now = DateTime.Now;
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO Games(name,developer,date,description) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "')";
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
-                imageList1.Images.Add(Image.FromFile(path));
+                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);*/
 
             }
         }
-        string path=null;
-        private void submit(Image image)
-        {
-            imageList1.Images.Add(image);
-        }
+        int b = 12;
+
         private void btPic_Click(object sender, EventArgs e)
         {
             
@@ -186,9 +182,16 @@ namespace NotSteam
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                pbAdd.Image = new Bitmap(openFileDialog1.FileName);
+                Image image = Image.FromFile(openFileDialog1.FileName);
+                string a=b.ToString();
+                imageList1.Images.Add(a,image);
+                var listviewitem = listView1.Items.Add("1");
+                listviewitem.ImageKey = a;
+                b++;
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
+
+
 
             /*textBox1.Text = path;
             PictureBox pic = new PictureBox
@@ -200,9 +203,23 @@ namespace NotSteam
             };*/
 
             ///pbAdd.Controls.Add(pic);
-            submit(pbAdd.Image);
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.ShowDialog();
+            foreach (string fileName in ofd.FileNames)
+            {
+                Image img = Image.FromFile(fileName);
+                string a = b.ToString();
+                imageList1.Images.Add(a, img);
+                var listViewItem = listView1.Items.Add("1");
+                listViewItem.ImageKey = a;
+                b++;
+            }
+        }
     }
     class ListViewItemComparer : IComparer
     {
