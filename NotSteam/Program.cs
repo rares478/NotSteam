@@ -20,28 +20,8 @@ namespace NotSteam
             Application.SetCompatibleTextRenderingDefault(false);
 
             user user = null;
-            while (true)
-            {
-                Application.Run(new LoginForm());
-                if (LoginForm.switchtoRegister)
-                {
-                    Application.Run(new RegisterForm());
-                    if (RegisterForm.switchtoLogin)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        user = RegisterForm.user;
-                        break;
-                    }
-                }
-                else
-                {
-                    user = LoginForm.user;
-                    break;
-                }
-            }
+            Application.Run(new LoginForm());
+            user = LoginForm.user;
             
              if (user != null)
                 Application.Run(new NotSteamForm(user));
