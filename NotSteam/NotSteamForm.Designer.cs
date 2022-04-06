@@ -45,7 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btPic = new System.Windows.Forms.Button();
@@ -57,7 +57,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
@@ -217,8 +216,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
-            this.tabPage3.Controls.Add(this.listView1);
+            this.tabPage3.Controls.Add(this.listBox1);
             this.tabPage3.Controls.Add(this.pbAdd);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.btPic);
@@ -237,14 +235,13 @@
             this.tabPage3.Text = "Add game";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listBox1
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(249, 321);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 10;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(40, 290);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(311, 134);
+            this.listBox1.TabIndex = 10;
             // 
             // pbAdd
             // 
@@ -347,16 +344,6 @@
             this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
             this.imageList1.Images.SetKeyName(11, "unturned.jpg");
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(528, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,7 +393,6 @@
         private System.Windows.Forms.Button btPic;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pbAdd;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

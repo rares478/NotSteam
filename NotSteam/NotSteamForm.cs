@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections;
+using EnvDTE;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace NotSteam
 {
@@ -173,52 +176,37 @@ namespace NotSteam
 
             }
         }
-        int b = 12;
-
+        private void addImage(string imageToLoad)
+        {
+            if (imageToLoad != "")
+            {
+                imageList1.Images.Add(Image.FromFile(imageToLoad));
+                listBox1.BeginUpdate();
+                listBox1.Items.Add(imageToLoad);
+                listBox1.EndUpdate();
+            }
+        }
         private void btPic_Click(object sender, EventArgs e)
         {
-            
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Image image = Image.FromFile(openFileDialog1.FileName);
-                string a=b.ToString();
-                imageList1.Images.Add(a,image);
-                var listviewitem = listView1.Items.Add("1");
-                listviewitem.ImageKey = a;
-                b++;
+                
+                var path = string.Format(@"{0}\Resources\Images\{1}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, openFileDialog1.FileName);
+                var resizedImage = GiftImage.CreateResizedImage(100, 100, 0);
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(resizedImage));
+                using (FileStream stream = new FileStream(path, FileMode.Create))
+                {
+                    encoder.Save(stream);
+                }
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
+            
 
 
 
-            /*textBox1.Text = path;
-            PictureBox pic = new PictureBox
-            {
-                Name = "ceva",
-                Size = new Size(253, 199),
-                Location = new Point(1, 1),
-                Image = Image.FromFile(path)
-            };*/
-
-            ///pbAdd.Controls.Add(pic);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var ofd = new OpenFileDialog();
-            ofd.Multiselect = true;
-            ofd.ShowDialog();
-            foreach (string fileName in ofd.FileNames)
-            {
-                Image img = Image.FromFile(fileName);
-                string a = b.ToString();
-                imageList1.Images.Add(a, img);
-                var listViewItem = listView1.Items.Add("1");
-                listViewItem.ImageKey = a;
-                b++;
-            }
         }
     }
     class ListViewItemComparer : IComparer

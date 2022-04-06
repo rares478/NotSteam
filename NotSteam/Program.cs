@@ -18,6 +18,7 @@ namespace NotSteam
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.DoEvents();
 
             user user = null;
             Application.Run(new LoginForm());
