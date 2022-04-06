@@ -37,6 +37,7 @@
             this.btAfis = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tbDescriere = new System.Windows.Forms.RichTextBox();
             this.lbdev = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
@@ -89,12 +90,15 @@
             // 
             // btBuy
             // 
+            this.btBuy.BackColor = System.Drawing.Color.Transparent;
+            this.btBuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btBuy.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btBuy.Location = new System.Drawing.Point(46, 443);
             this.btBuy.Name = "btBuy";
             this.btBuy.Size = new System.Drawing.Size(75, 23);
             this.btBuy.TabIndex = 2;
             this.btBuy.Text = "Buy";
-            this.btBuy.UseVisualStyleBackColor = true;
+            this.btBuy.UseVisualStyleBackColor = false;
             this.btBuy.Click += new System.EventHandler(this.btBuy_Click);
             // 
             // lvAfis
@@ -130,6 +134,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.tbDescriere);
             this.tabPage1.Controls.Add(this.lbdev);
             this.tabPage1.Controls.Add(this.lbName);
@@ -145,6 +150,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(259, 429);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbDescriere
             // 
@@ -348,6 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 522);
             this.Controls.Add(this.tabControl1);
             this.Name = "NotSteamForm";
@@ -394,5 +410,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -17,7 +17,7 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
         public NotSteamForm(user user)
@@ -54,6 +54,48 @@ namespace NotSteam
             con.Close();
         }
         int c = 0;
+
+        public void ChangeTheme(Control.ControlCollection container)
+        {
+            foreach (Control component in container)
+            {
+                if (component is Button)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                }
+                else if (component is TextBox)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                }
+                else if (component is ComboBox)
+                { 
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ComboBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ComboFG);
+                }
+                else if(component is RadioButton)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                }
+                else if (component is TabPage)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.TabBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.TabFG);
+                }
+                else if(component is RichTextBox)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                }
+                else if(component is ListBox)
+                {
+                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ListBoxBG);
+                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ListBoxFG);
+                }
+    }
+        }
 
         private void ColumnClick(object o, ColumnClickEventArgs e)
         {
@@ -190,23 +232,30 @@ namespace NotSteam
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             DialogResult result = openFileDialog1.ShowDialog();
+            
+
             if (result == DialogResult.OK)
             {
                 
-                var path = string.Format(@"{0}\Resources\Images\{1}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, openFileDialog1.FileName);
+                /*var path = string.Format(@"{0}\Resources\Images\{1}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, openFileDialog1.FileName);
                 var resizedImage = GiftImage.CreateResizedImage(100, 100, 0);
                 var encoder = new PngBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(resizedImage));
                 using (FileStream stream = new FileStream(path, FileMode.Create))
                 {
                     encoder.Save(stream);
-                }
+                }*/
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
             
 
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChangeTheme(tabControl1.Controls);
         }
     }
     class ListViewItemComparer : IComparer
