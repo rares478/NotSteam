@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Collections;
-using EnvDTE;
-using System.IO;
-using System.Windows.Media.Imaging;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace NotSteam
 {
@@ -25,9 +17,11 @@ namespace NotSteam
             InitializeComponent();
             if (user.admin != 1)
                 tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.TabPages.Remove(tabPage4);
+
 
             con.Open();
-            lbUsername.Text = user.username +"'s games" ;
+            lbUsername.Text = user.username + "'s games";
             label3.Text = user.username;
             userid = user.id;
             lvAfis.View = View.Details;
@@ -43,7 +37,7 @@ namespace NotSteam
             lvAfis.Columns[2].Width = 120;
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
-            
+
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
@@ -52,6 +46,7 @@ namespace NotSteam
                 cbGames.Items.Add(reader.GetString(0));
             }
             con.Close();
+            cbGames.SelectedItem = cbGames.Items[0];
         }
         int c = 0;
 
@@ -61,40 +56,81 @@ namespace NotSteam
             {
                 if (component is Button)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                    component.BackColor = Colorscheme.ButtonBG;
+
                 }
                 else if (component is TextBox)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                    component.BackColor = Colorscheme.ButtonBG;
+                    component.ForeColor = Colorscheme.ButtonFG;
                 }
                 else if (component is ComboBox)
-                { 
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ComboBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ComboFG);
-                }
-                else if(component is RadioButton)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                    component.BackColor = Colorscheme.ComboBG;
+                    component.ForeColor = Colorscheme.ComboFG;
+                }
+                else if (component is RadioButton)
+                {
+                    component.BackColor = Colorscheme.ButtonBG;
+                    component.ForeColor = Colorscheme.ButtonFG;
                 }
                 else if (component is TabPage)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.TabBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.TabFG);
+                    component.BackColor = Colorscheme.TabBG;
+                    component.ForeColor = Colorscheme.TabFG;
                 }
-                else if(component is RichTextBox)
+                else if (component is RichTextBox)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ButtonFG);
+                    component.BackColor = Colorscheme.ButtonBG;
+                    component.ForeColor = Colorscheme.ButtonFG;
                 }
-                else if(component is ListBox)
+                else if (component is ListBox)
                 {
-                    component.BackColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ListBoxBG);
-                    component.ForeColor = System.Drawing.ColorTranslator.FromHtml(Colorscheme.ListBoxFG);
+                    component.BackColor = Colorscheme.ListBoxBG;
+                    component.ForeColor = Colorscheme.ListBoxFG;
                 }
-    }
+            }
+        }
+        public void ChangeThemeOrig(Control.ControlCollection container)
+        {
+            foreach (Control component in container)
+            {
+                if (component is Button)
+                {
+                    component.BackColor = ColorOriginal.ButtonBG;
+
+                }
+                else if (component is TextBox)
+                {
+                    component.BackColor = ColorOriginal.ButtonBG;
+                    component.ForeColor = ColorOriginal.ButtonFG;
+                }
+                else if (component is ComboBox)
+                {
+                    component.BackColor = ColorOriginal.ComboBG;
+                    component.ForeColor = ColorOriginal.ComboFG;
+                }
+                else if (component is RadioButton)
+                {
+                    component.BackColor = ColorOriginal.ButtonBG;
+                    component.ForeColor = ColorOriginal.ButtonFG;
+                }
+                else if (component is TabPage)
+                {
+                    component.BackColor = ColorOriginal.TabBG;
+                    component.ForeColor = ColorOriginal.TabFG;
+                }
+                else if (component is RichTextBox)
+                {
+                    component.BackColor = ColorOriginal.ButtonBG;
+                    component.ForeColor = ColorOriginal.ButtonFG;
+                }
+                else if (component is ListBox)
+                {
+                    component.BackColor = ColorOriginal.ListBoxBG;
+                    component.ForeColor = ColorOriginal.ListBoxFG;
+                }
+            }
         }
 
         private void ColumnClick(object o, ColumnClickEventArgs e)
@@ -102,7 +138,7 @@ namespace NotSteam
             if (c == 1)
                 c = 0;
             else c = 1;
-            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column,c);
+            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column, c);
         }
 
 
@@ -110,7 +146,7 @@ namespace NotSteam
         {
             lvAfis.Items.Clear();
             con.Open();
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = "+userid+"";
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
@@ -133,7 +169,7 @@ namespace NotSteam
 
             string id;
 
-            string idquery = "select Games.Id from Games where Games.name = '"+ cbGames.GetItemText(cbGames.SelectedItem) + "';";
+            string idquery = "select Games.Id from Games where Games.name = '" + cbGames.GetItemText(cbGames.SelectedItem) + "';";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
@@ -144,10 +180,10 @@ namespace NotSteam
                 id = null;
             reader.Close();
             string nume = null;
-            string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '"+id+"' AND dbo.[List of owned games].UserId = '"+userid+"'";
+            string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '" + id + "' AND dbo.[List of owned games].UserId = '" + userid + "'";
             SqlCommand cmdamdeja = new SqlCommand(amdeja, con);
             SqlDataReader reader1 = cmdamdeja.ExecuteReader();
-            if(reader1.Read())
+            if (reader1.Read())
             {
                 nume = reader1.GetString(0);
             }
@@ -164,7 +200,7 @@ namespace NotSteam
                     cmd.ExecuteNonQuery();
                 }
             }
-            else MessageBox.Show("Ai deja jocu","Inteleg ca vrei sa imi dai bani da nu mersi",MessageBoxButtons.OK);
+            else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
             con.Close();
         }
 
@@ -206,7 +242,7 @@ namespace NotSteam
                 MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
             }
             else
-            { 
+            {
                 /*DateTime now = DateTime.Now;
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
@@ -232,11 +268,11 @@ namespace NotSteam
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             DialogResult result = openFileDialog1.ShowDialog();
-            
+
 
             if (result == DialogResult.OK)
             {
-                
+
                 /*var path = string.Format(@"{0}\Resources\Images\{1}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, openFileDialog1.FileName);
                 var resizedImage = GiftImage.CreateResizedImage(100, 100, 0);
                 var encoder = new PngBitmapEncoder();
@@ -247,13 +283,21 @@ namespace NotSteam
                 }*/
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
-            
+        }
 
-
+        private void btSettings_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage4);
+            tabControl1.SelectedTab = tabPage4;
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeThemeOrig(tabControl1.Controls);
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             ChangeTheme(tabControl1.Controls);
         }
@@ -262,7 +306,7 @@ namespace NotSteam
     {
         private int col;
         private int order;
-        public ListViewItemComparer(int column,int c)
+        public ListViewItemComparer(int column, int c)
         {
             col = column;
             order = c;
