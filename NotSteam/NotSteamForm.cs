@@ -9,15 +9,19 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
+        bool removed;
         public NotSteamForm(user user)
         {
             InitializeComponent();
             if (user.admin != 1)
                 tabControl1.TabPages.Remove(tabPage3);
             tabControl1.TabPages.Remove(tabPage4);
+            removed = true;
+            label6.Text = user.username;
+            tabControl1.TabPages.Remove(tabPage6);
 
 
             con.Open();
@@ -77,17 +81,24 @@ namespace NotSteam
                 else if (component is TabPage)
                 {
                     component.BackColor = Colorscheme.TabBG;
-                    component.ForeColor = Colorscheme.TabFG;
                 }
                 else if (component is RichTextBox)
                 {
                     component.BackColor = Colorscheme.ButtonBG;
                     component.ForeColor = Colorscheme.ButtonFG;
                 }
-                else if (component is ListBox)
+                else if (component is ListView)
                 {
                     component.BackColor = Colorscheme.ListBoxBG;
                     component.ForeColor = Colorscheme.ListBoxFG;
+                }
+                else if (component is Label)
+                {
+                    component.ForeColor = Colorscheme.TabFG;
+                }
+                else if (component is RadioButton)
+                {
+                    component.ForeColor = Colorscheme.TabFG;
                 }
             }
         }
@@ -102,12 +113,12 @@ namespace NotSteam
                 }
                 else if (component is TextBox)
                 {
-                    component.BackColor = ColorOriginal.ButtonBG;
+                    component.BackColor = ColorOriginal.RichTextBox;
                     component.ForeColor = ColorOriginal.ButtonFG;
                 }
                 else if (component is ComboBox)
                 {
-                    component.BackColor = ColorOriginal.ComboBG;
+                    component.BackColor = ColorOriginal.RichTextBox;
                     component.ForeColor = ColorOriginal.ComboFG;
                 }
                 else if (component is RadioButton)
@@ -122,13 +133,21 @@ namespace NotSteam
                 }
                 else if (component is RichTextBox)
                 {
-                    component.BackColor = ColorOriginal.ButtonBG;
+                    component.BackColor = ColorOriginal.RichTextBox;
                     component.ForeColor = ColorOriginal.ButtonFG;
                 }
-                else if (component is ListBox)
+                else if (component is ListView)
                 {
-                    component.BackColor = ColorOriginal.ListBoxBG;
+                    component.BackColor = ColorOriginal.RichTextBox;
                     component.ForeColor = ColorOriginal.ListBoxFG;
+                }
+                else if (component is Label)
+                {
+                    component.ForeColor = ColorOriginal.ButtonFG;
+                }
+                else if (component is RadioButton)
+                {
+                    component.ForeColor = ColorOriginal.ButtonFG;
                 }
             }
         }
@@ -232,6 +251,11 @@ namespace NotSteam
             reader.Close();
 
             con.Close();
+            if (id >= imageList1.Images.Count)
+            { 
+                id = 0; 
+                lbMissing.Visible = true;
+            }
             pbPic.Image = imageList1.Images[id];
         }
 
@@ -243,25 +267,24 @@ namespace NotSteam
             }
             else
             {
-                /*DateTime now = DateTime.Now;
+                DateTime now = DateTime.Now;
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO Games(name,developer,date,description) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "')";
                 cmd.ExecuteNonQuery();
+                
+                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
+                cbGames.Items.Clear();
+                string idquery = "select Games.name from Games";
+                SqlCommand cmdid = new SqlCommand(idquery, con);
+                SqlDataReader reader = cmdid.ExecuteReader();
+                while (reader.Read())
+                {
+                    cbGames.Items.Add(reader.GetString(0));
+                }
                 con.Close();
-                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);*/
 
-            }
-        }
-        private void addImage(string imageToLoad)
-        {
-            if (imageToLoad != "")
-            {
-                imageList1.Images.Add(Image.FromFile(imageToLoad));
-                listBox1.BeginUpdate();
-                listBox1.Items.Add(imageToLoad);
-                listBox1.EndUpdate();
             }
         }
         private void btPic_Click(object sender, EventArgs e)
@@ -281,25 +304,139 @@ namespace NotSteam
                 {
                     encoder.Save(stream);
                 }*/
+                pbAdd.Image = Image.FromFile(openFileDialog1.FileName);
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
-        }
-
-        private void btSettings_Click(object sender, EventArgs e)
-        {
-            tabControl1.TabPages.Add(tabPage4);
-            tabControl1.SelectedTab = tabPage4;
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             ChangeThemeOrig(tabControl1.Controls);
+            ChangeThemeOrig(tabPage1.Controls);
+            ChangeThemeOrig(tabPage2.Controls);
+            ChangeThemeOrig(tabPage3.Controls);
+            ChangeThemeOrig(tabPage4.Controls);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             ChangeTheme(tabControl1.Controls);
+            ChangeTheme(tabPage1.Controls);
+            ChangeTheme(tabPage2.Controls);
+            ChangeTheme(tabPage3.Controls);
+            ChangeTheme(tabPage4.Controls);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (removed)
+            {
+                tabControl1.TabPages.Add(tabPage4);
+                removed = false;
+                tabControl1.SelectedTab = tabPage4;
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tabPage4);
+                tabControl1.SelectedTab = tabPage1;
+                removed = true;
+            }
+        }
+
+        private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectTab(tabPage2);
+        }
+
+        private void changeAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again."+"\n"+"\n"+"Do you wish to continue ?", 
+                "Logout", MessageBoxButtons.OKCancel );
+            if(result == DialogResult.OK)
+                Application.Restart();
+        }
+
+        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (removed)
+            {
+                tabControl1.TabPages.Add(tabPage4);
+                removed = false;
+                tabControl1.SelectedTab = tabPage4;
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tabPage4);
+                tabControl1.SelectedTab = tabPage1;
+                removed = true;
+            }
+        }
+
+        private void aboutNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("NotSteam client application" + "\n" + "\n" + "Built: Azi" + "\n" + "\n" + "NotSteam API: v001" + "\n" + "\n" + "rares478@gmail.com", "About NotSteam", MessageBoxButtons.OK);
+        }
+
+        private void viewGamesLibraryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectTab(tabPage2);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage6);
+            tabControl1.SelectedTab = tabPage6;
+        }
+
+        private void btEdit_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage6);
+            tabControl1.SelectedTab = tabPage6;
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Remove(tabPage6);
+        }
+
+        private void lbLibrary_Click(object sender, EventArgs e)
+        {
+            lvLibrary.Items.Clear();
+            lvLibrary.Visible = true;
+            lvLibrary.View = View.Details;
+            lvLibrary.AllowColumnReorder = true;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+            lvLibrary.Columns[0].Width = 0;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[1].Text = "Game";
+            lvLibrary.Columns[1].Width = 100;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[2].Text = "Date bought";
+            lvLibrary.Columns[2].Width = 120;
+            lvLibrary.LabelEdit = true;
+            con.Open();
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ListViewItem lvgame = new ListViewItem();
+                lvgame.SubItems.Add(reader.GetString(0));
+                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                lvgame.SubItems.Add(dateValue1);
+                lvLibrary.Items.Add(lvgame);
+            }
+            con.Close();
+
         }
     }
     class ListViewItemComparer : IComparer
