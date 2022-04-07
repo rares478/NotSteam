@@ -18,13 +18,18 @@ namespace NotSteam
             InitializeComponent();
             if (user.admin != 1)
                 tabControl1.TabPages.Remove(tabPage3);
+            con.Open();
             tabControl1.TabPages.Remove(tabPage4);
             removed = true;
             label6.Text = user.username;
             tabControl1.TabPages.Remove(tabPage6);
+            string desc = "select description from Users where id = " + user.id + "";
+            SqlCommand cmddesc = new SqlCommand(desc, con);
+            tbDesc.Text = cmddesc.ExecuteScalar().ToString();
+            if (tbDesc.Text.Length == 0)
+                tbDesc.Text = "Add a description";
 
-
-            con.Open();
+            tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
             lbUsername.Text = user.username + "'s games";
             label3.Text = user.username;
             userid = user.id;
@@ -41,6 +46,22 @@ namespace NotSteam
             lvAfis.Columns[2].Width = 120;
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+
+            
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader readerafis = cmd.ExecuteReader();
+            while (readerafis.Read())
+            {
+                ListViewItem lvgame = new ListViewItem();
+                lvgame.SubItems.Add(readerafis.GetString(0));
+                var dateValue1 = readerafis.GetDateTime(1).ToString("MM/dd/yyyy");
+                lvgame.SubItems.Add(dateValue1);
+                lvAfis.Items.Add(lvgame);
+            }
+            lbLibrary.Text = "Games " + lvAfis.Items.Count;
 
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
@@ -252,8 +273,8 @@ namespace NotSteam
 
             con.Close();
             if (id >= imageList1.Images.Count)
-            { 
-                id = 0; 
+            {
+                id = 0;
                 lbMissing.Visible = true;
             }
             pbPic.Image = imageList1.Images[id];
@@ -273,7 +294,7 @@ namespace NotSteam
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO Games(name,developer,date,description) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "')";
                 cmd.ExecuteNonQuery();
-                
+
                 MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
                 cbGames.Items.Clear();
                 string idquery = "select Games.name from Games";
@@ -316,6 +337,8 @@ namespace NotSteam
             ChangeThemeOrig(tabPage2.Controls);
             ChangeThemeOrig(tabPage3.Controls);
             ChangeThemeOrig(tabPage4.Controls);
+            ChangeThemeOrig(tabPage5.Controls);
+            ChangeThemeOrig(tabPage6.Controls);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -325,6 +348,8 @@ namespace NotSteam
             ChangeTheme(tabPage2.Controls);
             ChangeTheme(tabPage3.Controls);
             ChangeTheme(tabPage4.Controls);
+            ChangeTheme(tabPage5.Controls);
+            ChangeTheme(tabPage6.Controls);
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,9 +376,9 @@ namespace NotSteam
         private void changeAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result;
-            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again."+"\n"+"\n"+"Do you wish to continue ?", 
-                "Logout", MessageBoxButtons.OKCancel );
-            if(result == DialogResult.OK)
+            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
+                "Logout", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
                 Application.Restart();
         }
 
@@ -402,7 +427,25 @@ namespace NotSteam
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            con.Open();
+            if (tbChangeName.Text.Length > 0)
+            {
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "UPDATE Users SET username = '" + tbChangeName.Text + "', description = '" + tbChangeDesc.Text + "' WHERE Id = '" + userid + "'";
+                cmd.ExecuteNonQuery();
+                label6.Text = tbChangeName.Text;
+                string desc = "select description from Users where Id = " + userid + "";
+                SqlCommand cmddesc = new SqlCommand(desc, con);
+                tbDesc.Text = cmddesc.ExecuteScalar().ToString();
+                if (tbDesc.Text.Length == 0)
+                    tbDesc.Text = "Add a description";
+                con.Close();
+            }
             tabControl1.TabPages.Remove(tabPage6);
+            tabControl1.SelectedTab = tabPage5;
+
         }
 
         private void lbLibrary_Click(object sender, EventArgs e)

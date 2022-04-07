@@ -60,7 +60,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lvLibrary = new System.Windows.Forms.ListView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tbDesc = new System.Windows.Forms.RichTextBox();
             this.btEdit = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -72,6 +72,10 @@
             this.lbLibrary = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbChangeDesc = new System.Windows.Forms.RichTextBox();
+            this.tbChangeName = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -295,11 +299,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(707, 3);
+            this.label3.Location = new System.Drawing.Point(697, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tabPage2
             // 
@@ -457,7 +462,7 @@
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.lvLibrary);
-            this.tabPage5.Controls.Add(this.richTextBox1);
+            this.tabPage5.Controls.Add(this.tbDesc);
             this.tabPage5.Controls.Add(this.btEdit);
             this.tabPage5.Controls.Add(this.label13);
             this.tabPage5.Controls.Add(this.label12);
@@ -485,13 +490,14 @@
             this.lvLibrary.UseCompatibleStateImageBehavior = false;
             this.lvLibrary.Visible = false;
             // 
-            // richTextBox1
+            // tbDesc
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(33, 99);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(264, 81);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.tbDesc.Location = new System.Drawing.Point(33, 99);
+            this.tbDesc.Name = "tbDesc";
+            this.tbDesc.ReadOnly = true;
+            this.tbDesc.Size = new System.Drawing.Size(264, 81);
+            this.tbDesc.TabIndex = 10;
+            this.tbDesc.Text = "Add a description";
             // 
             // btEdit
             // 
@@ -597,6 +603,10 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label15);
+            this.tabPage6.Controls.Add(this.tbChangeDesc);
+            this.tabPage6.Controls.Add(this.tbChangeName);
+            this.tabPage6.Controls.Add(this.label14);
             this.tabPage6.Controls.Add(this.btSave);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -605,6 +615,43 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Edit Profile";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(118, 240);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 16);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Description";
+            // 
+            // tbChangeDesc
+            // 
+            this.tbChangeDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbChangeDesc.Location = new System.Drawing.Point(118, 259);
+            this.tbChangeDesc.Name = "tbChangeDesc";
+            this.tbChangeDesc.Size = new System.Drawing.Size(489, 97);
+            this.tbChangeDesc.TabIndex = 3;
+            this.tbChangeDesc.Text = "";
+            // 
+            // tbChangeName
+            // 
+            this.tbChangeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbChangeName.Location = new System.Drawing.Point(118, 150);
+            this.tbChangeName.Name = "tbChangeName";
+            this.tbChangeName.Size = new System.Drawing.Size(489, 26);
+            this.tbChangeName.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(115, 131);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Profile Name";
             // 
             // btSave
             // 
@@ -1052,6 +1099,7 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -1149,7 +1197,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListView lvLibrary;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox tbDesc;
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1161,5 +1209,9 @@
         private System.Windows.Forms.Label lbLibrary;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox tbChangeDesc;
+        private System.Windows.Forms.TextBox tbChangeName;
+        private System.Windows.Forms.Label label14;
     }
 }
