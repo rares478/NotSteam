@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace NotSteam
 {
-
     public class Colorscheme
     {
         public static Color TabBG = ColorTranslator.FromHtml("#2A0944");
@@ -18,6 +12,7 @@ namespace NotSteam
         public static Color ComboFG = ColorTranslator.FromHtml("#F1DDBF");
         public static Color ListBoxBG = ColorTranslator.FromHtml("#8E05C2");
         public static Color ListBoxFG = ColorTranslator.FromHtml("#F1DDBF");
+
     }
     public class ColorOriginal
     {
@@ -29,6 +24,8 @@ namespace NotSteam
         public static Color ComboFG = ColorTranslator.FromHtml("#000000");
         public static Color ListBoxBG = Color.Transparent;
         public static Color ListBoxFG = ColorTranslator.FromHtml("#000000");
+        public static Color RichTextBox = Color.White;
 
     }
 }
+
