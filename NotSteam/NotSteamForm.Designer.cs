@@ -50,7 +50,6 @@
             this.btBuyGame = new System.Windows.Forms.Button();
             this.lbRelease = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbMissingGame = new System.Windows.Forms.Label();
             this.tbGame = new System.Windows.Forms.RichTextBox();
             this.lbDevGame = new System.Windows.Forms.Label();
@@ -146,12 +145,12 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGame)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -327,10 +326,10 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label17);
             this.tabPage7.Controls.Add(this.tableLayoutPanel1);
             this.tabPage7.Controls.Add(this.lbRelease);
             this.tabPage7.Controls.Add(this.label16);
-            this.tabPage7.Controls.Add(this.pictureBox1);
             this.tabPage7.Controls.Add(this.lbMissingGame);
             this.tabPage7.Controls.Add(this.tbGame);
             this.tabPage7.Controls.Add(this.lbDevGame);
@@ -392,19 +391,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Location = new System.Drawing.Point(698, 12);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 14;
             this.label16.Text = "label16";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 62);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
             // 
             // lbMissingGame
             // 
@@ -1221,6 +1212,15 @@
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(645, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "label17";
+            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1239,7 +1239,6 @@
             this.tabPage7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGame)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -1373,9 +1372,9 @@
         private System.Windows.Forms.Label lbRelease;
         private System.Windows.Forms.Label lbGameNameBuy;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbMissingGame;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btBuyGame;
+        private System.Windows.Forms.Label label17;
     }
 }
