@@ -9,7 +9,7 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
         bool removed;
@@ -32,6 +32,7 @@ namespace NotSteam
             tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
             lbUsername.Text = user.username + "'s games";
             label3.Text = user.username;
+            label16.Text = user.username;
             userid = user.id;
             lvAfis.View = View.Details;
             lvAfis.AllowColumnReorder = true;
@@ -116,6 +117,14 @@ namespace NotSteam
                 }
                 i++;
             }
+            int money=0;
+            string idmoney = "select money from Users where Id = '" + userid + "'";
+            SqlCommand cmdmoney = new SqlCommand(idmoney, con);
+            SqlDataReader readermoney = cmdmoney.ExecuteReader();
+            if (readermoney.Read())
+                money = readermoney.GetInt32(0);
+            label17.Text = money.ToString();
+
             con.Close();
             cbGames.SelectedItem = cbGames.Items[0];
         }
@@ -129,15 +138,16 @@ namespace NotSteam
                 lbNameGame.Text = label.Text;
             con.Open();
             int id;
-            string idquery = "select Id,developer,date,description from Games where name = '"+label.Text+"'";
+            string idquery = "select Id,developer,date,description,price from Games where name = '"+label.Text+"'";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
             {
                 id = reader.GetInt32(0);
-                lbDevGame.Text = reader.GetString(1);
-                lbRelease.Text = reader.GetDateTime(2).ToString("MM/dd/yyyy");
+                lbDevGame.Text ="Developer: "+ reader.GetString(1);
+                lbRelease.Text = "released on: "+reader.GetDateTime(2).ToString("MM/dd/yyyy");
                 tbGame.Text = reader.GetString(3);
+                btBuyGame.Text = Convert.ToString(reader.GetInt32(4));
             }
             else
                 id = 0;
@@ -433,6 +443,8 @@ namespace NotSteam
                 {
                     encoder.Save(stream);
                 }*/
+
+                ///Nu stiu de ce nu merge, e probail din cauza ca salveaza doar in cache nu si in proiect
                 pbAdd.Image = Image.FromFile(openFileDialog1.FileName);
             }
             else MessageBox.Show("something went wrong with the picture", "idk wtf i'm doing", MessageBoxButtons.OK);
@@ -595,7 +607,6 @@ namespace NotSteam
             con.Open();
 
             string id;
-
             string idquery = "select Games.Id from Games where Games.name = '" + lbNameGame.Text + "';";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
@@ -619,12 +630,25 @@ namespace NotSteam
             {
                 if (id != null)
                 {
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    DateTime dateTime = DateTime.Now;
-                    var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + cbGames.GetItemText(cbGames.SelectedItem) + "', '" + userid + "', '" + dateValue1 + "')";
-                    cmd.ExecuteNonQuery();
+                    if (Convert.ToInt32(label17.Text) > Convert.ToInt32(btBuyGame.Text))
+                    {
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        DateTime dateTime = DateTime.Now;
+                        var dateValue1 = dateTime.ToString("MM/dd/yyyy");
+                        cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + lbNameGame.Text + "', '" + userid + "', '" + dateValue1 + "')";
+                        cmd.ExecuteNonQuery();
+                        int money1 = Convert.ToInt32(label17.Text);
+                        int money2 = Convert.ToInt32(btBuyGame.Text);
+                        int moneyfinal = money1 - money2;
+                        SqlCommand cmdmoney = con.CreateCommand();
+                        cmdmoney.CommandType = CommandType.Text;
+                        cmdmoney.CommandText = "UPDATE Users SET money = '" + moneyfinal + "' WHERE Id = '" + userid + "'";
+                        cmdmoney.ExecuteNonQuery();
+                        label17.Text = moneyfinal.ToString();
+                    }
+                    else
+                        MessageBox.Show("You do not have enough money to buy this game", "Insufficient funds", MessageBoxButtons.OK);
                 }
             }
             else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
