@@ -47,7 +47,9 @@ namespace NotSteam
             lvAfis.LabelEdit = true;
             lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
 
-            
+            tabControl1.TabPages.Remove(tabPage7);
+
+
             string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
             SqlCommand cmd = new SqlCommand(query, con);
@@ -66,14 +68,94 @@ namespace NotSteam
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
+            int z = 1;
+            int cz = 1;
+            int i=0;
             while (reader.Read())
             {
                 cbGames.Items.Add(reader.GetString(0));
+                string name = cbGames.GetItemText(cbGames.Items[i]);
+                Label lbl = new Label();
+                Label lblMissing = new Label();
+                Label lbl2 = new Label();
+                PictureBox pictureBox = new PictureBox();
+                RichTextBox richTextBox = new RichTextBox();
+                tabPage1.Controls.Add(lbl);
+                tabPage1.Controls.Add(lblMissing);
+                tabPage1.Controls.Add(lbl2);
+                tabPage1.Controls.Add(pictureBox);
+                tabPage1.Controls.Add(richTextBox);
+                lbl.Location = new Point(303, 360 + (z * 260));
+                lblMissing.Location = new Point(95, 565 + (z * 260));
+                lbl2.Location = new Point(303, 400 + (z * 260));
+                richTextBox.Location = new Point(308, 175 + ((z+1) * 260));
+                pictureBox.Location = new Point(6, 360 + (z * 260));
+                pictureBox.Size = new Size(256, 199);
+                richTextBox.Size = new Size(397, 126);
+                lblMissing.Text = "Missing image";
+                lblMissing.Visible = false;
+                lbl.Click += new EventHandler(lbl_click);
+                lbl.AutoSize = true;
+                lbl2.AutoSize = true;
+                lbl2.Text = developer(name);
+                lbl.Font = new Font("Microsoft Sans Serif", 16);
+                richTextBox.Text = description(name);
+                z++;
+                lbl.Text = name;
+                if (cz >= imageList1.Images.Count)
+                {
+                    cz = 0;
+                    pictureBox.Image = imageList1.Images[cz];
+                    lblMissing.Visible = true;
+                    
+                }
+                else
+                {
+                    pictureBox.Image = imageList1.Images[cz];
+                    cz++;
+                }
+                i++;
             }
             con.Close();
             cbGames.SelectedItem = cbGames.Items[0];
         }
         int c = 0;
+
+        private void lbl_click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage7);
+            Label label= sender as Label;
+            if (label != null)
+                lbNameGame.Text = label.Text;
+            con.Open();
+            int id;
+            string idquery = "select Id,developer,date,description from Games where name = '"+label.Text+"'";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            if (reader.Read())
+            {
+                id = reader.GetInt32(0);
+                lbDevGame.Text = reader.GetString(1);
+                lbRelease.Text = reader.GetDateTime(2).ToString("MM/dd/yyyy");
+                tbGame.Text = reader.GetString(3);
+            }
+            else
+                id = 0;
+            reader.Close();
+
+            con.Close();
+            if (id >= imageList1.Images.Count)
+            {
+                id = 0; lbMissingGame.Visible = true;
+
+            }
+            else
+                lbMissingGame.Visible = false;
+            pbGame.Image = imageList1.Images[id];
+            tabControl1.SelectedTab = tabPage7;
+            lbGameNameBuy.Text = "Buy "+lbNameGame.Text;
+            con.Close();
+        }
 
         public void ChangeTheme(Control.ControlCollection container)
         {
@@ -274,12 +356,38 @@ namespace NotSteam
             con.Close();
             if (id >= imageList1.Images.Count)
             {
-                id = 0;
-                lbMissing.Visible = true;
+                id = 0; lbMissing.Visible = true;
+
             }
-            pbPic.Image = imageList1.Images[id];
+            else
+                lbMissing.Visible = false;
+            pbPic.Image = imageList1.Images[id];  
         }
 
+        private string description(string name)
+        {
+            string nimic = "";
+            string devquery = "select description from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+            {
+                return readerdev.GetString(0);
+            }
+            else return nimic;
+        }
+
+        private string developer(string name)
+        {
+            string devquery = "select developer from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+            {
+                return readerdev.GetString(0);
+            }
+            else return null;
+        }
         private void btAddNew_Click(object sender, EventArgs e)
         {
             if (pbAdd.Image == null)
@@ -480,6 +588,47 @@ namespace NotSteam
             }
             con.Close();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            con.Open();
+
+            string id;
+
+            string idquery = "select Games.Id from Games where Games.name = '" + lbNameGame.Text + "';";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            if (reader.Read())
+            {
+                id = reader.GetInt32(0).ToString();
+            }
+            else
+                id = null;
+            reader.Close();
+            string nume = null;
+            string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '" + id + "' AND dbo.[List of owned games].UserId = '" + userid + "'";
+            SqlCommand cmdamdeja = new SqlCommand(amdeja, con);
+            SqlDataReader reader1 = cmdamdeja.ExecuteReader();
+            if (reader1.Read())
+            {
+                nume = reader1.GetString(0);
+            }
+
+            if (nume == null)
+            {
+                if (id != null)
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    DateTime dateTime = DateTime.Now;
+                    var dateValue1 = dateTime.ToString("MM/dd/yyyy");
+                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + cbGames.GetItemText(cbGames.SelectedItem) + "', '" + userid + "', '" + dateValue1 + "')";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
+            con.Close();
         }
     }
     class ListViewItemComparer : IComparer
