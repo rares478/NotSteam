@@ -47,12 +47,14 @@ namespace NotSteam
                 SqlDataReader reader = cmd.ExecuteReader();
                 if(reader.Read())
                 {
-                    user = new user();
-                    user.id = reader.GetInt32(0);
-                    user.username = reader.GetString(1);
-                    user.password = reader.GetString(2);
-                    user.admin = reader.GetInt32(4);
-                    user.money = reader.GetInt32(6);
+                    user = new user
+                    {
+                        id = reader.GetInt32(0),
+                        username = reader.GetString(1),
+                        password = reader.GetString(2),
+                        admin = reader.GetInt32(4),
+                        money = reader.GetInt32(6)
+                    };
                     con.Close();
                     this.Close();
                 }
@@ -63,7 +65,7 @@ namespace NotSteam
                     con.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Failed to connect to database",
                 "Database Connection Error", MessageBoxButtons.OK);
@@ -94,12 +96,14 @@ namespace NotSteam
             cmd.ExecuteNonQuery();
             con.Close();
 
-            user = new user();
-            user.email = email;
-            user.username = name;
-            user.password = password;
-            user.admin = 0;
-            user.money = 0;
+            user = new user
+            {
+                email = email,
+                username = name,
+                password = password,
+                admin = 0,
+                money = 0
+            };
             this.Close();
         }
     }

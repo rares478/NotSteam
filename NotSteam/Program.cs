@@ -20,7 +20,7 @@ namespace NotSteam
             Application.SetCompatibleTextRenderingDefault(false);
             Application.DoEvents();
 
-            user user = null;
+            user user;
             Application.Run(new LoginForm());
             user = LoginForm.user;
             
