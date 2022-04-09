@@ -582,10 +582,19 @@ namespace NotSteam
                         money = moneyfinal;
                     }
                     else
-                        MessageBox.Show("You do not have enough money to buy this game", "Insufficient funds", MessageBoxButtons.OK);
+                    {
+                        DialogResult result;
+                        result = MessageBox.Show("You do not have enough money to buy this game", "Insufficient funds", MessageBoxButtons.OKCancel);
+                        if (result == DialogResult.OK)
+                        { 
+                            tabControl1.TabPages.Add(tabPage8); 
+                            tabControl1.SelectedTab = tabPage8;
+                        }
+
+                    }
                 }
             }
-            else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
+            else MessageBox.Show("You already own the game", "You cannot buy the game", MessageBoxButtons.OK);
             con.Close();
         }
 
