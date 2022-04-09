@@ -28,31 +28,31 @@ namespace NotSteam
             tabControl1.TabPages.Remove(tabPage6);
             tabControl1.TabPages.Remove(tabPage7);
             tabControl1.TabPages.Remove(tabPage8);
-            
+
 
             label6.Text = user.username;
             lbUsername.Text = user.username + "'s games";
             label16.Text = user.username;
             label17.Text = money.ToString();
-            
+
             Initialize();
-            
+
             con.Open();
-            
+
             removed = true;
-            
+
             string desc = "select description from Users where id = " + user.id + "";
             SqlCommand cmddesc = new SqlCommand(desc, con);
             tbDesc.Text = cmddesc.ExecuteScalar().ToString();
             if (tbDesc.Text.Length == 0)
                 tbDesc.Text = "Add a description";
             tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
-           
-            
+
+
             lvLibrary.ColumnClick += new ColumnClickEventHandler(ColumnClick);
-            
+
             con.Close();
-            
+
         }
         int c = 0;
 
@@ -551,6 +551,8 @@ namespace NotSteam
             else
                 id = null;
             reader.Close();
+
+
             string nume = null;
             string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '" + id + "' AND dbo.[List of owned games].UserId = '" + userid + "'";
             SqlCommand cmdamdeja = new SqlCommand(amdeja, con);
@@ -586,8 +588,8 @@ namespace NotSteam
                         DialogResult result;
                         result = MessageBox.Show("You do not have enough money to buy this game", "Insufficient funds", MessageBoxButtons.OKCancel);
                         if (result == DialogResult.OK)
-                        { 
-                            tabControl1.TabPages.Add(tabPage8); 
+                        {
+                            tabControl1.TabPages.Add(tabPage8);
                             tabControl1.SelectedTab = tabPage8;
                         }
 
@@ -610,10 +612,11 @@ namespace NotSteam
             if (tabControl1.SelectedTab != tabPage4)
                 tabControl1.TabPages.Remove(tabPage4);
             if (tabControl1.SelectedTab == tabPage2)
-            { AfisGames();
+            {
+                AfisGames();
                 lbAfis.SelectedIndex = 0;
             }
-            if(tabControl1.SelectedTab != tabPage8)
+            if (tabControl1.SelectedTab != tabPage8)
                 tabControl1.TabPages.Remove(tabPage8);
             if (tabControl1.SelectedTab != tabPage3)
                 tabControl1.TabPages.Remove(tabPage3);
@@ -653,7 +656,7 @@ namespace NotSteam
         private void btPlay_Click(object sender, EventArgs e)
         {
             string name = lbAfis.GetItemText(lbAfis.SelectedItem);
-            int id=0;
+            int id = 0;
             con.Open();
             string devquery = "select id from Games where name = '" + name + "'";
             SqlCommand cmddev = new SqlCommand(devquery, con);
@@ -666,7 +669,7 @@ namespace NotSteam
             cmd.CommandType = CommandType.Text;
             DateTime dateTime = DateTime.Now;
             var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-            cmd.CommandText = "UPDATE [dbo].[List of owned games] SET [last played] = '"+ dateValue1 +"' WHERE (UserId = '" + userid + "' and GameID = '"+ id +"')";
+            cmd.CommandText = "UPDATE [dbo].[List of owned games] SET [last played] = '" + dateValue1 + "' WHERE (UserId = '" + userid + "' and GameID = '" + id + "')";
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -674,7 +677,7 @@ namespace NotSteam
         private void button1_Click_1(object sender, EventArgs e)
         {
             int money1 = Convert.ToInt32(cbMoney.SelectedItem);
-            if(cbTerms.Checked)
+            if (cbTerms.Checked)
             {
                 money = money + money1;
                 label17.Text = money.ToString();
@@ -700,6 +703,62 @@ namespace NotSteam
         {
             tabControl1.TabPages.Add(tabPage3);
             tabControl1.SelectedTab = tabPage3;
+        }
+
+        private void btChangePassword_Click(object sender, EventArgs e)
+        {
+            con.Open();
+
+            string password = null;
+            string idquery = "select password from Users where id = '" + userid + "';";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            if (reader.Read())
+                password = reader.GetString(0);
+            if (password == tbCurrentPassword.Text)
+            {
+                if (tbNewPassword.Text.Length > 0)
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE Users SET password = '" + tbNewPassword.Text + "' WHERE Id = '" + userid + "'";
+                    cmd.ExecuteNonQuery();
+                    
+                }
+                else
+                    MessageBox.Show("Enter a new password", "Missing password", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("Wrong password", "Wrong password", MessageBoxButtons.OK);
+            con.Close();
+        }
+
+        private void btChangeEmail_Click(object sender, EventArgs e)
+        {
+            con.Open();
+
+            string password = null;
+            string idquery = "select password from Users where id = '" + userid + "';";
+            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlDataReader reader = cmdid.ExecuteReader();
+            if (reader.Read())
+                password = reader.GetString(0);
+            if (password == tbCurrentPassword.Text)
+            {
+                if (tbNewEmail.Text.Length > 0)
+                {
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE Users SET email = '" + tbNewEmail.Text + "' WHERE Id = '" + userid + "'";
+                    cmd.ExecuteNonQuery();
+
+                }
+                else
+                    MessageBox.Show("Enter a new email", "Missing email", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("Wrong password", "Wrong password", MessageBoxButtons.OK);
+            con.Close();
         }
     }
     class ListViewItemComparer : IComparer
