@@ -681,15 +681,13 @@ namespace NotSteam
             {
                 money = money + money1;
                 label17.Text = money.ToString();
-                Initialize();
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                DateTime dateTime = DateTime.Now;
-                var dateValue1 = dateTime.ToString("MM/dd/yyyy");
                 cmd.CommandText = "UPDATE Users SET money = '" + money + "' WHERE Id = '" + userid + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
+                Initialize();
             }
         }
 
@@ -723,7 +721,7 @@ namespace NotSteam
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "UPDATE Users SET password = '" + tbNewPassword.Text + "' WHERE Id = '" + userid + "'";
                     cmd.ExecuteNonQuery();
-                    
+
                 }
                 else
                     MessageBox.Show("Enter a new password", "Missing password", MessageBoxButtons.OK);
