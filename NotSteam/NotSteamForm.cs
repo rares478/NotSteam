@@ -9,73 +9,93 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
         bool removed;
+        int money;
         public NotSteamForm(user user)
         {
             InitializeComponent();
+
+            money = user.money;
+            userid = user.id;
             if (user.admin != 1)
-                tabControl1.TabPages.Remove(tabPage3);
-            con.Open();
+                addGameToNotSteamToolStripMenuItem.Visible = false;
+
+            tabControl1.TabPages.Remove(tabPage3);
             tabControl1.TabPages.Remove(tabPage4);
-            removed = true;
-            label6.Text = user.username;
             tabControl1.TabPages.Remove(tabPage6);
+            tabControl1.TabPages.Remove(tabPage7);
+            tabControl1.TabPages.Remove(tabPage8);
+            
+
+            label6.Text = user.username;
+            lbUsername.Text = user.username + "'s games";
+            label16.Text = user.username;
+            label17.Text = money.ToString();
+            
+            Initialize();
+            
+            con.Open();
+            
+            removed = true;
+            
             string desc = "select description from Users where id = " + user.id + "";
             SqlCommand cmddesc = new SqlCommand(desc, con);
             tbDesc.Text = cmddesc.ExecuteScalar().ToString();
             if (tbDesc.Text.Length == 0)
                 tbDesc.Text = "Add a description";
-
             tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
-            lbUsername.Text = user.username + "'s games";
-            label3.Text = user.username;
-            label16.Text = user.username;
-            userid = user.id;
-            lvAfis.View = View.Details;
-            lvAfis.AllowColumnReorder = true;
-            lvAfis.Columns.Add(new ColumnHeader());
-            lvAfis.Columns[0].Text = "nimic-nu sterge ca bubuie";
-            lvAfis.Columns[0].Width = 0;
-            lvAfis.Columns.Add(new ColumnHeader());
-            lvAfis.Columns[1].Text = "Game";
-            lvAfis.Columns[1].Width = 100;
-            lvAfis.Columns.Add(new ColumnHeader());
-            lvAfis.Columns[2].Text = "Date bought";
-            lvAfis.Columns[2].Width = 120;
-            lvAfis.LabelEdit = true;
-            lvAfis.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+           
+            
+            lvLibrary.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            
+            con.Close();
+            
+        }
+        int c = 0;
 
-            tabControl1.TabPages.Remove(tabPage7);
+        private void Initialize()
+        {
+            Label labelmain = new Label();
+            tabPage1.Controls.Add(labelmain);
+            labelmain.Location = new Point(249, 13);
+            labelmain.Font = new Font("Microsoft Sans Serif", 36);
+            labelmain.ImageAlign = ContentAlignment.TopCenter;
+            labelmain.Text = "Not Steam";
+            labelmain.Size = new Size(251, 55);
+
+            Label lbMoney = new Label();
+            tabPage1.Controls.Add((lbMoney));
+            lbMoney.Location = new Point(640, 16);
+            lbMoney.Size = new Size(41, 13);
+            lbMoney.Click += new EventHandler(label25_Click);
+            lbMoney.Text = money.ToString();
+            lbMoney.AutoSize = true;
+
+            Label lbName = new Label();
+            tabPage1.Controls.Add(lbName);
+            lbName.Location = new Point(674, 13);
+            lbName.Size = new Size(44, 16);
+            lbName.TextAlign = ContentAlignment.TopRight;
+            lbName.AutoSize = true;
+            lbName.Font = new Font("Microsoft Sans Serif", 10);
+            lbName.Text = label16.Text.ToString();
 
 
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
-            SqlCommand cmd = new SqlCommand(query, con);
 
-            SqlDataReader readerafis = cmd.ExecuteReader();
-            while (readerafis.Read())
-            {
-                ListViewItem lvgame = new ListViewItem();
-                lvgame.SubItems.Add(readerafis.GetString(0));
-                var dateValue1 = readerafis.GetDateTime(1).ToString("MM/dd/yyyy");
-                lvgame.SubItems.Add(dateValue1);
-                lvAfis.Items.Add(lvgame);
-            }
-            lbLibrary.Text = "Games " + lvAfis.Items.Count;
-
+            con.Open();
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
-            int z = 1;
+            int z = 0;
             int cz = 1;
-            int i=0;
+            int i = 0;
             while (reader.Read())
             {
-                cbGames.Items.Add(reader.GetString(0));
-                string name = cbGames.GetItemText(cbGames.Items[i]);
+                string name = reader.GetString(0);
                 Label lbl = new Label();
                 Label lblMissing = new Label();
                 Label lbl2 = new Label();
@@ -89,7 +109,7 @@ namespace NotSteam
                 lbl.Location = new Point(303, 360 + (z * 260));
                 lblMissing.Location = new Point(95, 565 + (z * 260));
                 lbl2.Location = new Point(303, 400 + (z * 260));
-                richTextBox.Location = new Point(308, 175 + ((z+1) * 260));
+                richTextBox.Location = new Point(308, 175 + ((z + 1) * 260));
                 pictureBox.Location = new Point(6, 360 + (z * 260));
                 pictureBox.Size = new Size(256, 199);
                 richTextBox.Size = new Size(397, 126);
@@ -108,7 +128,7 @@ namespace NotSteam
                     cz = 0;
                     pictureBox.Image = imageList1.Images[cz];
                     lblMissing.Visible = true;
-                    
+
                 }
                 else
                 {
@@ -117,35 +137,33 @@ namespace NotSteam
                 }
                 i++;
             }
-            int money=0;
-            string idmoney = "select money from Users where Id = '" + userid + "'";
-            SqlCommand cmdmoney = new SqlCommand(idmoney, con);
-            SqlDataReader readermoney = cmdmoney.ExecuteReader();
-            if (readermoney.Read())
-                money = readermoney.GetInt32(0);
-            label17.Text = money.ToString();
-
             con.Close();
-            cbGames.SelectedItem = cbGames.Items[0];
         }
-        int c = 0;
+
+        private void ColumnClick(object o, ColumnClickEventArgs e)
+        {
+            if (c == 1)
+                c = 0;
+            else c = 1;
+            lvLibrary.ListViewItemSorter = new ListViewItemComparer(e.Column, c);
+        }
 
         private void lbl_click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage7);
-            Label label= sender as Label;
+            Label label = sender as Label;
             if (label != null)
                 lbNameGame.Text = label.Text;
             con.Open();
             int id;
-            string idquery = "select Id,developer,date,description,price from Games where name = '"+label.Text+"'";
+            string idquery = "select Id,developer,date,description,price from Games where name = '" + label.Text + "'";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
             {
                 id = reader.GetInt32(0);
-                lbDevGame.Text ="Developer: "+ reader.GetString(1);
-                lbRelease.Text = "released on: "+reader.GetDateTime(2).ToString("MM/dd/yyyy");
+                lbDevGame.Text = "Developer: " + reader.GetString(1);
+                lbRelease.Text = "released on: " + reader.GetDateTime(2).ToString("MM/dd/yyyy");
                 tbGame.Text = reader.GetString(3);
                 btBuyGame.Text = Convert.ToString(reader.GetInt32(4));
             }
@@ -163,7 +181,7 @@ namespace NotSteam
                 lbMissingGame.Visible = false;
             pbGame.Image = imageList1.Images[id];
             tabControl1.SelectedTab = tabPage7;
-            lbGameNameBuy.Text = "Buy "+lbNameGame.Text;
+            lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
             con.Close();
         }
 
@@ -215,6 +233,7 @@ namespace NotSteam
                 }
             }
         }
+
         public void ChangeThemeOrig(Control.ControlCollection container)
         {
             foreach (Control component in container)
@@ -265,113 +284,21 @@ namespace NotSteam
             }
         }
 
-        private void ColumnClick(object o, ColumnClickEventArgs e)
+        private void AfisGames()
         {
-            if (c == 1)
-                c = 0;
-            else c = 1;
-            lvAfis.ListViewItemSorter = new ListViewItemComparer(e.Column, c);
-        }
-
-
-        private void btAfis_Click(object sender, EventArgs e)
-        {
-            lvAfis.Items.Clear();
+            lbAfis.Items.Clear();
             con.Open();
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+            string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                ListViewItem lvgame = new ListViewItem();
-                lvgame.SubItems.Add(reader.GetString(0));
-                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
-                lvgame.SubItems.Add(dateValue1);
-                lvAfis.Items.Add(lvgame);
+                lbAfis.Items.Add(reader.GetString(0));
             }
             con.Close();
 
-        }
-
-        private void btBuy_Click(object sender, EventArgs e)
-        {
-            con.Open();
-
-            string id;
-
-            string idquery = "select Games.Id from Games where Games.name = '" + cbGames.GetItemText(cbGames.SelectedItem) + "';";
-            SqlCommand cmdid = new SqlCommand(idquery, con);
-            SqlDataReader reader = cmdid.ExecuteReader();
-            if (reader.Read())
-            {
-                id = reader.GetInt32(0).ToString();
-            }
-            else
-                id = null;
-            reader.Close();
-            string nume = null;
-            string amdeja = "select dbo.[List of owned games].name from dbo.[List of owned games] where dbo.[List of owned games].GameID = '" + id + "' AND dbo.[List of owned games].UserId = '" + userid + "'";
-            SqlCommand cmdamdeja = new SqlCommand(amdeja, con);
-            SqlDataReader reader1 = cmdamdeja.ExecuteReader();
-            if (reader1.Read())
-            {
-                nume = reader1.GetString(0);
-            }
-
-            if (nume == null)
-            {
-                if (id != null)
-                {
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    DateTime dateTime = DateTime.Now;
-                    var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-                    cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + cbGames.GetItemText(cbGames.SelectedItem) + "', '" + userid + "', '" + dateValue1 + "')";
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
-            con.Close();
-        }
-
-        private void cbGames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string name = cbGames.GetItemText(cbGames.SelectedItem);
-            lbName.Text = name;
-            con.Open();
-            string devquery = "select developer,description from Games where name = '" + name + "'";
-            SqlCommand cmddev = new SqlCommand(devquery, con);
-            SqlDataReader readerdev = cmddev.ExecuteReader();
-            if (readerdev.Read())
-            {
-                lbdev.Text = readerdev.GetString(0);
-                tbDescriere.Text = readerdev.GetString(1);
-            }
-
-            int id;
-
-            string idquery = "select Games.Id from Games where Games.name = '" + cbGames.GetItemText(cbGames.SelectedItem) + "';";
-            SqlCommand cmdid = new SqlCommand(idquery, con);
-            SqlDataReader reader = cmdid.ExecuteReader();
-            if (reader.Read())
-            {
-                id = reader.GetInt32(0);
-            }
-            else
-                id = 0;
-            reader.Close();
-
-            con.Close();
-            if (id >= imageList1.Images.Count)
-            {
-                id = 0; lbMissing.Visible = true;
-
-            }
-            else
-                lbMissing.Visible = false;
-            pbPic.Image = imageList1.Images[id];  
         }
 
         private string description(string name)
@@ -398,34 +325,37 @@ namespace NotSteam
             }
             else return null;
         }
+
         private void btAddNew_Click(object sender, EventArgs e)
         {
-            if (pbAdd.Image == null)
+            ///verific daca pretul din textbox contine doar numere
+            if (int.TryParse(tbPrice.Text, out int price))
             {
-                MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
+                ///daca nu am adaugat imagine imi zice sa adaug una
+                if (pbAdd.Image == null)
+                {
+                    MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    ///adaug jocul
+                    DateTime now = DateTime.Now;
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO Games(name,developer,date,description,price) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "', '" + price + "')";
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
+                    con.Close();
+                    Initialize();
+
+                }
             }
             else
-            {
-                DateTime now = DateTime.Now;
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO Games(name,developer,date,description) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "')";
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
-                cbGames.Items.Clear();
-                string idquery = "select Games.name from Games";
-                SqlCommand cmdid = new SqlCommand(idquery, con);
-                SqlDataReader reader = cmdid.ExecuteReader();
-                while (reader.Read())
-                {
-                    cbGames.Items.Add(reader.GetString(0));
-                }
-                con.Close();
-
-            }
+                MessageBox.Show("Price can only contain numbers", "Price error", MessageBoxButtons.OK);
         }
+
         private void btPic_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -459,6 +389,8 @@ namespace NotSteam
             ChangeThemeOrig(tabPage4.Controls);
             ChangeThemeOrig(tabPage5.Controls);
             ChangeThemeOrig(tabPage6.Controls);
+            ChangeThemeOrig(tabPage7.Controls);
+            ChangeThemeOrig(tabPage8.Controls);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -470,6 +402,8 @@ namespace NotSteam
             ChangeTheme(tabPage4.Controls);
             ChangeTheme(tabPage5.Controls);
             ChangeTheme(tabPage6.Controls);
+            ChangeTheme(tabPage7.Controls);
+            ChangeTheme(tabPage8.Controls);
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -570,7 +504,7 @@ namespace NotSteam
 
         private void lbLibrary_Click(object sender, EventArgs e)
         {
-            lvLibrary.Items.Clear();
+            lvLibrary.Clear();
             lvLibrary.Visible = true;
             lvLibrary.View = View.Details;
             lvLibrary.AllowColumnReorder = true;
@@ -630,7 +564,7 @@ namespace NotSteam
             {
                 if (id != null)
                 {
-                    if (Convert.ToInt32(label17.Text) > Convert.ToInt32(btBuyGame.Text))
+                    if (money > Convert.ToInt32(btBuyGame.Text))
                     {
                         SqlCommand cmd = con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
@@ -638,14 +572,14 @@ namespace NotSteam
                         var dateValue1 = dateTime.ToString("MM/dd/yyyy");
                         cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + lbNameGame.Text + "', '" + userid + "', '" + dateValue1 + "')";
                         cmd.ExecuteNonQuery();
-                        int money1 = Convert.ToInt32(label17.Text);
+                        int money1 = money;
                         int money2 = Convert.ToInt32(btBuyGame.Text);
                         int moneyfinal = money1 - money2;
                         SqlCommand cmdmoney = con.CreateCommand();
                         cmdmoney.CommandType = CommandType.Text;
                         cmdmoney.CommandText = "UPDATE Users SET money = '" + moneyfinal + "' WHERE Id = '" + userid + "'";
                         cmdmoney.ExecuteNonQuery();
-                        label17.Text = moneyfinal.ToString();
+                        money = moneyfinal;
                     }
                     else
                         MessageBox.Show("You do not have enough money to buy this game", "Insufficient funds", MessageBoxButtons.OK);
@@ -653,6 +587,110 @@ namespace NotSteam
             }
             else MessageBox.Show("Ai deja jocu", "Inteleg ca vrei sa imi dai bani da nu mersi", MessageBoxButtons.OK);
             con.Close();
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab != tabPage7)
+                tabControl1.TabPages.Remove(tabPage7);
+            if (tabControl1.SelectedTab != tabPage4)
+                tabControl1.TabPages.Remove(tabPage4);
+            if (tabControl1.SelectedTab == tabPage2)
+            { AfisGames();
+                lbAfis.SelectedIndex = 0;
+            }
+            if(tabControl1.SelectedTab != tabPage8)
+                tabControl1.TabPages.Remove(tabPage8);
+            if (tabControl1.SelectedTab != tabPage3)
+                tabControl1.TabPages.Remove(tabPage3);
+        }
+
+        private void lbAfis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = lbAfis.GetItemText(lbAfis.SelectedItem);
+            int id = 0;
+            con.Open();
+            string devquery = "select id from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+            {
+                id = readerdev.GetInt32(0);
+            }
+
+            string lastquery = "select [last played],[date_bought] from [dbo].[List of owned games] WHERE (UserId = '" + userid + "'and GameID = '" + id + "')";
+            SqlCommand sqllastquery = new SqlCommand(lastquery, con);
+            SqlDataReader readerlast = sqllastquery.ExecuteReader();
+            if (readerlast.Read())
+            {
+                if (readerlast.IsDBNull(0))
+                    lbLastPlayed.Text = "never played";
+                else
+                    lbLastPlayed.Text = readerlast.GetDateTime(0).ToString("MM/dd/yyyy");
+                lbDateBought.Text = readerlast.GetDateTime(1).ToString("MM/dd/yyyy");
+            }
+
+            if (id >= imageList1.Images.Count)
+                id = 0;
+            pbAfis.Image = imageList1.Images[id];
+            con.Close();
+        }
+
+        private void btPlay_Click(object sender, EventArgs e)
+        {
+            string name = lbAfis.GetItemText(lbAfis.SelectedItem);
+            int id=0;
+            con.Open();
+            string devquery = "select id from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+                id = readerdev.GetInt32(0);
+
+
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            DateTime dateTime = DateTime.Now;
+            var dateValue1 = dateTime.ToString("MM/dd/yyyy");
+            cmd.CommandText = "UPDATE [dbo].[List of owned games] SET [last played] = '"+ dateValue1 +"' WHERE (UserId = '" + userid + "' and GameID = '"+ id +"')";
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int money1 = Convert.ToInt32(cbMoney.SelectedItem);
+            if(cbTerms.Checked)
+            {
+                money = money + money1;
+                label17.Text = money.ToString();
+                Initialize();
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DateTime dateTime = DateTime.Now;
+                var dateValue1 = dateTime.ToString("MM/dd/yyyy");
+                cmd.CommandText = "UPDATE Users SET money = '" + money + "' WHERE Id = '" + userid + "'";
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage8);
+            tabControl1.SelectedTab = tabPage8;
+        }
+
+        private void addGameToNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.TabPages.Add(tabPage3);
+            tabControl1.SelectedTab = tabPage3;
         }
     }
     class ListViewItemComparer : IComparer

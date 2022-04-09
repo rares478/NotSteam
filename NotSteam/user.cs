@@ -14,5 +14,6 @@ namespace NotSteam
         public string password;
         public string email;
         public int admin;
+        public int money;
     }
 }

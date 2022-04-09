@@ -18,7 +18,7 @@ namespace NotSteam
             InitializeComponent();
             pictureBox1.Image = imageList1.Images[0];
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
         public static user user = null;
         public static bool switchtoRegister = false;
 
@@ -52,12 +52,15 @@ namespace NotSteam
                     user.username = reader.GetString(1);
                     user.password = reader.GetString(2);
                     user.admin = reader.GetInt32(4);
+                    user.money = reader.GetInt32(6);
+                    con.Close();
                     this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Username or password is incorrect",
                     "Username or Password Error", MessageBoxButtons.OK);
+                    con.Close();
                 }
             }
             catch (Exception ex)
@@ -87,7 +90,7 @@ namespace NotSteam
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO Users(username,password,email,admin) VALUES ('" + name + "', '" + password + "', '" + email + "', '0')";
+            cmd.CommandText = "INSERT INTO Users(username,password,email,admin,money) VALUES ('" + name + "', '" + password + "', '" + email + "', '0', '0')";
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -96,6 +99,7 @@ namespace NotSteam
             user.username = name;
             user.password = password;
             user.admin = 0;
+            user.money = 0;
             this.Close();
         }
     }

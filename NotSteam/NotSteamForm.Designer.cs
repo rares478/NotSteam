@@ -30,21 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotSteamForm));
-            this.label1 = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
-            this.btBuy = new System.Windows.Forms.Button();
-            this.lvAfis = new System.Windows.Forms.ListView();
-            this.btAfis = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lbMissing = new System.Windows.Forms.Label();
-            this.tbDescriere = new System.Windows.Forms.RichTextBox();
-            this.lbdev = new System.Windows.Forms.Label();
-            this.lbName = new System.Windows.Forms.Label();
-            this.pbPic = new System.Windows.Forms.PictureBox();
-            this.cbGames = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbGameNameBuy = new System.Windows.Forms.Label();
             this.btBuyGame = new System.Windows.Forms.Button();
@@ -56,7 +46,17 @@
             this.lbNameGame = new System.Windows.Forms.Label();
             this.pbGame = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbLastPlayed = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btPlay = new System.Windows.Forms.Button();
+            this.lbDateBought = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pbAfis = new System.Windows.Forms.PictureBox();
+            this.lbAfis = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbPrice = new System.Windows.Forms.TextBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.btPic = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
@@ -88,6 +88,15 @@
             this.tbChangeName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.cbTerms = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cbMoney = new System.Windows.Forms.ComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +110,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.addGameToNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hiddenGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,32 +156,20 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGame)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAfis)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(249, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Not Steam";
             // 
             // lbUsername
             // 
@@ -183,45 +182,6 @@
             this.lbUsername.TabIndex = 1;
             this.lbUsername.Text = "label2";
             // 
-            // btBuy
-            // 
-            this.btBuy.BackColor = System.Drawing.Color.Transparent;
-            this.btBuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btBuy.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btBuy.Location = new System.Drawing.Point(46, 443);
-            this.btBuy.Name = "btBuy";
-            this.btBuy.Size = new System.Drawing.Size(75, 23);
-            this.btBuy.TabIndex = 2;
-            this.btBuy.Text = "Buy";
-            this.btBuy.UseVisualStyleBackColor = false;
-            this.btBuy.Click += new System.EventHandler(this.btBuy_Click);
-            // 
-            // lvAfis
-            // 
-            this.lvAfis.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lvAfis.HideSelection = false;
-            this.lvAfis.HotTracking = true;
-            this.lvAfis.HoverSelection = true;
-            this.lvAfis.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lvAfis.Location = new System.Drawing.Point(70, 106);
-            this.lvAfis.Margin = new System.Windows.Forms.Padding(0);
-            this.lvAfis.MultiSelect = false;
-            this.lvAfis.Name = "lvAfis";
-            this.lvAfis.Size = new System.Drawing.Size(197, 277);
-            this.lvAfis.TabIndex = 2;
-            this.lvAfis.UseCompatibleStateImageBehavior = false;
-            // 
-            // btAfis
-            // 
-            this.btAfis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAfis.Location = new System.Drawing.Point(667, 370);
-            this.btAfis.Name = "btAfis";
-            this.btAfis.Size = new System.Drawing.Size(84, 26);
-            this.btAfis.TabIndex = 4;
-            this.btAfis.Text = "List";
-            this.btAfis.UseVisualStyleBackColor = true;
-            this.btAfis.Click += new System.EventHandler(this.btAfis_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -231,24 +191,17 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(765, 508);
             this.tabControl1.TabIndex = 13;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.lbMissing);
-            this.tabPage1.Controls.Add(this.tbDescriere);
-            this.tabPage1.Controls.Add(this.lbdev);
-            this.tabPage1.Controls.Add(this.lbName);
-            this.tabPage1.Controls.Add(this.pbPic);
-            this.tabPage1.Controls.Add(this.cbGames);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.btBuy);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -256,73 +209,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lbMissing
-            // 
-            this.lbMissing.AutoSize = true;
-            this.lbMissing.Location = new System.Drawing.Point(95, 336);
-            this.lbMissing.Name = "lbMissing";
-            this.lbMissing.Size = new System.Drawing.Size(74, 13);
-            this.lbMissing.TabIndex = 10;
-            this.lbMissing.Text = "Missing Image";
-            this.lbMissing.Visible = false;
-            // 
-            // tbDescriere
-            // 
-            this.tbDescriere.Location = new System.Drawing.Point(308, 207);
-            this.tbDescriere.Name = "tbDescriere";
-            this.tbDescriere.ReadOnly = true;
-            this.tbDescriere.Size = new System.Drawing.Size(397, 126);
-            this.tbDescriere.TabIndex = 9;
-            this.tbDescriere.Text = "";
-            // 
-            // lbdev
-            // 
-            this.lbdev.AutoSize = true;
-            this.lbdev.Location = new System.Drawing.Point(305, 171);
-            this.lbdev.Name = "lbdev";
-            this.lbdev.Size = new System.Drawing.Size(35, 13);
-            this.lbdev.TabIndex = 8;
-            this.lbdev.Text = "label5";
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(303, 134);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(70, 25);
-            this.lbName.TabIndex = 7;
-            this.lbName.Text = "label4";
-            // 
-            // pbPic
-            // 
-            this.pbPic.Location = new System.Drawing.Point(6, 134);
-            this.pbPic.Name = "pbPic";
-            this.pbPic.Size = new System.Drawing.Size(259, 199);
-            this.pbPic.TabIndex = 6;
-            this.pbPic.TabStop = false;
-            // 
-            // cbGames
-            // 
-            this.cbGames.FormattingEnabled = true;
-            this.cbGames.Location = new System.Drawing.Point(610, 83);
-            this.cbGames.Name = "cbGames";
-            this.cbGames.Size = new System.Drawing.Size(121, 21);
-            this.cbGames.TabIndex = 5;
-            this.cbGames.Visible = false;
-            this.cbGames.SelectedIndexChanged += new System.EventHandler(this.cbGames_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(697, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tabPage7
             // 
@@ -343,8 +229,19 @@
             this.tabPage7.Text = "Game";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(645, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "label17";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -445,8 +342,14 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.lvAfis);
-            this.tabPage2.Controls.Add(this.btAfis);
+            this.tabPage2.Controls.Add(this.lbLastPlayed);
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.btPlay);
+            this.tabPage2.Controls.Add(this.lbDateBought);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.pbAfis);
+            this.tabPage2.Controls.Add(this.lbAfis);
             this.tabPage2.Controls.Add(this.lbUsername);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -456,8 +359,88 @@
             this.tabPage2.Text = "Library";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lbLastPlayed
+            // 
+            this.lbLastPlayed.AutoSize = true;
+            this.lbLastPlayed.Location = new System.Drawing.Point(478, 152);
+            this.lbLastPlayed.Name = "lbLastPlayed";
+            this.lbLastPlayed.Size = new System.Drawing.Size(41, 13);
+            this.lbLastPlayed.TabIndex = 12;
+            this.lbLastPlayed.Text = "label23";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(381, 147);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(91, 20);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Last Played";
+            // 
+            // btPlay
+            // 
+            this.btPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPlay.Location = new System.Drawing.Point(224, 253);
+            this.btPlay.Name = "btPlay";
+            this.btPlay.Size = new System.Drawing.Size(93, 30);
+            this.btPlay.TabIndex = 10;
+            this.btPlay.Text = "Play";
+            this.btPlay.UseVisualStyleBackColor = true;
+            this.btPlay.Click += new System.EventHandler(this.btPlay_Click);
+            // 
+            // lbDateBought
+            // 
+            this.lbDateBought.AutoSize = true;
+            this.lbDateBought.Location = new System.Drawing.Point(486, 114);
+            this.lbDateBought.Name = "lbDateBought";
+            this.lbDateBought.Size = new System.Drawing.Size(41, 13);
+            this.lbDateBought.TabIndex = 9;
+            this.lbDateBought.Text = "label21";
+            // 
+            // label21
+            // 
+            this.label21.AutoEllipsis = true;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(380, 109);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(100, 20);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Date Bought";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "label19";
+            // 
+            // pbAfis
+            // 
+            this.pbAfis.Location = new System.Drawing.Point(180, 81);
+            this.pbAfis.Name = "pbAfis";
+            this.pbAfis.Size = new System.Drawing.Size(194, 147);
+            this.pbAfis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAfis.TabIndex = 6;
+            this.pbAfis.TabStop = false;
+            // 
+            // lbAfis
+            // 
+            this.lbAfis.FormattingEnabled = true;
+            this.lbAfis.Location = new System.Drawing.Point(6, 81);
+            this.lbAfis.Name = "lbAfis";
+            this.lbAfis.Size = new System.Drawing.Size(147, 394);
+            this.lbAfis.Sorted = true;
+            this.lbAfis.TabIndex = 5;
+            this.lbAfis.SelectedIndexChanged += new System.EventHandler(this.lbAfis_SelectedIndexChanged);
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.tbPrice);
             this.tabPage3.Controls.Add(this.pbAdd);
             this.tabPage3.Controls.Add(this.btPic);
             this.tabPage3.Controls.Add(this.btAddNew);
@@ -475,9 +458,26 @@
             this.tabPage3.Text = "Add game";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label20.Location = new System.Drawing.Point(173, 195);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 20);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Price";
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.Location = new System.Drawing.Point(253, 195);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(260, 20);
+            this.tbPrice.TabIndex = 9;
+            // 
             // pbAdd
             // 
-            this.pbAdd.Location = new System.Drawing.Point(560, 144);
+            this.pbAdd.Location = new System.Drawing.Point(563, 113);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(177, 153);
             this.pbAdd.TabIndex = 8;
@@ -487,7 +487,7 @@
             // btPic
             // 
             this.btPic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPic.Location = new System.Drawing.Point(316, 269);
+            this.btPic.Location = new System.Drawing.Point(321, 339);
             this.btPic.Name = "btPic";
             this.btPic.Size = new System.Drawing.Size(102, 28);
             this.btPic.TabIndex = 7;
@@ -510,14 +510,14 @@
             // 
             this.tbDev.Location = new System.Drawing.Point(253, 155);
             this.tbDev.Name = "tbDev";
-            this.tbDev.Size = new System.Drawing.Size(224, 20);
+            this.tbDev.Size = new System.Drawing.Size(260, 20);
             this.tbDev.TabIndex = 5;
             // 
             // rbDesc
             // 
-            this.rbDesc.Location = new System.Drawing.Point(253, 198);
+            this.rbDesc.Location = new System.Drawing.Point(253, 244);
             this.rbDesc.Name = "rbDesc";
-            this.rbDesc.Size = new System.Drawing.Size(224, 22);
+            this.rbDesc.Size = new System.Drawing.Size(260, 89);
             this.rbDesc.TabIndex = 4;
             this.rbDesc.Text = "";
             // 
@@ -525,14 +525,14 @@
             // 
             this.tbName.Location = new System.Drawing.Point(253, 113);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(224, 20);
+            this.tbName.Size = new System.Drawing.Size(260, 20);
             this.tbName.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(164, 201);
+            this.label5.Location = new System.Drawing.Point(164, 246);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 2;
@@ -620,12 +620,11 @@
             // lvLibrary
             // 
             this.lvLibrary.HideSelection = false;
-            this.lvLibrary.Location = new System.Drawing.Point(33, 202);
+            this.lvLibrary.Location = new System.Drawing.Point(33, 204);
             this.lvLibrary.Name = "lvLibrary";
-            this.lvLibrary.Size = new System.Drawing.Size(216, 259);
+            this.lvLibrary.Size = new System.Drawing.Size(264, 254);
             this.lvLibrary.TabIndex = 11;
             this.lvLibrary.UseCompatibleStateImageBehavior = false;
-            this.lvLibrary.Visible = false;
             // 
             // tbDesc
             // 
@@ -801,6 +800,103 @@
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.cbTerms);
+            this.tabPage8.Controls.Add(this.button1);
+            this.tabPage8.Controls.Add(this.textBox2);
+            this.tabPage8.Controls.Add(this.label24);
+            this.tabPage8.Controls.Add(this.label23);
+            this.tabPage8.Controls.Add(this.textBox1);
+            this.tabPage8.Controls.Add(this.label18);
+            this.tabPage8.Controls.Add(this.cbMoney);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(757, 482);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Add Money";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // cbTerms
+            // 
+            this.cbTerms.AutoSize = true;
+            this.cbTerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTerms.Location = new System.Drawing.Point(105, 373);
+            this.cbTerms.Name = "cbTerms";
+            this.cbTerms.Size = new System.Drawing.Size(424, 24);
+            this.cbTerms.TabIndex = 7;
+            this.cbTerms.Text = "I agree to the terms of NotSteam Subscriber Agreement";
+            this.cbTerms.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(326, 441);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Add Funds";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(435, 227);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(432, 202);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(91, 16);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "Security Code";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(98, 200);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(87, 16);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "Card Number";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(101, 227);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(251, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(18, 53);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(255, 20);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Select the amount you want to add";
+            // 
+            // cbMoney
+            // 
+            this.cbMoney.FormattingEnabled = true;
+            this.cbMoney.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "25",
+            "50",
+            "100"});
+            this.cbMoney.Location = new System.Drawing.Point(81, 76);
+            this.cbMoney.Name = "cbMoney";
+            this.cbMoney.Size = new System.Drawing.Size(121, 21);
+            this.cbMoney.TabIndex = 0;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -844,7 +940,9 @@
             this.toolStripSeparator6,
             this.settingsToolStripMenuItem,
             this.toolStripSeparator7,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.addGameToNotSteamToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
             this.toolStripMenuItem1.Text = "NotSteam";
@@ -907,6 +1005,18 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(258, 6);
+            // 
+            // addGameToNotSteamToolStripMenuItem
+            // 
+            this.addGameToNotSteamToolStripMenuItem.Name = "addGameToNotSteamToolStripMenuItem";
+            this.addGameToNotSteamToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.addGameToNotSteamToolStripMenuItem.Text = "Add game to NotSteam";
+            this.addGameToNotSteamToolStripMenuItem.Click += new System.EventHandler(this.addGameToNotSteamToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -1212,15 +1322,6 @@
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(645, 12);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "label17";
-            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1232,9 +1333,6 @@
             this.Name = "NotSteamForm";
             this.Text = "NotSteamForm";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPic)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1242,6 +1340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbGame)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAfis)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
@@ -1251,6 +1350,8 @@
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -1259,21 +1360,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbUsername;
-        private System.Windows.Forms.Button btBuy;
-        private System.Windows.Forms.ListView lvAfis;
-        private System.Windows.Forms.Button btAfis;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbGames;
-        private System.Windows.Forms.Label lbdev;
-        private System.Windows.Forms.PictureBox pbPic;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.RichTextBox tbDescriere;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox tbDev;
         private System.Windows.Forms.RichTextBox rbDesc;
@@ -1293,7 +1384,6 @@
         private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbAdd;
-        private System.Windows.Forms.Label lbMissing;
         private System.Windows.Forms.ToolStripMenuItem changeAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goOffnileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1346,7 +1436,6 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListView lvLibrary;
         private System.Windows.Forms.RichTextBox tbDesc;
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Label label13;
@@ -1363,7 +1452,6 @@
         private System.Windows.Forms.RichTextBox tbChangeDesc;
         private System.Windows.Forms.TextBox tbChangeName;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.RichTextBox tbGame;
         private System.Windows.Forms.Label lbDevGame;
@@ -1376,5 +1464,27 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btBuyGame;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cbMoney;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbPrice;
+        private System.Windows.Forms.ListView lvLibrary;
+        private System.Windows.Forms.ListBox lbAfis;
+        private System.Windows.Forms.Label lbDateBought;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.PictureBox pbAfis;
+        private System.Windows.Forms.Button btPlay;
+        private System.Windows.Forms.Label lbLastPlayed;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.CheckBox cbTerms;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem addGameToNotSteamToolStripMenuItem;
     }
 }
