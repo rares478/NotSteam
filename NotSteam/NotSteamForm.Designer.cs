@@ -51,7 +51,6 @@
             this.btPlay = new System.Windows.Forms.Button();
             this.lbDateBought = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.pbAfis = new System.Windows.Forms.PictureBox();
             this.lbAfis = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -67,6 +66,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btChangeEmail = new System.Windows.Forms.Button();
+            this.btChangePassword = new System.Windows.Forms.Button();
+            this.tbCurrentPassword = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbNewPassword = new System.Windows.Forms.TextBox();
+            this.tbNewEmail = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -156,6 +163,7 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label26 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -347,7 +355,6 @@
             this.tabPage2.Controls.Add(this.btPlay);
             this.tabPage2.Controls.Add(this.lbDateBought);
             this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.pbAfis);
             this.tabPage2.Controls.Add(this.lbAfis);
             this.tabPage2.Controls.Add(this.lbUsername);
@@ -362,7 +369,7 @@
             // lbLastPlayed
             // 
             this.lbLastPlayed.AutoSize = true;
-            this.lbLastPlayed.Location = new System.Drawing.Point(478, 152);
+            this.lbLastPlayed.Location = new System.Drawing.Point(486, 152);
             this.lbLastPlayed.Name = "lbLastPlayed";
             this.lbLastPlayed.Size = new System.Drawing.Size(41, 13);
             this.lbLastPlayed.TabIndex = 12;
@@ -408,15 +415,6 @@
             this.label21.Size = new System.Drawing.Size(100, 20);
             this.label21.TabIndex = 8;
             this.label21.Text = "Date Bought";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(0, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "label19";
             // 
             // pbAfis
             // 
@@ -560,6 +558,15 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label26);
+            this.tabPage4.Controls.Add(this.btChangeEmail);
+            this.tabPage4.Controls.Add(this.btChangePassword);
+            this.tabPage4.Controls.Add(this.tbCurrentPassword);
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.tbNewPassword);
+            this.tabPage4.Controls.Add(this.tbNewEmail);
             this.tabPage4.Controls.Add(this.radioButton2);
             this.tabPage4.Controls.Add(this.radioButton1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -570,29 +577,100 @@
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btChangeEmail
+            // 
+            this.btChangeEmail.Location = new System.Drawing.Point(518, 325);
+            this.btChangeEmail.Name = "btChangeEmail";
+            this.btChangeEmail.Size = new System.Drawing.Size(149, 23);
+            this.btChangeEmail.TabIndex = 9;
+            this.btChangeEmail.Text = "Change Email";
+            this.btChangeEmail.UseVisualStyleBackColor = true;
+            this.btChangeEmail.Click += new System.EventHandler(this.btChangeEmail_Click);
+            // 
+            // btChangePassword
+            // 
+            this.btChangePassword.Location = new System.Drawing.Point(346, 325);
+            this.btChangePassword.Name = "btChangePassword";
+            this.btChangePassword.Size = new System.Drawing.Size(149, 23);
+            this.btChangePassword.TabIndex = 8;
+            this.btChangePassword.Text = "Change Password";
+            this.btChangePassword.UseVisualStyleBackColor = true;
+            this.btChangePassword.Click += new System.EventHandler(this.btChangePassword_Click);
+            // 
+            // tbCurrentPassword
+            // 
+            this.tbCurrentPassword.Location = new System.Drawing.Point(461, 157);
+            this.tbCurrentPassword.Name = "tbCurrentPassword";
+            this.tbCurrentPassword.Size = new System.Drawing.Size(206, 20);
+            this.tbCurrentPassword.TabIndex = 7;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(343, 158);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(112, 16);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "Current Password";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(343, 265);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "New Email";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(343, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "New Password";
+            // 
+            // tbNewPassword
+            // 
+            this.tbNewPassword.Location = new System.Drawing.Point(461, 211);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.Size = new System.Drawing.Size(206, 20);
+            this.tbNewPassword.TabIndex = 3;
+            // 
+            // tbNewEmail
+            // 
+            this.tbNewEmail.Location = new System.Drawing.Point(461, 264);
+            this.tbNewEmail.Name = "tbNewEmail";
+            this.tbNewEmail.Size = new System.Drawing.Size(206, 20);
+            this.tbNewEmail.TabIndex = 2;
+            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(310, 130);
+            this.radioButton2.Location = new System.Drawing.Point(37, 239);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(119, 24);
+            this.radioButton2.Size = new System.Drawing.Size(85, 24);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.Text = "Theme2";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(310, 86);
+            this.radioButton1.Location = new System.Drawing.Point(37, 204);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(119, 24);
+            this.radioButton1.Size = new System.Drawing.Size(85, 24);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.Text = "Theme1";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
@@ -1322,6 +1400,16 @@
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(6, 152);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(144, 25);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Select Theme";
+            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1473,7 +1561,6 @@
         private System.Windows.Forms.ListBox lbAfis;
         private System.Windows.Forms.Label lbDateBought;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pbAfis;
         private System.Windows.Forms.Button btPlay;
         private System.Windows.Forms.Label lbLastPlayed;
@@ -1486,5 +1573,14 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem addGameToNotSteamToolStripMenuItem;
+        private System.Windows.Forms.Button btChangeEmail;
+        private System.Windows.Forms.Button btChangePassword;
+        private System.Windows.Forms.TextBox tbCurrentPassword;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbNewPassword;
+        private System.Windows.Forms.TextBox tbNewEmail;
+        private System.Windows.Forms.Label label26;
     }
 }
