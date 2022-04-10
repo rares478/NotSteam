@@ -58,6 +58,7 @@ namespace NotSteam
 
         private void Initialize()
         {
+            tabPage1.Controls.Clear();
             Label labelmain = new Label();
             tabPage1.Controls.Add(labelmain);
             labelmain.Location = new Point(249, 13);
