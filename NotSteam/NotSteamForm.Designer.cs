@@ -33,6 +33,11 @@
             this.lbUsername = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,6 +71,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
             this.btChangeEmail = new System.Windows.Forms.Button();
             this.btChangePassword = new System.Windows.Forms.Button();
             this.tbCurrentPassword = new System.Windows.Forms.TextBox();
@@ -163,8 +169,10 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label26 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGame)).BeginInit();
@@ -210,6 +218,8 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -217,6 +227,58 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(751, 55);
+            this.panel1.TabIndex = 0;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(349, 15);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(91, 31);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Profile";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(192, 15);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(151, 31);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "Community";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(89, 15);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(97, 31);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Library";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(3, 15);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(79, 31);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Store";
             // 
             // tabPage7
             // 
@@ -239,13 +301,10 @@
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(645, 12);
+            this.label17.Location = new System.Drawing.Point(0, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "label17";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+            this.label17.Size = new System.Drawing.Size(100, 23);
+            this.label17.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -576,6 +635,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(6, 152);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(144, 25);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Select Theme";
             // 
             // btChangeEmail
             // 
@@ -1400,15 +1469,13 @@
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
-            // label26
+            // panel2
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(6, 152);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(144, 25);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Select Theme";
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 58);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(751, 421);
+            this.panel2.TabIndex = 1;
             // 
             // NotSteamForm
             // 
@@ -1421,6 +1488,9 @@
             this.Name = "NotSteamForm";
             this.Text = "NotSteamForm";
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1582,5 +1652,11 @@
         private System.Windows.Forms.TextBox tbNewPassword;
         private System.Windows.Forms.TextBox tbNewEmail;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel2;
     }
 }
