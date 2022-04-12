@@ -9,15 +9,17 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
         bool removed;
+        string username;
+        bool theme = false;
         int money;
         public NotSteamForm(user user)
         {
             InitializeComponent();
-
+            username = user.username;
             money = user.money;
             userid = user.id;
             if (user.admin != 1)
@@ -35,7 +37,10 @@ namespace NotSteam
             label16.Text = user.username;
             label17.Text = money.ToString();
 
-            Initialize();
+            ///Initialize();
+
+            label19.Click += new System.EventHandler(label19_Click);
+
 
             con.Open();
 
@@ -152,6 +157,9 @@ namespace NotSteam
         private void lbl_click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage7);
+            if (theme)
+                ChangeTheme(tabControl1.Controls);
+            else ChangeThemeOrig(tabControl1.Controls);
             Label label = sender as Label;
             if (label != null)
                 lbNameGame.Text = label.Text;
@@ -383,6 +391,7 @@ namespace NotSteam
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            theme = false;
             ChangeThemeOrig(tabControl1.Controls);
             ChangeThemeOrig(tabPage1.Controls);
             ChangeThemeOrig(tabPage2.Controls);
@@ -396,6 +405,7 @@ namespace NotSteam
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            theme = true;
             ChangeTheme(tabControl1.Controls);
             ChangeTheme(tabPage1.Controls);
             ChangeTheme(tabPage2.Controls);
@@ -413,6 +423,9 @@ namespace NotSteam
             {
                 tabControl1.TabPages.Add(tabPage4);
                 removed = false;
+                if (theme)
+                    ChangeTheme(tabControl1.Controls);
+                else ChangeThemeOrig(tabControl1.Controls);
                 tabControl1.SelectedTab = tabPage4;
             }
             else
@@ -442,6 +455,9 @@ namespace NotSteam
             if (removed)
             {
                 tabControl1.TabPages.Add(tabPage4);
+                if (theme)
+                    ChangeTheme(tabControl1.Controls);
+                else ChangeThemeOrig(tabControl1.Controls);
                 removed = false;
                 tabControl1.SelectedTab = tabPage4;
             }
@@ -471,12 +487,18 @@ namespace NotSteam
         private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage6);
+            if (theme)
+                ChangeTheme(tabControl1.Controls);
+            else ChangeThemeOrig(tabControl1.Controls);
             tabControl1.SelectedTab = tabPage6;
         }
 
         private void btEdit_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage6);
+            if (theme)
+                ChangeTheme(tabControl1.Controls);
+            else ChangeThemeOrig(tabControl1.Controls);
             tabControl1.SelectedTab = tabPage6;
         }
 
@@ -591,6 +613,9 @@ namespace NotSteam
                         if (result == DialogResult.OK)
                         {
                             tabControl1.TabPages.Add(tabPage8);
+                            if (theme)
+                                ChangeTheme(tabControl1.Controls);
+                            else ChangeThemeOrig(tabControl1.Controls);
                             tabControl1.SelectedTab = tabPage8;
                         }
 
@@ -599,11 +624,6 @@ namespace NotSteam
             }
             else MessageBox.Show("You already own the game", "You cannot buy the game", MessageBoxButtons.OK);
             con.Close();
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
@@ -695,12 +715,17 @@ namespace NotSteam
         private void label25_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage8);
-            tabControl1.SelectedTab = tabPage8;
+            if (theme)
+                ChangeTheme(tabControl1.Controls);
+            else ChangeThemeOrig(tabControl1.Controls);
         }
 
         private void addGameToNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage3);
+            if (theme)
+                ChangeTheme(tabControl1.Controls);
+            else ChangeThemeOrig(tabControl1.Controls);
             tabControl1.SelectedTab = tabPage3;
         }
 
@@ -758,6 +783,21 @@ namespace NotSteam
             else
                 MessageBox.Show("Wrong password", "Wrong password", MessageBoxButtons.OK);
             con.Close();
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+            user user = new user();
+            user.id = userid;
+            user.money = money;
+            user.username = username;
+
+            Form mainform = new Store(user);
+            mainform.TopLevel = false;
+            mainform.AutoScroll = true;
+            panel2.Controls.Add(mainform);
+            mainform.FormBorderStyle = FormBorderStyle.None;
+            mainform.Show();
         }
     }
     class ListViewItemComparer : IComparer
