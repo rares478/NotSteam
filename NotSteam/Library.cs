@@ -13,13 +13,29 @@ namespace NotSteam
 {
     public partial class Library : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
-        public Library()
+        int userid;
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        public Library(user user)
         {
+            userid = user.id;
             InitializeComponent();
+            label1.Text = userid.ToString();
+            lbAfis.Items.Clear();
+            con.Open();
+            string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                lbAfis.Items.Add(reader.GetString(0));
+            }
+            con.Close();
+            lbAfis.SelectedIndex = 0;
         }
 
-        private void lbAfis_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbAfis_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string name = lbAfis.GetItemText(lbAfis.SelectedItem);
             int id = 0;
@@ -49,6 +65,5 @@ namespace NotSteam
             pbAfis.Image = imageList1.Images[id];
             con.Close();
         }
-    }
     }
 }
