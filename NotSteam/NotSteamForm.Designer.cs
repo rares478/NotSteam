@@ -33,6 +33,7 @@
             this.lbUsername = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -169,7 +170,8 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.toolStripmoney = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripProfile = new System.Windows.Forms.ToolStripTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -211,7 +213,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(765, 508);
+            this.tabControl1.Size = new System.Drawing.Size(765, 537);
             this.tabControl1.TabIndex = 13;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -223,10 +225,18 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(757, 482);
+            this.tabPage1.Size = new System.Drawing.Size(757, 511);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 58);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(751, 450);
+            this.panel2.TabIndex = 1;
             // 
             // panel1
             // 
@@ -249,6 +259,7 @@
             this.label29.Size = new System.Drawing.Size(91, 31);
             this.label29.TabIndex = 4;
             this.label29.Text = "Profile";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // label28
             // 
@@ -269,6 +280,7 @@
             this.label27.Size = new System.Drawing.Size(97, 31);
             this.label27.TabIndex = 2;
             this.label27.Text = "Library";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label19
             // 
@@ -279,6 +291,7 @@
             this.label19.Size = new System.Drawing.Size(79, 31);
             this.label19.TabIndex = 1;
             this.label19.Text = "Store";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // tabPage7
             // 
@@ -294,7 +307,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(757, 482);
+            this.tabPage7.Size = new System.Drawing.Size(757, 511);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Game";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -420,7 +433,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(757, 482);
+            this.tabPage2.Size = new System.Drawing.Size(757, 511);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Library";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -510,7 +523,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(757, 482);
+            this.tabPage3.Size = new System.Drawing.Size(757, 511);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add game";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -631,7 +644,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(757, 482);
+            this.tabPage4.Size = new System.Drawing.Size(757, 511);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -759,7 +772,7 @@
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(757, 482);
+            this.tabPage5.Size = new System.Drawing.Size(757, 511);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Profile";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -894,7 +907,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(757, 482);
+            this.tabPage6.Size = new System.Drawing.Size(757, 511);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Edit Profile";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -960,7 +973,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(757, 482);
+            this.tabPage8.Size = new System.Drawing.Size(757, 511);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Add Money";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -978,7 +991,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(326, 441);
+            this.button1.Location = new System.Drawing.Point(308, 423);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -1068,10 +1081,13 @@
             this.toolStripMenuItem2,
             this.friendsToolStripMenuItem,
             this.gamesToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.toolStripmoney,
+            this.toolStripProfile});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(790, 24);
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuStrip1.Size = new System.Drawing.Size(790, 27);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1091,7 +1107,7 @@
             this.toolStripSeparator14,
             this.addGameToNotSteamToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 23);
             this.toolStripMenuItem1.Text = "NotSteam";
             // 
             // changeAccountToolStripMenuItem
@@ -1186,7 +1202,7 @@
             this.toolStripSeparator13,
             this.settingsToolStripMenuItem1});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 20);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 23);
             this.toolStripMenuItem2.Text = "View";
             // 
             // libraryToolStripMenuItem
@@ -1302,7 +1318,7 @@
             this.invisibleToolStripMenuItem,
             this.offlineToolStripMenuItem});
             this.friendsToolStripMenuItem.Name = "friendsToolStripMenuItem";
-            this.friendsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.friendsToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
             this.friendsToolStripMenuItem.Text = "Friends";
             // 
             // viewFriendListToolStripMenuItem
@@ -1368,7 +1384,7 @@
             this.manageGiftsAndGuestPassesToolStripMenuItem,
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem});
             this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
-            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
             this.gamesToolStripMenuItem.Text = "Games";
             // 
             // viewGamesLibraryToolStripMenuItem
@@ -1419,7 +1435,7 @@
             this.systemInformationToolStripMenuItem,
             this.aboutNotSteamToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // notSteamSupportToolStripMenuItem
@@ -1469,20 +1485,31 @@
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
-            // panel2
+            // toolStripmoney
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 58);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(751, 421);
-            this.panel2.TabIndex = 1;
+            this.toolStripmoney.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripmoney.Name = "toolStripmoney";
+            this.toolStripmoney.Size = new System.Drawing.Size(50, 23);
+            this.toolStripmoney.Text = "xcer";
+            this.toolStripmoney.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolStripmoney.Click += new System.EventHandler(this.toolStripmoney_Click);
+            // 
+            // toolStripProfile
+            // 
+            this.toolStripProfile.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripProfile.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripProfile.Name = "toolStripProfile";
+            this.toolStripProfile.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripProfile.Size = new System.Drawing.Size(100, 23);
+            this.toolStripProfile.Text = "ceva";
+            this.toolStripProfile.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(790, 537);
+            this.ClientSize = new System.Drawing.Size(790, 576);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "NotSteamForm";
@@ -1658,5 +1685,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripTextBox toolStripmoney;
+        private System.Windows.Forms.ToolStripTextBox toolStripProfile;
     }
 }

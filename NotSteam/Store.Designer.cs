@@ -37,12 +37,24 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Screenshot (1).png");
+            this.imageList1.Images.SetKeyName(0, "Steam_service-Logo.wine.png");
+            this.imageList1.Images.SetKeyName(1, "gta 5.jpg");
+            this.imageList1.Images.SetKeyName(2, "bloons-td6-purple.jpg");
+            this.imageList1.Images.SetKeyName(3, "Dying_Light.jpg");
+            this.imageList1.Images.SetKeyName(4, "new world.jpg");
+            this.imageList1.Images.SetKeyName(5, "cs1.6.jpg");
+            this.imageList1.Images.SetKeyName(6, "pubg.jpg");
+            this.imageList1.Images.SetKeyName(7, "sims4.jpg");
+            this.imageList1.Images.SetKeyName(8, "csgo.png");
+            this.imageList1.Images.SetKeyName(9, "Farming simulator.jpg");
+            this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
+            this.imageList1.Images.SetKeyName(11, "unturned.jpg");
             // 
             // Store
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Store";
             this.Text = "Store";

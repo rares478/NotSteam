@@ -9,19 +9,19 @@ namespace NotSteam
 {
     public partial class NotSteamForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iovit\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
 
         int userid;
         bool removed;
-        string username;
         bool theme = false;
         int money;
         public NotSteamForm(user user)
         {
+
             InitializeComponent();
-            username = user.username;
-            money = user.money;
-            userid = user.id;
+            loggeduser.username = user.username;
+            loggeduser.money = user.money;
+            loggeduser.id = user.id;
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
 
@@ -30,7 +30,8 @@ namespace NotSteam
             tabControl1.TabPages.Remove(tabPage6);
             tabControl1.TabPages.Remove(tabPage7);
             tabControl1.TabPages.Remove(tabPage8);
-
+            toolStripmoney.Text = user.money.ToString();
+            toolStripProfile.Text = user.username.ToString();
 
             label6.Text = user.username;
             lbUsername.Text = user.username + "'s games";
@@ -59,6 +60,7 @@ namespace NotSteam
             con.Close();
 
         }
+
         int c = 0;
 
         private void Initialize()
@@ -297,7 +299,7 @@ namespace NotSteam
         {
             lbAfis.Items.Clear();
             con.Open();
-            string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+            string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + loggeduser.id + "";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
@@ -542,7 +544,7 @@ namespace NotSteam
             lvLibrary.Columns[2].Width = 120;
             lvLibrary.LabelEdit = true;
             con.Open();
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE [List of owned games].UserId = '" + userid + "'";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
@@ -785,19 +787,58 @@ namespace NotSteam
             con.Close();
         }
 
+        private Form activeform = null;
+
+        private void openform(Form form)
+        {
+            if (activeform != null)
+                activeform.Close();
+            activeform = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel2.Controls.Add(form);
+            panel2.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+
         private void label19_Click(object sender, EventArgs e)
         {
-            user user = new user();
-            user.id = userid;
-            user.money = money;
-            user.username = username;
+            Form mainform = new Store(loggeduser);
+            openform(mainform);
+            if (AddFunds.completed)
+            {
+                Controls.Clear();
+                InitializeComponent();
+                AddFunds.completed = false;
+            }
+        }
 
-            Form mainform = new Store(user);
-            mainform.TopLevel = false;
-            mainform.AutoScroll = true;
-            panel2.Controls.Add(mainform);
-            mainform.FormBorderStyle = FormBorderStyle.None;
-            mainform.Show();
+        private void label29_Click(object sender, EventArgs e)
+        {
+            Form profileform = new Profile(loggeduser);
+            openform(profileform);
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+            Form libraryform = new Library(loggeduser);
+            openform(libraryform);
+            if (AddFunds.completed)
+            {
+                Controls.Clear();
+                InitializeComponent();
+                AddFunds.completed = false;
+            }
+
+        }
+        static user loggeduser = new user();
+
+        private void toolStripmoney_Click(object sender, EventArgs e)
+        {
+            Form addfundform = new AddFunds(loggeduser);
+            openform(addfundform);
         }
     }
     class ListViewItemComparer : IComparer
