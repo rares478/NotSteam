@@ -159,13 +159,12 @@
             this.lbLibrary.Size = new System.Drawing.Size(61, 20);
             this.lbLibrary.TabIndex = 15;
             this.lbLibrary.Text = "Games";
-            this.lbLibrary.Click += new System.EventHandler(this.lbLibrary_Click);
             // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 580);
+            this.ClientSize = new System.Drawing.Size(811, 580);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);

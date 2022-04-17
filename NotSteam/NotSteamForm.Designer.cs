@@ -574,7 +574,6 @@
             this.btAddNew.TabIndex = 6;
             this.btAddNew.Text = "Add New Game";
             this.btAddNew.UseVisualStyleBackColor = true;
-            this.btAddNew.Click += new System.EventHandler(this.btAddNew_Click);
             // 
             // tbDev
             // 
@@ -997,7 +996,6 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Add Funds";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // textBox2
             // 
@@ -1488,6 +1486,7 @@
             // toolStripmoney
             // 
             this.toolStripmoney.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripmoney.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripmoney.Name = "toolStripmoney";
             this.toolStripmoney.Size = new System.Drawing.Size(50, 23);
             this.toolStripmoney.Text = "xcer";
