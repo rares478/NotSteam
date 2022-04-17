@@ -165,7 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAfis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            
         }
 
         #endregion

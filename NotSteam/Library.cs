@@ -18,7 +18,8 @@ namespace NotSteam
         public Library(user user)
         {
             userid = user.id;
-            InitializeComponent();
+            InitializeComponent()
+                ;
             label1.Text = userid.ToString();
             lbAfis.Items.Clear();
             con.Open();

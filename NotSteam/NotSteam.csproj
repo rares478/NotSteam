@@ -55,6 +55,12 @@
       <DependentUpon>AddFunds.cs</DependentUpon>
     </Compile>
     <Compile Include="Color.cs" />
+    <Compile Include="AddGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGame.Designer.cs">
+      <DependentUpon>AddGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Library.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="user.cs" />
     <EmbeddedResource Include="AddFunds.resx">
       <DependentUpon>AddFunds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGame.resx">
+      <DependentUpon>AddGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Library.resx">
       <DependentUpon>Library.cs</DependentUpon>

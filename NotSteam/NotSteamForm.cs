@@ -22,6 +22,7 @@ namespace NotSteam
             loggeduser.username = user.username;
             loggeduser.money = user.money;
             loggeduser.id = user.id;
+            loggeduser.admin = user.admin;
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
 
@@ -40,7 +41,7 @@ namespace NotSteam
 
             ///Initialize();
 
-            label19.Click += new System.EventHandler(label19_Click);
+            label19.Click += new EventHandler(label19_Click);
 
 
             con.Open();
@@ -55,105 +56,8 @@ namespace NotSteam
             tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
 
 
-            lvLibrary.ColumnClick += new ColumnClickEventHandler(ColumnClick);
-
             con.Close();
 
-        }
-
-        int c = 0;
-
-        private void Initialize()
-        {
-            tabPage1.Controls.Clear();
-            Label labelmain = new Label();
-            tabPage1.Controls.Add(labelmain);
-            labelmain.Location = new Point(249, 13);
-            labelmain.Font = new Font("Microsoft Sans Serif", 36);
-            labelmain.ImageAlign = ContentAlignment.TopCenter;
-            labelmain.Text = "Not Steam";
-            labelmain.Size = new Size(251, 55);
-
-            Label lbMoney = new Label();
-            tabPage1.Controls.Add((lbMoney));
-            lbMoney.Location = new Point(640, 16);
-            lbMoney.Size = new Size(41, 13);
-            lbMoney.Click += new EventHandler(label25_Click);
-            lbMoney.Text = money.ToString();
-            lbMoney.AutoSize = true;
-
-            Label lbName = new Label();
-            tabPage1.Controls.Add(lbName);
-            lbName.Location = new Point(674, 13);
-            lbName.Size = new Size(44, 16);
-            lbName.TextAlign = ContentAlignment.TopRight;
-            lbName.AutoSize = true;
-            lbName.Font = new Font("Microsoft Sans Serif", 10);
-            lbName.Text = label16.Text.ToString();
-
-
-
-
-            con.Open();
-            string idquery = "select Games.name from Games";
-            SqlCommand cmdid = new SqlCommand(idquery, con);
-            SqlDataReader reader = cmdid.ExecuteReader();
-            int z = 0;
-            int cz = 1;
-            int i = 0;
-            while (reader.Read())
-            {
-                string name = reader.GetString(0);
-                Label lbl = new Label();
-                Label lblMissing = new Label();
-                Label lbl2 = new Label();
-                PictureBox pictureBox = new PictureBox();
-                RichTextBox richTextBox = new RichTextBox();
-                tabPage1.Controls.Add(lbl);
-                tabPage1.Controls.Add(lblMissing);
-                tabPage1.Controls.Add(lbl2);
-                tabPage1.Controls.Add(pictureBox);
-                tabPage1.Controls.Add(richTextBox);
-                lbl.Location = new Point(303, 360 + (z * 260));
-                lblMissing.Location = new Point(95, 565 + (z * 260));
-                lbl2.Location = new Point(303, 400 + (z * 260));
-                richTextBox.Location = new Point(308, 175 + ((z + 1) * 260));
-                pictureBox.Location = new Point(6, 360 + (z * 260));
-                pictureBox.Size = new Size(256, 199);
-                richTextBox.Size = new Size(397, 126);
-                lblMissing.Text = "Missing image";
-                lblMissing.Visible = false;
-                lbl.Click += new EventHandler(lbl_click);
-                lbl.AutoSize = true;
-                lbl2.AutoSize = true;
-                lbl2.Text = developer(name);
-                lbl.Font = new Font("Microsoft Sans Serif", 16);
-                richTextBox.Text = description(name);
-                z++;
-                lbl.Text = name;
-                if (cz >= imageList1.Images.Count)
-                {
-                    cz = 0;
-                    pictureBox.Image = imageList1.Images[cz];
-                    lblMissing.Visible = true;
-
-                }
-                else
-                {
-                    pictureBox.Image = imageList1.Images[cz];
-                    cz++;
-                }
-                i++;
-            }
-            con.Close();
-        }
-
-        private void ColumnClick(object o, ColumnClickEventArgs e)
-        {
-            if (c == 1)
-                c = 0;
-            else c = 1;
-            lvLibrary.ListViewItemSorter = new ListViewItemComparer(e.Column, c);
         }
 
         private void lbl_click(object sender, EventArgs e)
@@ -312,60 +216,6 @@ namespace NotSteam
 
         }
 
-        private string description(string name)
-        {
-            string nimic = "";
-            string devquery = "select description from Games where name = '" + name + "'";
-            SqlCommand cmddev = new SqlCommand(devquery, con);
-            SqlDataReader readerdev = cmddev.ExecuteReader();
-            if (readerdev.Read())
-            {
-                return readerdev.GetString(0);
-            }
-            else return nimic;
-        }
-
-        private string developer(string name)
-        {
-            string devquery = "select developer from Games where name = '" + name + "'";
-            SqlCommand cmddev = new SqlCommand(devquery, con);
-            SqlDataReader readerdev = cmddev.ExecuteReader();
-            if (readerdev.Read())
-            {
-                return readerdev.GetString(0);
-            }
-            else return null;
-        }
-
-        private void btAddNew_Click(object sender, EventArgs e)
-        {
-            ///verific daca pretul din textbox contine doar numere
-            if (int.TryParse(tbPrice.Text, out int price))
-            {
-                ///daca nu am adaugat imagine imi zice sa adaug una
-                if (pbAdd.Image == null)
-                {
-                    MessageBox.Show("Please enter a picture", "Missing Picture", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    ///adaug jocul
-                    DateTime now = DateTime.Now;
-                    con.Open();
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Games(name,developer,date,description,price) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "', '" + price + "')";
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
-                    con.Close();
-                    Initialize();
-
-                }
-            }
-            else
-                MessageBox.Show("Price can only contain numbers", "Price error", MessageBoxButtons.OK);
-        }
 
         private void btPic_Click(object sender, EventArgs e)
         {
@@ -697,23 +547,6 @@ namespace NotSteam
             con.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            int money1 = Convert.ToInt32(cbMoney.SelectedItem);
-            if (cbTerms.Checked)
-            {
-                money = money + money1;
-                label17.Text = money.ToString();
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE Users SET money = '" + money + "' WHERE Id = '" + userid + "'";
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Initialize();
-            }
-        }
-
         private void label25_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Add(tabPage8);
@@ -724,11 +557,8 @@ namespace NotSteam
 
         private void addGameToNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Add(tabPage3);
-            if (theme)
-                ChangeTheme(tabControl1.Controls);
-            else ChangeThemeOrig(tabControl1.Controls);
-            tabControl1.SelectedTab = tabPage3;
+            Form add = new AddGame();
+            openform(add);
         }
 
         private void btChangePassword_Click(object sender, EventArgs e)
@@ -793,6 +623,52 @@ namespace NotSteam
         {
             if (activeform != null)
                 activeform.Close();
+            if (AddFunds.completed)
+            {
+                Controls.Clear();
+                InitializeComponent();
+                AddFunds.completed = false;
+
+                if (loggeduser.admin != 1)
+                    addGameToNotSteamToolStripMenuItem.Visible = false;
+
+                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.TabPages.Remove(tabPage4);
+                tabControl1.TabPages.Remove(tabPage6);
+                tabControl1.TabPages.Remove(tabPage7);
+                tabControl1.TabPages.Remove(tabPage8);
+                toolStripmoney.Text = loggeduser.money.ToString();
+                toolStripProfile.Text = loggeduser.username.ToString();
+
+                label6.Text = loggeduser.username;
+                lbUsername.Text = loggeduser.username + "'s games";
+                label16.Text = loggeduser.username;
+                label17.Text = money.ToString();
+
+                ///Initialize();
+
+                label19.Click += new EventHandler(label19_Click);
+
+
+                con.Open();
+
+                removed = true;
+
+                string cmmoney = "select money from Users where id = " + loggeduser.id + "";
+                SqlCommand cmdmoney = new SqlCommand(cmmoney, con);
+                toolStripmoney.Text = cmdmoney.ExecuteScalar().ToString();
+
+
+                string desc = "select description from Users where id = " + loggeduser.id + "";
+                SqlCommand cmddesc = new SqlCommand(desc, con);
+                tbDesc.Text = cmddesc.ExecuteScalar().ToString();
+                if (tbDesc.Text.Length == 0)
+                    tbDesc.Text = "Add a description";
+                tbChangeDesc.Text = cmddesc.ExecuteScalar().ToString();
+
+
+                con.Close();
+            }
             activeform = form;
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
@@ -825,12 +701,6 @@ namespace NotSteam
         {
             Form libraryform = new Library(loggeduser);
             openform(libraryform);
-            if (AddFunds.completed)
-            {
-                Controls.Clear();
-                InitializeComponent();
-                AddFunds.completed = false;
-            }
 
         }
         static user loggeduser = new user();
@@ -841,33 +711,42 @@ namespace NotSteam
             openform(addfundform);
         }
     }
-    class ListViewItemComparer : IComparer
+    class ListViewItemComparerUp : IComparer
     {
         private int col;
-        private int order;
-        public ListViewItemComparer(int column, int c)
+        public ListViewItemComparerUp(int column)
+
         {
             col = column;
-            order = c;
         }
         public int Compare(object x, object y)
         {
-            if (order == 1)
-            {
+            
                 if (col == 2)
                 {
                     return DateTime.Compare(Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text), Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text));
                 }
                 return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
-            }
-            else
+  
+        }
+    }
+    class ListViewItemComparerDown : IComparer
+    {
+        private int col;
+        public ListViewItemComparerDown(int column)
+
+        {
+            col = column;
+        }
+        public int Compare(object x, object y)
+        {
+
+            if (col == 2)
             {
-                if (col == 2)
-                {
-                    return DateTime.Compare(Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text), Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text));
-                }
-                return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
+                return DateTime.Compare(Convert.ToDateTime(((ListViewItem)y).SubItems[col].Text), Convert.ToDateTime(((ListViewItem)x).SubItems[col].Text));
             }
+            return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
+
         }
     }
 }

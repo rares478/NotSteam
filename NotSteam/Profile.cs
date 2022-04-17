@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,8 +16,42 @@ namespace NotSteam
             InitializeComponent();
             userid = user.id;
             username = user.username;
+            lvLibrary.ColumnClick += new ColumnClickEventHandler(ColumnClick);
 
-            initialize();
+            ///initialize();
+            ///
+            lvLibrary.Clear();
+            lvLibrary.Visible = true;
+            lvLibrary.View = View.Details;
+            lvLibrary.AllowColumnReorder = true;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+            lvLibrary.Columns[0].Width = 0;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[1].Text = "Game";
+            lvLibrary.Columns[1].Width = 100;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[2].Text = "Date bought";
+            lvLibrary.Columns[2].Width = 120;
+            lvLibrary.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            lvLibrary.LabelEdit = true;
+
+            con.Open();
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE [List of owned games].UserId = '" + userid + "'";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ListViewItem lvgame = new ListViewItem();
+                lvgame.SubItems.Add(reader.GetString(0));
+                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                lvgame.SubItems.Add(dateValue1);
+                lvLibrary.Items.Add(lvgame);
+            }
+            con.Close();
+
         }
 
         string changename;
@@ -139,18 +172,18 @@ namespace NotSteam
             label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label6.Location = new Point(43, 75);
             label6.Name = "label6";
-            label6.Size = new Size(70, 25);
+            label6.Size = new Size(70, 25);///38, 229
             label6.TabIndex = 12;
             label6.Text = "label6";
 
-            ListView lvLibrary = new ListView();
+            /*ListView lvLibrary = new ListView();
             Controls.Add(lvLibrary);
             lvLibrary.HideSelection = false;
             lvLibrary.Location = new Point(38, 229);
             lvLibrary.Name = "lvLibrary";
-            lvLibrary.Size = new Size(264, 280);
-            lvLibrary.TabIndex = 13;
-            lvLibrary.UseCompatibleStateImageBehavior = false;
+            lvLibrary.Size = new Size(264, 254);
+            lvLibrary.TabIndex = 11;
+            lvLibrary.UseCompatibleStateImageBehavior = false;*/
 
             Button btEdit = new Button();
             Controls.Add(btEdit);
@@ -242,7 +275,6 @@ namespace NotSteam
             lbLibrary.Size = new Size(61, 20);
             lbLibrary.TabIndex = 15;
             lbLibrary.Text = "Games";
-            lbLibrary.Click += new EventHandler(lbLibrary_Click);
 
             con.Open();
             string desc = "select description from Users where id = " + userid + "";
@@ -252,12 +284,9 @@ namespace NotSteam
                 tbDesc.Text = "Add a description";
             label6.Text = username;
             con.Close();
-        }
 
-        int c = 0;
 
-        private void lbLibrary_Click(object sender, EventArgs e)
-        {
+
             lvLibrary.Clear();
             lvLibrary.Visible = true;
             lvLibrary.View = View.Details;
@@ -276,7 +305,7 @@ namespace NotSteam
 
             con.Open();
             string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE [List of owned games].UserId = '" + userid + "'";
-            
+
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -289,13 +318,59 @@ namespace NotSteam
                 lvLibrary.Items.Add(lvgame);
             }
             con.Close();
+
+
         }
+
+
+
+        private void lbLibrary_Click(object sender, EventArgs e)
+        {
+            lvLibrary.Clear();
+            lvLibrary.Visible = true;
+            lvLibrary.View = View.Details;
+            lvLibrary.AllowColumnReorder = true;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+            lvLibrary.Columns[0].Width = 0;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[1].Text = "Game";
+            lvLibrary.Columns[1].Width = 100;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[2].Text = "Date bought";
+            lvLibrary.Columns[2].Width = 120;
+            lvLibrary.LabelEdit = true;
+            con.Open();
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE [List of owned games].UserId = '" + userid + "'";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ListViewItem lvgame = new ListViewItem();
+                lvgame.SubItems.Add(reader.GetString(0));
+                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                lvgame.SubItems.Add(dateValue1);
+                lvLibrary.Items.Add(lvgame);
+            }
+            con.Close();
+
+        }
+        public int c = 0;
+
         private void ColumnClick(object o, ColumnClickEventArgs e)
         {
             if (c == 1)
+            {
                 c = 0;
-            else c = 1;
-            lvLibrary.ListViewItemSorter = new ListViewItemComparer(e.Column, c);
+                lvLibrary.ListViewItemSorter = new ListViewItemComparerDown(e.Column);
+            }
+            else
+            {
+                c = 1;
+                lvLibrary.ListViewItemSorter = new ListViewItemComparerUp(e.Column);
+            }
         }
     }
 }
