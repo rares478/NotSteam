@@ -14,13 +14,15 @@ namespace NotSteam
     public partial class Library : Form
     {
         int userid;
+        string username;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         public Library(user user)
         {
             userid = user.id;
-            InitializeComponent()
-                ;
-            label1.Text = userid.ToString();
+            username = user.username;
+             InitializeComponent();
+
+            label1.Text = user.username + "'s games";
             lbAfis.Items.Clear();
             con.Open();
             string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";

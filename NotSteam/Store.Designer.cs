@@ -38,17 +38,19 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Steam_service-Logo.wine.png");
-            this.imageList1.Images.SetKeyName(1, "gta 5.jpg");
-            this.imageList1.Images.SetKeyName(2, "bloons-td6-purple.jpg");
-            this.imageList1.Images.SetKeyName(3, "Dying_Light.jpg");
-            this.imageList1.Images.SetKeyName(4, "new world.jpg");
-            this.imageList1.Images.SetKeyName(5, "cs1.6.jpg");
-            this.imageList1.Images.SetKeyName(6, "pubg.jpg");
-            this.imageList1.Images.SetKeyName(7, "sims4.jpg");
-            this.imageList1.Images.SetKeyName(8, "csgo.png");
-            this.imageList1.Images.SetKeyName(9, "Farming simulator.jpg");
-            this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
-            this.imageList1.Images.SetKeyName(11, "unturned.jpg");
+            this.imageList1.Images.SetKeyName(1, "back-arrow-icon-image-free-download-searchpng-arrow-gray-world-of-warcraft-transp" +
+        "arent-png-530549_ccexpress.png");
+            this.imageList1.Images.SetKeyName(2, "gta 5.jpg");
+            this.imageList1.Images.SetKeyName(3, "bloons-td6-purple.jpg");
+            this.imageList1.Images.SetKeyName(4, "Dying_Light.jpg");
+            this.imageList1.Images.SetKeyName(5, "new world.jpg");
+            this.imageList1.Images.SetKeyName(6, "cs1.6.jpg");
+            this.imageList1.Images.SetKeyName(7, "pubg.jpg");
+            this.imageList1.Images.SetKeyName(8, "sims4.jpg");
+            this.imageList1.Images.SetKeyName(9, "csgo.png");
+            this.imageList1.Images.SetKeyName(10, "Farming simulator.jpg");
+            this.imageList1.Images.SetKeyName(11, "who\'s your daddy.jpg");
+            this.imageList1.Images.SetKeyName(12, "unturned.jpg");
             // 
             // Store
             // 

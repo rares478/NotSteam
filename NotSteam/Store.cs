@@ -11,7 +11,6 @@ namespace NotSteam
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         int money;
-        string username;
         int userid;
         bool theme = false;
 
@@ -20,7 +19,6 @@ namespace NotSteam
 
             InitializeComponent();
             userid = user.id;
-            username = user.username;
             money = user.money;
             initialize();
         }
@@ -33,16 +31,11 @@ namespace NotSteam
             labelmain.Font = new Font("Microsoft Sans Serif", 36);
             labelmain.ImageAlign = ContentAlignment.TopCenter;
             labelmain.Text = "Not Steam";
+            labelmain.ForeColor = SystemColors.ActiveCaption;
             labelmain.Size = new Size(251, 55);
 
-            Label lbName = new Label();
-            Controls.Add(lbName);
-            lbName.Location = new Point(674, 13);
-            lbName.Size = new Size(44, 16);
-            lbName.TextAlign = ContentAlignment.TopRight;
-            lbName.AutoSize = true;
-            lbName.Font = new Font("Microsoft Sans Serif", 10);
-            lbName.Text = username;
+            BackColor = SystemColors.ActiveCaptionText;
+
 
             con.Open();
             string idquery = "select Games.name from Games";
@@ -59,12 +52,20 @@ namespace NotSteam
                 Label lbl2 = new Label();
                 PictureBox pictureBox = new PictureBox();
                 RichTextBox richTextBox = new RichTextBox();
+                
+                lbl.ForeColor = SystemColors.ActiveCaption;
+                lblMissing.ForeColor = SystemColors.ActiveCaption;
+                lbl2.ForeColor = SystemColors.ActiveCaption;
+                richTextBox.BackColor = SystemColors.ActiveCaptionText;
+                richTextBox.ForeColor = SystemColors.ActiveCaption;
+                richTextBox.BorderStyle = BorderStyle.None;
 
                 Controls.Add(lbl);
                 Controls.Add(lblMissing);
                 Controls.Add(lbl2);
                 Controls.Add(pictureBox);
                 Controls.Add(richTextBox);
+
                 lbl.Location = new Point(303, 360 + (z * 260));
                 lblMissing.Location = new Point(95, 565 + (z * 260));
                 lbl2.Location = new Point(303, 400 + (z * 260));
@@ -72,6 +73,7 @@ namespace NotSteam
                 pictureBox.Location = new Point(6, 360 + (z * 260));
                 pictureBox.Size = new Size(256, 199);
                 richTextBox.Size = new Size(397, 126);
+
                 lblMissing.Text = "Missing image";
                 lblMissing.Visible = false;
                 lbl.Click += new EventHandler(lbl_click);
@@ -82,7 +84,7 @@ namespace NotSteam
                 richTextBox.Text = description(name);
                 z++;
                 lbl.Text = name;
-                if (cz >= imageList1.Images.Count)
+                if (cz+1 >= imageList1.Images.Count)
                 {
                     cz = 0;
                     pictureBox.Image = imageList1.Images[cz];
@@ -91,7 +93,7 @@ namespace NotSteam
                 }
                 else
                 {
-                    pictureBox.Image = imageList1.Images[cz];
+                    pictureBox.Image = imageList1.Images[cz+1];
                     cz++;
                 }
                 i++;
@@ -99,9 +101,22 @@ namespace NotSteam
             con.Close();
         }
 
+        private void GoBack(object sender, EventArgs e)
+        {
+            initialize();
+        }
+
         private void switchtogame(string name)
         {
             Controls.Clear();
+
+            PictureBox pbBack = new PictureBox();
+            Controls.Add(pbBack);
+            pbBack.Location = new Point(12, 12);
+            pbBack.SizeMode = PictureBoxSizeMode.Zoom;
+            pbBack.Image = imageList1.Images[1];
+            pbBack.Size = new Size(29, 24);
+            pbBack.Click += new EventHandler(GoBack);
 
             Label lbNameGame = new Label();
             Controls.Add(lbNameGame);
@@ -173,14 +188,7 @@ namespace NotSteam
             lbMissingGame.Text = "Missing Image";
             lbMissingGame.Visible = false;
 
-            Label label16 = new Label();
-            Controls.Add(label16);
-            label16.AutoSize = true;
-            label16.Location = new Point(680, 9);
-            label16.Name = "label16";
-            label16.Size = new Size(41, 13);
-            label16.TabIndex = 20;
-            label16.Text = "label16";
+
 
             TableLayoutPanel tableLayoutPanel1 = new TableLayoutPanel();
             Controls.Add(tableLayoutPanel1);
@@ -200,7 +208,7 @@ namespace NotSteam
 
             lbNameGame.Text = name;
             con.Open();
-            label16.Text = username;
+
 
             int id;
             string idquery = "select Id,developer,date,description,price from Games where name = '" + name + "'";
@@ -219,14 +227,14 @@ namespace NotSteam
             reader.Close();
 
             con.Close();
-            if (id >= imageList1.Images.Count)
+            if (id+1 >= imageList1.Images.Count)
             {
                 id = 0; lbMissingGame.Visible = true;
 
             }
             else
                 lbMissingGame.Visible = false;
-            pbGame.Image = imageList1.Images[id];
+            pbGame.Image = imageList1.Images[id+1];
             lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
             con.Close();
 
