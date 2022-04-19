@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Library));
-            this.lbUsername = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbDateBought = new System.Windows.Forms.Label();
             this.lbLastPlayed = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lbAfis = new System.Windows.Forms.ListBox();
             this.pbAfis = new System.Windows.Forms.PictureBox();
@@ -43,15 +42,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAfis)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbUsername
+            // label1
             // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.lbUsername.Location = new System.Drawing.Point(33, 61);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(86, 31);
-            this.lbUsername.TabIndex = 1;
-            this.lbUsername.Text = "label1";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.label1.Location = new System.Drawing.Point(12, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -91,15 +90,6 @@
             this.lbLastPlayed.TabIndex = 7;
             this.lbLastPlayed.Text = "label5";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(753, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -119,6 +109,8 @@
             // 
             // lbAfis
             // 
+            this.lbAfis.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbAfis.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbAfis.FormattingEnabled = true;
             this.lbAfis.Location = new System.Drawing.Point(12, 95);
             this.lbAfis.Name = "lbAfis";
@@ -138,43 +130,46 @@
             // 
             // btPlay
             // 
+            this.btPlay.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btPlay.FlatAppearance.BorderSize = 0;
+            this.btPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPlay.Location = new System.Drawing.Point(244, 248);
             this.btPlay.Name = "btPlay";
             this.btPlay.Size = new System.Drawing.Size(93, 30);
             this.btPlay.TabIndex = 11;
             this.btPlay.Text = "Play";
-            this.btPlay.UseVisualStyleBackColor = true;
+            this.btPlay.UseVisualStyleBackColor = false;
             // 
             // Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 507);
             this.Controls.Add(this.btPlay);
             this.Controls.Add(this.pbAfis);
             this.Controls.Add(this.lbAfis);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbLastPlayed);
             this.Controls.Add(this.lbDateBought);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbUsername);
+            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "Library";
             this.Text = "Library";
             ((System.ComponentModel.ISupportInitialize)(this.pbAfis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-            
+
         }
 
         #endregion
-        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbDateBought;
         private System.Windows.Forms.Label lbLastPlayed;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ListBox lbAfis;
         private System.Windows.Forms.PictureBox pbAfis;
