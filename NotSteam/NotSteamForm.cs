@@ -191,9 +191,11 @@ namespace NotSteam
         {
             if (activeform != null)
             { 
+                formerform.Close();
                 formerform = activeform;
-                activeform.Close();
+
             }
+                
 
             if (AddFunds.completed)
             {
@@ -248,6 +250,11 @@ namespace NotSteam
         {
             Form profileform = new Profile(loggeduser);
             openform(profileform);
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            openform(formerform);
         }
     }
 }
