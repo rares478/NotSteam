@@ -57,63 +57,65 @@ namespace NotSteam
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goOffnileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new NotSteam.ExtendedToolStripSeparator();
             this.checkForNotSteamClientUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new NotSteam.ExtendedToolStripSeparator();
             this.backupAndRestoreGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new NotSteam.ExtendedToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripSeparator7 = new NotSteam.ExtendedToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator14 = new NotSteam.ExtendedToolStripSeparator();
             this.addGameToNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hiddenGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator10 = new NotSteam.ExtendedToolStripSeparator();
             this.smallModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bigPictureModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator11 = new NotSteam.ExtendedToolStripSeparator();
             this.musicPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator12 = new NotSteam.ExtendedToolStripSeparator();
             this.friendsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screenshotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateNewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator13 = new NotSteam.ExtendedToolStripSeparator();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.friendsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewFriendListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new NotSteam.ExtendedToolStripSeparator();
             this.addAFriendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editProfileNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new NotSteam.ExtendedToolStripSeparator();
             this.onlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.awayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invisibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewGamesLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new NotSteam.ExtendedToolStripSeparator();
             this.activateAProductOnNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redeemANotSteamWalletCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGiftsAndGuestPassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notSteamSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator8 = new NotSteam.ExtendedToolStripSeparator();
             this.privacyPolicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notSteamSubscriberAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.notSteamSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new NotSteam.ExtendedToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripmoney = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripProfile = new System.Windows.Forms.ToolStripTextBox();
+            this.notSteamSubscriberAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbForward = new System.Windows.Forms.PictureBox();
+            this.pbBack = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -121,6 +123,8 @@ namespace NotSteam
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbForward)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -160,6 +164,19 @@ namespace NotSteam
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeAccountToolStripMenuItem,
+            this.goOffnileToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.checkForNotSteamClientUpdatesToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.backupAndRestoreGamesToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.settingsToolStripMenuItem,
+            this.ToolStripSeparator7,
+            this.exitToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.addGameToNotSteamToolStripMenuItem});
             this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 23);
@@ -173,7 +190,6 @@ namespace NotSteam
             this.changeAccountToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.changeAccountToolStripMenuItem.Text = "Change Account";
             this.changeAccountToolStripMenuItem.Click += new System.EventHandler(this.changeAccountToolStripMenuItem_Click);
-            this.toolStripMenuItem1.DropDownItems.Add(changeAccountToolStripMenuItem);
             // 
             // goOffnileToolStripMenuItem
             // 
@@ -182,14 +198,11 @@ namespace NotSteam
             this.goOffnileToolStripMenuItem.Name = "goOffnileToolStripMenuItem";
             this.goOffnileToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.goOffnileToolStripMenuItem.Text = "Go Offline";
-            this.toolStripMenuItem1.DropDownItems.Add(goOffnileToolStripMenuItem);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            ToolStripSeparator toolStripSeparator4 = new ExtendedToolStripSeparator();
             this.toolStripSeparator4.Size = new System.Drawing.Size(258, 6);
-            this.toolStripMenuItem1.DropDownItems.Add(toolStripSeparator4);
             // 
             // checkForNotSteamClientUpdatesToolStripMenuItem
             // 
@@ -198,14 +211,11 @@ namespace NotSteam
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Name = "checkForNotSteamClientUpdatesToolStripMenuItem";
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Text = "Check for NotSteam Client Updates";
-            this.toolStripMenuItem1.DropDownItems.Add(checkForNotSteamClientUpdatesToolStripMenuItem);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            ToolStripSeparator toolStripSeparator5 = new ExtendedToolStripSeparator();
             this.toolStripSeparator5.Size = new System.Drawing.Size(258, 6);
-            this.toolStripMenuItem1.DropDownItems.Add(toolStripSeparator5);
             // 
             // backupAndRestoreGamesToolStripMenuItem
             // 
@@ -214,14 +224,11 @@ namespace NotSteam
             this.backupAndRestoreGamesToolStripMenuItem.Name = "backupAndRestoreGamesToolStripMenuItem";
             this.backupAndRestoreGamesToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.backupAndRestoreGamesToolStripMenuItem.Text = "Backup and Restore Games";
-            this.toolStripMenuItem1.DropDownItems.Add(backupAndRestoreGamesToolStripMenuItem);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            ToolStripSeparator toolStripSeparator6 = new ExtendedToolStripSeparator();
             this.toolStripSeparator6.Size = new System.Drawing.Size(258, 6);
-            this.toolStripMenuItem1.DropDownItems.Add(toolStripSeparator6);
             // 
             // settingsToolStripMenuItem
             // 
@@ -231,14 +238,11 @@ namespace NotSteam
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            this.toolStripMenuItem1.DropDownItems.Add(settingsToolStripMenuItem);
             // 
-            // toolStripSeparator7
+            // ToolStripSeparator7
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            ToolStripSeparator ToolStripSeparator7 = new ExtendedToolStripSeparator();
-            this.toolStripSeparator7.Size = new System.Drawing.Size(258, 6);
-            this.toolStripMenuItem1.DropDownItems.Add(ToolStripSeparator7);
+            this.ToolStripSeparator7.Name = "ToolStripSeparator7";
+            this.ToolStripSeparator7.Size = new System.Drawing.Size(258, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -248,14 +252,11 @@ namespace NotSteam
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            this.toolStripMenuItem1.DropDownItems.Add(exitToolStripMenuItem);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            ToolStripSeparator toolStripSeparator14 = new ExtendedToolStripSeparator();
             this.toolStripSeparator14.Size = new System.Drawing.Size(258, 6);
-            this.toolStripMenuItem1.DropDownItems.Add(toolStripSeparator14);
             // 
             // addGameToNotSteamToolStripMenuItem
             // 
@@ -265,16 +266,27 @@ namespace NotSteam
             this.addGameToNotSteamToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.addGameToNotSteamToolStripMenuItem.Text = "Add game to NotSteam";
             this.addGameToNotSteamToolStripMenuItem.Click += new System.EventHandler(this.addGameToNotSteamToolStripMenuItem_Click);
-            this.toolStripMenuItem1.DropDownItems.Add(addGameToNotSteamToolStripMenuItem);
-
-
-
-
-
-
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.libraryToolStripMenuItem,
+            this.hiddenGamesToolStripMenuItem,
+            this.downloadsToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.smallModeToolStripMenuItem,
+            this.bigPictureModeToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.musicPlayerToolStripMenuItem,
+            this.toolStripSeparator12,
+            this.friendsToolStripMenuItem1,
+            this.playersToolStripMenuItem,
+            this.serversToolStripMenuItem,
+            this.screenshotsToolStripMenuItem,
+            this.inventoryToolStripMenuItem,
+            this.updateNewsToolStripMenuItem,
+            this.toolStripSeparator13,
+            this.settingsToolStripMenuItem1});
             this.toolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 23);
@@ -288,7 +300,6 @@ namespace NotSteam
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.libraryToolStripMenuItem.Text = "Library";
             this.libraryToolStripMenuItem.Click += new System.EventHandler(this.libraryToolStripMenuItem_Click);
-            this.toolStripMenuItem2.DropDownItems.Add(libraryToolStripMenuItem);
             // 
             // hiddenGamesToolStripMenuItem
             // 
@@ -297,7 +308,6 @@ namespace NotSteam
             this.hiddenGamesToolStripMenuItem.Name = "hiddenGamesToolStripMenuItem";
             this.hiddenGamesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hiddenGamesToolStripMenuItem.Text = "Hidden Games";
-            this.toolStripMenuItem2.DropDownItems.Add(hiddenGamesToolStripMenuItem);
             // 
             // downloadsToolStripMenuItem
             // 
@@ -306,14 +316,11 @@ namespace NotSteam
             this.downloadsToolStripMenuItem.Name = "downloadsToolStripMenuItem";
             this.downloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.downloadsToolStripMenuItem.Text = "Downloads";
-            this.toolStripMenuItem2.DropDownItems.Add(downloadsToolStripMenuItem);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            ToolStripSeparator toolStripSeparator10 = new ExtendedToolStripSeparator();
             this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
-            this.toolStripMenuItem2.DropDownItems.Add(toolStripSeparator10);
             // 
             // smallModeToolStripMenuItem
             // 
@@ -322,7 +329,6 @@ namespace NotSteam
             this.smallModeToolStripMenuItem.Name = "smallModeToolStripMenuItem";
             this.smallModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smallModeToolStripMenuItem.Text = "Small Mode";
-            this.toolStripMenuItem2.DropDownItems.Add(smallModeToolStripMenuItem);
             // 
             // bigPictureModeToolStripMenuItem
             // 
@@ -331,14 +337,11 @@ namespace NotSteam
             this.bigPictureModeToolStripMenuItem.Name = "bigPictureModeToolStripMenuItem";
             this.bigPictureModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bigPictureModeToolStripMenuItem.Text = "Big Picture Mode";
-            this.toolStripMenuItem2.DropDownItems.Add(bigPictureModeToolStripMenuItem);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            ToolStripSeparator toolStripSeparator11 = new ExtendedToolStripSeparator();
             this.toolStripSeparator11.Size = new System.Drawing.Size(177, 6);
-            this.toolStripMenuItem2.DropDownItems.Add(toolStripSeparator11);
             // 
             // musicPlayerToolStripMenuItem
             // 
@@ -347,14 +350,11 @@ namespace NotSteam
             this.musicPlayerToolStripMenuItem.Name = "musicPlayerToolStripMenuItem";
             this.musicPlayerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.musicPlayerToolStripMenuItem.Text = "Music Player";
-            this.toolStripMenuItem2.DropDownItems.Add(musicPlayerToolStripMenuItem);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            ToolStripSeparator toolStripSeparator12 = new ExtendedToolStripSeparator();
             this.toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
-            this.toolStripMenuItem2.DropDownItems.Add(toolStripSeparator12);
             // 
             // friendsToolStripMenuItem1
             // 
@@ -363,7 +363,6 @@ namespace NotSteam
             this.friendsToolStripMenuItem1.Name = "friendsToolStripMenuItem1";
             this.friendsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.friendsToolStripMenuItem1.Text = "Friends";
-            this.toolStripMenuItem2.DropDownItems.Add(friendsToolStripMenuItem1);
             // 
             // playersToolStripMenuItem
             // 
@@ -372,7 +371,6 @@ namespace NotSteam
             this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
             this.playersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.playersToolStripMenuItem.Text = "Players";
-            this.toolStripMenuItem2.DropDownItems.Add(playersToolStripMenuItem);
             // 
             // serversToolStripMenuItem
             // 
@@ -381,7 +379,6 @@ namespace NotSteam
             this.serversToolStripMenuItem.Name = "serversToolStripMenuItem";
             this.serversToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serversToolStripMenuItem.Text = "Servers";
-            this.toolStripMenuItem2.DropDownItems.Add(serversToolStripMenuItem);
             // 
             // screenshotsToolStripMenuItem
             // 
@@ -390,7 +387,6 @@ namespace NotSteam
             this.screenshotsToolStripMenuItem.Name = "screenshotsToolStripMenuItem";
             this.screenshotsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.screenshotsToolStripMenuItem.Text = "Screenshots";
-            this.toolStripMenuItem2.DropDownItems.Add(screenshotsToolStripMenuItem);
             // 
             // inventoryToolStripMenuItem
             // 
@@ -399,7 +395,6 @@ namespace NotSteam
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inventoryToolStripMenuItem.Text = "Inventory";
-            this.toolStripMenuItem2.DropDownItems.Add(inventoryToolStripMenuItem);
             // 
             // updateNewsToolStripMenuItem
             // 
@@ -408,14 +403,11 @@ namespace NotSteam
             this.updateNewsToolStripMenuItem.Name = "updateNewsToolStripMenuItem";
             this.updateNewsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateNewsToolStripMenuItem.Text = "Update news";
-            this.toolStripMenuItem2.DropDownItems.Add(updateNewsToolStripMenuItem);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            ToolStripSeparator toolStripSeparator13 = new ExtendedToolStripSeparator();
             this.toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
-            this.toolStripMenuItem2.DropDownItems.Add(toolStripSeparator13);
             // 
             // settingsToolStripMenuItem1
             // 
@@ -425,15 +417,19 @@ namespace NotSteam
             this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem1.Text = "Settings";
             this.settingsToolStripMenuItem1.Click += new System.EventHandler(this.settingsToolStripMenuItem1_Click);
-            this.toolStripMenuItem2.DropDownItems.Add(settingsToolStripMenuItem1);
-
-
-
-
-
             // 
             // friendsToolStripMenuItem
             // 
+            this.friendsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewFriendListToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.addAFriendToolStripMenuItem,
+            this.editProfileNameToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.onlineToolStripMenuItem,
+            this.awayToolStripMenuItem,
+            this.invisibleToolStripMenuItem,
+            this.offlineToolStripMenuItem});
             this.friendsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.friendsToolStripMenuItem.Name = "friendsToolStripMenuItem";
             this.friendsToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
@@ -444,85 +440,77 @@ namespace NotSteam
             this.viewFriendListToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.viewFriendListToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.viewFriendListToolStripMenuItem.Name = "viewFriendListToolStripMenuItem";
-            this.viewFriendListToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.viewFriendListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewFriendListToolStripMenuItem.Text = "View Friend List";
-            this.friendsToolStripMenuItem.DropDownItems.Add(viewFriendListToolStripMenuItem);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            ToolStripSeparator toolStripSeparator1 = new ExtendedToolStripSeparator();
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
-            this.friendsToolStripMenuItem.DropDownItems.Add(toolStripSeparator1);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // addAFriendToolStripMenuItem
             // 
             this.addAFriendToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.addAFriendToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.addAFriendToolStripMenuItem.Name = "addAFriendToolStripMenuItem";
-            this.addAFriendToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addAFriendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addAFriendToolStripMenuItem.Text = "Add a Friend";
-            this.friendsToolStripMenuItem.DropDownItems.Add(addAFriendToolStripMenuItem);
             // 
             // editProfileNameToolStripMenuItem
             // 
             this.editProfileNameToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.editProfileNameToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.editProfileNameToolStripMenuItem.Name = "editProfileNameToolStripMenuItem";
-            this.editProfileNameToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.editProfileNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editProfileNameToolStripMenuItem.Text = "Edit Profile Name";
             this.editProfileNameToolStripMenuItem.Click += new System.EventHandler(this.editProfileNameToolStripMenuItem_Click);
-            this.friendsToolStripMenuItem.DropDownItems.Add(editProfileNameToolStripMenuItem);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            ToolStripSeparator toolStripSeparator2 = new ExtendedToolStripSeparator();
-            this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
-            this.friendsToolStripMenuItem.DropDownItems.Add(toolStripSeparator2);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // onlineToolStripMenuItem
             // 
             this.onlineToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.onlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.onlineToolStripMenuItem.Name = "onlineToolStripMenuItem";
-            this.onlineToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.onlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.onlineToolStripMenuItem.Text = "Online";
-            this.friendsToolStripMenuItem.DropDownItems.Add(onlineToolStripMenuItem);
             // 
             // awayToolStripMenuItem
             // 
             this.awayToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.awayToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.awayToolStripMenuItem.Name = "awayToolStripMenuItem";
-            this.awayToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.awayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.awayToolStripMenuItem.Text = "Away";
-            this.friendsToolStripMenuItem.DropDownItems.Add(awayToolStripMenuItem);
             // 
             // invisibleToolStripMenuItem
             // 
             this.invisibleToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.invisibleToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.invisibleToolStripMenuItem.Name = "invisibleToolStripMenuItem";
-            this.invisibleToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.invisibleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.invisibleToolStripMenuItem.Text = "Invisible";
-            this.friendsToolStripMenuItem.DropDownItems.Add(invisibleToolStripMenuItem);
             // 
             // offlineToolStripMenuItem
             // 
             this.offlineToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.offlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.offlineToolStripMenuItem.Name = "offlineToolStripMenuItem";
-            this.offlineToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.offlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.offlineToolStripMenuItem.Text = "Offline";
-            this.friendsToolStripMenuItem.DropDownItems.Add(offlineToolStripMenuItem);
-
-
-
-
             // 
             // gamesToolStripMenuItem
             // 
+            this.gamesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewGamesLibraryToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.activateAProductOnNotSteamToolStripMenuItem,
+            this.redeemANotSteamWalletCodeToolStripMenuItem,
+            this.manageGiftsAndGuestPassesToolStripMenuItem,
+            this.addANonNotSteamGameToMyLibraryToolStripMenuItem});
             this.gamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
             this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
@@ -536,14 +524,11 @@ namespace NotSteam
             this.viewGamesLibraryToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.viewGamesLibraryToolStripMenuItem.Text = "View Games Library";
             this.viewGamesLibraryToolStripMenuItem.Click += new System.EventHandler(this.viewGamesLibraryToolStripMenuItem_Click);
-            this.gamesToolStripMenuItem.DropDownItems.Add(viewGamesLibraryToolStripMenuItem);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            ToolStripSeparator toolStripSeparator3 = new ExtendedToolStripSeparator();
             this.toolStripSeparator3.Size = new System.Drawing.Size(293, 6);
-            this.gamesToolStripMenuItem.DropDownItems.Add(toolStripSeparator3);
             // 
             // activateAProductOnNotSteamToolStripMenuItem
             // 
@@ -552,7 +537,6 @@ namespace NotSteam
             this.activateAProductOnNotSteamToolStripMenuItem.Name = "activateAProductOnNotSteamToolStripMenuItem";
             this.activateAProductOnNotSteamToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.activateAProductOnNotSteamToolStripMenuItem.Text = "Activate a Product on NotSteam";
-            this.gamesToolStripMenuItem.DropDownItems.Add(activateAProductOnNotSteamToolStripMenuItem);
             // 
             // redeemANotSteamWalletCodeToolStripMenuItem
             // 
@@ -561,7 +545,6 @@ namespace NotSteam
             this.redeemANotSteamWalletCodeToolStripMenuItem.Name = "redeemANotSteamWalletCodeToolStripMenuItem";
             this.redeemANotSteamWalletCodeToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.redeemANotSteamWalletCodeToolStripMenuItem.Text = "Redeem a NotSteam Wallet Code";
-            this.gamesToolStripMenuItem.DropDownItems.Add(redeemANotSteamWalletCodeToolStripMenuItem);
             // 
             // manageGiftsAndGuestPassesToolStripMenuItem
             // 
@@ -570,7 +553,6 @@ namespace NotSteam
             this.manageGiftsAndGuestPassesToolStripMenuItem.Name = "manageGiftsAndGuestPassesToolStripMenuItem";
             this.manageGiftsAndGuestPassesToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.manageGiftsAndGuestPassesToolStripMenuItem.Text = "Manage Gifts and Guest Passes";
-            this.gamesToolStripMenuItem.DropDownItems.Add(manageGiftsAndGuestPassesToolStripMenuItem);
             // 
             // addANonNotSteamGameToMyLibraryToolStripMenuItem
             // 
@@ -579,85 +561,72 @@ namespace NotSteam
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Name = "addANonNotSteamGameToMyLibraryToolStripMenuItem";
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Text = "Add a Non-NotSteam Game to My Library";
-            this.gamesToolStripMenuItem.DropDownItems.Add(addANonNotSteamGameToMyLibraryToolStripMenuItem);
-
-
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator8,
+            this.privacyPolicyToolStripMenuItem,
+            this.legalInformationToolStripMenuItem,
+            this.notSteamSupportToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.systemInformationToolStripMenuItem,
+            this.aboutNotSteamToolStripMenuItem});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // notSteamSupportToolStripMenuItem
-            // 
-            this.notSteamSupportToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.notSteamSupportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.notSteamSupportToolStripMenuItem.Name = "notSteamSupportToolStripMenuItem";
-            this.notSteamSupportToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.notSteamSupportToolStripMenuItem.Text = "NotSteam Support";
-            this.helpToolStripMenuItem.DropDownItems.Add(notSteamSupportToolStripMenuItem);
-            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            ToolStripSeparator toolStripSeparator8 = new ExtendedToolStripSeparator();
-            this.toolStripSeparator8.Size = new System.Drawing.Size(244, 6);
-            this.helpToolStripMenuItem.DropDownItems.Add(toolStripSeparator8);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // privacyPolicyToolStripMenuItem
             // 
             this.privacyPolicyToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.privacyPolicyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.privacyPolicyToolStripMenuItem.Name = "privacyPolicyToolStripMenuItem";
-            this.privacyPolicyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.privacyPolicyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.privacyPolicyToolStripMenuItem.Text = "Privacy Policy";
-            this.helpToolStripMenuItem.DropDownItems.Add(privacyPolicyToolStripMenuItem);
             // 
             // legalInformationToolStripMenuItem
             // 
             this.legalInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.legalInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.legalInformationToolStripMenuItem.Name = "legalInformationToolStripMenuItem";
-            this.legalInformationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.legalInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.legalInformationToolStripMenuItem.Text = "Legal Information";
-            this.helpToolStripMenuItem.DropDownItems.Add(legalInformationToolStripMenuItem);
             // 
-            // notSteamSubscriberAgreementToolStripMenuItem
+            // notSteamSupportToolStripMenuItem
             // 
-            this.notSteamSubscriberAgreementToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.notSteamSubscriberAgreementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.notSteamSubscriberAgreementToolStripMenuItem.Name = "notSteamSubscriberAgreementToolStripMenuItem";
-            this.notSteamSubscriberAgreementToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.notSteamSubscriberAgreementToolStripMenuItem.Text = "NotSteam Subscriber Agreement";
-            this.helpToolStripMenuItem.DropDownItems.Add(notSteamSupportToolStripMenuItem);
+            this.notSteamSupportToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.notSteamSupportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.notSteamSupportToolStripMenuItem.Name = "notSteamSupportToolStripMenuItem";
+            this.notSteamSupportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notSteamSupportToolStripMenuItem.Text = "NotSteam Support";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            ToolStripSeparator toolStripSeparator9 = new ExtendedToolStripSeparator();
-            this.toolStripSeparator9.Size = new System.Drawing.Size(244, 6);
-            this.helpToolStripMenuItem.DropDownItems.Add(toolStripSeparator9);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // systemInformationToolStripMenuItem
             // 
             this.systemInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.systemInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
-            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemInformationToolStripMenuItem.Text = "System Information";
-            this.helpToolStripMenuItem.DropDownItems.Add(systemInformationToolStripMenuItem);
             // 
             // aboutNotSteamToolStripMenuItem
             // 
             this.aboutNotSteamToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.aboutNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.aboutNotSteamToolStripMenuItem.Name = "aboutNotSteamToolStripMenuItem";
-            this.aboutNotSteamToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.aboutNotSteamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
-            this.helpToolStripMenuItem.DropDownItems.Add(aboutNotSteamToolStripMenuItem);
             // 
             // toolStripmoney
             // 
@@ -683,8 +652,18 @@ namespace NotSteam
             this.toolStripProfile.Text = "ceva";
             this.toolStripProfile.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // notSteamSubscriberAgreementToolStripMenuItem
+            // 
+            this.notSteamSubscriberAgreementToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.notSteamSubscriberAgreementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.notSteamSubscriberAgreementToolStripMenuItem.Name = "notSteamSubscriberAgreementToolStripMenuItem";
+            this.notSteamSubscriberAgreementToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.notSteamSubscriberAgreementToolStripMenuItem.Text = "NotSteam Subscriber Agreement";
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pbForward);
+            this.panel2.Controls.Add(this.pbBack);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
@@ -695,13 +674,37 @@ namespace NotSteam
             this.panel2.Size = new System.Drawing.Size(790, 54);
             this.panel2.TabIndex = 16;
             // 
+            // pbForward
+            // 
+            this.pbForward.Image = ((System.Drawing.Image)(resources.GetObject("pbForward.Image")));
+            this.pbForward.Location = new System.Drawing.Point(47, 18);
+            this.pbForward.Name = "pbForward";
+            this.pbForward.Size = new System.Drawing.Size(29, 24);
+            this.pbForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbForward.TabIndex = 22;
+            this.pbForward.TabStop = false;
+            Image img = pbForward.Image;
+            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            this.pbForward.Image = img;
+            // 
+            // pbBack
+            // 
+            this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
+            this.pbBack.Location = new System.Drawing.Point(12, 18);
+            this.pbBack.Name = "pbBack";
+            this.pbBack.Size = new System.Drawing.Size(29, 24);
+            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBack.TabIndex = 21;
+            this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(413, 11);
+            this.label4.Location = new System.Drawing.Point(483, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 31);
             this.label4.TabIndex = 3;
@@ -715,7 +718,7 @@ namespace NotSteam
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(256, 11);
+            this.label3.Location = new System.Drawing.Point(326, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 31);
             this.label3.TabIndex = 2;
@@ -728,7 +731,7 @@ namespace NotSteam
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(153, 11);
+            this.label2.Location = new System.Drawing.Point(223, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 31);
             this.label2.TabIndex = 1;
@@ -742,7 +745,7 @@ namespace NotSteam
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Location = new System.Drawing.Point(82, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 31);
             this.label1.TabIndex = 0;
@@ -773,6 +776,8 @@ namespace NotSteam
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbForward)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -788,55 +793,55 @@ namespace NotSteam
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goOffnileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private ExtendedToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem checkForNotSteamClientUpdatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private ExtendedToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem backupAndRestoreGamesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private ExtendedToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private ExtendedToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem libraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewFriendListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private ExtendedToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem addAFriendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editProfileNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private ExtendedToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem onlineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem awayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invisibleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offlineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewGamesLibraryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private ExtendedToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem activateAProductOnNotSteamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redeemANotSteamWalletCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGiftsAndGuestPassesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addANonNotSteamGameToMyLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notSteamSupportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private ExtendedToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem privacyPolicyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem legalInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notSteamSubscriberAgreementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private ExtendedToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem systemInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutNotSteamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hiddenGamesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem downloadsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private ExtendedToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem smallModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bigPictureModeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private ExtendedToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem musicPlayerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private ExtendedToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem friendsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem playersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serversToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem screenshotsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateNewsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private ExtendedToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private ExtendedToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem addGameToNotSteamToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripmoney;
         private System.Windows.Forms.ToolStripTextBox toolStripProfile;
@@ -846,5 +851,8 @@ namespace NotSteam
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private ExtendedToolStripSeparator ToolStripSeparator7;
+        private PictureBox pbForward;
+        private PictureBox pbBack;
     }
 }

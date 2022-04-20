@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFunds));
             this.label18 = new System.Windows.Forms.Label();
             this.cbMoney = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -37,8 +36,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.cbTerms = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pbBack = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             this.SuspendLayout();
             // 
             // label18
@@ -129,24 +126,12 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pbBack
-            // 
-            this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(12, 12);
-            this.pbBack.Name = "pbBack";
-            this.pbBack.Size = new System.Drawing.Size(29, 24);
-            this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBack.TabIndex = 20;
-            this.pbBack.TabStop = false;
-            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
-            // 
             // AddFunds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pbBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbTerms);
             this.Controls.Add(this.textBox2);
@@ -158,10 +143,8 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "AddFunds";
             this.Text = "AddFunds";
-            ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -174,6 +157,5 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.CheckBox cbTerms;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pbBack;
     }
 }
