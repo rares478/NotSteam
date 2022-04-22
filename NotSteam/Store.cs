@@ -225,9 +225,9 @@ namespace NotSteam
             reader.Close();
 
             con.Close();
-            if (id+1 >= imageList1.Images.Count)
+            if (id+2 >= imageList1.Images.Count)
             {
-                id = 0; lbMissingGame.Visible = true;
+                id = -1; lbMissingGame.Visible = true;
 
             }
             else

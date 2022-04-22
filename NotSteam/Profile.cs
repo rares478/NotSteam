@@ -18,6 +18,8 @@ namespace NotSteam
             userid = user.id;
             username = user.username;
 
+
+            ///
             ///daca vreau sa ma complic si sa schimb culoarea la header trebe sa dau in designer ownerdraw = true 
             ///si sa fac un void ca sa dea draw cu owner la header si cu default pt iteme
             ///https://stackoverflow.com/questions/1814692/change-the-background-color-of-winform-listview-headers
@@ -31,8 +33,22 @@ namespace NotSteam
             if (tbDesc.Text.Length == 0)
                 tbDesc.Text = "Add a description";
             label1.Text = username;
-            
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE [List of owned games].UserId = '" + userid + "'";
+
+            lvLibrary.Clear();
+            lvLibrary.Visible = true;
+            lvLibrary.View = View.Details;
+            lvLibrary.AllowColumnReorder = true;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+            lvLibrary.Columns[0].Width = 0;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[1].Text = "Game";
+            lvLibrary.Columns[1].Width = 100;
+            lvLibrary.Columns.Add(new ColumnHeader());
+            lvLibrary.Columns[2].Text = "Date bought";
+            lvLibrary.Columns[2].Width = 120;
+            lvLibrary.LabelEdit = true;
+            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
             SqlCommand cmd = new SqlCommand(query, con);
 

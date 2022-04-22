@@ -20,6 +20,7 @@ namespace NotSteam
             Form mainform = new Store(loggeduser);
             openform(mainform);
             FormBorderStyle = FormBorderStyle.None;
+            menuStrip1.Renderer = new MyRenderer();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
