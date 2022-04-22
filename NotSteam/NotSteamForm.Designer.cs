@@ -111,7 +111,6 @@ namespace NotSteam
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripmoney = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripProfile = new System.Windows.Forms.ToolStripTextBox();
             this.notSteamSubscriberAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbForward = new System.Windows.Forms.PictureBox();
@@ -121,6 +120,12 @@ namespace NotSteam
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutOfAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storePreferanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMyWalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbForward)).BeginInit();
@@ -153,8 +158,8 @@ namespace NotSteam
             this.friendsToolStripMenuItem,
             this.gamesToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.toolStripmoney,
-            this.toolStripProfile});
+            this.toolStripMenuItem3,
+            this.toolStripmoney});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -634,23 +639,13 @@ namespace NotSteam
             this.toolStripmoney.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripmoney.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripmoney.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripmoney.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripmoney.Name = "toolStripmoney";
+            this.toolStripmoney.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripmoney.Size = new System.Drawing.Size(50, 23);
             this.toolStripmoney.Text = "xcer";
             this.toolStripmoney.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolStripmoney.Click += new System.EventHandler(this.toolStripmoney_Click);
-            // 
-            // toolStripProfile
-            // 
-            this.toolStripProfile.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripProfile.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripProfile.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripProfile.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripProfile.Name = "toolStripProfile";
-            this.toolStripProfile.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripProfile.Size = new System.Drawing.Size(100, 23);
-            this.toolStripProfile.Text = "ceva";
-            this.toolStripProfile.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // notSteamSubscriberAgreementToolStripMenuItem
             // 
@@ -683,9 +678,7 @@ namespace NotSteam
             this.pbForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbForward.TabIndex = 22;
             this.pbForward.TabStop = false;
-            Image img = pbForward.Image;
-            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            this.pbForward.Image = img;
+            this.pbForward.Click += new System.EventHandler(this.pbForward_Click);
             // 
             // pbBack
             // 
@@ -760,6 +753,61 @@ namespace NotSteam
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(790, 509);
             this.panel1.TabIndex = 17;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewMyProfileToolStripMenuItem,
+            this.accountDetailsToolStripMenuItem,
+            this.logoutOfAccountToolStripMenuItem,
+            this.storePreferanceToolStripMenuItem,
+            this.viewMyWalletToolStripMenuItem});
+            this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(125, 23);
+            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
+            // 
+            // viewMyProfileToolStripMenuItem
+            // 
+            this.viewMyProfileToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.viewMyProfileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewMyProfileToolStripMenuItem.Name = "viewMyProfileToolStripMenuItem";
+            this.viewMyProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewMyProfileToolStripMenuItem.Text = "View my profile";
+            // 
+            // accountDetailsToolStripMenuItem
+            // 
+            this.accountDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.accountDetailsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.accountDetailsToolStripMenuItem.Name = "accountDetailsToolStripMenuItem";
+            this.accountDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accountDetailsToolStripMenuItem.Text = "Account details";
+            // 
+            // logoutOfAccountToolStripMenuItem
+            // 
+            this.logoutOfAccountToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.logoutOfAccountToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logoutOfAccountToolStripMenuItem.Name = "logoutOfAccountToolStripMenuItem";
+            this.logoutOfAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutOfAccountToolStripMenuItem.Text = "Logout of account";
+            // 
+            // storePreferanceToolStripMenuItem
+            // 
+            this.storePreferanceToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.storePreferanceToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.storePreferanceToolStripMenuItem.Name = "storePreferanceToolStripMenuItem";
+            this.storePreferanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.storePreferanceToolStripMenuItem.Text = "Store preferance";
+            // 
+            // viewMyWalletToolStripMenuItem
+            // 
+            this.viewMyWalletToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.viewMyWalletToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewMyWalletToolStripMenuItem.Name = "viewMyWalletToolStripMenuItem";
+            this.viewMyWalletToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewMyWalletToolStripMenuItem.Text = "View my wallet";
             // 
             // NotSteamForm
             // 
@@ -844,7 +892,6 @@ namespace NotSteam
         private ExtendedToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem addGameToNotSteamToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripmoney;
-        private System.Windows.Forms.ToolStripTextBox toolStripProfile;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -854,5 +901,11 @@ namespace NotSteam
         private ExtendedToolStripSeparator ToolStripSeparator7;
         private PictureBox pbForward;
         private PictureBox pbBack;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem viewMyProfileToolStripMenuItem;
+        private ToolStripMenuItem accountDetailsToolStripMenuItem;
+        private ToolStripMenuItem logoutOfAccountToolStripMenuItem;
+        private ToolStripMenuItem storePreferanceToolStripMenuItem;
+        private ToolStripMenuItem viewMyWalletToolStripMenuItem;
     }
 }

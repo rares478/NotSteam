@@ -18,7 +18,6 @@ namespace NotSteam
             userid = user.id;
             username = user.username;
 
-
             ///daca vreau sa ma complic si sa schimb culoarea la header trebe sa dau in designer ownerdraw = true 
             ///si sa fac un void ca sa dea draw cu owner la header si cu default pt iteme
             ///https://stackoverflow.com/questions/1814692/change-the-background-color-of-winform-listview-headers

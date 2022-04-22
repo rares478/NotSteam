@@ -41,6 +41,7 @@ namespace NotSteam
             string idquery = "select Games.name from Games";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
+
             int z = 0;
             int cz = 1;
             int i = 0;
@@ -238,7 +239,10 @@ namespace NotSteam
             lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
             con.Close();
 
+
+
         }
+
 
 
         private void lbl_click(object sender, EventArgs e)
@@ -252,7 +256,7 @@ namespace NotSteam
             switchtogame(label.Text);
         }
 
-        string selected=null;
+        public string selected=null;
 
         private void btBuy_Click(object sender, EventArgs e)
         {
