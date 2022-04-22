@@ -17,6 +17,7 @@ namespace NotSteam
             InitializeComponent();
             userid = user.id;
             username = user.username;
+            DoubleBuffered = true;
 
 
             ///

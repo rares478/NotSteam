@@ -17,6 +17,7 @@ namespace NotSteam
         {
             InitializeComponent();
             pictureBox1.Image = imageList1.Images[0];
+            DoubleBuffered = true;
         }
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
         public static user user = null;

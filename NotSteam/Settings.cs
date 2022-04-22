@@ -17,6 +17,7 @@ namespace NotSteam
             userid = user.id; 
             password = user.password;
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void btChangePassword_Click(object sender, EventArgs e)

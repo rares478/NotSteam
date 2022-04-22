@@ -16,6 +16,7 @@ namespace NotSteam
             InitializeComponent();
             money = user.money;
             userid = user.id;
+            DoubleBuffered = true;
         }
         public static bool completed = false;
         private void button1_Click(object sender, EventArgs e)
