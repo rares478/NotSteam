@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NotSteam
@@ -23,12 +20,11 @@ namespace NotSteam
             user user;
             Application.Run(new LoginForm());
             user = LoginForm.user;
-            
-             if (user != null)
+
+            if (user != null)
                 Application.Run(new NotSteamForm(user));
             else
                 MessageBox.Show("Auth Failed", "Auth Failed", MessageBoxButtons.OK);
-
         }
     }
 }

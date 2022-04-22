@@ -38,6 +38,7 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Login = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.btReg = new System.Windows.Forms.Button();
@@ -47,12 +48,11 @@
             this.tbEmailReg = new System.Windows.Forms.TextBox();
             this.tbPasswordReg = new System.Windows.Forms.TextBox();
             this.tbUsernameReg = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.Login.SuspendLayout();
-            this.Register.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Register.SuspendLayout();
             this.SuspendLayout();
             // 
             // btRegister
@@ -142,6 +142,14 @@
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(176, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 92);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // Register
             // 
@@ -237,14 +245,6 @@
             this.tbUsernameReg.Size = new System.Drawing.Size(221, 26);
             this.tbUsernameReg.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(176, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 92);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -255,16 +255,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 444);
+            this.ClientSize = new System.Drawing.Size(492, 445);
             this.Controls.Add(this.tabControl1);
             this.Name = "LoginForm";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.Login.ResumeLayout(false);
             this.Login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Register.ResumeLayout(false);
             this.Register.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Store));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // imageList1
@@ -52,20 +53,35 @@
             this.imageList1.Images.SetKeyName(11, "who\'s your daddy.jpg");
             this.imageList1.Images.SetKeyName(12, "unturned.jpg");
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(249, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(238, 55);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "NotSteam";
+            // 
             // Store
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(800, 536);
+            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "Store";
             this.Text = "Store";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label label1;
     }
 }

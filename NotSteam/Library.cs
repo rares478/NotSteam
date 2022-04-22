@@ -52,6 +52,7 @@ namespace NotSteam
             }
 
             string lastquery = "select [last played],[date_bought] from [dbo].[List of owned games] WHERE (UserId = '" + userid + "'and GameID = '" + id + "')";
+
             SqlCommand sqllastquery = new SqlCommand(lastquery, con);
             SqlDataReader readerlast = sqllastquery.ExecuteReader();
             if (readerlast.Read())

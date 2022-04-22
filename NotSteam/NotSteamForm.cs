@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace NotSteam
@@ -16,12 +13,11 @@ namespace NotSteam
 
             InitializeComponent();
             loggeduser = user;
-
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
 
             toolStripmoney.Text = user.money.ToString();
-            toolStripProfile.Text = user.username.ToString();
+            toolStripMenuItem3.Text = user.username.ToString();
             Form mainform = new Store(loggeduser);
             openform(mainform);
         }
@@ -138,7 +134,7 @@ namespace NotSteam
 
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void changeAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,7 +148,7 @@ namespace NotSteam
 
         private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void aboutNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,7 +168,7 @@ namespace NotSteam
 
         private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -182,51 +178,61 @@ namespace NotSteam
             openform(add);
         }
 
-        
+
 
         private Form activeform = null;
         private Form formerform = new Store(loggeduser);
 
         private void openform(Form form)
         {
-            if (activeform != null)
-            { 
-                formerform.Close();
-                formerform = activeform;
-
-            }
-                
-
-            if (AddFunds.completed)
+            try
             {
-                Controls.Clear();
-                InitializeComponent();
-                AddFunds.completed = false;
+                if (activeform != null)
+                {
+                    formerform = activeform;
+                    activeform.Hide();
+                }
 
-                if (loggeduser.admin != 1)
-                    addGameToNotSteamToolStripMenuItem.Visible = false;
-                toolStripProfile.Text = loggeduser.username.ToString();
+                if (former)
+                {
+                    formerform.Close();
+                    former = false;
+                }
 
-                con.Open();
+                if (AddFunds.completed)
+                {
+                    Controls.Clear();
+                    InitializeComponent();
+                    AddFunds.completed = false;
 
-                string cmmoney = "select money from Users where id = " + loggeduser.id + "";
-                SqlCommand cmdmoney = new SqlCommand(cmmoney, con);
-                toolStripmoney.Text = cmdmoney.ExecuteScalar().ToString();
+                    if (loggeduser.admin != 1)
+                        addGameToNotSteamToolStripMenuItem.Visible = false;
+                    toolStripMenuItem3.Text = loggeduser.username.ToString();
 
-                con.Close();
+                    con.Open();
+
+                    string cmmoney = "select money from Users where id = " + loggeduser.id + "";
+                    SqlCommand cmdmoney = new SqlCommand(cmmoney, con);
+                    toolStripmoney.Text = cmdmoney.ExecuteScalar().ToString();
+
+                    con.Close();
+                }
+                activeform = form;
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                panel1.Controls.Add(form);
+                panel1.Tag = form;
+                form.BringToFront();
+                form.Show();
             }
-
-            activeform = form;
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            panel1.Controls.Add(form);
-            panel1.Tag = form;
-            form.BringToFront();
-            form.Show();
+            catch (Exception ex)
+            {
+                Form mainform = new Store(loggeduser);
+                openform(mainform);
+            }
         }
 
-        
 
         private void toolStripmoney_Click(object sender, EventArgs e)
         {
@@ -251,8 +257,14 @@ namespace NotSteam
             Form profileform = new Profile(loggeduser);
             openform(profileform);
         }
-
+        bool former = false;
         private void pbBack_Click(object sender, EventArgs e)
+        {
+            former = true;
+            openform(formerform);
+        }
+
+        private void pbForward_Click(object sender, EventArgs e)
         {
             openform(formerform);
         }
