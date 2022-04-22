@@ -1,6 +1,5 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
-using System;
 
 namespace NotSteam
 {
@@ -13,8 +12,8 @@ namespace NotSteam
             ToolStripSeparator toolStripSeparator = (ToolStripSeparator)sender;
             int width = toolStripSeparator.Width;
             int height = toolStripSeparator.Height;
-            Color foreColor = SystemColors.ActiveCaption;
-            Color backColor = SystemColors.ActiveCaptionText;
+            Color foreColor = System.Drawing.SystemColors.ActiveBorder;
+            Color backColor = Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
 
             e.Graphics.FillRectangle(new SolidBrush(backColor), 0, 0, width, height);
 
@@ -63,7 +62,6 @@ namespace NotSteam
             this.backupAndRestoreGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new NotSteam.ExtendedToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSeparator7 = new NotSteam.ExtendedToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new NotSteam.ExtendedToolStripSeparator();
             this.addGameToNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,14 +101,21 @@ namespace NotSteam
             this.manageGiftsAndGuestPassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new NotSteam.ExtendedToolStripSeparator();
             this.privacyPolicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notSteamSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new NotSteam.ExtendedToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripmoney = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutOfAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storePreferanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMyWalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notSteamSubscriberAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbForward = new System.Windows.Forms.PictureBox();
@@ -120,12 +125,6 @@ namespace NotSteam
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutOfAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.storePreferanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMyWalletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbForward)).BeginInit();
@@ -151,21 +150,24 @@ namespace NotSteam
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(42)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.friendsToolStripMenuItem,
             this.gamesToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.toolStripMenuItem3,
-            this.toolStripmoney});
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(790, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(790, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveform);
             // 
             // toolStripMenuItem1
             // 
@@ -178,19 +180,18 @@ namespace NotSteam
             this.backupAndRestoreGamesToolStripMenuItem,
             this.toolStripSeparator6,
             this.settingsToolStripMenuItem,
-            this.ToolStripSeparator7,
             this.exitToolStripMenuItem,
             this.toolStripSeparator14,
             this.addGameToNotSteamToolStripMenuItem});
-            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(108)))), ((int)(((byte)(123)))));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 23);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 20);
             this.toolStripMenuItem1.Text = "NotSteam";
             // 
             // changeAccountToolStripMenuItem
             // 
-            this.changeAccountToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.changeAccountToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.changeAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.changeAccountToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.changeAccountToolStripMenuItem.Name = "changeAccountToolStripMenuItem";
             this.changeAccountToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.changeAccountToolStripMenuItem.Text = "Change Account";
@@ -198,8 +199,8 @@ namespace NotSteam
             // 
             // goOffnileToolStripMenuItem
             // 
-            this.goOffnileToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.goOffnileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.goOffnileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.goOffnileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.goOffnileToolStripMenuItem.Name = "goOffnileToolStripMenuItem";
             this.goOffnileToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.goOffnileToolStripMenuItem.Text = "Go Offline";
@@ -211,8 +212,8 @@ namespace NotSteam
             // 
             // checkForNotSteamClientUpdatesToolStripMenuItem
             // 
-            this.checkForNotSteamClientUpdatesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkForNotSteamClientUpdatesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkForNotSteamClientUpdatesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.checkForNotSteamClientUpdatesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Name = "checkForNotSteamClientUpdatesToolStripMenuItem";
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.checkForNotSteamClientUpdatesToolStripMenuItem.Text = "Check for NotSteam Client Updates";
@@ -224,8 +225,8 @@ namespace NotSteam
             // 
             // backupAndRestoreGamesToolStripMenuItem
             // 
-            this.backupAndRestoreGamesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.backupAndRestoreGamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.backupAndRestoreGamesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.backupAndRestoreGamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.backupAndRestoreGamesToolStripMenuItem.Name = "backupAndRestoreGamesToolStripMenuItem";
             this.backupAndRestoreGamesToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.backupAndRestoreGamesToolStripMenuItem.Text = "Backup and Restore Games";
@@ -237,22 +238,17 @@ namespace NotSteam
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.settingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.settingsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.settingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // ToolStripSeparator7
-            // 
-            this.ToolStripSeparator7.Name = "ToolStripSeparator7";
-            this.ToolStripSeparator7.Size = new System.Drawing.Size(258, 6);
-            // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.exitToolStripMenuItem.Text = "Exit";
@@ -265,8 +261,8 @@ namespace NotSteam
             // 
             // addGameToNotSteamToolStripMenuItem
             // 
-            this.addGameToNotSteamToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addGameToNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addGameToNotSteamToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.addGameToNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.addGameToNotSteamToolStripMenuItem.Name = "addGameToNotSteamToolStripMenuItem";
             this.addGameToNotSteamToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.addGameToNotSteamToolStripMenuItem.Text = "Add game to NotSteam";
@@ -292,15 +288,15 @@ namespace NotSteam
             this.updateNewsToolStripMenuItem,
             this.toolStripSeparator13,
             this.settingsToolStripMenuItem1});
-            this.toolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(108)))), ((int)(((byte)(123)))));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 23);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem2.Text = "View";
             // 
             // libraryToolStripMenuItem
             // 
-            this.libraryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.libraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.libraryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.libraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.libraryToolStripMenuItem.Text = "Library";
@@ -308,16 +304,16 @@ namespace NotSteam
             // 
             // hiddenGamesToolStripMenuItem
             // 
-            this.hiddenGamesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.hiddenGamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.hiddenGamesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.hiddenGamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.hiddenGamesToolStripMenuItem.Name = "hiddenGamesToolStripMenuItem";
             this.hiddenGamesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hiddenGamesToolStripMenuItem.Text = "Hidden Games";
             // 
             // downloadsToolStripMenuItem
             // 
-            this.downloadsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.downloadsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.downloadsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.downloadsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.downloadsToolStripMenuItem.Name = "downloadsToolStripMenuItem";
             this.downloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.downloadsToolStripMenuItem.Text = "Downloads";
@@ -329,16 +325,16 @@ namespace NotSteam
             // 
             // smallModeToolStripMenuItem
             // 
-            this.smallModeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.smallModeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.smallModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.smallModeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.smallModeToolStripMenuItem.Name = "smallModeToolStripMenuItem";
             this.smallModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smallModeToolStripMenuItem.Text = "Small Mode";
             // 
             // bigPictureModeToolStripMenuItem
             // 
-            this.bigPictureModeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bigPictureModeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bigPictureModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.bigPictureModeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.bigPictureModeToolStripMenuItem.Name = "bigPictureModeToolStripMenuItem";
             this.bigPictureModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bigPictureModeToolStripMenuItem.Text = "Big Picture Mode";
@@ -350,8 +346,8 @@ namespace NotSteam
             // 
             // musicPlayerToolStripMenuItem
             // 
-            this.musicPlayerToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.musicPlayerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.musicPlayerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.musicPlayerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.musicPlayerToolStripMenuItem.Name = "musicPlayerToolStripMenuItem";
             this.musicPlayerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.musicPlayerToolStripMenuItem.Text = "Music Player";
@@ -363,48 +359,48 @@ namespace NotSteam
             // 
             // friendsToolStripMenuItem1
             // 
-            this.friendsToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.friendsToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.friendsToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.friendsToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.friendsToolStripMenuItem1.Name = "friendsToolStripMenuItem1";
             this.friendsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.friendsToolStripMenuItem1.Text = "Friends";
             // 
             // playersToolStripMenuItem
             // 
-            this.playersToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.playersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.playersToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.playersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
             this.playersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.playersToolStripMenuItem.Text = "Players";
             // 
             // serversToolStripMenuItem
             // 
-            this.serversToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.serversToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.serversToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.serversToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.serversToolStripMenuItem.Name = "serversToolStripMenuItem";
             this.serversToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serversToolStripMenuItem.Text = "Servers";
             // 
             // screenshotsToolStripMenuItem
             // 
-            this.screenshotsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.screenshotsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.screenshotsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.screenshotsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.screenshotsToolStripMenuItem.Name = "screenshotsToolStripMenuItem";
             this.screenshotsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.screenshotsToolStripMenuItem.Text = "Screenshots";
             // 
             // inventoryToolStripMenuItem
             // 
-            this.inventoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inventoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.inventoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             // 
             // updateNewsToolStripMenuItem
             // 
-            this.updateNewsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.updateNewsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.updateNewsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.updateNewsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.updateNewsToolStripMenuItem.Name = "updateNewsToolStripMenuItem";
             this.updateNewsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateNewsToolStripMenuItem.Text = "Update news";
@@ -416,8 +412,8 @@ namespace NotSteam
             // 
             // settingsToolStripMenuItem1
             // 
-            this.settingsToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.settingsToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.settingsToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.settingsToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
             this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem1.Text = "Settings";
@@ -435,15 +431,15 @@ namespace NotSteam
             this.awayToolStripMenuItem,
             this.invisibleToolStripMenuItem,
             this.offlineToolStripMenuItem});
-            this.friendsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.friendsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(108)))), ((int)(((byte)(123)))));
             this.friendsToolStripMenuItem.Name = "friendsToolStripMenuItem";
-            this.friendsToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
+            this.friendsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.friendsToolStripMenuItem.Text = "Friends";
             // 
             // viewFriendListToolStripMenuItem
             // 
-            this.viewFriendListToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.viewFriendListToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewFriendListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.viewFriendListToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.viewFriendListToolStripMenuItem.Name = "viewFriendListToolStripMenuItem";
             this.viewFriendListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewFriendListToolStripMenuItem.Text = "View Friend List";
@@ -455,16 +451,16 @@ namespace NotSteam
             // 
             // addAFriendToolStripMenuItem
             // 
-            this.addAFriendToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addAFriendToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addAFriendToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.addAFriendToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.addAFriendToolStripMenuItem.Name = "addAFriendToolStripMenuItem";
             this.addAFriendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addAFriendToolStripMenuItem.Text = "Add a Friend";
             // 
             // editProfileNameToolStripMenuItem
             // 
-            this.editProfileNameToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.editProfileNameToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.editProfileNameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.editProfileNameToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.editProfileNameToolStripMenuItem.Name = "editProfileNameToolStripMenuItem";
             this.editProfileNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editProfileNameToolStripMenuItem.Text = "Edit Profile Name";
@@ -477,32 +473,32 @@ namespace NotSteam
             // 
             // onlineToolStripMenuItem
             // 
-            this.onlineToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.onlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.onlineToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.onlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.onlineToolStripMenuItem.Name = "onlineToolStripMenuItem";
             this.onlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.onlineToolStripMenuItem.Text = "Online";
             // 
             // awayToolStripMenuItem
             // 
-            this.awayToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.awayToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.awayToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.awayToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.awayToolStripMenuItem.Name = "awayToolStripMenuItem";
             this.awayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.awayToolStripMenuItem.Text = "Away";
             // 
             // invisibleToolStripMenuItem
             // 
-            this.invisibleToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.invisibleToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.invisibleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.invisibleToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.invisibleToolStripMenuItem.Name = "invisibleToolStripMenuItem";
             this.invisibleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.invisibleToolStripMenuItem.Text = "Invisible";
             // 
             // offlineToolStripMenuItem
             // 
-            this.offlineToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.offlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.offlineToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.offlineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.offlineToolStripMenuItem.Name = "offlineToolStripMenuItem";
             this.offlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.offlineToolStripMenuItem.Text = "Offline";
@@ -516,15 +512,15 @@ namespace NotSteam
             this.redeemANotSteamWalletCodeToolStripMenuItem,
             this.manageGiftsAndGuestPassesToolStripMenuItem,
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem});
-            this.gamesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gamesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(108)))), ((int)(((byte)(123)))));
             this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
-            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 23);
+            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.gamesToolStripMenuItem.Text = "Games";
             // 
             // viewGamesLibraryToolStripMenuItem
             // 
-            this.viewGamesLibraryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.viewGamesLibraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewGamesLibraryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.viewGamesLibraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.viewGamesLibraryToolStripMenuItem.Name = "viewGamesLibraryToolStripMenuItem";
             this.viewGamesLibraryToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.viewGamesLibraryToolStripMenuItem.Text = "View Games Library";
@@ -537,32 +533,32 @@ namespace NotSteam
             // 
             // activateAProductOnNotSteamToolStripMenuItem
             // 
-            this.activateAProductOnNotSteamToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.activateAProductOnNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.activateAProductOnNotSteamToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.activateAProductOnNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.activateAProductOnNotSteamToolStripMenuItem.Name = "activateAProductOnNotSteamToolStripMenuItem";
             this.activateAProductOnNotSteamToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.activateAProductOnNotSteamToolStripMenuItem.Text = "Activate a Product on NotSteam";
             // 
             // redeemANotSteamWalletCodeToolStripMenuItem
             // 
-            this.redeemANotSteamWalletCodeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.redeemANotSteamWalletCodeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.redeemANotSteamWalletCodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.redeemANotSteamWalletCodeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.redeemANotSteamWalletCodeToolStripMenuItem.Name = "redeemANotSteamWalletCodeToolStripMenuItem";
             this.redeemANotSteamWalletCodeToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.redeemANotSteamWalletCodeToolStripMenuItem.Text = "Redeem a NotSteam Wallet Code";
             // 
             // manageGiftsAndGuestPassesToolStripMenuItem
             // 
-            this.manageGiftsAndGuestPassesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.manageGiftsAndGuestPassesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.manageGiftsAndGuestPassesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.manageGiftsAndGuestPassesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.manageGiftsAndGuestPassesToolStripMenuItem.Name = "manageGiftsAndGuestPassesToolStripMenuItem";
             this.manageGiftsAndGuestPassesToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.manageGiftsAndGuestPassesToolStripMenuItem.Text = "Manage Gifts and Guest Passes";
             // 
             // addANonNotSteamGameToMyLibraryToolStripMenuItem
             // 
-            this.addANonNotSteamGameToMyLibraryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addANonNotSteamGameToMyLibraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addANonNotSteamGameToMyLibraryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.addANonNotSteamGameToMyLibraryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Name = "addANonNotSteamGameToMyLibraryToolStripMenuItem";
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
             this.addANonNotSteamGameToMyLibraryToolStripMenuItem.Text = "Add a Non-NotSteam Game to My Library";
@@ -570,43 +566,37 @@ namespace NotSteam
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator8,
             this.privacyPolicyToolStripMenuItem,
             this.legalInformationToolStripMenuItem,
             this.notSteamSupportToolStripMenuItem,
             this.toolStripSeparator9,
             this.systemInformationToolStripMenuItem,
             this.aboutNotSteamToolStripMenuItem});
-            this.helpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(108)))), ((int)(((byte)(123)))));
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // privacyPolicyToolStripMenuItem
             // 
-            this.privacyPolicyToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.privacyPolicyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.privacyPolicyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.privacyPolicyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.privacyPolicyToolStripMenuItem.Name = "privacyPolicyToolStripMenuItem";
             this.privacyPolicyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.privacyPolicyToolStripMenuItem.Text = "Privacy Policy";
             // 
             // legalInformationToolStripMenuItem
             // 
-            this.legalInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.legalInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.legalInformationToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.legalInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.legalInformationToolStripMenuItem.Name = "legalInformationToolStripMenuItem";
             this.legalInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.legalInformationToolStripMenuItem.Text = "Legal Information";
             // 
             // notSteamSupportToolStripMenuItem
             // 
-            this.notSteamSupportToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.notSteamSupportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.notSteamSupportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.notSteamSupportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.notSteamSupportToolStripMenuItem.Name = "notSteamSupportToolStripMenuItem";
             this.notSteamSupportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notSteamSupportToolStripMenuItem.Text = "NotSteam Support";
@@ -618,34 +608,103 @@ namespace NotSteam
             // 
             // systemInformationToolStripMenuItem
             // 
-            this.systemInformationToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.systemInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.systemInformationToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.systemInformationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
             this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemInformationToolStripMenuItem.Text = "System Information";
             // 
             // aboutNotSteamToolStripMenuItem
             // 
-            this.aboutNotSteamToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.aboutNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.aboutNotSteamToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.aboutNotSteamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.aboutNotSteamToolStripMenuItem.Name = "aboutNotSteamToolStripMenuItem";
             this.aboutNotSteamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutNotSteamToolStripMenuItem.Text = "About NotSteam";
             this.aboutNotSteamToolStripMenuItem.Click += new System.EventHandler(this.aboutNotSteamToolStripMenuItem_Click);
             // 
-            // toolStripmoney
+            // toolStripMenuItem4
             // 
-            this.toolStripmoney.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripmoney.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripmoney.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripmoney.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripmoney.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripmoney.Name = "toolStripmoney";
-            this.toolStripmoney.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripmoney.Size = new System.Drawing.Size(50, 23);
-            this.toolStripmoney.Text = "xcer";
-            this.toolStripmoney.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolStripmoney.Click += new System.EventHandler(this.toolStripmoney_Click);
+            this.toolStripMenuItem4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(28, 20);
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(28, 20);
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(28, 20);
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewMyProfileToolStripMenuItem,
+            this.accountDetailsToolStripMenuItem,
+            this.logoutOfAccountToolStripMenuItem,
+            this.storePreferanceToolStripMenuItem,
+            this.viewMyWalletToolStripMenuItem});
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(165)))), ((int)(((byte)(196)))));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(125, 20);
+            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
+            // 
+            // viewMyProfileToolStripMenuItem
+            // 
+            this.viewMyProfileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.viewMyProfileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewMyProfileToolStripMenuItem.Name = "viewMyProfileToolStripMenuItem";
+            this.viewMyProfileToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.viewMyProfileToolStripMenuItem.Text = "View my profile";
+            this.viewMyProfileToolStripMenuItem.Click += new System.EventHandler(this.viewMyProfileToolStripMenuItem_Click);
+            // 
+            // accountDetailsToolStripMenuItem
+            // 
+            this.accountDetailsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.accountDetailsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.accountDetailsToolStripMenuItem.Name = "accountDetailsToolStripMenuItem";
+            this.accountDetailsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.accountDetailsToolStripMenuItem.Text = "Account details";
+            // 
+            // logoutOfAccountToolStripMenuItem
+            // 
+            this.logoutOfAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.logoutOfAccountToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logoutOfAccountToolStripMenuItem.Name = "logoutOfAccountToolStripMenuItem";
+            this.logoutOfAccountToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.logoutOfAccountToolStripMenuItem.Text = "Logout of account";
+            this.logoutOfAccountToolStripMenuItem.Click += new System.EventHandler(this.logoutOfAccountToolStripMenuItem_Click);
+            // 
+            // storePreferanceToolStripMenuItem
+            // 
+            this.storePreferanceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.storePreferanceToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.storePreferanceToolStripMenuItem.Name = "storePreferanceToolStripMenuItem";
+            this.storePreferanceToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.storePreferanceToolStripMenuItem.Text = "Store preferance";
+            // 
+            // viewMyWalletToolStripMenuItem
+            // 
+            this.viewMyWalletToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
+            this.viewMyWalletToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewMyWalletToolStripMenuItem.Name = "viewMyWalletToolStripMenuItem";
+            this.viewMyWalletToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.viewMyWalletToolStripMenuItem.Text = "View my wallet";
+            this.viewMyWalletToolStripMenuItem.Click += new System.EventHandler(this.viewMyWalletToolStripMenuItem_Click);
             // 
             // notSteamSubscriberAgreementToolStripMenuItem
             // 
@@ -657,6 +716,7 @@ namespace NotSteam
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(40)))));
             this.panel2.Controls.Add(this.pbForward);
             this.panel2.Controls.Add(this.pbBack);
             this.panel2.Controls.Add(this.label4);
@@ -664,26 +724,29 @@ namespace NotSteam
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 27);
+            this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(790, 54);
+            this.panel2.Size = new System.Drawing.Size(790, 48);
             this.panel2.TabIndex = 16;
             // 
             // pbForward
             // 
             this.pbForward.Image = ((System.Drawing.Image)(resources.GetObject("pbForward.Image")));
-            this.pbForward.Location = new System.Drawing.Point(47, 18);
+            this.pbForward.Location = new System.Drawing.Point(47, 11);
             this.pbForward.Name = "pbForward";
             this.pbForward.Size = new System.Drawing.Size(29, 24);
             this.pbForward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbForward.TabIndex = 22;
             this.pbForward.TabStop = false;
             this.pbForward.Click += new System.EventHandler(this.pbForward_Click);
+            Image img = pbForward.Image;
+            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            pbForward.Image = img;
             // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
-            this.pbBack.Location = new System.Drawing.Point(12, 18);
+            this.pbBack.Location = new System.Drawing.Point(12, 11);
             this.pbBack.Name = "pbBack";
             this.pbBack.Size = new System.Drawing.Size(29, 24);
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -694,10 +757,10 @@ namespace NotSteam
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(40)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(483, 11);
+            this.label4.Location = new System.Drawing.Point(483, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 31);
             this.label4.TabIndex = 3;
@@ -708,10 +771,10 @@ namespace NotSteam
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(40)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(326, 11);
+            this.label3.Location = new System.Drawing.Point(326, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 31);
             this.label3.TabIndex = 2;
@@ -721,10 +784,10 @@ namespace NotSteam
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(40)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(223, 11);
+            this.label2.Location = new System.Drawing.Point(223, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 31);
             this.label2.TabIndex = 1;
@@ -735,10 +798,10 @@ namespace NotSteam
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(40)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(82, 11);
+            this.label1.Location = new System.Drawing.Point(82, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 31);
             this.label1.TabIndex = 0;
@@ -748,66 +811,12 @@ namespace NotSteam
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 81);
+            this.panel1.Location = new System.Drawing.Point(0, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 509);
+            this.panel1.Size = new System.Drawing.Size(790, 518);
             this.panel1.TabIndex = 17;
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItem3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewMyProfileToolStripMenuItem,
-            this.accountDetailsToolStripMenuItem,
-            this.logoutOfAccountToolStripMenuItem,
-            this.storePreferanceToolStripMenuItem,
-            this.viewMyWalletToolStripMenuItem});
-            this.toolStripMenuItem3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(125, 23);
-            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
-            // 
-            // viewMyProfileToolStripMenuItem
-            // 
-            this.viewMyProfileToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.viewMyProfileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewMyProfileToolStripMenuItem.Name = "viewMyProfileToolStripMenuItem";
-            this.viewMyProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewMyProfileToolStripMenuItem.Text = "View my profile";
-            // 
-            // accountDetailsToolStripMenuItem
-            // 
-            this.accountDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.accountDetailsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.accountDetailsToolStripMenuItem.Name = "accountDetailsToolStripMenuItem";
-            this.accountDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.accountDetailsToolStripMenuItem.Text = "Account details";
-            // 
-            // logoutOfAccountToolStripMenuItem
-            // 
-            this.logoutOfAccountToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.logoutOfAccountToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logoutOfAccountToolStripMenuItem.Name = "logoutOfAccountToolStripMenuItem";
-            this.logoutOfAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logoutOfAccountToolStripMenuItem.Text = "Logout of account";
-            // 
-            // storePreferanceToolStripMenuItem
-            // 
-            this.storePreferanceToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.storePreferanceToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.storePreferanceToolStripMenuItem.Name = "storePreferanceToolStripMenuItem";
-            this.storePreferanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.storePreferanceToolStripMenuItem.Text = "Store preferance";
-            // 
-            // viewMyWalletToolStripMenuItem
-            // 
-            this.viewMyWalletToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.viewMyWalletToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewMyWalletToolStripMenuItem.Name = "viewMyWalletToolStripMenuItem";
-            this.viewMyWalletToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewMyWalletToolStripMenuItem.Text = "View my wallet";
             // 
             // NotSteamForm
             // 
@@ -866,7 +875,6 @@ namespace NotSteam
         private System.Windows.Forms.ToolStripMenuItem manageGiftsAndGuestPassesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addANonNotSteamGameToMyLibraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notSteamSupportToolStripMenuItem;
-        private ExtendedToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem privacyPolicyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem legalInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notSteamSubscriberAgreementToolStripMenuItem;
@@ -891,14 +899,12 @@ namespace NotSteam
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
         private ExtendedToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripMenuItem addGameToNotSteamToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox toolStripmoney;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private ExtendedToolStripSeparator ToolStripSeparator7;
         private PictureBox pbForward;
         private PictureBox pbBack;
         private ToolStripMenuItem toolStripMenuItem3;
@@ -907,5 +913,8 @@ namespace NotSteam
         private ToolStripMenuItem logoutOfAccountToolStripMenuItem;
         private ToolStripMenuItem storePreferanceToolStripMenuItem;
         private ToolStripMenuItem viewMyWalletToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem6;
     }
 }

@@ -11,13 +11,9 @@ namespace NotSteam
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         int money;
         int userid;
-        Form former;
-        user loggeduser;
-        public AddFunds(user user, Form formerform)
+        public AddFunds(user user)
         {
             InitializeComponent();
-            loggeduser = user;
-            former = formerform;
             money = user.money;
             userid = user.id;
         }
@@ -39,11 +35,6 @@ namespace NotSteam
                 completed = true;
 
             }
-        }
-
-        private void pbBack_Click(object sender, EventArgs e)
-        {
-            var form = Application.OpenForms.OfType<AddFunds>().FirstOrDefault();
         }
     }
 }
