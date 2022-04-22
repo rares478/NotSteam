@@ -21,6 +21,7 @@ namespace NotSteam
             userid = user.id;
             username = user.username;
              InitializeComponent();
+            DoubleBuffered = true;
 
             label1.Text = user.username + "'s games";
             lbAfis.Items.Clear();

@@ -13,6 +13,7 @@ namespace NotSteam
         public AddGame()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void btAddNew_Click(object sender, EventArgs e)

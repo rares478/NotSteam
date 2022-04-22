@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NotSteam
@@ -21,6 +22,7 @@ namespace NotSteam
             openform(mainform);
             FormBorderStyle = FormBorderStyle.None;
             menuStrip1.Renderer = new MyRenderer();
+            DoubleBuffered = true;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -209,18 +211,12 @@ namespace NotSteam
         {
             try
             {
+
                 if (activeform != null)
                 {
                     formerform = activeform;
                     activeform.Hide();
                 }
-
-                if (former)
-                {
-                    formerform.Close();
-                    former = false;
-                }
-
                 if (AddFunds.completed)
                 {
                     Controls.Clear();
@@ -241,6 +237,55 @@ namespace NotSteam
                 }
 
                 activeform = form;
+
+                #region do not open
+                if (former == false)
+                {
+                    Form[] forms = Application.OpenForms.Cast<Form>().ToArray();
+
+                    int addfunds = Application.OpenForms.OfType<AddFunds>().Count();
+                    int addgame = Application.OpenForms.OfType<AddGame>().Count();
+                    int Library = Application.OpenForms.OfType<Library>().Count();
+                    int Profile = Application.OpenForms.OfType<Profile>().Count();
+                    int Settings = Application.OpenForms.OfType<Settings>().Count();
+                    int Store = Application.OpenForms.OfType<Store>().Count();
+                    foreach (Form thisform in forms)
+                    {
+                        if (thisform.Name == "AddFunds" && (addfunds >= 1 || (formerform.Name != "AddFunds" && activeform.Name != "AddFunds")))
+                        {
+                            thisform.Close();
+                            addfunds--;
+                        }
+                        if (thisform.Name == "AddGame" && (addgame >= 1 || (formerform.Name != "AddGame" && activeform.Name != "AddGame")))
+                        {
+                            thisform.Close();
+                            addgame--;
+                        }
+                        if (thisform.Name == "Library" && (Library > 1 || (formerform.Name != "Library" && activeform.Name != "Library")))
+                        {
+                            Library--;
+                            thisform.Close();
+                        }
+                        if (thisform.Name == "Profile" && (Profile > 1 || (formerform.Name != "Profile" && activeform.Name != "Profile")))
+                        {
+                            Profile--;
+                            thisform.Close();
+                        }
+                        if (thisform.Name == "Store" && activeform.Name != "Store")
+                        {
+                            Store--;
+                            thisform.Close();
+                        }
+                        if (thisform.Name == "Settings" && (Settings >= 1 || (formerform.Name != "Settings" && activeform.Name != "Settings")))
+                        {
+                            Settings--;
+                            thisform.Close();
+                        }
+                    }
+                }
+                #endregion
+
+                activeform = form;
                 form.TopLevel = false;
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.Dock = DockStyle.Fill;
@@ -248,6 +293,8 @@ namespace NotSteam
                 panel1.Tag = form;
                 form.BringToFront();
                 form.Show();
+                nimicToolStripMenuItem.Text = Application.OpenForms.Count.ToString();
+                former = false;
             }
             catch (Exception ex)
             {

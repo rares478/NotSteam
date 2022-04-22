@@ -208,6 +208,7 @@ namespace NotSteam
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nimicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbForward)).BeginInit();
@@ -243,7 +244,8 @@ namespace NotSteam
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
             this.toolStripMenuItem6,
-            this.toolStripMenuItem3});
+            this.toolStripMenuItem3,
+            this.nimicToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1051,6 +1053,12 @@ namespace NotSteam
             this.panel1.Size = new System.Drawing.Size(790, 518);
             this.panel1.TabIndex = 17;
             // 
+            // nimicToolStripMenuItem
+            // 
+            this.nimicToolStripMenuItem.Name = "nimicToolStripMenuItem";
+            this.nimicToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.nimicToolStripMenuItem.Text = "nimic";
+            // 
             // NotSteamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1149,5 +1157,6 @@ namespace NotSteam
         private ToolStripMenuItem toolStripMenuItem4;
         private ToolStripMenuItem toolStripMenuItem5;
         private ToolStripMenuItem toolStripMenuItem6;
+        private ToolStripMenuItem nimicToolStripMenuItem;
     }
 }
