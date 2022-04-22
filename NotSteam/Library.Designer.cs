@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.label1.Location = new System.Drawing.Point(12, 61);
+            this.label1.Location = new System.Drawing.Point(183, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 31);
             this.label1.TabIndex = 1;
@@ -109,12 +109,12 @@
             // 
             // lbAfis
             // 
-            this.lbAfis.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbAfis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.lbAfis.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbAfis.FormattingEnabled = true;
-            this.lbAfis.Location = new System.Drawing.Point(12, 95);
+            this.lbAfis.Location = new System.Drawing.Point(12, 17);
             this.lbAfis.Name = "lbAfis";
-            this.lbAfis.Size = new System.Drawing.Size(147, 394);
+            this.lbAfis.Size = new System.Drawing.Size(147, 485);
             this.lbAfis.Sorted = true;
             this.lbAfis.TabIndex = 9;
             this.lbAfis.SelectedIndexChanged += new System.EventHandler(this.lbAfis_SelectedIndexChanged_1);
@@ -130,10 +130,11 @@
             // 
             // btPlay
             // 
-            this.btPlay.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(163)))), ((int)(((byte)(241)))));
             this.btPlay.FlatAppearance.BorderSize = 0;
             this.btPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPlay.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btPlay.Location = new System.Drawing.Point(244, 248);
             this.btPlay.Name = "btPlay";
             this.btPlay.Size = new System.Drawing.Size(93, 30);
@@ -145,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(800, 507);
             this.Controls.Add(this.btPlay);
             this.Controls.Add(this.pbAfis);

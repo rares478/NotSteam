@@ -30,11 +30,11 @@ namespace NotSteam
             labelmain.Location = new Point(249, 13);
             labelmain.Font = new Font("Microsoft Sans Serif", 36);
             labelmain.ImageAlign = ContentAlignment.TopCenter;
+            labelmain.Anchor = AnchorStyles.Top;
             labelmain.Text = "Not Steam";
             labelmain.ForeColor = SystemColors.ActiveCaption;
             labelmain.Size = new Size(251, 55);
 
-            BackColor = SystemColors.ActiveCaptionText;
 
 
             con.Open();
@@ -57,7 +57,7 @@ namespace NotSteam
                 lbl.ForeColor = SystemColors.ActiveCaption;
                 lblMissing.ForeColor = SystemColors.ActiveCaption;
                 lbl2.ForeColor = SystemColors.ActiveCaption;
-                richTextBox.BackColor = SystemColors.ActiveCaptionText;
+                richTextBox.BackColor = Color.FromArgb(16, 25, 35);
                 richTextBox.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BorderStyle = BorderStyle.None;
 
@@ -111,14 +111,6 @@ namespace NotSteam
         {
             Controls.Clear();
 
-            PictureBox pbBack = new PictureBox();
-            Controls.Add(pbBack);
-            pbBack.Location = new Point(12, 12);
-            pbBack.SizeMode = PictureBoxSizeMode.Zoom;
-            pbBack.Image = imageList1.Images[1];
-            pbBack.Size = new Size(29, 24);
-            pbBack.Click += new EventHandler(GoBack);
-
             Label lbNameGame = new Label();
             Controls.Add(lbNameGame);
             lbNameGame.Location = new Point(15, 90);
@@ -136,6 +128,9 @@ namespace NotSteam
             Button btBuyGame = new Button();
             btBuyGame.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
             btBuyGame.Location = new Point(512, 49);
+            btBuyGame.FlatStyle = FlatStyle.Flat;
+            btBuyGame.ForeColor = SystemColors.ActiveCaption;
+            btBuyGame.BackColor = SystemColors.ControlText;
             btBuyGame.Name = "btBuyGame";
             btBuyGame.Size = new Size(75, 23);
             btBuyGame.TabIndex = 16;
@@ -145,6 +140,8 @@ namespace NotSteam
 
             RichTextBox tbGame = new RichTextBox();
             Controls.Add(tbGame);
+            tbGame.BackColor = SystemColors.GradientActiveCaption;
+            tbGame.ForeColor = SystemColors.ActiveCaptionText;
             tbGame.Location = new Point(317, 120);
             tbGame.Name = "tbGame";
             tbGame.ReadOnly = true;
@@ -238,9 +235,6 @@ namespace NotSteam
             pbGame.Image = imageList1.Images[id+1];
             lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
             con.Close();
-
-
-
         }
 
 

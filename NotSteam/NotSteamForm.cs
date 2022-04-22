@@ -16,12 +16,28 @@ namespace NotSteam
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
 
-            toolStripmoney.Text = user.money.ToString();
-            toolStripMenuItem3.Text = user.username.ToString();
+            toolStripMenuItem3.Text = user.username.ToString() + "    " + user.money.ToString() + "$";
             Form mainform = new Store(loggeduser);
             openform(mainform);
+            FormBorderStyle = FormBorderStyle.None;
         }
 
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void moveform(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
         #region switch
         /*public void ChangeTheme(Control.ControlCollection container)
@@ -129,12 +145,14 @@ namespace NotSteam
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form settings = new Settings(loggeduser);
+            openform(settings);
         }
 
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form libraryform = new Library(loggeduser);
+            openform(libraryform);
         }
 
         private void changeAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +166,8 @@ namespace NotSteam
 
         private void settingsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Form settings = new Settings(loggeduser);
+            openform(settings);
         }
 
         private void aboutNotSteamToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,7 +177,8 @@ namespace NotSteam
 
         private void viewGamesLibraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form libraryform = new Library(loggeduser);
+            openform(libraryform);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,7 +188,8 @@ namespace NotSteam
 
         private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form profile = new Profile(loggeduser);
+            openform(profile);
         }
 
 
@@ -207,16 +228,17 @@ namespace NotSteam
 
                     if (loggeduser.admin != 1)
                         addGameToNotSteamToolStripMenuItem.Visible = false;
-                    toolStripMenuItem3.Text = loggeduser.username.ToString();
 
                     con.Open();
 
                     string cmmoney = "select money from Users where id = " + loggeduser.id + "";
                     SqlCommand cmdmoney = new SqlCommand(cmmoney, con);
-                    toolStripmoney.Text = cmdmoney.ExecuteScalar().ToString();
+                    string money = cmdmoney.ExecuteScalar().ToString();
 
                     con.Close();
+                    toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + money;
                 }
+
                 activeform = form;
                 form.TopLevel = false;
                 form.FormBorderStyle = FormBorderStyle.None;
@@ -236,7 +258,7 @@ namespace NotSteam
 
         private void toolStripmoney_Click(object sender, EventArgs e)
         {
-            Form addfundform = new AddFunds(loggeduser, formerform);
+            Form addfundform = new AddFunds(loggeduser);
             openform(addfundform);
         }
 
@@ -267,6 +289,42 @@ namespace NotSteam
         private void pbForward_Click(object sender, EventArgs e)
         {
             openform(formerform);
+        }
+
+        private void viewMyProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form profileform = new Profile(loggeduser);
+            openform(profileform);
+        }
+
+        private void logoutOfAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
+                "Logout", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+                Application.Restart();
+        }
+
+        private void viewMyWalletToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addfundform = new AddFunds(loggeduser);
+            openform(addfundform);
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

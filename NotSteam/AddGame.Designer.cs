@@ -72,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Location = new System.Drawing.Point(177, 96);
@@ -84,7 +84,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Location = new System.Drawing.Point(177, 139);
@@ -114,7 +114,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label20.Location = new System.Drawing.Point(184, 181);
@@ -125,10 +125,12 @@
             // 
             // btPic
             // 
-            this.btPic.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(150)))), ((int)(((byte)(6)))));
+            this.btPic.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.btPic.FlatAppearance.BorderSize = 0;
             this.btPic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPic.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btPic.Location = new System.Drawing.Point(340, 325);
             this.btPic.Name = "btPic";
             this.btPic.Size = new System.Drawing.Size(102, 28);
@@ -139,10 +141,11 @@
             // 
             // btAddNew
             // 
-            this.btAddNew.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btAddNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(150)))), ((int)(((byte)(6)))));
             this.btAddNew.FlatAppearance.BorderSize = 0;
             this.btAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddNew.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btAddNew.Location = new System.Drawing.Point(12, 406);
             this.btAddNew.Name = "btAddNew";
             this.btAddNew.Size = new System.Drawing.Size(134, 32);
@@ -155,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btAddNew);
             this.Controls.Add(this.btPic);

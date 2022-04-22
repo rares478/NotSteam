@@ -141,11 +141,11 @@
             // 
             // btChangePassword
             // 
-            this.btChangePassword.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btChangePassword.BackColor = System.Drawing.Color.Transparent;
             this.btChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btChangePassword.FlatAppearance.BorderSize = 0;
             this.btChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btChangePassword.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(154)))), ((int)(((byte)(188)))));
             this.btChangePassword.Location = new System.Drawing.Point(366, 276);
             this.btChangePassword.Name = "btChangePassword";
             this.btChangePassword.Size = new System.Drawing.Size(149, 23);
@@ -158,7 +158,7 @@
             // 
             this.btChangeEmail.FlatAppearance.BorderSize = 0;
             this.btChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btChangeEmail.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btChangeEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(154)))), ((int)(((byte)(188)))));
             this.btChangeEmail.Location = new System.Drawing.Point(547, 276);
             this.btChangeEmail.Name = "btChangeEmail";
             this.btChangeEmail.Size = new System.Drawing.Size(149, 23);
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btChangeEmail);
             this.Controls.Add(this.btChangePassword);

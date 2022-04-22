@@ -50,7 +50,7 @@
             // 
             // cbMoney
             // 
-            this.cbMoney.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbMoney.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.cbMoney.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.cbMoney.FormattingEnabled = true;
             this.cbMoney.Items.AddRange(new object[] {
@@ -115,9 +115,10 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(150)))), ((int)(((byte)(6)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(334, 346);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -130,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbTerms);
@@ -145,6 +146,7 @@
             this.Text = "AddFunds";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
