@@ -285,7 +285,6 @@ namespace NotSteam
                 }
                 #endregion
 
-                activeform = form;
                 form.TopLevel = false;
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.Dock = DockStyle.Fill;
