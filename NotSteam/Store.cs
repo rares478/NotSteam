@@ -48,61 +48,52 @@ namespace NotSteam
             SqlDataReader reader = cmdid.ExecuteReader();
 
             int z = 0;
-            int cz = 1;
-            int i = 0;
             while (reader.Read())
             {
                 string name = reader.GetString(0);
                 Label lbl = new Label();
-                Label lblMissing = new Label();
                 Label lbl2 = new Label();
                 PictureBox pictureBox = new PictureBox();
                 RichTextBox richTextBox = new RichTextBox();
-                
+
                 lbl.ForeColor = SystemColors.ActiveCaption;
-                lblMissing.ForeColor = SystemColors.ActiveCaption;
                 lbl2.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BackColor = Color.FromArgb(16, 25, 35);
                 richTextBox.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BorderStyle = BorderStyle.None;
 
                 Controls.Add(lbl);
-                Controls.Add(lblMissing);
                 Controls.Add(lbl2);
                 Controls.Add(pictureBox);
                 Controls.Add(richTextBox);
 
                 lbl.Location = new Point(303, 360 + (z * 260));
-                lblMissing.Location = new Point(95, 565 + (z * 260));
                 lbl2.Location = new Point(303, 400 + (z * 260));
                 richTextBox.Location = new Point(308, 175 + ((z + 1) * 260));
                 pictureBox.Location = new Point(6, 360 + (z * 260));
                 pictureBox.Size = new Size(256, 199);
                 richTextBox.Size = new Size(397, 126);
 
-                lblMissing.Text = "Missing image";
-                lblMissing.Visible = false;
                 lbl.Click += new EventHandler(lbl_click);
                 lbl.AutoSize = true;
                 lbl2.AutoSize = true;
                 lbl2.Text = developer(name);
                 lbl.Font = new Font("Microsoft Sans Serif", 16);
                 richTextBox.Text = description(name);
+
                 z++;
                 lbl.Text = name;
-                if (cz >= imageList1.Images.Count)
-                {
-                    cz = 0;
-                    pictureBox.Image = imageList1.Images[cz];
-                    lblMissing.Visible = true;
 
-                }
-                else
+                foreach (string img in imageList1.Images.Keys)
                 {
-                    pictureBox.Image = imageList1.Images[cz];
-                    cz++;
+                    if (img == name)
+                        pictureBox.Image = imageList1.Images[imageList1.Images.IndexOfKey(img)];
+                    if (pictureBox.Image == null)
+                    {
+                        pictureBox.Image = imageList1.Images[0];
+                    }
                 }
-                i++;
+                
             }
             con.Close();
         }
@@ -230,14 +221,18 @@ namespace NotSteam
             reader.Close();
 
             con.Close();
-            if (id+2 >= imageList1.Images.Count)
+            foreach (string img in imageList1.Images.Keys)
             {
-                id = -1; lbMissingGame.Visible = true;
-
+                if (img == name)
+                {
+                    pbGame.Image = imageList1.Images[imageList1.Images.IndexOfKey(img)];
+                    break;
+                }
+                if (pbGame.Image == null)
+                {
+                    pbGame.Image = imageList1.Images[0];
+                }
             }
-            else
-                lbMissingGame.Visible = false;
-            pbGame.Image = imageList1.Images[id+1];
             lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
             con.Close();
         }

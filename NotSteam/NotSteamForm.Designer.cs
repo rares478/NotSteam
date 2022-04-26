@@ -1143,6 +1143,7 @@ namespace NotSteam
             this.label33.Size = new System.Drawing.Size(76, 13);
             this.label33.TabIndex = 28;
             this.label33.Text = "New Releases";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // label32
             // 
@@ -1336,6 +1337,7 @@ namespace NotSteam
             this.label15.Size = new System.Drawing.Size(76, 13);
             this.label15.TabIndex = 10;
             this.label15.Text = "New Releases";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
             // 
@@ -1490,7 +1492,6 @@ namespace NotSteam
         private System.Windows.Forms.ToolStripMenuItem backupAndRestoreGamesToolStripMenuItem;
         private ExtendedToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private ExtendedToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem libraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewFriendListToolStripMenuItem;

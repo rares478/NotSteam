@@ -39,17 +39,17 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Steam_service-Logo.wine.png");
-            this.imageList1.Images.SetKeyName(1, "gta 5.jpg");
-            this.imageList1.Images.SetKeyName(2, "bloons-td6-purple.jpg");
-            this.imageList1.Images.SetKeyName(3, "Dying_Light.jpg");
-            this.imageList1.Images.SetKeyName(4, "new world.jpg");
-            this.imageList1.Images.SetKeyName(5, "cs1.6.jpg");
-            this.imageList1.Images.SetKeyName(6, "pubg.jpg");
-            this.imageList1.Images.SetKeyName(7, "sims4.jpg");
-            this.imageList1.Images.SetKeyName(8, "csgo.png");
-            this.imageList1.Images.SetKeyName(9, "Farming simulator.jpg");
-            this.imageList1.Images.SetKeyName(10, "who\'s your daddy.jpg");
-            this.imageList1.Images.SetKeyName(11, "unturned.jpg");
+            this.imageList1.Images.SetKeyName(1, "GTA V");
+            this.imageList1.Images.SetKeyName(2, "BTD 6");
+            this.imageList1.Images.SetKeyName(3, "Dying Light");
+            this.imageList1.Images.SetKeyName(4, "New World");
+            this.imageList1.Images.SetKeyName(5, "CS 1.6");
+            this.imageList1.Images.SetKeyName(6, "PUBG");
+            this.imageList1.Images.SetKeyName(7, "The Sims 4");
+            this.imageList1.Images.SetKeyName(8, "CSGO");
+            this.imageList1.Images.SetKeyName(9, "Farming Simulator 2022");
+            this.imageList1.Images.SetKeyName(10, "who daddy");
+            this.imageList1.Images.SetKeyName(11, "Unturned");
             // 
             // label1
             // 
