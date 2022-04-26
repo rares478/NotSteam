@@ -22,7 +22,6 @@ namespace NotSteam
             openform(mainform);
             FormBorderStyle = FormBorderStyle.None;
             menuStrip1.Renderer = new MyRenderer();
-            DoubleBuffered = true;
             if (WindowState != FormWindowState.Maximized)
                 panel1.Width = 0;
         }
@@ -176,7 +175,6 @@ namespace NotSteam
 
         private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Profile(loggeduser, true));
 
-
         private void addGameToNotSteamToolStripMenuItem_Click(object sender, EventArgs e) => openform(new AddGame());
 
         private void toolStripmoney_Click(object sender, EventArgs e) => openform(new AddFunds(loggeduser));
@@ -276,7 +274,7 @@ namespace NotSteam
                             Profile--;
                             thisform.Close();
                         }
-                        if (thisform.Name == "Store" && (activeform.Name != "Store" || Store>1))
+                        if (thisform.Name == "Store" && (Store > 1 ||  activeform.Name != "Store"))///memory leak da idk
                         {
                             Store--;
                             thisform.Close();
@@ -430,7 +428,6 @@ namespace NotSteam
             Form addfundform = new AddFunds(loggeduser);
             openform(addfundform);
         }
-        #endregion
         private void label32_Click(object sender, EventArgs e)
         {
             var rand = new Random();
@@ -442,8 +439,23 @@ namespace NotSteam
             con.Close();
             Form mainform = new Store(loggeduser, query,name);
             openform(mainform);
-            
         }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+            string query = "select name from Games where Games.date >= DATEADD(day, -31, getdate())";
+            Form mainform = new Store(loggeduser, query, null);
+            openform(mainform);
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            string query = "select name from Games where Games.date >= DATEADD(day, -31, getdate())";
+            Form mainform = new Store(loggeduser, query, null);
+            openform(mainform);
+        }
+
+        #endregion
 
     }
 }
