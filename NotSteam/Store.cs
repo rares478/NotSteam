@@ -30,10 +30,9 @@ namespace NotSteam
         }
         private void initialize()
         {
-            Controls.Clear();
             Label labelmain = new Label();
-            Controls.Add(labelmain);
-            labelmain.Location = new Point(249, 13);
+            panel2.Controls.Add(labelmain);
+            labelmain.Location = new Point(249, 30);
             labelmain.Font = new Font("Microsoft Sans Serif", 36);
             labelmain.ImageAlign = ContentAlignment.TopCenter;
             labelmain.Anchor = AnchorStyles.Top;
@@ -62,10 +61,10 @@ namespace NotSteam
                 richTextBox.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BorderStyle = BorderStyle.None;
 
-                Controls.Add(lbl);
-                Controls.Add(lbl2);
-                Controls.Add(pictureBox);
-                Controls.Add(richTextBox);
+                panel2.Controls.Add(lbl);
+                panel2.Controls.Add(lbl2);
+                panel2.Controls.Add(pictureBox);
+                panel2.Controls.Add(richTextBox);
 
                 lbl.Location = new Point(303, 360 + (z * 260));
                 lbl2.Location = new Point(303, 400 + (z * 260));
@@ -96,11 +95,6 @@ namespace NotSteam
                 
             }
             con.Close();
-        }
-
-        private void GoBack(object sender, EventArgs e)
-        {
-            initialize();
         }
 
         private void switchtogame(string name)
@@ -335,6 +329,26 @@ namespace NotSteam
                 return readerdev.GetString(0);
             }
             else return null;
+        }
+
+        private void preferanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                string name = toolStripTextBox1.Text;
+                switchtogame(name);
+
+            }
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            toolStripTextBox1.Text = "";
         }
     }
 }
