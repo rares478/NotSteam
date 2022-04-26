@@ -139,46 +139,35 @@ namespace NotSteam
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goOffnileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new NotSteam.ExtendedToolStripSeparator();
             this.checkForNotSteamClientUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new NotSteam.ExtendedToolStripSeparator();
             this.backupAndRestoreGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new NotSteam.ExtendedToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new NotSteam.ExtendedToolStripSeparator();
             this.addGameToNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hiddenGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new NotSteam.ExtendedToolStripSeparator();
             this.smallModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bigPictureModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new NotSteam.ExtendedToolStripSeparator();
             this.musicPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator12 = new NotSteam.ExtendedToolStripSeparator();
             this.friendsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screenshotsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateNewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new NotSteam.ExtendedToolStripSeparator();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.friendsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewFriendListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new NotSteam.ExtendedToolStripSeparator();
             this.addAFriendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editProfileNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new NotSteam.ExtendedToolStripSeparator();
             this.onlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.awayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invisibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewGamesLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new NotSteam.ExtendedToolStripSeparator();
             this.activateAProductOnNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redeemANotSteamWalletCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGiftsAndGuestPassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -187,7 +176,6 @@ namespace NotSteam
             this.privacyPolicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notSteamSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new NotSteam.ExtendedToolStripSeparator();
             this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNotSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -240,6 +228,18 @@ namespace NotSteam
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.toolStripSeparator4 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator5 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator6 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator14 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator10 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator11 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator12 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator13 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator1 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator2 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator3 = new NotSteam.ExtendedToolStripSeparator();
+            this.toolStripSeparator9 = new NotSteam.ExtendedToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbForward)).BeginInit();
@@ -333,11 +333,6 @@ namespace NotSteam
             this.goOffnileToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.goOffnileToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(258, 6);
-            // 
             // checkForNotSteamClientUpdatesToolStripMenuItem
             // 
             this.checkForNotSteamClientUpdatesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -349,11 +344,6 @@ namespace NotSteam
             this.checkForNotSteamClientUpdatesToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.checkForNotSteamClientUpdatesToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(258, 6);
-            // 
             // backupAndRestoreGamesToolStripMenuItem
             // 
             this.backupAndRestoreGamesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -364,11 +354,6 @@ namespace NotSteam
             this.backupAndRestoreGamesToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.backupAndRestoreGamesToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.backupAndRestoreGamesToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(258, 6);
             // 
             // settingsToolStripMenuItem
             // 
@@ -393,11 +378,6 @@ namespace NotSteam
             this.exitToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.exitToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.exitToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(258, 6);
             // 
             // addGameToNotSteamToolStripMenuItem
             // 
@@ -474,11 +454,6 @@ namespace NotSteam
             this.downloadsToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.downloadsToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(162, 6);
-            // 
             // smallModeToolStripMenuItem
             // 
             this.smallModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -501,11 +476,6 @@ namespace NotSteam
             this.bigPictureModeToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.bigPictureModeToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(162, 6);
-            // 
             // musicPlayerToolStripMenuItem
             // 
             this.musicPlayerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -516,11 +486,6 @@ namespace NotSteam
             this.musicPlayerToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.musicPlayerToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.musicPlayerToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(162, 6);
             // 
             // friendsToolStripMenuItem1
             // 
@@ -588,11 +553,6 @@ namespace NotSteam
             this.updateNewsToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.updateNewsToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(162, 6);
-            // 
             // settingsToolStripMenuItem1
             // 
             this.settingsToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -637,11 +597,6 @@ namespace NotSteam
             this.viewFriendListToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.viewFriendListToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
-            // 
             // addAFriendToolStripMenuItem
             // 
             this.addAFriendToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(58)))), ((int)(((byte)(65)))));
@@ -664,11 +619,6 @@ namespace NotSteam
             this.editProfileNameToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.editProfileNameToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.editProfileNameToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
             // 
             // onlineToolStripMenuItem
             // 
@@ -743,11 +693,6 @@ namespace NotSteam
             this.viewGamesLibraryToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.viewGamesLibraryToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.viewGamesLibraryToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(293, 6);
             // 
             // activateAProductOnNotSteamToolStripMenuItem
             // 
@@ -843,11 +788,6 @@ namespace NotSteam
             this.notSteamSupportToolStripMenuItem.MouseEnter += new System.EventHandler(this.OnHoverToolstrip);
             this.notSteamSupportToolStripMenuItem.MouseLeave += new System.EventHandler(this.OnExitToolstrip);
             this.notSteamSupportToolStripMenuItem.MouseHover += new System.EventHandler(this.OnHoverToolstrip);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(175, 6);
             // 
             // systemInformationToolStripMenuItem
             // 
@@ -1449,6 +1389,66 @@ namespace NotSteam
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(636, 689);
             this.panel3.TabIndex = 18;
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(258, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(258, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(258, 6);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(258, 6);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(162, 6);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(162, 6);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(162, 6);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(162, 6);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(293, 6);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(175, 6);
             // 
             // NotSteamForm
             // 
