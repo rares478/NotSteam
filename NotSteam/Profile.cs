@@ -12,57 +12,64 @@ namespace NotSteam
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         int userid;
         string username;
-        public Profile(user user)
+        public Profile(user user,bool edit)
         {
             InitializeComponent();
             userid = user.id;
             username = user.username;
             DoubleBuffered = true;
-
-
-            ///
-            ///daca vreau sa ma complic si sa schimb culoarea la header trebe sa dau in designer ownerdraw = true 
-            ///si sa fac un void ca sa dea draw cu owner la header si cu default pt iteme
-            ///https://stackoverflow.com/questions/1814692/change-the-background-color-of-winform-listview-headers
-            ///
-
-
-            con.Open();
-            string desc = "select description from Users where id = " + userid + "";
-            SqlCommand cmddesc = new SqlCommand(desc, con);
-            tbDesc.Text = cmddesc.ExecuteScalar().ToString();
-            if (tbDesc.Text.Length == 0)
-                tbDesc.Text = "Add a description";
-            label1.Text = username;
-
-            lvLibrary.Clear();
-            lvLibrary.Visible = true;
-            lvLibrary.View = View.Details;
-            lvLibrary.AllowColumnReorder = true;
-            lvLibrary.Columns.Add(new ColumnHeader());
-            lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
-            lvLibrary.Columns[0].Width = 0;
-            lvLibrary.Columns.Add(new ColumnHeader());
-            lvLibrary.Columns[1].Text = "Game";
-            lvLibrary.Columns[1].Width = 100;
-            lvLibrary.Columns.Add(new ColumnHeader());
-            lvLibrary.Columns[2].Text = "Date bought";
-            lvLibrary.Columns[2].Width = 120;
-            lvLibrary.LabelEdit = true;
-            string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
-
-            SqlCommand cmd = new SqlCommand(query, con);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            if (edit)
             {
-                ListViewItem lvgame = new ListViewItem();
-                lvgame.SubItems.Add(reader.GetString(0));
-                var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
-                lvgame.SubItems.Add(dateValue1);
-                lvLibrary.Items.Add(lvgame);
+                EditProfile();
             }
-            con.Close();
+            else
+            {
+
+
+                ///
+                ///daca vreau sa ma complic si sa schimb culoarea la header trebe sa dau in designer ownerdraw = true 
+                ///si sa fac un void ca sa dea draw cu owner la header si cu default pt iteme
+                ///https://stackoverflow.com/questions/1814692/change-the-background-color-of-winform-listview-headers
+                ///
+
+
+                con.Open();
+                string desc = "select description from Users where id = " + userid + "";
+                SqlCommand cmddesc = new SqlCommand(desc, con);
+                tbDesc.Text = cmddesc.ExecuteScalar().ToString();
+                if (tbDesc.Text.Length == 0)
+                    tbDesc.Text = "Add a description";
+                label1.Text = username;
+
+                lvLibrary.Clear();
+                lvLibrary.Visible = true;
+                lvLibrary.View = View.Details;
+                lvLibrary.AllowColumnReorder = true;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+                lvLibrary.Columns[0].Width = 0;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[1].Text = "Game";
+                lvLibrary.Columns[1].Width = 100;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[2].Text = "Date bought";
+                lvLibrary.Columns[2].Width = 120;
+                lvLibrary.LabelEdit = true;
+                string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ListViewItem lvgame = new ListViewItem();
+                    lvgame.SubItems.Add(reader.GetString(0));
+                    var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                    lvgame.SubItems.Add(dateValue1);
+                    lvLibrary.Items.Add(lvgame);
+                }
+                con.Close();
+            }
         }
 
         public void GoBack(object sender, EventArgs e)

@@ -13,15 +13,20 @@ namespace NotSteam
         int money;
         int userid;
         bool theme = false;
+        string query = null;
 
-        public Store(user user)
+        public Store(user user, string queryceva,string name)
         {
 
             InitializeComponent();
             userid = user.id;
             DoubleBuffered = true;
             money = user.money;
-            initialize();
+            query = queryceva;
+            if (name != null)
+                switchtogame(name);
+            else 
+               initialize();
         }
         private void initialize()
         {
@@ -39,8 +44,7 @@ namespace NotSteam
 
 
             con.Open();
-            string idquery = "select Games.name from Games";
-            SqlCommand cmdid = new SqlCommand(idquery, con);
+            SqlCommand cmdid = new SqlCommand(query, con);
             SqlDataReader reader = cmdid.ExecuteReader();
 
             int z = 0;
@@ -86,7 +90,7 @@ namespace NotSteam
                 richTextBox.Text = description(name);
                 z++;
                 lbl.Text = name;
-                if (cz+1 >= imageList1.Images.Count)
+                if (cz >= imageList1.Images.Count)
                 {
                     cz = 0;
                     pictureBox.Image = imageList1.Images[cz];
@@ -95,7 +99,7 @@ namespace NotSteam
                 }
                 else
                 {
-                    pictureBox.Image = imageList1.Images[cz+1];
+                    pictureBox.Image = imageList1.Images[cz];
                     cz++;
                 }
                 i++;
