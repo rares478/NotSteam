@@ -12,7 +12,6 @@ namespace NotSteam
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         int money;
         int userid;
-        bool theme = false;
         string query = null;
 
         public Store(user user, string queryceva,string name)
@@ -27,10 +26,13 @@ namespace NotSteam
                 switchtogame(name);
             else 
                initialize();
+            CustomToolStripRenderer r = new CustomToolStripRenderer();
+            r.RoundedEdges = true;
+            menuStrip1.Renderer = r;
         }
         private void initialize()
         {
-            Label labelmain = new Label();
+            /*Label labelmain = new Label();
             panel2.Controls.Add(labelmain);
             labelmain.Location = new Point(249, 30);
             labelmain.Font = new Font("Microsoft Sans Serif", 36);
@@ -38,7 +40,7 @@ namespace NotSteam
             labelmain.Anchor = AnchorStyles.Top;
             labelmain.Text = "Not Steam";
             labelmain.ForeColor = SystemColors.ActiveCaption;
-            labelmain.Size = new Size(251, 55);
+            labelmain.Size = new Size(251, 55);*/
 
 
 

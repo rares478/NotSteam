@@ -1,4 +1,8 @@
-﻿namespace NotSteam
+﻿using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing;
+
+namespace NotSteam
 {
     partial class Store
     {
@@ -20,6 +24,22 @@
             base.Dispose(disposing);
         }
 
+        public class CustomToolStripRenderer : ToolStripProfessionalRenderer
+        {
+            public CustomToolStripRenderer() { }
+
+            protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+            {
+                //you may want to change this based on the toolstrip's dock or layout style
+                LinearGradientMode mode = LinearGradientMode.Horizontal;
+
+                using (LinearGradientBrush b = new LinearGradientBrush(e.AffectedBounds, Color.FromArgb(47, 125, 192), Color.FromArgb(15, 33, 110), mode))
+                {
+                    e.Graphics.FillRectangle(b, e.AffectedBounds);
+                }
+            }
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -32,6 +52,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Store));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yourStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.followedGamesSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -138,7 +159,6 @@
             this.pointsShopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -168,12 +188,32 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 536);
+            this.panel2.Size = new System.Drawing.Size(953, 536);
             this.panel2.TabIndex = 2;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(87)))), ((int)(((byte)(150)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yourStoreToolStripMenuItem,
+            this.newNoteWorthyToolStripMenuItem,
+            this.categoriesToolStripMenuItem,
+            this.pointsShopToolStripMenuItem,
+            this.newsToolStripMenuItem,
+            this.labsToolStripMenuItem,
+            this.toolStripTextBox1});
+            this.menuStrip1.Location = new System.Drawing.Point(9, 19);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(935, 34);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "search";
             // 
             // yourStoreToolStripMenuItem
             // 
-            this.yourStoreToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(124)))), ((int)(((byte)(185)))));
+            this.yourStoreToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.yourStoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.followedGamesSoftwareToolStripMenuItem,
             this.toolStripSeparator1,
@@ -188,141 +228,148 @@
             this.interactiveRecommenderToolStripMenuItem,
             this.popularAmongFriendsToolStripMenuItem,
             this.steamCuratorsToolStripMenuItem});
+            this.yourStoreToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourStoreToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.yourStoreToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.yourStoreToolStripMenuItem.Name = "yourStoreToolStripMenuItem";
-            this.yourStoreToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
-            this.yourStoreToolStripMenuItem.Text = "Home";
+            this.yourStoreToolStripMenuItem.Size = new System.Drawing.Size(94, 30);
+            this.yourStoreToolStripMenuItem.Text = "Your Store";
             // 
             // followedGamesSoftwareToolStripMenuItem
             // 
             this.followedGamesSoftwareToolStripMenuItem.Name = "followedGamesSoftwareToolStripMenuItem";
-            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.followedGamesSoftwareToolStripMenuItem.Text = "Followed Games & Software";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(238, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(293, 6);
             // 
             // subscriptionsToolStripMenuItem
             // 
             this.subscriptionsToolStripMenuItem.Name = "subscriptionsToolStripMenuItem";
-            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.subscriptionsToolStripMenuItem.Text = "Subscriptions";
             // 
             // manageSubscriptionsToolStripMenuItem
             // 
             this.manageSubscriptionsToolStripMenuItem.Name = "manageSubscriptionsToolStripMenuItem";
-            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.manageSubscriptionsToolStripMenuItem.Text = "Manage Subscriptions";
             // 
             // preferanceToolStripMenuItem
             // 
             this.preferanceToolStripMenuItem.Name = "preferanceToolStripMenuItem";
-            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.preferanceToolStripMenuItem.Text = "Preferances";
             this.preferanceToolStripMenuItem.Click += new System.EventHandler(this.preferanceToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(296, 26);
             this.toolStripMenuItem2.Text = " ";
             // 
             // recommendationsToolStripMenuItem
             // 
             this.recommendationsToolStripMenuItem.Name = "recommendationsToolStripMenuItem";
-            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.recommendationsToolStripMenuItem.Text = "Recommendations";
             // 
             // discoveryQueueToolStripMenuItem
             // 
             this.discoveryQueueToolStripMenuItem.Name = "discoveryQueueToolStripMenuItem";
-            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.discoveryQueueToolStripMenuItem.Text = "Discovery Queue";
             // 
             // newReleaseQueueToolStripMenuItem
             // 
             this.newReleaseQueueToolStripMenuItem.Name = "newReleaseQueueToolStripMenuItem";
-            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.newReleaseQueueToolStripMenuItem.Text = "New Release Queue";
             // 
             // communityRecommendationsToolStripMenuItem
             // 
             this.communityRecommendationsToolStripMenuItem.Name = "communityRecommendationsToolStripMenuItem";
-            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.communityRecommendationsToolStripMenuItem.Text = "Community Recommendations";
             // 
             // interactiveRecommenderToolStripMenuItem
             // 
             this.interactiveRecommenderToolStripMenuItem.Name = "interactiveRecommenderToolStripMenuItem";
-            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.interactiveRecommenderToolStripMenuItem.Text = "Interactive Recommender";
             // 
             // popularAmongFriendsToolStripMenuItem
             // 
             this.popularAmongFriendsToolStripMenuItem.Name = "popularAmongFriendsToolStripMenuItem";
-            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.popularAmongFriendsToolStripMenuItem.Text = "Popular Among Friends";
             // 
             // steamCuratorsToolStripMenuItem
             // 
             this.steamCuratorsToolStripMenuItem.Name = "steamCuratorsToolStripMenuItem";
-            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.steamCuratorsToolStripMenuItem.Text = "Steam Curators";
             // 
             // newNoteWorthyToolStripMenuItem
             // 
-            this.newNoteWorthyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(124)))), ((int)(((byte)(185)))));
+            this.newNoteWorthyToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.newNoteWorthyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.topSellersToolStripMenuItem,
             this.newTrendingToolStripMenuItem,
             this.currentSpecialsToolStripMenuItem,
             this.recentlyUpdatedToolStripMenuItem,
             this.popularUpcomingToolStripMenuItem});
+            this.newNoteWorthyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newNoteWorthyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.newNoteWorthyToolStripMenuItem.Name = "newNoteWorthyToolStripMenuItem";
-            this.newNoteWorthyToolStripMenuItem.Size = new System.Drawing.Size(112, 23);
-            this.newNoteWorthyToolStripMenuItem.Text = "New & Noteworthy";
+            this.newNoteWorthyToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
+            this.newNoteWorthyToolStripMenuItem.Text = "New and Noteworthy";
             // 
             // topSellersToolStripMenuItem
             // 
             this.topSellersToolStripMenuItem.Name = "topSellersToolStripMenuItem";
-            this.topSellersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topSellersToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.topSellersToolStripMenuItem.Text = "Top Sellers";
             // 
             // newTrendingToolStripMenuItem
             // 
             this.newTrendingToolStripMenuItem.Name = "newTrendingToolStripMenuItem";
-            this.newTrendingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newTrendingToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.newTrendingToolStripMenuItem.Text = "New & Trending";
             // 
             // currentSpecialsToolStripMenuItem
             // 
             this.currentSpecialsToolStripMenuItem.Name = "currentSpecialsToolStripMenuItem";
-            this.currentSpecialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.currentSpecialsToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.currentSpecialsToolStripMenuItem.Text = "Current Specials";
             // 
             // recentlyUpdatedToolStripMenuItem
             // 
             this.recentlyUpdatedToolStripMenuItem.Name = "recentlyUpdatedToolStripMenuItem";
-            this.recentlyUpdatedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyUpdatedToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.recentlyUpdatedToolStripMenuItem.Text = "Recently Updated";
             // 
             // popularUpcomingToolStripMenuItem
             // 
             this.popularUpcomingToolStripMenuItem.Name = "popularUpcomingToolStripMenuItem";
-            this.popularUpcomingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.popularUpcomingToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.popularUpcomingToolStripMenuItem.Text = "Popular Upcoming";
             // 
             // categoriesToolStripMenuItem
             // 
-            this.categoriesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(184)))));
+            this.categoriesToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.categoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.specialSectionsToolStripMenuItem,
             this.genresToolStripMenuItem,
             this.themesToolStripMenuItem,
             this.playerSupportToolStripMenuItem});
+            this.categoriesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 23);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(96, 30);
             this.categoriesToolStripMenuItem.Text = "Categories";
             // 
             // specialSectionsToolStripMenuItem
@@ -343,91 +390,91 @@
             this.notSteamOSLinuxToolStripMenuItem,
             this.forPCCafesToolStripMenuItem});
             this.specialSectionsToolStripMenuItem.Name = "specialSectionsToolStripMenuItem";
-            this.specialSectionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.specialSectionsToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.specialSectionsToolStripMenuItem.Text = "Special Sections";
             // 
             // freeToPlayToolStripMenuItem
             // 
             this.freeToPlayToolStripMenuItem.Name = "freeToPlayToolStripMenuItem";
-            this.freeToPlayToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.freeToPlayToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.freeToPlayToolStripMenuItem.Text = "Free to Play";
             // 
             // demosToolStripMenuItem
             // 
             this.demosToolStripMenuItem.Name = "demosToolStripMenuItem";
-            this.demosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.demosToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.demosToolStripMenuItem.Text = "Demos";
             // 
             // earlyAccessToolStripMenuItem
             // 
             this.earlyAccessToolStripMenuItem.Name = "earlyAccessToolStripMenuItem";
-            this.earlyAccessToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.earlyAccessToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.earlyAccessToolStripMenuItem.Text = "Early Access";
             // 
             // controllerFriendlyToolStripMenuItem
             // 
             this.controllerFriendlyToolStripMenuItem.Name = "controllerFriendlyToolStripMenuItem";
-            this.controllerFriendlyToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.controllerFriendlyToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.controllerFriendlyToolStripMenuItem.Text = "Controller-Friendly";
             // 
             // remotePlayToolStripMenuItem
             // 
             this.remotePlayToolStripMenuItem.Name = "remotePlayToolStripMenuItem";
-            this.remotePlayToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.remotePlayToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.remotePlayToolStripMenuItem.Text = "Remote Play";
             // 
             // softwareToolStripMenuItem
             // 
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.softwareToolStripMenuItem.Text = "Software";
             // 
             // soundtracksToolStripMenuItem
             // 
             this.soundtracksToolStripMenuItem.Name = "soundtracksToolStripMenuItem";
-            this.soundtracksToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.soundtracksToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.soundtracksToolStripMenuItem.Text = "Soundtracks";
             // 
             // vRTitlesToolStripMenuItem
             // 
             this.vRTitlesToolStripMenuItem.Name = "vRTitlesToolStripMenuItem";
-            this.vRTitlesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.vRTitlesToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.vRTitlesToolStripMenuItem.Text = "VR Titles";
             // 
             // vRHardwareToolStripMenuItem
             // 
             this.vRHardwareToolStripMenuItem.Name = "vRHardwareToolStripMenuItem";
-            this.vRHardwareToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.vRHardwareToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.vRHardwareToolStripMenuItem.Text = "VR Hardware";
             // 
             // notSteamDeckToolStripMenuItem
             // 
             this.notSteamDeckToolStripMenuItem.Name = "notSteamDeckToolStripMenuItem";
-            this.notSteamDeckToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.notSteamDeckToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.notSteamDeckToolStripMenuItem.Text = "NotSteam Deck";
             // 
             // greatOnDeckToolStripMenuItem
             // 
             this.greatOnDeckToolStripMenuItem.Name = "greatOnDeckToolStripMenuItem";
-            this.greatOnDeckToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.greatOnDeckToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.greatOnDeckToolStripMenuItem.Text = "Great on Deck";
             // 
             // macOSToolStripMenuItem
             // 
             this.macOSToolStripMenuItem.Name = "macOSToolStripMenuItem";
-            this.macOSToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.macOSToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.macOSToolStripMenuItem.Text = "macOS";
             // 
             // notSteamOSLinuxToolStripMenuItem
             // 
             this.notSteamOSLinuxToolStripMenuItem.Name = "notSteamOSLinuxToolStripMenuItem";
-            this.notSteamOSLinuxToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.notSteamOSLinuxToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.notSteamOSLinuxToolStripMenuItem.Text = "NotSteamOS + Linux";
             // 
             // forPCCafesToolStripMenuItem
             // 
             this.forPCCafesToolStripMenuItem.Name = "forPCCafesToolStripMenuItem";
-            this.forPCCafesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.forPCCafesToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.forPCCafesToolStripMenuItem.Text = "For PC Cafes";
             // 
             // genresToolStripMenuItem
@@ -440,7 +487,7 @@
             this.strategyToolStripMenuItem,
             this.sportsAndRacingToolStripMenuItem});
             this.genresToolStripMenuItem.Name = "genresToolStripMenuItem";
-            this.genresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.genresToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.genresToolStripMenuItem.Text = "Genres";
             // 
             // ActionToolStripMenuItem
@@ -454,49 +501,49 @@
             this.platformerAndRunnerToolStripMenuItem,
             this.thirdPersonShooterToolStripMenuItem});
             this.ActionToolStripMenuItem.Name = "ActionToolStripMenuItem";
-            this.ActionToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.ActionToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.ActionToolStripMenuItem.Text = "Action";
             // 
             // actionRogueLikeToolStripMenuItem1
             // 
             this.actionRogueLikeToolStripMenuItem1.Name = "actionRogueLikeToolStripMenuItem1";
-            this.actionRogueLikeToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.actionRogueLikeToolStripMenuItem1.Size = new System.Drawing.Size(252, 26);
             this.actionRogueLikeToolStripMenuItem1.Text = "Action Rogue-Like";
             // 
             // arcadeAndRhythmToolStripMenuItem
             // 
             this.arcadeAndRhythmToolStripMenuItem.Name = "arcadeAndRhythmToolStripMenuItem";
-            this.arcadeAndRhythmToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.arcadeAndRhythmToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.arcadeAndRhythmToolStripMenuItem.Text = "Arcade and Rhythm";
             // 
             // beatEmUpToolStripMenuItem
             // 
             this.beatEmUpToolStripMenuItem.Name = "beatEmUpToolStripMenuItem";
-            this.beatEmUpToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.beatEmUpToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.beatEmUpToolStripMenuItem.Text = "Beat \'Em Up";
             // 
             // fightingAndMartialArtsToolStripMenuItem
             // 
             this.fightingAndMartialArtsToolStripMenuItem.Name = "fightingAndMartialArtsToolStripMenuItem";
-            this.fightingAndMartialArtsToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.fightingAndMartialArtsToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.fightingAndMartialArtsToolStripMenuItem.Text = "Fighting and Martial Arts";
             // 
             // firstPersonShooterToolStripMenuItem
             // 
             this.firstPersonShooterToolStripMenuItem.Name = "firstPersonShooterToolStripMenuItem";
-            this.firstPersonShooterToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.firstPersonShooterToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.firstPersonShooterToolStripMenuItem.Text = "First-Person Shooter";
             // 
             // platformerAndRunnerToolStripMenuItem
             // 
             this.platformerAndRunnerToolStripMenuItem.Name = "platformerAndRunnerToolStripMenuItem";
-            this.platformerAndRunnerToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.platformerAndRunnerToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.platformerAndRunnerToolStripMenuItem.Text = "Platformer and Runner";
             // 
             // thirdPersonShooterToolStripMenuItem
             // 
             this.thirdPersonShooterToolStripMenuItem.Name = "thirdPersonShooterToolStripMenuItem";
-            this.thirdPersonShooterToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.thirdPersonShooterToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.thirdPersonShooterToolStripMenuItem.Text = "Third-Person Shooter";
             // 
             // adventureAndCasualToolStripMenuItem
@@ -510,49 +557,49 @@
             this.storyRichToolStripMenuItem,
             this.visualNovelToolStripMenuItem});
             this.adventureAndCasualToolStripMenuItem.Name = "adventureAndCasualToolStripMenuItem";
-            this.adventureAndCasualToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.adventureAndCasualToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.adventureAndCasualToolStripMenuItem.Text = "Adventure and Casual";
             // 
             // adventureToolStripMenuItem
             // 
             this.adventureToolStripMenuItem.Name = "adventureToolStripMenuItem";
-            this.adventureToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.adventureToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.adventureToolStripMenuItem.Text = "Adventure";
             // 
             // adventureRPGToolStripMenuItem
             // 
             this.adventureRPGToolStripMenuItem.Name = "adventureRPGToolStripMenuItem";
-            this.adventureRPGToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.adventureRPGToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.adventureRPGToolStripMenuItem.Text = "Adventure RPG";
             // 
             // casualToolStripMenuItem
             // 
             this.casualToolStripMenuItem.Name = "casualToolStripMenuItem";
-            this.casualToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.casualToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.casualToolStripMenuItem.Text = "Casual";
             // 
             // metroidvanaToolStripMenuItem
             // 
             this.metroidvanaToolStripMenuItem.Name = "metroidvanaToolStripMenuItem";
-            this.metroidvanaToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.metroidvanaToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.metroidvanaToolStripMenuItem.Text = "Metroidvana";
             // 
             // puzzleToolStripMenuItem
             // 
             this.puzzleToolStripMenuItem.Name = "puzzleToolStripMenuItem";
-            this.puzzleToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.puzzleToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.puzzleToolStripMenuItem.Text = "Puzzle";
             // 
             // storyRichToolStripMenuItem
             // 
             this.storyRichToolStripMenuItem.Name = "storyRichToolStripMenuItem";
-            this.storyRichToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.storyRichToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.storyRichToolStripMenuItem.Text = "Story-Rich";
             // 
             // visualNovelToolStripMenuItem
             // 
             this.visualNovelToolStripMenuItem.Name = "visualNovelToolStripMenuItem";
-            this.visualNovelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.visualNovelToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.visualNovelToolStripMenuItem.Text = "Visual Novel";
             // 
             // rolePlayingToolStripMenuItem
@@ -566,49 +613,49 @@
             this.strategyRPGToolStripMenuItem,
             this.turnBasedToolStripMenuItem});
             this.rolePlayingToolStripMenuItem.Name = "rolePlayingToolStripMenuItem";
-            this.rolePlayingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.rolePlayingToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.rolePlayingToolStripMenuItem.Text = "Role-Playing";
             // 
             // actionRPGToolStripMenuItem
             // 
             this.actionRPGToolStripMenuItem.Name = "actionRPGToolStripMenuItem";
-            this.actionRPGToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.actionRPGToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.actionRPGToolStripMenuItem.Text = "Action-RPG";
             // 
             // adventureRPGToolStripMenuItem1
             // 
             this.adventureRPGToolStripMenuItem1.Name = "adventureRPGToolStripMenuItem1";
-            this.adventureRPGToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.adventureRPGToolStripMenuItem1.Size = new System.Drawing.Size(188, 26);
             this.adventureRPGToolStripMenuItem1.Text = "Adventure-RPG";
             // 
             // jRPGToolStripMenuItem
             // 
             this.jRPGToolStripMenuItem.Name = "jRPGToolStripMenuItem";
-            this.jRPGToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.jRPGToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.jRPGToolStripMenuItem.Text = "JRPG";
             // 
             // partyBasedToolStripMenuItem
             // 
             this.partyBasedToolStripMenuItem.Name = "partyBasedToolStripMenuItem";
-            this.partyBasedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.partyBasedToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.partyBasedToolStripMenuItem.Text = "Party-Based";
             // 
             // rogueLijkeToolStripMenuItem
             // 
             this.rogueLijkeToolStripMenuItem.Name = "rogueLijkeToolStripMenuItem";
-            this.rogueLijkeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rogueLijkeToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.rogueLijkeToolStripMenuItem.Text = "Rogue-Like";
             // 
             // strategyRPGToolStripMenuItem
             // 
             this.strategyRPGToolStripMenuItem.Name = "strategyRPGToolStripMenuItem";
-            this.strategyRPGToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.strategyRPGToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.strategyRPGToolStripMenuItem.Text = "Strategy RPG";
             // 
             // turnBasedToolStripMenuItem
             // 
             this.turnBasedToolStripMenuItem.Name = "turnBasedToolStripMenuItem";
-            this.turnBasedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.turnBasedToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.turnBasedToolStripMenuItem.Text = "Turn-Based";
             // 
             // simulationToolStripMenuItem
@@ -622,49 +669,49 @@
             this.sandboxNadPhysicsToolStripMenuItem,
             this.spaceAndFlightToolStripMenuItem});
             this.simulationToolStripMenuItem.Name = "simulationToolStripMenuItem";
-            this.simulationToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.simulationToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.simulationToolStripMenuItem.Text = "Simulation";
             // 
             // buildingAndAutomationToolStripMenuItem
             // 
             this.buildingAndAutomationToolStripMenuItem.Name = "buildingAndAutomationToolStripMenuItem";
-            this.buildingAndAutomationToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.buildingAndAutomationToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.buildingAndAutomationToolStripMenuItem.Text = "Building and Automation";
             // 
             // datingToolStripMenuItem
             // 
             this.datingToolStripMenuItem.Name = "datingToolStripMenuItem";
-            this.datingToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.datingToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.datingToolStripMenuItem.Text = "Dating";
             // 
             // farmingAndCraftingToolStripMenuItem
             // 
             this.farmingAndCraftingToolStripMenuItem.Name = "farmingAndCraftingToolStripMenuItem";
-            this.farmingAndCraftingToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.farmingAndCraftingToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.farmingAndCraftingToolStripMenuItem.Text = "Farming and Crafting";
             // 
             // hobbyAndJobToolStripMenuItem
             // 
             this.hobbyAndJobToolStripMenuItem.Name = "hobbyAndJobToolStripMenuItem";
-            this.hobbyAndJobToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.hobbyAndJobToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.hobbyAndJobToolStripMenuItem.Text = "Hobby and Job";
             // 
             // lifeAndImmersiveToolStripMenuItem
             // 
             this.lifeAndImmersiveToolStripMenuItem.Name = "lifeAndImmersiveToolStripMenuItem";
-            this.lifeAndImmersiveToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.lifeAndImmersiveToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.lifeAndImmersiveToolStripMenuItem.Text = "Life and Immersive";
             // 
             // sandboxNadPhysicsToolStripMenuItem
             // 
             this.sandboxNadPhysicsToolStripMenuItem.Name = "sandboxNadPhysicsToolStripMenuItem";
-            this.sandboxNadPhysicsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.sandboxNadPhysicsToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.sandboxNadPhysicsToolStripMenuItem.Text = "Sandbox nad Physics";
             // 
             // spaceAndFlightToolStripMenuItem
             // 
             this.spaceAndFlightToolStripMenuItem.Name = "spaceAndFlightToolStripMenuItem";
-            this.spaceAndFlightToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.spaceAndFlightToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.spaceAndFlightToolStripMenuItem.Text = "Space and Flight";
             // 
             // strategyToolStripMenuItem
@@ -678,49 +725,49 @@
             this.towerDefenseToolStripMenuItem,
             this.turnBasedStrategyToolStripMenuItem});
             this.strategyToolStripMenuItem.Name = "strategyToolStripMenuItem";
-            this.strategyToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.strategyToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.strategyToolStripMenuItem.Text = "Strategy";
             // 
             // cardAndBoardToolStripMenuItem
             // 
             this.cardAndBoardToolStripMenuItem.Name = "cardAndBoardToolStripMenuItem";
-            this.cardAndBoardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cardAndBoardToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.cardAndBoardToolStripMenuItem.Text = "Card and Board";
             // 
             // cityAndSettlementToolStripMenuItem
             // 
             this.cityAndSettlementToolStripMenuItem.Name = "cityAndSettlementToolStripMenuItem";
-            this.cityAndSettlementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cityAndSettlementToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.cityAndSettlementToolStripMenuItem.Text = "City and Settlement";
             // 
             // grandAnd4XToolStripMenuItem
             // 
             this.grandAnd4XToolStripMenuItem.Name = "grandAnd4XToolStripMenuItem";
-            this.grandAnd4XToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grandAnd4XToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.grandAnd4XToolStripMenuItem.Text = "Grand and 4X";
             // 
             // militaryToolStripMenuItem
             // 
             this.militaryToolStripMenuItem.Name = "militaryToolStripMenuItem";
-            this.militaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.militaryToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.militaryToolStripMenuItem.Text = "Military";
             // 
             // realTimeStrategyToolStripMenuItem
             // 
             this.realTimeStrategyToolStripMenuItem.Name = "realTimeStrategyToolStripMenuItem";
-            this.realTimeStrategyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.realTimeStrategyToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.realTimeStrategyToolStripMenuItem.Text = "Real-Time Strategy";
             // 
             // towerDefenseToolStripMenuItem
             // 
             this.towerDefenseToolStripMenuItem.Name = "towerDefenseToolStripMenuItem";
-            this.towerDefenseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.towerDefenseToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.towerDefenseToolStripMenuItem.Text = "Tower Defense";
             // 
             // turnBasedStrategyToolStripMenuItem
             // 
             this.turnBasedStrategyToolStripMenuItem.Name = "turnBasedStrategyToolStripMenuItem";
-            this.turnBasedStrategyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.turnBasedStrategyToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.turnBasedStrategyToolStripMenuItem.Text = "Turn-Based Strategy";
             // 
             // sportsAndRacingToolStripMenuItem
@@ -734,49 +781,49 @@
             this.sportsSimToolStripMenuItem,
             this.teamSportsToolStripMenuItem});
             this.sportsAndRacingToolStripMenuItem.Name = "sportsAndRacingToolStripMenuItem";
-            this.sportsAndRacingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.sportsAndRacingToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.sportsAndRacingToolStripMenuItem.Text = "Sports and Racing";
             // 
             // allSportsToolStripMenuItem
             // 
             this.allSportsToolStripMenuItem.Name = "allSportsToolStripMenuItem";
-            this.allSportsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.allSportsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.allSportsToolStripMenuItem.Text = "All Sports";
             // 
             // fishingAndHuntingToolStripMenuItem
             // 
             this.fishingAndHuntingToolStripMenuItem.Name = "fishingAndHuntingToolStripMenuItem";
-            this.fishingAndHuntingToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.fishingAndHuntingToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.fishingAndHuntingToolStripMenuItem.Text = "Fishing and Hunting";
             // 
             // individualSportsToolStripMenuItem
             // 
             this.individualSportsToolStripMenuItem.Name = "individualSportsToolStripMenuItem";
-            this.individualSportsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.individualSportsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.individualSportsToolStripMenuItem.Text = "Individual Sports";
             // 
             // racingToolStripMenuItem
             // 
             this.racingToolStripMenuItem.Name = "racingToolStripMenuItem";
-            this.racingToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.racingToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.racingToolStripMenuItem.Text = "Racing";
             // 
             // racingSimToolStripMenuItem
             // 
             this.racingSimToolStripMenuItem.Name = "racingSimToolStripMenuItem";
-            this.racingSimToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.racingSimToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.racingSimToolStripMenuItem.Text = "Racing Sim";
             // 
             // sportsSimToolStripMenuItem
             // 
             this.sportsSimToolStripMenuItem.Name = "sportsSimToolStripMenuItem";
-            this.sportsSimToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.sportsSimToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.sportsSimToolStripMenuItem.Text = "Sports Sim";
             // 
             // teamSportsToolStripMenuItem
             // 
             this.teamSportsToolStripMenuItem.Name = "teamSportsToolStripMenuItem";
-            this.teamSportsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.teamSportsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.teamSportsToolStripMenuItem.Text = "Team Sports";
             // 
             // themesToolStripMenuItem
@@ -792,61 +839,61 @@
             this.spaceToolStripMenuItem,
             this.survivalToolStripMenuItem});
             this.themesToolStripMenuItem.Name = "themesToolStripMenuItem";
-            this.themesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.themesToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.themesToolStripMenuItem.Text = "Themes";
             // 
             // adultOnlyToolStripMenuItem
             // 
             this.adultOnlyToolStripMenuItem.Name = "adultOnlyToolStripMenuItem";
-            this.adultOnlyToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.adultOnlyToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.adultOnlyToolStripMenuItem.Text = "Adult Only";
             // 
             // animeToolStripMenuItem
             // 
             this.animeToolStripMenuItem.Name = "animeToolStripMenuItem";
-            this.animeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.animeToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.animeToolStripMenuItem.Text = "Anime";
             // 
             // goingRogueToolStripMenuItem
             // 
             this.goingRogueToolStripMenuItem.Name = "goingRogueToolStripMenuItem";
-            this.goingRogueToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.goingRogueToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.goingRogueToolStripMenuItem.Text = "Going Rogue";
             // 
             // horrorToolStripMenuItem
             // 
             this.horrorToolStripMenuItem.Name = "horrorToolStripMenuItem";
-            this.horrorToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.horrorToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.horrorToolStripMenuItem.Text = "Horror";
             // 
             // mysteryAndDetectiveToolStripMenuItem
             // 
             this.mysteryAndDetectiveToolStripMenuItem.Name = "mysteryAndDetectiveToolStripMenuItem";
-            this.mysteryAndDetectiveToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mysteryAndDetectiveToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.mysteryAndDetectiveToolStripMenuItem.Text = "Mystery and Detective";
             // 
             // openWorldToolStripMenuItem
             // 
             this.openWorldToolStripMenuItem.Name = "openWorldToolStripMenuItem";
-            this.openWorldToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.openWorldToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.openWorldToolStripMenuItem.Text = "Open World";
             // 
             // sciFiAndCyberpunkToolStripMenuItem
             // 
             this.sciFiAndCyberpunkToolStripMenuItem.Name = "sciFiAndCyberpunkToolStripMenuItem";
-            this.sciFiAndCyberpunkToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.sciFiAndCyberpunkToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.sciFiAndCyberpunkToolStripMenuItem.Text = "Sci-Fi and Cyberpunk";
             // 
             // spaceToolStripMenuItem
             // 
             this.spaceToolStripMenuItem.Name = "spaceToolStripMenuItem";
-            this.spaceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.spaceToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.spaceToolStripMenuItem.Text = "Space";
             // 
             // survivalToolStripMenuItem
             // 
             this.survivalToolStripMenuItem.Name = "survivalToolStripMenuItem";
-            this.survivalToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.survivalToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.survivalToolStripMenuItem.Text = "Survival";
             // 
             // playerSupportToolStripMenuItem
@@ -860,96 +907,87 @@
             this.onlineCompetitiveToolStripMenuItem,
             this.singleplayerToolStripMenuItem});
             this.playerSupportToolStripMenuItem.Name = "playerSupportToolStripMenuItem";
-            this.playerSupportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.playerSupportToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.playerSupportToolStripMenuItem.Text = "Player Support";
             // 
             // coOperativeToolStripMenuItem
             // 
             this.coOperativeToolStripMenuItem.Name = "coOperativeToolStripMenuItem";
-            this.coOperativeToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.coOperativeToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.coOperativeToolStripMenuItem.Text = "Co-Operative";
             // 
             // lANToolStripMenuItem
             // 
             this.lANToolStripMenuItem.Name = "lANToolStripMenuItem";
-            this.lANToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.lANToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.lANToolStripMenuItem.Text = "LAN";
             // 
             // localAndPartyToolStripMenuItem
             // 
             this.localAndPartyToolStripMenuItem.Name = "localAndPartyToolStripMenuItem";
-            this.localAndPartyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.localAndPartyToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.localAndPartyToolStripMenuItem.Text = "Local and Party";
             // 
             // mMOToolStripMenuItem
             // 
             this.mMOToolStripMenuItem.Name = "mMOToolStripMenuItem";
-            this.mMOToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.mMOToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.mMOToolStripMenuItem.Text = "MMO";
             // 
             // multiplayerToolStripMenuItem
             // 
             this.multiplayerToolStripMenuItem.Name = "multiplayerToolStripMenuItem";
-            this.multiplayerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.multiplayerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.multiplayerToolStripMenuItem.Text = "Multiplayer";
             // 
             // onlineCompetitiveToolStripMenuItem
             // 
             this.onlineCompetitiveToolStripMenuItem.Name = "onlineCompetitiveToolStripMenuItem";
-            this.onlineCompetitiveToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.onlineCompetitiveToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.onlineCompetitiveToolStripMenuItem.Text = "Online Competitive";
             // 
             // singleplayerToolStripMenuItem
             // 
             this.singleplayerToolStripMenuItem.Name = "singleplayerToolStripMenuItem";
-            this.singleplayerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.singleplayerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.singleplayerToolStripMenuItem.Text = "Singleplayer";
             // 
             // pointsShopToolStripMenuItem
             // 
-            this.pointsShopToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(108)))), ((int)(((byte)(179)))));
+            this.pointsShopToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.pointsShopToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pointsShopToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.pointsShopToolStripMenuItem.Name = "pointsShopToolStripMenuItem";
-            this.pointsShopToolStripMenuItem.Size = new System.Drawing.Size(82, 23);
+            this.pointsShopToolStripMenuItem.Size = new System.Drawing.Size(104, 30);
             this.pointsShopToolStripMenuItem.Text = "Points Shop";
             // 
             // newsToolStripMenuItem
             // 
-            this.newsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(103)))), ((int)(((byte)(176)))));
+            this.newsToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.newsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.newsToolStripMenuItem.Name = "newsToolStripMenuItem";
-            this.newsToolStripMenuItem.Size = new System.Drawing.Size(48, 23);
+            this.newsToolStripMenuItem.Size = new System.Drawing.Size(61, 30);
             this.newsToolStripMenuItem.Text = "News";
             // 
             // labsToolStripMenuItem
             // 
+            this.labsToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.labsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labsToolStripMenuItem.Name = "labsToolStripMenuItem";
-            this.labsToolStripMenuItem.Size = new System.Drawing.Size(43, 23);
+            this.labsToolStripMenuItem.Size = new System.Drawing.Size(54, 30);
             this.labsToolStripMenuItem.Text = "Labs";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(87)))), ((int)(((byte)(150)))));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yourStoreToolStripMenuItem,
-            this.newNoteWorthyToolStripMenuItem,
-            this.categoriesToolStripMenuItem,
-            this.pointsShopToolStripMenuItem,
-            this.newsToolStripMenuItem,
-            this.labsToolStripMenuItem,
-            this.toolStripTextBox1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 27);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "search";
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBox1.AutoSize = false;
             this.toolStripTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(96)))), ((int)(((byte)(128)))));
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(175, 30);
             this.toolStripTextBox1.Text = "search";
             this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
@@ -960,13 +998,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(800, 536);
+            this.ClientSize = new System.Drawing.Size(953, 536);
             this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "Store";
             this.Text = "Store";
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
