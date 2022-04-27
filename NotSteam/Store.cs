@@ -14,7 +14,7 @@ namespace NotSteam
         int userid;
         string query = null;
 
-        public Store(user user, string queryceva,string name)
+        public Store(user user, string queryceva, string name)
         {
 
             InitializeComponent();
@@ -24,33 +24,34 @@ namespace NotSteam
             query = queryceva;
             if (name != null)
                 switchtogame(name);
-            else 
-               initialize();
+            else
+                initialize();
             CustomToolStripRenderer r = new CustomToolStripRenderer();
             r.RoundedEdges = true;
             menuStrip1.Renderer = r;
+            panel2.Scroll += (s, e) =>
+            {
+                HandleScroll();
+            };
+            panel2.MouseWheel += (s, e) =>
+            {
+                HandleScroll();
+            };
+
         }
+        int count = 0;
+        int z = 0;
+        int cz = 0;
         private void initialize()
         {
-            /*Label labelmain = new Label();
-            panel2.Controls.Add(labelmain);
-            labelmain.Location = new Point(249, 30);
-            labelmain.Font = new Font("Microsoft Sans Serif", 36);
-            labelmain.ImageAlign = ContentAlignment.TopCenter;
-            labelmain.Anchor = AnchorStyles.Top;
-            labelmain.Text = "Not Steam";
-            labelmain.ForeColor = SystemColors.ActiveCaption;
-            labelmain.Size = new Size(251, 55);*/
-
-
-
             con.Open();
             SqlCommand cmdid = new SqlCommand(query, con);
             SqlDataReader reader = cmdid.ExecuteReader();
+            count = reader.FieldCount;
 
-            int z = 0;
-            while (reader.Read())
+            while (reader.Read() && z <= cz+10)
             {
+               
                 string name = reader.GetString(0);
                 Label lbl = new Label();
                 Label lbl2 = new Label();
@@ -94,7 +95,7 @@ namespace NotSteam
                         pictureBox.Image = imageList1.Images[0];
                     }
                 }
-                
+
             }
             con.Close();
         }
@@ -246,7 +247,7 @@ namespace NotSteam
             switchtogame(label.Text);
         }
 
-        public string selected=null;
+        public string selected = null;
 
         private void btBuy_Click(object sender, EventArgs e)
         {
@@ -343,14 +344,167 @@ namespace NotSteam
             if (e.KeyValue == 13)
             {
                 string name = toolStripTextBox1.Text;
-                switchtogame(name);
-
+                if (name.Contains("'"))
+                {
+                    name = name.Replace("'", "");
+                }
+                string queryceva = "select name from Games";
+                SqlCommand cmd = new SqlCommand(queryceva, con);
+                con.Open();
+                bool nope = true;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (name == reader.GetString(0))
+                    {
+                        switchtogame(name);
+                        break;
+                        nope = false;
+                    }
+                }
+                con.Close();
+                if (nope)
+                {
+                    query = "select name from Games where name like '" + name + "%'";
+                    Controls.Clear();
+                    InitializeComponent();
+                    initialize();
+                    WindowState = FormWindowState.Maximized;
+                    WindowState = FormWindowState.Normal;
+                }
             }
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
             toolStripTextBox1.Text = "";
+        }
+
+        int ceva = 0;
+        private void HandleScroll()
+        {
+            if (panel2.VerticalScroll.Value > 2000 && ceva ==0)
+            {
+                cz = cz + z;
+                if (NotSteamForm.freetoplay)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.early)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.actionb)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.adventure)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' Games.AND Id >'" + cz + "'";
+                else if (NotSteamForm.casual)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.indie)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.multiplayer)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.racing)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.rpg)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.simulation)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.sports)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
+                else query = "select name from Games where Id >'" + cz + "'";
+
+                z = 3;
+                initialize();
+                ceva++;
+            }
+            if(panel2.VerticalScroll.Value > 7000 && ceva == 1)
+            {
+                cz = cz + z+1;
+                if (NotSteamForm.freetoplay)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.early)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.actionb)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.adventure)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.casual)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.indie)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.multiplayer)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.racing)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.rpg)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.simulation)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.sports)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
+                else query = "select name from Games where Id >'" + cz + "'";
+                z = 3;
+                initialize();
+                ceva++;
+            }
+            if(panel2.VerticalScroll.Value > 12000 && ceva == 2)
+            {
+                cz = cz + z+2;
+                if (NotSteamForm.freetoplay)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.early)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.actionb)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.adventure)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.casual)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.indie)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.multiplayer)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.racing)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.rpg)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.simulation)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.sports)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
+                else query = "select name from Games where Id >'" + cz + "'";
+                z = 3;
+                initialize();
+                ceva++;
+            }
+            if(cz< count && ceva == 3)
+            {
+                cz = count - cz;
+                if (NotSteamForm.freetoplay)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.early)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.actionb)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.adventure)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.casual)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.indie)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.multiplayer)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.racing)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.rpg)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.simulation)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
+                else if (NotSteamForm.sports)
+                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
+                else query = "select name from Games where Id >'" + cz + "'";
+                z = 3;
+                initialize();
+                ceva++;
+            }
+
         }
     }
 }
