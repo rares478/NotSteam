@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace NotSteam
 {
@@ -18,7 +19,7 @@ namespace NotSteam
                 addGameToNotSteamToolStripMenuItem.Visible = false;
 
             toolStripMenuItem3.Text = user.username.ToString() + "    " + user.money.ToString() + "$";
-            Form mainform = new Store(loggeduser, storeceva,null);
+            Form mainform = new Store(loggeduser, storeceva, null);
             openform(mainform);
             FormBorderStyle = FormBorderStyle.None;
             menuStrip1.Renderer = new MyRenderer();
@@ -42,9 +43,9 @@ namespace NotSteam
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                
             }
         }
+        
         #endregion
 
         #region switch
@@ -150,59 +151,6 @@ namespace NotSteam
 
         #endregion
 
-        #region ToolStrip
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Settings(loggeduser));
-
-        private void libraryToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Library(loggeduser));
-
-        private void changeAccountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result;
-            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
-                "Logout", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-                Application.Restart();
-        }
-
-        private void settingsToolStripMenuItem1_Click(object sender, EventArgs e) => openform(new Settings(loggeduser));
-
-        private void aboutNotSteamToolStripMenuItem_Click(object sender, EventArgs e) => MessageBox.Show("NotSteam client application" + "\n" + "\n" + "Built: Azi" + "\n" + "\n" + "NotSteam API: v001" + "\n" + "\n" + "rares478@gmail.com", "About NotSteam", MessageBoxButtons.OK);
-
-        private void viewGamesLibraryToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Library(loggeduser));
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) =>Application.Exit();
-
-        private void editProfileNameToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Profile(loggeduser, true));
-
-        private void addGameToNotSteamToolStripMenuItem_Click(object sender, EventArgs e) => openform(new AddGame());
-
-        private void toolStripmoney_Click(object sender, EventArgs e) => openform(new AddFunds(loggeduser));
-
-        private void viewMyWalletToolStripMenuItem_Click(object sender, EventArgs e) => openform(new AddFunds(loggeduser));
-
-        private void viewMyProfileToolStripMenuItem_Click(object sender, EventArgs e) => openform(new Profile(loggeduser, false));
-
-        private void logoutOfAccountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result;
-            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
-                "Logout", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-                Application.Restart();
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e) => Application.Exit();
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Maximized;
-            panel1.Width = 400;
-        }
-        #endregion
-
         #region Main Buttons
 
         string storeceva = "select Games.name from Games";
@@ -306,12 +254,25 @@ namespace NotSteam
         }
 
 
-        private void label1_Click(object sender, EventArgs e) => openform(new Store(loggeduser, storeceva, null));
+        private void label1_Click(object sender, EventArgs e)
+        {
+            openform(new Store(loggeduser, storeceva, null));
+            if (WindowState == FormWindowState.Maximized)
+                panel1.Width = 400;
+        }
 
-        private void label2_Click(object sender, EventArgs e) => openform(new Library(loggeduser));
+        private void label2_Click(object sender, EventArgs e)
+        { 
+            openform(new Library(loggeduser));
+            panel1.Width = 0;
+        }
 
 
-        private void label4_Click(object sender, EventArgs e) => openform(new Profile(loggeduser, false));
+        private void label4_Click(object sender, EventArgs e) 
+        { 
+            openform(new Profile(loggeduser, false));
+            panel1.Width = 0;
+        }
 
         bool former = false;
         private void pbBack_Click(object sender, EventArgs e)
@@ -326,80 +287,93 @@ namespace NotSteam
 
         #region Sidepanel
 
+        public static bool freetoplay = false;
+
         private void label20_Click(object sender, EventArgs e)
         {
             string free = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
             Form mainform = new Store(loggeduser, free,null);
+            freetoplay = true;
             openform(mainform);
         }
-
+        public static bool early = false;
         private void label21_Click(object sender, EventArgs e)
         {
             string Early = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
             Form mainform = new Store(loggeduser, Early,null);
+            early = true;
             openform(mainform);
         }
-
+        public static bool actionb = false;
         private void label22_Click(object sender, EventArgs e)
         {
             string action = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
             Form mainform = new Store(loggeduser, action,null);
+            actionb = true;
             openform(mainform);
         }
-
+        public static bool adventure = false;
         private void label23_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            adventure = true;
             openform(mainform);
         }
-
+        public static bool casual = false;
         private void label24_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            casual = true;
             openform(mainform);
         }
-
+        public static bool indie = false;
         private void label25_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            indie = true;
             openform(mainform);
         }
-
+        public static bool multiplayer = false;
         private void label26_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            multiplayer = true;
             openform(mainform);
         }
-
+        public static bool racing = false;
         private void label27_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            racing = true;
             openform(mainform);
         }
-
+        public static bool rpg = false;
         private void label28_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            rpg= true;
             openform(mainform);
         }
-
+        public static bool simulation= false;
         private void label29_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            simulation = true;
             openform(mainform);
         }
-
+        public static bool sports = false;
         private void label30_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
             Form mainform = new Store(loggeduser, query,null);
+            sports = true;
             openform(mainform);
         }
 
@@ -461,5 +435,96 @@ namespace NotSteam
         {
 
         }
+
+        #region mainstrip
+        private void toolStripMenuItem49_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void toolStripMenuItem50_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            { 
+                WindowState = FormWindowState.Normal; 
+                panel1.Width = 0;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+                panel1.Width = 400;
+            }
+        }
+
+        private void toolStripMenuItem51_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
+                "Logout", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+                Application.Restart();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        { 
+            openform(new Settings(loggeduser));
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void addGameToNotSteamToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            openform(new AddGame());
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        { 
+            openform(new Library(loggeduser));
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem28_Click(object sender, EventArgs e)
+        { 
+            openform(new Settings(loggeduser));
+            panel1.Width= 0;
+        }
+
+        private void toolStripMenuItem32_Click(object sender, EventArgs e)
+        { 
+            openform(new Profile(loggeduser, true));
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem38_Click(object sender, EventArgs e)
+        {
+            openform(new Library(loggeduser));
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem48_Click(object sender, EventArgs e) => MessageBox.Show("NotSteam client application" + "\n" + "\n" + "Built: Azi" + "\n" + "\n" + "NotSteam API: v001" + "\n" + "\n" + "rares478@gmail.com", "About NotSteam", MessageBoxButtons.OK);
+
+        private void toolStripMenuItem53_Click(object sender, EventArgs e)
+        { 
+            openform(new Profile(loggeduser, false));
+            panel1.Width = 0;
+        }
+
+        private void toolStripMenuItem55_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("This will log you out of NotSteam. You will need to re-enter your account name and password to use NotSteam again." + "\n" + "\n" + "Do you wish to continue ?",
+                "Logout", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+                Application.Restart();
+        }
+
+        private void toolStripMenuItem57_Click(object sender, EventArgs e)
+        { 
+            openform(new AddFunds(loggeduser));
+            panel1.Width = 0;
+        }
+        #endregion
+
     }
 }

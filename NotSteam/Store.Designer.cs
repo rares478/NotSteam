@@ -180,6 +180,45 @@ namespace NotSteam
             this.imageList1.Images.SetKeyName(9, "Farming Simulator 2022");
             this.imageList1.Images.SetKeyName(10, "who daddy");
             this.imageList1.Images.SetKeyName(11, "Unturned");
+            this.imageList1.Images.SetKeyName(12, "Forza Horizon 5");
+            this.imageList1.Images.SetKeyName(13, "Elden Ring");
+            this.imageList1.Images.SetKeyName(14, "Sekiro: Shadow Die Twice");
+            this.imageList1.Images.SetKeyName(15, "Cyberpunk 2077");
+            this.imageList1.Images.SetKeyName(16, "Dread Hunger");
+            this.imageList1.Images.SetKeyName(17, "The Walking Dead");
+            this.imageList1.Images.SetKeyName(18, "Resident Evil Village");
+            this.imageList1.Images.SetKeyName(19, "The Witcher 3");
+            this.imageList1.Images.SetKeyName(20, "Kingdom Come: Deliverance");
+            this.imageList1.Images.SetKeyName(21, "DayZ");
+            this.imageList1.Images.SetKeyName(22, "Phasmophobia");
+            this.imageList1.Images.SetKeyName(23, "Rust");
+            this.imageList1.Images.SetKeyName(24, "Ready or Not");
+            this.imageList1.Images.SetKeyName(25, "Sea of Thieves");
+            this.imageList1.Images.SetKeyName(26, "Raft");
+            this.imageList1.Images.SetKeyName(27, "Stardew Valley");
+            this.imageList1.Images.SetKeyName(28, "Dead by Daylight");
+            this.imageList1.Images.SetKeyName(29, "Dying Light 2");
+            this.imageList1.Images.SetKeyName(30, "It Takes Two");
+            this.imageList1.Images.SetKeyName(31, "God of War");
+            this.imageList1.Images.SetKeyName(32, "Squad");
+            this.imageList1.Images.SetKeyName(33, "Resident Evil 3");
+            this.imageList1.Images.SetKeyName(34, "Valheim");
+            this.imageList1.Images.SetKeyName(35, "The Forest");
+            this.imageList1.Images.SetKeyName(36, "Red Dead Redemption 2");
+            this.imageList1.Images.SetKeyName(37, "Terraria");
+            this.imageList1.Images.SetKeyName(38, "Grounded");
+            this.imageList1.Images.SetKeyName(39, "A Way Out");
+            this.imageList1.Images.SetKeyName(40, "Factorio");
+            this.imageList1.Images.SetKeyName(41, "Resident Evil 2");
+            this.imageList1.Images.SetKeyName(42, "Satisfactory");
+            this.imageList1.Images.SetKeyName(43, "No Mans Sky");
+            this.imageList1.Images.SetKeyName(44, "The Elder Scrolls Online");
+            this.imageList1.Images.SetKeyName(45, "FIFA 22");
+            this.imageList1.Images.SetKeyName(46, "ARK Survival Evolved");
+            this.imageList1.Images.SetKeyName(47, "Call of Duty Black Ops III");
+            this.imageList1.Images.SetKeyName(48, "Teardown");
+            this.imageList1.Images.SetKeyName(49, "Hades");
+            this.imageList1.Images.SetKeyName(50, "Dont Starve Together");
             // 
             // panel2
             // 
@@ -230,87 +269,99 @@ namespace NotSteam
             this.steamCuratorsToolStripMenuItem});
             this.yourStoreToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yourStoreToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.yourStoreToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.yourStoreToolStripMenuItem.Name = "yourStoreToolStripMenuItem";
-            this.yourStoreToolStripMenuItem.Size = new System.Drawing.Size(94, 30);
+            this.yourStoreToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
+            this.yourStoreToolStripMenuItem.Size = new System.Drawing.Size(86, 30);
             this.yourStoreToolStripMenuItem.Text = "Your Store";
             // 
             // followedGamesSoftwareToolStripMenuItem
             // 
+            this.followedGamesSoftwareToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.followedGamesSoftwareToolStripMenuItem.Name = "followedGamesSoftwareToolStripMenuItem";
-            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.followedGamesSoftwareToolStripMenuItem.Text = "Followed Games & Software";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(241, 6);
             // 
             // subscriptionsToolStripMenuItem
             // 
+            this.subscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subscriptionsToolStripMenuItem.Name = "subscriptionsToolStripMenuItem";
-            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.subscriptionsToolStripMenuItem.Text = "Subscriptions";
             // 
             // manageSubscriptionsToolStripMenuItem
             // 
+            this.manageSubscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageSubscriptionsToolStripMenuItem.Name = "manageSubscriptionsToolStripMenuItem";
-            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.manageSubscriptionsToolStripMenuItem.Text = "Manage Subscriptions";
             // 
             // preferanceToolStripMenuItem
             // 
+            this.preferanceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preferanceToolStripMenuItem.Name = "preferanceToolStripMenuItem";
-            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.preferanceToolStripMenuItem.Text = "Preferances";
             this.preferanceToolStripMenuItem.Click += new System.EventHandler(this.preferanceToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(296, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(244, 22);
             this.toolStripMenuItem2.Text = " ";
             // 
             // recommendationsToolStripMenuItem
             // 
+            this.recommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recommendationsToolStripMenuItem.Name = "recommendationsToolStripMenuItem";
-            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.recommendationsToolStripMenuItem.Text = "Recommendations";
             // 
             // discoveryQueueToolStripMenuItem
             // 
+            this.discoveryQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discoveryQueueToolStripMenuItem.Name = "discoveryQueueToolStripMenuItem";
-            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.discoveryQueueToolStripMenuItem.Text = "Discovery Queue";
             // 
             // newReleaseQueueToolStripMenuItem
             // 
+            this.newReleaseQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newReleaseQueueToolStripMenuItem.Name = "newReleaseQueueToolStripMenuItem";
-            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.newReleaseQueueToolStripMenuItem.Text = "New Release Queue";
             // 
             // communityRecommendationsToolStripMenuItem
             // 
+            this.communityRecommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.communityRecommendationsToolStripMenuItem.Name = "communityRecommendationsToolStripMenuItem";
-            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.communityRecommendationsToolStripMenuItem.Text = "Community Recommendations";
             // 
             // interactiveRecommenderToolStripMenuItem
             // 
+            this.interactiveRecommenderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interactiveRecommenderToolStripMenuItem.Name = "interactiveRecommenderToolStripMenuItem";
-            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.interactiveRecommenderToolStripMenuItem.Text = "Interactive Recommender";
             // 
             // popularAmongFriendsToolStripMenuItem
             // 
+            this.popularAmongFriendsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.popularAmongFriendsToolStripMenuItem.Name = "popularAmongFriendsToolStripMenuItem";
-            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.popularAmongFriendsToolStripMenuItem.Text = "Popular Among Friends";
             // 
             // steamCuratorsToolStripMenuItem
             // 
+            this.steamCuratorsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.steamCuratorsToolStripMenuItem.Name = "steamCuratorsToolStripMenuItem";
-            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.steamCuratorsToolStripMenuItem.Text = "Steam Curators";
             // 
             // newNoteWorthyToolStripMenuItem
@@ -1000,6 +1051,7 @@ namespace NotSteam
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(953, 536);
             this.Controls.Add(this.panel2);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "Store";
             this.Text = "Store";
