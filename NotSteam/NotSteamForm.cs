@@ -44,6 +44,20 @@ namespace NotSteam
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+            Point point = new Point(Cursor.Position.X, 0);
+            if (Cursor.Position == point)
+            {
+                WindowState = FormWindowState.Maximized;
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form is Store)
+                    {
+                        panel1.Width = 400;    
+                        break;
+                    }
+                }
+                            
+            }
         }
         
         #endregion
