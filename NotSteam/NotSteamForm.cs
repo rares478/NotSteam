@@ -55,9 +55,12 @@ namespace NotSteam
                         panel1.Width = 400;    
                         break;
                     }
+                    else panel1.Width = 0;
                 }
+                Library.max = true;
                             
             }
+            Library.max = false;
         }
         
         #endregion
@@ -455,15 +458,33 @@ namespace NotSteam
 
         private void toolStripMenuItem50_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
-            { 
-                WindowState = FormWindowState.Normal; 
-                panel1.Width = 0;
+            if (activeform.Name == "Store")
+            {
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    WindowState = FormWindowState.Normal;
+                    panel1.Width = 0;
+                    Library.max = false;
+                }
+                else
+                {
+                    WindowState = FormWindowState.Maximized;
+                    Library.max = true;
+                    panel1.Width = 400;
+                }
             }
             else
             {
-                WindowState = FormWindowState.Maximized;
-                panel1.Width = 400;
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    WindowState = FormWindowState.Normal;
+                    Library.max = false;
+                }
+                else
+                {
+                    WindowState = FormWindowState.Maximized;
+                    Library.max = true;
+                }
             }
         }
 

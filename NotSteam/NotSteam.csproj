@@ -103,6 +103,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\logo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>logo.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,16 +149,19 @@
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Properties\logo.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>logo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Properties\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +195,462 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PUBG1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sea-of-Thieves.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\svalley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Elden Ring.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dying Light 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sekiro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GTA 5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dying .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cyberpunk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New World.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS 1.6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sims .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\farming.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unturned.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forza 5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dread.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\the walking.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\village.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\witcher 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kingdom Come Deliverance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dayz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ready.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stardew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\take2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoW.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sq.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\valheiim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rdr2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pamant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\way .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factpr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sati.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fifa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cod 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hades.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dont.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cscs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\who.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\730_library_hero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PUBG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GTA V.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dying Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Worl Library.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ss 1.6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sims 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\faming 22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forza Horizon 5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Elden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sekiro shadow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cyber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dread hunger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walking.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resident.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\witcher.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kingdom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\day.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phasmo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ready or.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sotl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raftl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stardew Valley.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbdl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dying 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\it tales .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\god.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squad.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\val.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thefo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rdr2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\terra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grounded.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\way out.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factpry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noma.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elderonline.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fifa22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cod III.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teardown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dons starve.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dontsatrve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btd6logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BTD 6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gtalogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dying Light Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new world logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cs16logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pubglogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sims4logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\csgologo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\farming 22 log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whodaddy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ununlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FH%25 log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eldenlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sekirologo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cyberlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dread logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\the wali.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\revillage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Witcherlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kingdomcom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dayzlogho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phasmop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rustlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\readylogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sotlogho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raftlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stardewlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbdlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dying 2logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ittakeslogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gowlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squadlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re3logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\valheimlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forestloo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rdr2logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\terraralgo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groundedlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waylogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\faclo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re2logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\satif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nomalogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onlinelogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fifa22logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arklogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cod3logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tearlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hadeslogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

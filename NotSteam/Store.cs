@@ -63,6 +63,7 @@ namespace NotSteam
                 richTextBox.BackColor = Color.FromArgb(16, 25, 35);
                 richTextBox.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BorderStyle = BorderStyle.None;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 panel2.Controls.Add(lbl);
                 panel2.Controls.Add(lbl2);
@@ -73,7 +74,7 @@ namespace NotSteam
                 lbl2.Location = new Point(303, 400 + (z * 260));
                 richTextBox.Location = new Point(308, 175 + ((z + 1) * 260));
                 pictureBox.Location = new Point(6, 360 + (z * 260));
-                pictureBox.Size = new Size(256, 199);
+                pictureBox.Size = new Size(231, 87);
                 richTextBox.Size = new Size(397, 126);
 
                 lbl.Click += new EventHandler(lbl_click);
@@ -86,15 +87,12 @@ namespace NotSteam
                 z++;
                 lbl.Text = name;
 
-                foreach (string img in imageList1.Images.Keys)
-                {
-                    if (img == name)
-                        pictureBox.Image = imageList1.Images[imageList1.Images.IndexOfKey(img)];
-                    if (pictureBox.Image == null)
-                    {
-                        pictureBox.Image = imageList1.Images[0];
-                    }
-                }
+
+                if(name.Contains(" "))
+                    name.Replace(" ", "_");
+                object obj = Properties.Resource1.ResourceManager.GetObject(name);
+
+                pictureBox.Image = (Bitmap)obj;
 
             }
             con.Close();
@@ -201,37 +199,27 @@ namespace NotSteam
             con.Open();
 
 
-            int id;
-            string idquery = "select Id,developer,date,description,price from Games where name = '" + name + "'";
+            string idquery = "select developer,date,description,price from Games where name = '" + name + "'";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
             {
-                id = reader.GetInt32(0);
-                lbDevGame.Text = "Developer: " + reader.GetString(1);
-                lbRelease.Text = "released on: " + reader.GetDateTime(2).ToString("MM/dd/yyyy");
-                tbGame.Text = reader.GetString(3);
-                btBuyGame.Text = Convert.ToString(reader.GetInt32(4));
+                lbDevGame.Text = "Developer: " + reader.GetString(0);
+                lbRelease.Text = "released on: " + reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                tbGame.Text = reader.GetString(2);
+                btBuyGame.Text = Convert.ToString(reader.GetInt32(3));
             }
             else
-                id = 0;
             reader.Close();
 
+
+            if(name.Contains(" "))
+                    name.Replace(" ", "_");
+            object obj = Properties.Resources.ResourceManager.GetObject(name);
+            pbGame.Image = (Bitmap)obj;
+
             con.Close();
-            foreach (string img in imageList1.Images.Keys)
-            {
-                if (img == name)
-                {
-                    pbGame.Image = imageList1.Images[imageList1.Images.IndexOfKey(img)];
-                    break;
-                }
-                if (pbGame.Image == null)
-                {
-                    pbGame.Image = imageList1.Images[0];
-                }
-            }
             lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
-            con.Close();
         }
 
 
@@ -293,6 +281,26 @@ namespace NotSteam
                         int money1 = money;
                         int money2 = Convert.ToInt32(btnBuy.Text);
                         int moneyfinal = money1 - money2;
+                        int owners = 0;
+
+                        
+                        string cmdownerss = "SELECT dbo.[Games].[number bought] from Games WHERE Id = '" + id + "'";
+                        SqlCommand cmdownersget = new SqlCommand(cmdownerss,con);
+                        SqlDataReader readerowners = cmdownersget.ExecuteReader();
+                        try
+                        {
+                            owners = readerowners.GetInt32(0);
+                            owners = owners + 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            owners = 1;
+                        }
+
+                        SqlCommand cmdowners = con.CreateCommand();
+                        cmdowners.CommandType = CommandType.Text;
+                        cmdowners.CommandText = "UPDATE Games Set [number bought] = '" + owners + "'";
+
                         SqlCommand cmdmoney = con.CreateCommand();
                         cmdmoney.CommandType = CommandType.Text;
                         cmdmoney.CommandText = "UPDATE Users SET money = '" + moneyfinal + "' WHERE Id = '" + userid + "'";
@@ -357,6 +365,7 @@ namespace NotSteam
                 {
                     if (name == reader.GetString(0))
                     {
+                        con.Close();
                         switchtogame(name);
                         break;
                         nope = false;
