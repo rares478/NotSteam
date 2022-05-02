@@ -118,4 +118,154 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="A Way Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\way out.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ARK Survival Evolved" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arks.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BTD 6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BTD 6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Call of Duty Black Ops III" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cod III.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CS 1.6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ss 1.6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\730_library_hero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cyberpunk 2077" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cyber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DayZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\day.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dead by Daylight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dbdl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dont Starve Together" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dons starve.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dread Hunger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dread hunger.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dying Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dying Light.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dying Light 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dying 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Elden Ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Elden.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Factorio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factpry.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Farming Simulator 2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\faming 22.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FIFA 22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fifa22.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forza Horizon 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forza Horizon 5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="God of War" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\god.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grounded.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GTA V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GTA V.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hade.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="It Takes Two" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\it tales .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kingdom Come: Deliverance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kingdom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New World" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New Worl Library.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="No Mans Sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noma.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phasmophobia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\phasmo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PUBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PUBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Raft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raftl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ready or Not" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ready or.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Red Dead Redemption 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rdr2l.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\re2l.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\re3l.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil Village" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\resident.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ru.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Satisfactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sat.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sea of Thieves" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sotl.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sekiro shadow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Squad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\squad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stardew Valley" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stardew Valley.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teardown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teardown.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Terraria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\terra.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Elder Scrolls Online" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elderonline.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Forest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thefo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Sims 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sims 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Walking Dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\walking.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Witcher 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\witcher.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unturned" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unt.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Valheim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\val.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="who daddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -50,10 +50,10 @@ namespace NotSteam
                 lvLibrary.Columns[0].Width = 0;
                 lvLibrary.Columns.Add(new ColumnHeader());
                 lvLibrary.Columns[1].Text = "Game";
-                lvLibrary.Columns[1].Width = 100;
+                lvLibrary.Columns[1].Width = 130;
                 lvLibrary.Columns.Add(new ColumnHeader());
                 lvLibrary.Columns[2].Text = "Date bought";
-                lvLibrary.Columns[2].Width = 120;
+                lvLibrary.Columns[2].Width = 100;
                 lvLibrary.LabelEdit = true;
                 string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
@@ -102,8 +102,8 @@ namespace NotSteam
             con.Close();
         }
 
-        string changename;
-        string description;
+        string changename=null;
+        string description=null;
 
         private void EditProfile()
         {
@@ -139,6 +139,7 @@ namespace NotSteam
             tbChangeDesc.TextChanged += updatedesc;
             tbChangeDesc.BackColor = SystemColors.GradientActiveCaption;
             tbChangeDesc.ForeColor = SystemColors.ActiveCaptionText;
+            tbChangeDesc.Text = tbDesc.Text;
 
             Label label14 = new Label();
             Controls.Add(label14);
@@ -187,25 +188,64 @@ namespace NotSteam
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            con.Open();
-            if (changename.Length > 0)
+            try
             {
+                con.Open();
+                if (changename.Length > 0)
+                {
 
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE Users SET username = '" + changename + "', description = '" + description + "' WHERE Id = '" + userid + "'";
-                cmd.ExecuteNonQuery();
-                string desc = "select description from Users where Id = " + userid + "";
-                SqlCommand cmddesc = new SqlCommand(desc, con);
-                tbDesc.Text = cmddesc.ExecuteScalar().ToString();
-                if (tbDesc.Text.Length == 0)
-                    tbDesc.Text = "Add a description";
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE Users SET username = '" + changename + "', description = '" + description + "' WHERE Id = '" + userid + "'";
+                    cmd.ExecuteNonQuery();
+                    string desc = "select description from Users where Id = " + userid + "";
+                    SqlCommand cmddesc = new SqlCommand(desc, con);
+                    tbDesc.Text = cmddesc.ExecuteScalar().ToString();
+                    if (tbDesc.Text.Length == 0)
+                        tbDesc.Text = "Add a description";
+                    con.Close();
+                }
+                else
+                    con.Close();
+                Controls.Clear();
+                InitializeComponent();
+                tbDesc.Text = description;
+                label1.Text = changename;
+
+                con.Open();
+                lvLibrary.Clear();
+                lvLibrary.Visible = true;
+                lvLibrary.View = View.Details;
+                lvLibrary.AllowColumnReorder = true;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
+                lvLibrary.Columns[0].Width = 0;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[1].Text = "Game";
+                lvLibrary.Columns[1].Width = 130;
+                lvLibrary.Columns.Add(new ColumnHeader());
+                lvLibrary.Columns[2].Text = "Date bought";
+                lvLibrary.Columns[2].Width = 100;
+                lvLibrary.LabelEdit = true;
+                string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
+
+                SqlCommand cmde = new SqlCommand(query, con);
+
+                SqlDataReader reader = cmde.ExecuteReader();
+                while (reader.Read())
+                {
+                    ListViewItem lvgame = new ListViewItem();
+                    lvgame.SubItems.Add(reader.GetString(0));
+                    var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                    lvgame.SubItems.Add(dateValue1);
+                    lvLibrary.Items.Add(lvgame);
+                }
                 con.Close();
+
             }
-            else
-                con.Close();
-            Controls.Clear();
-            InitializeComponent();
+            catch (Exception)
+            {
+            }
         }
 
         private void btEdit_Click(object sender, EventArgs e)

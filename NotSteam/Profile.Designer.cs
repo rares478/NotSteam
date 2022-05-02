@@ -62,7 +62,7 @@ namespace NotSteam
             this.lvLibrary.Size = new System.Drawing.Size(233, 250);
             this.lvLibrary.TabIndex = 0;
             this.lvLibrary.UseCompatibleStateImageBehavior = false;
-            this.lvLibrary.View = System.Windows.Forms.View.Details;
+            this.lvLibrary.View = System.Windows.Forms.View.List;
             this.lvLibrary.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ColumnClick);
             // 
             // label1

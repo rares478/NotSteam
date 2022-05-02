@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -14,16 +8,12 @@ namespace NotSteam
     public partial class Library : Form
     {
         int userid;
-        string username;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         public Library(user user)
         {
             userid = user.id;
-            username = user.username;
              InitializeComponent();
             DoubleBuffered = true;
-
-            label1.Text = user.username + "'s games";
             lbAfis.Items.Clear();
             con.Open();
             string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
@@ -37,11 +27,40 @@ namespace NotSteam
             }
             con.Close();
             lbAfis.SelectedIndex = 0;
-        }
 
+        }
+        public static bool max = false;
         private void lbAfis_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string name = lbAfis.GetItemText(lbAfis.SelectedItem);
+            try
+            {
+                pbLogo.Parent = pbAfis;
+                if (name.Contains(" "))
+                    name.Replace(" ", "_");
+                object obj = Properties.Resources.ResourceManager.GetObject(name);
+                object logo = Properties.logo.ResourceManager.GetObject(name);
+                if (max)
+                {
+                    pbAfis.Size = new Size(pbAfis.Width, 400);
+                    pbLogo.Size = new Size(300, 190);
+                }
+                else
+                {
+                    pbAfis.Size = new Size(pbAfis.Width, 350);
+                    pbLogo.Size = new Size(256, 144);
+                }
+                pbAfis.Image = (Bitmap)obj;
+                pbLogo.Image = (Bitmap)logo;
+                pbLogo.Location = new Point(0, 200);
+
+            }
+            catch (Exception)
+            {
+                pbAfis.Image = imageList1.Images[0];
+            }
+            if(pbAfis.Image == null)
+                pbAfis.Image = imageList1.Images[0];
             int id = 0;
             con.Open();
             string devquery = "select id from Games where name = '" + name + "'";
@@ -64,11 +83,12 @@ namespace NotSteam
                     lbLastPlayed.Text = readerlast.GetDateTime(0).ToString("MM/dd/yyyy");
                 lbDateBought.Text = readerlast.GetDateTime(1).ToString("MM/dd/yyyy");
             }
-
-            if (id >= imageList1.Images.Count)
-                id = 0;
-            pbAfis.Image = imageList1.Images[id];
             con.Close();
+        }
+
+        private void btPlay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
