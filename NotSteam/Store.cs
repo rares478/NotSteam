@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -18,40 +19,131 @@ namespace NotSteam
         {
 
             InitializeComponent();
+
             userid = user.id;
             DoubleBuffered = true;
             money = user.money;
             query = queryceva;
+
+            var rnd = new Random();
+            for (int i = 1; i <= 12; i++)
+            {
+                int ceva = rnd.Next(56);
+                if (ceva == 13 || ceva == 15 || ceva == 19 || ceva == 23 || ceva == 34 || ceva == 0)
+                    ceva++;
+                while (a.Contains(ceva))
+                {
+                    ceva = rnd.Next(56);
+                    if (ceva == 13 || ceva == 15 || ceva == 19 || ceva == 23 || ceva == 34 || ceva == 0)
+                        ceva++;
+
+                }
+
+                a[i] = ceva;
+            }
+
+            for (int i = 1; i <= 10; i++)
+            {
+                int ceva = rnd.Next(56);
+                if (ceva == 13 || ceva == 15 || ceva == 19 || ceva == 23 || ceva == 34 || ceva == 0)
+                    ceva++;
+                while (queue.Contains(ceva))
+                {
+                    ceva = rnd.Next(56);
+                    if (ceva == 13 || ceva == 15 || ceva == 19 || ceva == 23 || ceva == 34 || ceva == 0)
+                        ceva++;
+
+                }
+                queue[i] = ceva;
+            }
+
+            con.Open();
+            string queryqueue = "SELECT name from Games where Id in (" + queue[1] + ", " + queue[2] + ", " + queue[3] + ", " + queue[4] + ", " + queue[5] + ", " + queue[6] + ", " + queue[7] + ", " + queue[8] + ", " + queue[9] + ", " + queue[10] + ")";
+            SqlCommand cmdqueue = new SqlCommand(queryqueue, con);
+            SqlDataReader readercevaqueue = cmdqueue.ExecuteReader();
+            int iii = 1;
+            while (readercevaqueue.Read())
+            {
+                queuepic[iii] = readercevaqueue.GetString(0);
+                iii++;
+            }
+            con.Close();
+
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+
+            con.Open();
+            string queryget = "SELECT name,price from Games where Id in (" + a[1] + ", " + a[2] + ", " + a[3] + ", " + a[4] + ", " + a[5] + "," + a[6] + ", " + a[7] + ", " + a[8] + ", " + a[9] + ", " + a[10] + ", " + a[11] + ", " + a[12] + ")";
+            SqlCommand cmd = new SqlCommand(queryget, con);
+            SqlDataReader readerceva = cmd.ExecuteReader();
+            int ii = 1;
+            while (readerceva.Read())
+            {
+                b[ii] = readerceva.GetString(0);
+                c[ii] = readerceva.GetInt32(1);
+                ii++;
+            }
+            con.Close();
+
+
             if (name != null)
-                switchtogame(name);
+                switchtogame(name, false);
             else
+            {
                 initialize();
+            }
             CustomToolStripRenderer r = new CustomToolStripRenderer();
             r.RoundedEdges = true;
             menuStrip1.Renderer = r;
-            panel2.Scroll += (s, e) =>
+            panel3.Scroll += (s, e) =>
             {
                 HandleScroll();
             };
-            panel2.MouseWheel += (s, e) =>
+            panel3.MouseWheel += (s, e) =>
             {
                 HandleScroll();
             };
-
         }
+
+        int[] a = new int[13];
+        string[] b = new string[13];
+        int[] c = new int[13];
+        int[] queue = new int[11];
+        string[] queuepic = new string[11];
+        int queuelcoation = 0;
+
+
         int count = 0;
         int z = 0;
         int cz = 0;
+
+        private void changefeature(int i)
+        {
+            lbGameName.Text = b[i];
+            lbGamePrice.Text = c[i].ToString();
+            pbMain.Load(Properties.Store.ResourceManager.GetString(b[i] + " capsule616x353"));
+            pbSS1.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss1"));
+            pbSS2.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss2"));
+            pbSS3.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss3"));
+            pbSS4.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss4"));
+        }
+
         private void initialize()
         {
+
+            changefeature(1);
+
             con.Open();
             SqlCommand cmdid = new SqlCommand(query, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             count = reader.FieldCount;
 
-            while (reader.Read() && z <= cz+10)
+
+            while (reader.Read() && z <= cz + 10)
             {
-               
+
                 string name = reader.GetString(0);
                 Label lbl = new Label();
                 Label lbl2 = new Label();
@@ -63,17 +155,19 @@ namespace NotSteam
                 richTextBox.BackColor = Color.FromArgb(16, 25, 35);
                 richTextBox.ForeColor = SystemColors.ActiveCaption;
                 richTextBox.BorderStyle = BorderStyle.None;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                panel2.Controls.Add(lbl);
-                panel2.Controls.Add(lbl2);
-                panel2.Controls.Add(pictureBox);
-                panel2.Controls.Add(richTextBox);
+                panel3.Controls.Add(lbl);
+                panel3.Controls.Add(lbl2);
+                panel3.Controls.Add(pictureBox);
+                panel3.Controls.Add(richTextBox);
 
-                lbl.Location = new Point(303, 360 + (z * 260));
-                lbl2.Location = new Point(303, 400 + (z * 260));
-                richTextBox.Location = new Point(308, 175 + ((z + 1) * 260));
-                pictureBox.Location = new Point(6, 360 + (z * 260));
+                ///adaug 700px
+
+                lbl.Location = new Point(303, 1260 + (z * 260));
+                lbl2.Location = new Point(303, 1300 + (z * 260));
+                richTextBox.Location = new Point(308, 1075 + ((z + 1) * 260));
+                pictureBox.Location = new Point(6, 1260 + (z * 260));
+
                 pictureBox.Size = new Size(231, 87);
                 richTextBox.Size = new Size(397, 126);
 
@@ -88,17 +182,18 @@ namespace NotSteam
                 lbl.Text = name;
 
 
-                if(name.Contains(" "))
+                if (name.Contains(" "))
                     name.Replace(" ", "_");
-                object obj = Properties.Resource1.ResourceManager.GetObject(name);
+                object obj = Properties.Store.ResourceManager.GetObject(name);
 
                 pictureBox.Image = (Bitmap)obj;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             }
             con.Close();
         }
 
-        private void switchtogame(string name)
+        private void switchtogame(string name, bool queue)
         {
             Controls.Clear();
 
@@ -111,8 +206,9 @@ namespace NotSteam
             PictureBox pbGame = new PictureBox();
             Controls.Add(pbGame);
             pbGame.Location = new Point(12, 120);
+            pbGame.SizeMode = PictureBoxSizeMode.StretchImage;
             pbGame.Name = "pbGame";
-            pbGame.Size = new Size(256, 199);
+            pbGame.Size = new Size(231, 87);
             pbGame.TabIndex = 1;
             pbGame.TabStop = false;
 
@@ -177,6 +273,16 @@ namespace NotSteam
             lbMissingGame.Text = "Missing Image";
             lbMissingGame.Visible = false;
 
+            if (queue)
+            {
+                PictureBox pbqueue = new PictureBox();
+                pbqueue.Location = new Point(95, 250);
+                Controls.Add(pbqueue);
+                pbqueue.Click += new EventHandler(queueclick);
+                pbqueue.Image = imageList1.Images[0];
+                pbqueue.Size = new Size(147, 47);
+            }
+
 
 
             TableLayoutPanel tableLayoutPanel1 = new TableLayoutPanel();
@@ -210,12 +316,12 @@ namespace NotSteam
                 btBuyGame.Text = Convert.ToString(reader.GetInt32(3));
             }
             else
-            reader.Close();
+                reader.Close();
 
 
-            if(name.Contains(" "))
-                    name.Replace(" ", "_");
-            object obj = Properties.Resources.ResourceManager.GetObject(name);
+            if (name.Contains(" "))
+                name.Replace(" ", "_");
+            object obj = Properties.Store.ResourceManager.GetObject(name);
             pbGame.Image = (Bitmap)obj;
 
             con.Close();
@@ -224,15 +330,31 @@ namespace NotSteam
 
 
 
+        #region swap pics
+
+        private void swappics(object pb2, EventArgs e)
+        {
+            PictureBox image = pb2 as PictureBox;
+            tmpimg = pbMain.Image;
+            timer1.Stop();
+            pbMain.Image = image.Image;
+        }
+        Image tmpimg = null;
+
+        private void swapback(object pb2, EventArgs e)
+        {
+            pbMain.Image = tmpimg;
+            timer1.Start();
+        }
+
+        #endregion
+
+        #region game functions
         private void lbl_click(object sender, EventArgs e)
         {
-            /*if (theme)
-                ChangeTheme(tabControl1.Controls);
-            else ChangeThemeOrig(tabControl1.Controls);*/
-
             Label label = sender as Label;
             selected = label.Text;
-            switchtogame(label.Text);
+            switchtogame(label.Text, false);
         }
 
         public string selected = null;
@@ -283,9 +405,9 @@ namespace NotSteam
                         int moneyfinal = money1 - money2;
                         int owners = 0;
 
-                        
+
                         string cmdownerss = "SELECT dbo.[Games].[number bought] from Games WHERE Id = '" + id + "'";
-                        SqlCommand cmdownersget = new SqlCommand(cmdownerss,con);
+                        SqlCommand cmdownersget = new SqlCommand(cmdownerss, con);
                         SqlDataReader readerowners = cmdownersget.ExecuteReader();
                         try
                         {
@@ -317,6 +439,25 @@ namespace NotSteam
             con.Close();
         }
 
+        private void queueclick(object sender, EventArgs e)
+        {
+            if (queuelcoation == 10)
+            {
+                Controls.Clear();
+                InitializeComponent();
+                initialize();
+                WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                queuelcoation++;
+                switchtogame(queuepic[queuelcoation], true);
+            }
+        }
+        #endregion
+
+        #region dev + desc
         private string description(string name)
         {
             string nimic = "";
@@ -347,6 +488,9 @@ namespace NotSteam
 
         }
 
+        #endregion
+
+        #region searchbox
         private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
@@ -366,7 +510,7 @@ namespace NotSteam
                     if (name == reader.GetString(0))
                     {
                         con.Close();
-                        switchtogame(name);
+                        switchtogame(name, false);
                         break;
                         nope = false;
                     }
@@ -388,11 +532,13 @@ namespace NotSteam
         {
             toolStripTextBox1.Text = "";
         }
+        #endregion
 
         int ceva = 0;
         private void HandleScroll()
+
         {
-            if (panel2.VerticalScroll.Value > 2000 && ceva ==0)
+            if (panel3.VerticalScroll.Value > 2000 && ceva == 0)
             {
                 cz = cz + z;
                 if (NotSteamForm.freetoplay)
@@ -423,9 +569,9 @@ namespace NotSteam
                 initialize();
                 ceva++;
             }
-            if(panel2.VerticalScroll.Value > 7000 && ceva == 1)
+            if (panel3.VerticalScroll.Value > 7000 && ceva == 1)
             {
-                cz = cz + z+1;
+                cz = cz + z + 1;
                 if (NotSteamForm.freetoplay)
                     query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.early)
@@ -453,9 +599,9 @@ namespace NotSteam
                 initialize();
                 ceva++;
             }
-            if(panel2.VerticalScroll.Value > 12000 && ceva == 2)
+            if (panel3.VerticalScroll.Value > 12000 && ceva == 2)
             {
-                cz = cz + z+2;
+                cz = cz + z + 2;
                 if (NotSteamForm.freetoplay)
                     query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.early)
@@ -483,7 +629,7 @@ namespace NotSteam
                 initialize();
                 ceva++;
             }
-            if(cz< count && ceva == 3)
+            if (cz < count && ceva == 3)
             {
                 cz = count - cz;
                 if (NotSteamForm.freetoplay)
@@ -514,6 +660,50 @@ namespace NotSteam
                 ceva++;
             }
 
+        }
+
+        private void pbMain_Click(object sender, EventArgs e)
+        {
+            switchtogame(lbGameName.Text, false);
+        }
+
+        int tick = 2;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (tick == 12)
+                tick = 1;
+            changefeature(tick);
+            tick++;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (tick == 12)
+                tick = 0;
+            tick = tick + 1;
+            changefeature(tick);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tick == 1)
+                tick = 13;
+            tick = tick - 1;
+            changefeature(tick);
+        }
+
+        private void customPanelRenderer1_Paint(object sender, PaintEventArgs e)
+        {
+            if (tick == 12)
+                tick = 0;
+            tick = tick + 1;
+            changefeature(tick);
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            queueclick(sender, e);
         }
     }
 }

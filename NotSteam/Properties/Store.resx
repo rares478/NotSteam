@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="A Way Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\way .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A Way Out capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/capsule_616x353.jpg?t=1592506599</value>
+  </data>
+  <data name="A Way Out ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/ss_a7f52388d8d64bf56170baf5bd223fbbb1d9a94a.jpg</value>
+  </data>
+  <data name="A Way Out ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/ss_55237e6d80cf3f9e2f3f0fa41d710a7ea35b022b.jpg</value>
+  </data>
+  <data name="A Way Out ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/ss_666b409c3d07150ef0ddccb179a25d44fb62c937.jpg</value>
+  </data>
+  <data name="A Way Out ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/ss_7348bdffb1dd4418175bcb91149f3b7daf30ecf8.jpg</value>
+  </data>
+  <data name="ARK Survival Evolved" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ark.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ARK Survival Evolved capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/346110/capsule_616x353.jpg?t=1541527881</value>
+  </data>
+  <data name="ARK Survival Evolved ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/346110/ss_2fd997a2f7151cb2187043a1f41589cc6a9ebf3a.jpg</value>
+  </data>
+  <data name="ARK Survival Evolved ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/346110/ss_01cbef83fe28d64ee5a3d39a86043fb1e49abd31.jpg</value>
+  </data>
+  <data name="ARK Survival Evolved ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/346110/ss_164a92a53f9bcbb728b391fc0719f9769c2e1249.jpg</value>
+  </data>
+  <data name="ARK Survival Evolved ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/346110/ss_46778c08a1a5ac5bdbaf8a5bf844fa666f66a14b.jpg</value>
+  </data>
+  <data name="BTD 6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BTD 6 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/960090/capsule_616x353.jpg?t=1615782528</value>
+  </data>
+  <data name="BTD 6 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/960090/ss_d2f93f02857105d608e928c7bd7556344149e34b.jpg</value>
+  </data>
+  <data name="BTD 6 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/960090/ss_b6b18dcde4579eb7be9945a5e74576d7d7e114d6.jpg</value>
+  </data>
+  <data name="BTD 6 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/960090/ss_95fbb8514c642ee35c9d1be3088a99f77161bb83.jpg</value>
+  </data>
+  <data name="BTD 6 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/960090/ss_a35fc76519036fbf96182927a91e7f03e2e1223e.jpg</value>
+  </data>
+  <data name="Call of Duty Black Ops III" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cod 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Call of Duty Black Ops III capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/311210/capsule_616x353.jpg?t=1504026114</value>
+  </data>
+  <data name="Call of Duty Black Ops III ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/311210/ss_ca7376d838d5714f916936f0070824c27c4c5641.jpg</value>
+  </data>
+  <data name="Call of Duty Black Ops III ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/311210/ss_150874824f4fff0915e63ea2ade5410e576a2b70.jpg</value>
+  </data>
+  <data name="Call of Duty Black Ops III ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/311210/ss_4b270e7a32d3a93a8119e7bcc3d8dcaa784f84f1.jpg</value>
+  </data>
+  <data name="Call of Duty Black Ops III ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/311210/ss_c4f8101a3529e2e430641af1e061926b1f57e4e7.jpg</value>
+  </data>
+  <data name="CS 1.6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CS 1.6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CS 1.6 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/10/capsule_616x353.jpg?t=1416965889</value>
+  </data>
+  <data name="CS 1.6 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/10/0000000132.jpg</value>
+  </data>
+  <data name="CS 1.6 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/10/0000000133.jpg</value>
+  </data>
+  <data name="CS 1.6 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/10/0000000134.jpg</value>
+  </data>
+  <data name="CS 1.6 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/10/0000000135.jpg</value>
+  </data>
+  <data name="CSGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cscs.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSGO capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1585694942</value>
+  </data>
+  <data name="CSGO ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_118cb022b9a43f70d2e5a2df7427f29088b6b191.jpg</value>
+  </data>
+  <data name="CSGO ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_d196d945c6170e9cadaf67a6dea675bd5fa7a046.jpg</value>
+  </data>
+  <data name="CSGO ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_8c9cce9a9dde7b9c020837dcbd4615efe6f77d66.jpg</value>
+  </data>
+  <data name="CSGO ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_2b9e362287b509bb3864fa7bad654fe1fda0f7ed.jpg</value>
+  </data>
+  <data name="Cyberpunk 2077" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cyberpunk.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cyberpunk 2077 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/capsule_616x353.jpg?t=1647265438</value>
+  </data>
+  <data name="Cyberpunk 2077 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_b529b0abc43f55fc23fe8058eddb6e37c9629a6a.jpg</value>
+  </data>
+  <data name="Cyberpunk 2077 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_50efe471e6061bfc9fb701f871b761440c9c904c.jpg</value>
+  </data>
+  <data name="Cyberpunk 2077 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_edb041ea6f4ee5d7baf262805a4aa45fe9624410.jpg</value>
+  </data>
+  <data name="Cyberpunk 2077 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_aea9b127e38cc0661c3e1b62ad2b0736eae0e583.jpg</value>
+  </data>
+  <data name="DayZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dayz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DayZ capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/221100/capsule_616x353.jpg?t=1593111312</value>
+  </data>
+  <data name="DayZ ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/221100/ss_7f488d8e49682a8d1643a795fc9047cbbd2dcc9c.jpg</value>
+  </data>
+  <data name="DayZ ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/221100/ss_0de6d2e7f3b5348d69bb09d60624c78e13f0c8d7.jpg</value>
+  </data>
+  <data name="DayZ ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/221100/ss_84b557abccd29273cf9313980b4c9f63a12dabdf.jpg</value>
+  </data>
+  <data name="DayZ ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/221100/ss_2c77af2ce801e986c77f2af2f0918ad3e47b17df.jpg</value>
+  </data>
+  <data name="Dead by Daylight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dbd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dead by Daylight capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/381210/capsule_616x353.jpg?t=1647513607</value>
+  </data>
+  <data name="Dead by Daylight ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/381210/ss_659500624438a4aa77bfdf304cba3ecebcd92ed9.jpg</value>
+  </data>
+  <data name="Dead by Daylight ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/381210/ss_ca6b39f2fcac8feb75d23976b1be31290d58d159.jpg</value>
+  </data>
+  <data name="Dead by Daylight ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/381210/ss_4075aac79adfe1a5b71665d2cc5ff7d52122650b.jpg</value>
+  </data>
+  <data name="Dead by Daylight ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/381210/ss_d3778cc9576bf3457f4ba896a443a114c0455753.jpg</value>
+  </data>
+  <data name="Dont Starve Together" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dont.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dont Starve Together capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/322330/capsule_616x353.jpg?t=1608053293</value>
+  </data>
+  <data name="Dont Starve Together ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/322330/ss_d053a7220a03ab689da9312c6d15fe8211401f55.jpg</value>
+  </data>
+  <data name="Dont Starve Together ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/322330/ss_37e30c4cf8c945f1958890c8fa7346af6bea547d.jpg</value>
+  </data>
+  <data name="Dont Starve Together ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/322330/ss_f863729856b94b3485ee80e6fd11289595f6634c.jpg</value>
+  </data>
+  <data name="Dont Starve Together ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/322330/ss_92f4145bd510f66d63028e1cdf27eb30bd44cea1.jpg</value>
+  </data>
+  <data name="Dread Hunger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dread.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dread Hunger capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/capsule_616x353.jpg?t=1618336719</value>
+  </data>
+  <data name="Dread Hunger ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/ss_62aae690307c00937ba95b2f542148b1d244a847.jpg</value>
+  </data>
+  <data name="Dread Hunger ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/ss_61b09a3418de995478818a946453cdcff7185809.jpg</value>
+  </data>
+  <data name="Dread Hunger ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/ss_5990e94c5e19f8261f10c3b591c2a6f4a48ee7a8.jpg</value>
+  </data>
+  <data name="Dread Hunger ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/ss_e288360023538c6a85745ff2070dc84003bdd8f5.jpg</value>
+  </data>
+  <data name="Dying Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dying .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dying Light 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dying Light 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dying Light 2 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/534380/capsule_616x353.jpg?t=1651164681</value>
+  </data>
+  <data name="Dying Light 2 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/534380/ss_0ecb51b7f46b67ea48d0615124d9e134d7098cf8.jpg</value>
+  </data>
+  <data name="Dying Light 2 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/534380/ss_6f01caca9af07032a22f16712f180c7e7ab0a1a3.jpg</value>
+  </data>
+  <data name="Dying Light 2 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/534380/ss_7721c3ab326828a313893bceae8a044678af18c0.jpg</value>
+  </data>
+  <data name="Dying Light 2 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/534380/ss_52e3cef35d9b57bac517b6f26439769cc7156215.jpg</value>
+  </data>
+  <data name="Dying Light capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/239140/capsule_616x353.jpg?t=1644831616</value>
+  </data>
+  <data name="Dying Light ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/239140/ss_a3771358b8eb4ea4c8f99c5850711f55b87804de.jpg</value>
+  </data>
+  <data name="Dying Light ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/239140/ss_1f0dc94f46fa1a953827188188887f6a12911ec2.jpg</value>
+  </data>
+  <data name="Dying Light ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/239140/ss_488226f013287012e0feaed2fb7799dbe038fd00.jpg</value>
+  </data>
+  <data name="Dying Light ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/239140/ss_37f8192f3bf85359ddee0b5c2e9a58eaaf6c4026.jpg</value>
+  </data>
+  <data name="Elden Ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Elden Ring.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Elden Ring capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/capsule_616x353.jpg?t=1645673578</value>
+  </data>
+  <data name="Elden Ring ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.jpg</value>
+  </data>
+  <data name="Elden Ring ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_25cd489871907387c1b915022a96b196661b6e17.jpg</value>
+  </data>
+  <data name="Elden Ring ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_3e556415d1bda00d749b2166ced264bec76f06ee.jpg</value>
+  </data>
+  <data name="Elden Ring ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_ae44317e3bd07b7690b4d62cc5d0d1df30367a91.jpg</value>
+  </data>
+  <data name="Factorio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factpr.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Factorio capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427520/capsule_616x353.jpg?t=1597311628</value>
+  </data>
+  <data name="Factorio ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427520/ss_36e4d8e5540805f5ed492d24d784ed9ba661752b.jpg</value>
+  </data>
+  <data name="Factorio ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427520/ss_171f398a8e347fad650a9c1b6c3b77c612781510.jpg</value>
+  </data>
+  <data name="Factorio ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427520/ss_0bf814493f247b6baa093511b46c352cf9e98435.jpg</value>
+  </data>
+  <data name="Factorio ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427520/ss_2533e54b0bd90a29adbedb60108ed277536ad445.jpg</value>
+  </data>
+  <data name="Farming Simulator 2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\farming.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Farming Simulator 2022 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/capsule_616x353.jpg?t=1624432442</value>
+  </data>
+  <data name="Farming Simulator 2022 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/ss_e337afa998ad89695ca84679f6518d0c4f33d9b1.jpg</value>
+  </data>
+  <data name="Farming Simulator 2022 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/ss_c239777d39a8c706b6b8c6570c68d84d4faa0b18.jpg</value>
+  </data>
+  <data name="Farming Simulator 2022 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/ss_82c77b40c44d85630170a8d4a5005d5146b49408.jpg</value>
+  </data>
+  <data name="Farming Simulator 2022 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/ss_e5176104a08975d9ef111f2bcd8f62acf239f92c.jpg</value>
+  </data>
+  <data name="FIFA 22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fifa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FIFA 22 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/capsule_616x353.jpg?t=1644241398</value>
+  </data>
+  <data name="FIFA 22 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/ss_487947e6eb5e8ca8f71e8bfea77753c95eca1b25.jpg</value>
+  </data>
+  <data name="FIFA 22 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/ss_f526296665433ef5475972b690d51f9b6eebf991.jpg</value>
+  </data>
+  <data name="FIFA 22 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/ss_2cdf78a2091db6adb7ec405f4c5438fd621266a9.jpg</value>
+  </data>
+  <data name="FIFA 22 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/ss_ab3f290ac0667490be79a1f3231cb563b1effeb4.jpg</value>
+  </data>
+  <data name="Forza Horizon 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forza 5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forza Horizon 5 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/capsule_616x353.jpg?t=1645552677</value>
+  </data>
+  <data name="Forza Horizon 5 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.jpg</value>
+  </data>
+  <data name="Forza Horizon 5 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.jpg</value>
+  </data>
+  <data name="Forza Horizon 5 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.jpg</value>
+  </data>
+  <data name="Forza Horizon 5 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_3654a5988db68f9b47740f9f6a9299682c365599.jpg</value>
+  </data>
+  <data name="God of War" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoW.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="God of War capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/capsule_616x353.jpg?t=1634741856</value>
+  </data>
+  <data name="God of War ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_6eccc970b5de2943546d93d319be1b5c0618f21b.jpg</value>
+  </data>
+  <data name="God of War ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_f1bff24d3967a21d303d95e11ed892e3d9113057.jpg</value>
+  </data>
+  <data name="God of War ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_3670ba72c7e3e9c3c3225547ef2c1053504e62b8.jpg</value>
+  </data>
+  <data name="God of War ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_93a3ca63aa2cd8c675bbb6430324ee3f2d44b845.jpg</value>
+  </data>
+  <data name="Grounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pamant.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grounded capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/962130/capsule_616x353.jpg?t=1643741719</value>
+  </data>
+  <data name="Grounded ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/962130/ss_ae92bff37bed4b614ae250c9ea8c3e889c2e1614.jpg</value>
+  </data>
+  <data name="Grounded ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/962130/ss_b69a1149d228e20cc17521a02d0bff26894bc23f.jpg</value>
+  </data>
+  <data name="Grounded ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/962130/ss_f71a9fb8203f4a18d7bbe0f127847de264b12b5c.jpg</value>
+  </data>
+  <data name="Grounded ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/962130/ss_330547e267ebdd11cccf685a009404601eee9821.jpg</value>
+  </data>
+  <data name="GTA V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GTA 5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GTA V capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/271590/capsule_616x353.jpg?t=1458672725</value>
+  </data>
+  <data name="GTA V ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_32aa18ab3175e3002217862dd5917646d298ab6b.jpg</value>
+  </data>
+  <data name="GTA V ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_2744f112fa060320d191a50e8b3a92441a648a56.jpg</value>
+  </data>
+  <data name="GTA V ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_90f67258a3d991fe1b72030e56035ede688a82d7.jpg</value>
+  </data>
+  <data name="GTA V ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_d7f501f20ed23e2ee0e5e6b3c09922021c2f9aaa.jpg</value>
+  </data>
+  <data name="Hades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hades.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hades capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/capsule_616x353.jpg?t=1611796359</value>
+  </data>
+  <data name="Hades ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_c0fed447426b69981cf1721756acf75369801b31.jpg</value>
+  </data>
+  <data name="Hades ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_8a9f0953e8a014bd3df2789c2835cb787cd3764d.jpg</value>
+  </data>
+  <data name="Hades ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_bcb499a0dd001f4101823f99ec5094d2872ba6ee.jpg</value>
+  </data>
+  <data name="Hades ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_68300459a8c3daacb2ec687adcdbf4442fcc4f47.jpg</value>
+  </data>
+  <data name="It Takes Two" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\take2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="It Takes Two capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/capsule_616x353.jpg?t=1639501033</value>
+  </data>
+  <data name="It Takes Two ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_3e59753eefaba9a7704a18e902b48e8d38e95e0b.jpg</value>
+  </data>
+  <data name="It Takes Two ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_6e987a0678b013bfd0073a9ac4703e1f04ca4dea.jpg</value>
+  </data>
+  <data name="It Takes Two ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_fdac523e3ea4d2f32a44449bb8c224857563bd7d.jpg</value>
+  </data>
+  <data name="It Takes Two ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_4a62bc8fa398fc5b2094a6225dc5ecff9485f824.jpg</value>
+  </data>
+  <data name="Kingdom Come Deliverance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kingdom Come Deliverance.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kingdom Come Deliverance capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/379430/capsule_616x353.jpg?t=1546542328</value>
+  </data>
+  <data name="Kingdom Come Deliverance ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/379430/ss_1e65496b05d2c37ed0dd7d0c31d73e34fa83533e.jpg</value>
+  </data>
+  <data name="Kingdom Come Deliverance ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/379430/ss_b9b014da63d552adbf4958d9ce6edab64ecfcbae.jpg</value>
+  </data>
+  <data name="Kingdom Come Deliverance ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/379430/ss_458888009ad29357b5e8d249e2130f12172a8c44.jpg</value>
+  </data>
+  <data name="Kingdom Come Deliverance ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/379430/ss_610c1ce30e151a8e9550a9cf9119791e15d3c91a.jpg</value>
+  </data>
+  <data name="New World" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New World.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New World capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/capsule_616x353.jpg?t=1619404218</value>
+  </data>
+  <data name="New World ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/ss_32b377faf983064af7638e858e1bfa7c845c9e2f.jpg</value>
+  </data>
+  <data name="New World ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/ss_c5c9e520c69d217da25769cd3c093c04458a83ac.jpg</value>
+  </data>
+  <data name="New World ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/ss_45594186d0784865980a9c8b009675b5c5e8c0ac.jpg</value>
+  </data>
+  <data name="New World ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/ss_b48cb21ccfb35c81307d2435ce3cbda7dc3a7c88.jpg</value>
+  </data>
+  <data name="No Mans Sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noman.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="No Mans Sky capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/275850/capsule_616x353.jpg?t=1650534254</value>
+  </data>
+  <data name="No Mans Sky ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/275850/ss_81fb5347dc705116c0558e2165fcfc1f10b9c725.jpg</value>
+  </data>
+  <data name="No Mans Sky ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/275850/ss_03494cabd0ec2cd7d596b6f5fa373f098e39b235.jpg</value>
+  </data>
+  <data name="No Mans Sky ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/275850/ss_b492a8b6d6b8a6d1acaf8eaad9d1baae1c9eaa95.jpg</value>
+  </data>
+  <data name="No Mans Sky ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/275850/ss_3cce41c52008db36c69571cd06a666fd33b50de9.jpg</value>
+  </data>
+  <data name="Phasmophobia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Phas.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phasmophobia capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/739630/capsule_616x353.jpg?t=1583525227</value>
+  </data>
+  <data name="Phasmophobia ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_c9740361a95e60980b01bf122a1479536af10500.jpg</value>
+  </data>
+  <data name="Phasmophobia ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_d48dc33b2d49086841d8361c59752cb1bb3733ac.jpg</value>
+  </data>
+  <data name="Phasmophobia ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_13dde9450dd7c7f70b31ccbaa16ac1f5d3822289.jpg</value>
+  </data>
+  <data name="Phasmophobia ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_59023d418d1825e574ad75911da34f5814a6bb9d.jpg</value>
+  </data>
+  <data name="PUBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PUBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PUBG capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/578080/capsule_616x353.jpg?t=1649662924</value>
+  </data>
+  <data name="PUBG ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_e2cbfefdff39b9cb8e080da8f30cc07223b041b9.jpg</value>
+  </data>
+  <data name="PUBG ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_01d84950ddfb28ea611f1fa1a28c3cb08ccd7eee.jpg</value>
+  </data>
+  <data name="PUBG ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_606cee13e97530720c678513cb1138ef9854d7d5.jpg</value>
+  </data>
+  <data name="PUBG ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_4454f310776c626a76baeca2d05fd82bd17c6ee0.jpg</value>
+  </data>
+  <data name="Raft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\raft.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Raft capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/648800/capsule_616x353.jpg?t=1624262390</value>
+  </data>
+  <data name="Raft ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/648800/ss_c22b2ff5ba5609f74e61b5feaa5b7a1d7fd1dbd3.jpg</value>
+  </data>
+  <data name="Raft ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/648800/ss_2adb248f4d501cf58344d9af1d8a9e56c74647ee.jpg</value>
+  </data>
+  <data name="Raft ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/648800/ss_56914c026da8c8411974bd0e2e8cb81a0331ba99.jpg</value>
+  </data>
+  <data name="Raft ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/648800/ss_fdf998ea2eca1e79c0141b83ef32c5fadecd9a0e.jpg</value>
+  </data>
+  <data name="Ready or Not" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ready or Not capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/capsule_616x353.jpg?t=1580855624</value>
+  </data>
+  <data name="Ready or Not ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/ss_39dd59658ea64cd4439813b409ca7a36a772f974.jpg</value>
+  </data>
+  <data name="Ready or Not ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/ss_5797a3f0264ee8ca23d5e28ab69bb7a74b241d4f.jpg</value>
+  </data>
+  <data name="Ready or Not ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/ss_55e32414d8200c6aa2f4bd14d2406b66baf8d1b5.jpg</value>
+  </data>
+  <data name="Ready or Not ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/ss_1b6abe883019ab112b9192730d55f531fe2611ce.jpg</value>
+  </data>
+  <data name="Red Dead Redemption 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rdr2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Red Dead Redemption 2 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/capsule_616x353.jpg?t=1574881682</value>
+  </data>
+  <data name="Red Dead Redemption 2 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.jpg</value>
+  </data>
+  <data name="Red Dead Redemption 2 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.jpg</value>
+  </data>
+  <data name="Red Dead Redemption 2 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.jpg</value>
+  </data>
+  <data name="Red Dead Redemption 2 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.jpg</value>
+  </data>
+  <data name="Resident Evil 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\re2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil 2 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/883710/capsule_616x353.jpg?t=1548380656</value>
+  </data>
+  <data name="Resident Evil 2 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/883710/ss_1392581cd29817e44099cf05416b70ffb159c58b.jpg</value>
+  </data>
+  <data name="Resident Evil 2 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/883710/ss_153bd5afa0b45e74b0242a3805dc29aab9f1685e.jpg</value>
+  </data>
+  <data name="Resident Evil 2 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/883710/ss_cb998634747b70bbcf2dba34a2aef34808d039bf.jpg</value>
+  </data>
+  <data name="Resident Evil 2 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/883710/ss_cd289d2e809b3fcb236a4f193a43a16787c6bc87.jpg</value>
+  </data>
+  <data name="Resident Evil 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\re3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil 3 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/952060/capsule_616x353.jpg?t=1576626966</value>
+  </data>
+  <data name="Resident Evil 3 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_77eda710487b89293f109cf7dcf96b4ffab0d1a1.jpg</value>
+  </data>
+  <data name="Resident Evil ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_ef618256720e6e665f4b8b5dd11726a561e0b16e.jpg</value>
+  </data>
+  <data name="Resident Evil ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_34f01910d65fb171a27e058cb74623c0eb53ba69.jpg</value>
+  </data>
+  <data name="Resident Evil ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_bec8b7cef716135ea5bbd726a3342ed9ca475b31.jpg</value>
+  </data>
+  <data name="Resident Evil Village" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\village.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resident Evil Village capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/capsule_616x353.jpg?t=1610082942</value>
+  </data>
+  <data name="Resident Evil Village ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/ss_d25704b01be292d1337df4fea0fba2aab322b58a.jpg</value>
+  </data>
+  <data name="Resident Evil Village ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/ss_8113ec993ec474055c4cdce5ee86f91f7cf6663f.jpg</value>
+  </data>
+  <data name="Resident Evil Village ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/ss_363d9c05ee0a974b766938610a3352e7a89b9c92.jpg</value>
+  </data>
+  <data name="Resident Evil Village ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/ss_d6c5bfb48d7fda343ed583750372b0d3e513ae17.jpg</value>
+  </data>
+  <data name="Rust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rust.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rust capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/252490/capsule_616x353.jpg?t=1572532366</value>
+  </data>
+  <data name="Rust ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/252490/ss_9652dbaf2de41b8c8f8305af714ee258564c453d.jpg</value>
+  </data>
+  <data name="Rust ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/252490/ss_2a8518810024a5fbf9c714e697a43a1201b5d53e.jpg</value>
+  </data>
+  <data name="Rust ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/252490/ss_e825b087b95e51c3534383cfd75ad6e8038147c3.jpg</value>
+  </data>
+  <data name="Rust ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/252490/ss_bbf6c96e490326ec877ae548cb148e53516b5f83.jpg</value>
+  </data>
+  <data name="Satisfactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sati.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Satisfactory capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/526870/capsule_616x353.jpg?t=1637322735</value>
+  </data>
+  <data name="Satisfactory ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/526870/ss_9083ccf8fbb22c4068a6e233e3de343f815f9dc1.jpg</value>
+  </data>
+  <data name="Satisfactory ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/526870/ss_324fb3d8774ef3eadba136d4eae8c01cbdf14a83.jpg</value>
+  </data>
+  <data name="Satisfactory ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/526870/ss_dcb79211f2f9bac1e6a2d85aad132fc3ae909001.jpg</value>
+  </data>
+  <data name="Satisfactory ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/526870/ss_3f47e401fc3e09fd86500d2026da954de08a015b.jpg</value>
+  </data>
+  <data name="Sea of Thieves" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sea of Thieves capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/capsule_616x353.jpg?t=1633355658</value>
+  </data>
+  <data name="Sea of Thieves ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/ss_db93a181951437ffb3f7c2a45d0cb8351e1d8fc1.jpg</value>
+  </data>
+  <data name="Sea of Thieves ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/ss_e7be384ccfe3ec8a8d4a2e777d09cb84684304af.jpg</value>
+  </data>
+  <data name="Sea of Thieves ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/ss_8c74f225c1b5fefe6636278893570748994630f8.jpg</value>
+  </data>
+  <data name="Sea of Thieves ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/ss_a7df547f81e4e19c39685e4c0048a30c0fd17a01.jpg</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sekiro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/814380/capsule_616x353.jpg?t=1603899647</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_0f7b0f8ed9ffc49aba26f9328caa9a1d59ad60f0.jpg</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_2685dd844a2a523b6c7ec207d46a538db6a908cd.jpg</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_15f0e9982621aed44900215ad283811af0779b1d.jpg</value>
+  </data>
+  <data name="Sekiro: Shadow Die Twice ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_1e6f5540866a5564d65df915c22fe1e57e336a6f.jpg</value>
+  </data>
+  <data name="Squad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sq.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Squad capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/393380/capsule_616x353.jpg?t=1649869504</value>
+  </data>
+  <data name="Squad ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/393380/ss_602d31a8254112c1f0fb9deba558b7eff3739831.jpg</value>
+  </data>
+  <data name="Squad ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/393380/ss_f95f8971e361618ed3e2292f443deba63ca9acdc.jpg</value>
+  </data>
+  <data name="Squad ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/393380/ss_841b39d994779b901cc7ac722cd65f18a0a058c2.jpg</value>
+  </data>
+  <data name="Squad ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/393380/ss_6fabf783d6897ad15486b2051c997d9f9a8f2ab0.jpg</value>
+  </data>
+  <data name="Stardew Valley" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stardew.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stardew Valley capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/413150/capsule_616x353.jpg?t=1445530867</value>
+  </data>
+  <data name="Stardew Valley ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.jpg</value>
+  </data>
+  <data name="Stardew Valley ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_9ac899fe2cda15d48b0549bba77ef8c4a090a71c.jpg</value>
+  </data>
+  <data name="Stardew Valley ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_4fa0866709ede3753fdf2745349b528d5e8c4054.jpg</value>
+  </data>
+  <data name="Stardew Valley ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_d836f0a5b0447fb6a2bdb0a6ac5f954949d3c41e.jpg</value>
+  </data>
+  <data name="Teardown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tear.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teardown capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/capsule_616x353.jpg?t=1650520202</value>
+  </data>
+  <data name="Teardown ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/ss_9fd3e8de605efc42e29ba98f72432cb78a15d7ac.jpg</value>
+  </data>
+  <data name="Teardown ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/ss_dc08bfb0b8b381bc580d2599ad24462af4690a20.jpg</value>
+  </data>
+  <data name="Teardown ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/ss_50dd8a16ca7ce02dd18ccbd19908a3eda27b82a9.jpg</value>
+  </data>
+  <data name="Teardown ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/ss_9a48b92d7144b7f4a27c0b5bc7dac1e687698f5b.jpg</value>
+  </data>
+  <data name="Terraria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Terraria capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/105600/capsule_616x353.jpg?t=1435630291</value>
+  </data>
+  <data name="Terraria ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/105600/ss_8c03886f214d2108cafca13845533eaa3d87d83f.jpg</value>
+  </data>
+  <data name="Terraria ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/105600/ss_ae168a00ab08104ba266dc30232654d4b3c919e5.jpg</value>
+  </data>
+  <data name="Terraria ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/105600/ss_9edd98caaf9357c2f40758f354475a56e356e8b0.jpg</value>
+  </data>
+  <data name="Terraria ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/105600/ss_75ea9a7e39eb34b40efa1e6dfd2536098dc4734b.jpg</value>
+  </data>
+  <data name="The Elder Scrolls Online" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eso.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Elder Scrolls Online capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/306130/capsule_616x353.jpg?t=1579721107</value>
+  </data>
+  <data name="The Elder Scrolls Online ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/306130/ss_6ce59dcaa51a89208c643301f6e220d75c001b97.jpg</value>
+  </data>
+  <data name="The Elder Scrolls Online ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/306130/ss_c1cdae9879550709486774eed3a2760d18955349.jpg</value>
+  </data>
+  <data name="The Elder Scrolls Online ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/306130/ss_16688139333e39593af0eccc77342165eacae0d0.jpg</value>
+  </data>
+  <data name="The Elder Scrolls Online ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/306130/ss_da66e194128088e46a5ecad2af455ae2ebe84be0.jpg</value>
+  </data>
+  <data name="The Forest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Forest capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/242760/capsule_616x353.jpg?t=1400278553</value>
+  </data>
+  <data name="The Forest ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/242760/ss_8ccb821c4df3fafdf4161d77f38635441a8157f2.jpg</value>
+  </data>
+  <data name="The Forest ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/242760/ss_53c615d49c4777144ed7359e4bf7c9eb6838cc8e.jpg</value>
+  </data>
+  <data name="The Forest ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/242760/ss_53c615d49c4777144ed7359e4bf7c9eb6838cc8e.jpg</value>
+  </data>
+  <data name="The Forest ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/242760/ss_d03a261fecab226a0ecac5746225c2a50d65c670.jpg</value>
+  </data>
+  <data name="The Sims 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sims .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Sims 4 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/capsule_616x353.jpg?t=1592506658</value>
+  </data>
+  <data name="The Sims 4 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_537683e5e29c2d6d02c64aa7321dcb26166f7d82.jpg</value>
+  </data>
+  <data name="The Sims 4 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_2fc938d99a1e87893852cb2d2113478190607941.jpg</value>
+  </data>
+  <data name="The Sims 4 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_b447d6436d2d00cd5e7c170e509b2246dfc879e8.jpg</value>
+  </data>
+  <data name="The Sims 4 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_e1f0ce3ca2c9a538e382cc8b040944fe05af4bb2.jpg</value>
+  </data>
+  <data name="The Walking Dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\the walking.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Walking Dead capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/207610/capsule_616x353.jpg?t=1356123817</value>
+  </data>
+  <data name="The Walking Dead ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/207610/ss_7a2c18f45ed5c6464ae803ae49c32bf3717ae375.jpg</value>
+  </data>
+  <data name="The Walking Dead ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/207610/ss_b8880868558943bf6b8e1aa94fe9ab51ea04472a.jpg</value>
+  </data>
+  <data name="The Walking Dead ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/207610/ss_b698433b560c915812b37b2c8c5ef16b71a777e7.jpg</value>
+  </data>
+  <data name="The Walking Dead ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/207610/ss_8652e0679f3de9d0382a0164888c60a5edb0b076.jpg</value>
+  </data>
+  <data name="The Witcher 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\witcher 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The Witcher 3 capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/292030/capsule_616x353.jpg?t=1597751800</value>
+  </data>
+  <data name="The Witcher 3 ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad096.jpg</value>
+  </data>
+  <data name="The Witcher 3 ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_64eb760f9a2b67f6731a71cce3a8fb684b9af267.jpg</value>
+  </data>
+  <data name="The Witcher 3 ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_eda99e7f705a113d04ab2a7a36068f3e7b343d17.jpg</value>
+  </data>
+  <data name="The Witcher 3 ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_b74d60ee215337d765e4d20c8ca6710ae2362cc2.jpg</value>
+  </data>
+  <data name="Unturned" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unturned.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unturned capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/304930/capsule_616x353.jpg?t=1448496847</value>
+  </data>
+  <data name="Unturned ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_a2d8ffa4eaff717539c1fd9d3cd0440691c6fc81.jpg</value>
+  </data>
+  <data name="Unturned ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_68b4fad77fd55cb2e39673cce03d447c856f74f1.jpg</value>
+  </data>
+  <data name="Unturned ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e7bd3004478e0e4500521be44995488933f70435.jpg</value>
+  </data>
+  <data name="Unturned ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_dab75d876be53346a0a5a1fc5e3ae1a4b54ea926.jpg</value>
+  </data>
+  <data name="Valheim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\valheiim.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Valheim capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/892970/capsule_616x353.jpg?t=1635319421</value>
+  </data>
+  <data name="Valheim ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/892970/ss_e96ae32f23d64130001fdc43929e5ec453b38c97.jpg</value>
+  </data>
+  <data name="Valheim ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/892970/ss_c7a64d2ccab776311c85f6e9650d3ca27d614650.jpg</value>
+  </data>
+  <data name="Valheim ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/892970/ss_142cb9ca512900c6ce7871b239ad5b1fa1e7eaee.jpg</value>
+  </data>
+  <data name="Valheim ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/892970/ss_a600a7d4ca954543e22f571a9629521a13f82143.jpg</value>
+  </data>
+  <data name="webm_page_bg_english" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\webm_page_bg_english.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="who daddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\who.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="who daddy capsule616x353" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427730/capsule_616x353.jpg?t=1639727437</value>
+  </data>
+  <data name="who daddy ss1" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427730/ss_7a1ac45b999abdebab725939978a6a7c3c66f614.jpg</value>
+  </data>
+  <data name="who daddy ss2" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427730/ss_849b4ec83e9f520249f89769d16609f0d6c3ea54.jpg</value>
+  </data>
+  <data name="who daddy ss3" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427730/ss_28ed36200de1fa5d9b58a14a2357f88ccaffa9ef.jpg</value>
+  </data>
+  <data name="who daddy ss4" xml:space="preserve">
+    <value>https://cdn.cloudflare.steamstatic.com/steam/apps/427730/ss_634ac18a333c567048656cf04051ea2715b30382.jpg</value>
+  </data>
+</root>

@@ -108,10 +108,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>logo.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resource1.Designer.cs">
+    <Compile Include="Properties\Store.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
+      <DependentUpon>Store.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -153,9 +153,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>logo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resource1.resx">
+    <EmbeddedResource Include="Properties\Store.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Store.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -651,6 +651,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hadeslogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webm_page_bg_english.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

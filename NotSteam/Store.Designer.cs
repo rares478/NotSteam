@@ -40,6 +40,50 @@ namespace NotSteam
             }
         }
 
+        public class CustomPanelRenderer : Panel
+        {
+            public Color TopColor { get; set; }
+            public Color BottomColor { get; set; }
+            public float Angle { get; set; }
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(27, 40, 56), Color.FromArgb(42, 71, 94), 270);
+                Graphics g = e.Graphics;
+                g.FillRectangle(brush, this.ClientRectangle);
+                base.OnPaint(e);
+            }
+        }
+
+        public class CustomPanelRendererButton : Panel
+        {
+            public Color TopColor { get; set; }
+            public Color BottomColor { get; set; }
+            public float Angle { get; set; }
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(23, 38, 53), Color.FromArgb(18, 29, 41), 180);
+                Graphics g = e.Graphics;
+                g.FillRectangle(brush, this.ClientRectangle);
+                base.OnPaint(e);
+            }
+        }
+
+        public class CustomButtonRenderer : Button
+        {
+            public Color TopColor { get; set; }
+            public Color BottomColor { get; set; }
+            public float Angle { get; set; }
+
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(23, 38, 53), Color.FromArgb(18, 29, 41), 180);
+                Graphics g = e.Graphics;
+                g.FillRectangle(brush, this.ClientRectangle);
+                base.OnPaint(e);
+            }
+
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -50,8 +94,16 @@ namespace NotSteam
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Store));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pbQueue1 = new System.Windows.Forms.PictureBox();
+            this.pbQueue2 = new System.Windows.Forms.PictureBox();
+            this.pbQueue3 = new System.Windows.Forms.PictureBox();
+            this.pbQueue4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yourStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.followedGamesSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,75 +212,147 @@ namespace NotSteam
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.panel2.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new NotSteam.Store.CustomButtonRenderer();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbGamePrice = new System.Windows.Forms.Label();
+            this.pbSS4 = new System.Windows.Forms.PictureBox();
+            this.pbSS2 = new System.Windows.Forms.PictureBox();
+            this.pbSS3 = new System.Windows.Forms.PictureBox();
+            this.pbSS1 = new System.Windows.Forms.PictureBox();
+            this.lbGameName = new System.Windows.Forms.Label();
+            this.button1 = new NotSteam.Store.CustomButtonRenderer();
+            this.pbMain = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue4)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // imageList1
+            // timer1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Steam_service-Logo.wine.png");
-            this.imageList1.Images.SetKeyName(1, "GTA V");
-            this.imageList1.Images.SetKeyName(2, "BTD 6");
-            this.imageList1.Images.SetKeyName(3, "Dying Light");
-            this.imageList1.Images.SetKeyName(4, "New World");
-            this.imageList1.Images.SetKeyName(5, "CS 1.6");
-            this.imageList1.Images.SetKeyName(6, "PUBG");
-            this.imageList1.Images.SetKeyName(7, "The Sims 4");
-            this.imageList1.Images.SetKeyName(8, "CSGO");
-            this.imageList1.Images.SetKeyName(9, "Farming Simulator 2022");
-            this.imageList1.Images.SetKeyName(10, "who daddy");
-            this.imageList1.Images.SetKeyName(11, "Unturned");
-            this.imageList1.Images.SetKeyName(12, "Forza Horizon 5");
-            this.imageList1.Images.SetKeyName(13, "Elden Ring");
-            this.imageList1.Images.SetKeyName(14, "Sekiro: Shadow Die Twice");
-            this.imageList1.Images.SetKeyName(15, "Cyberpunk 2077");
-            this.imageList1.Images.SetKeyName(16, "Dread Hunger");
-            this.imageList1.Images.SetKeyName(17, "The Walking Dead");
-            this.imageList1.Images.SetKeyName(18, "Resident Evil Village");
-            this.imageList1.Images.SetKeyName(19, "The Witcher 3");
-            this.imageList1.Images.SetKeyName(20, "Kingdom Come: Deliverance");
-            this.imageList1.Images.SetKeyName(21, "DayZ");
-            this.imageList1.Images.SetKeyName(22, "Phasmophobia");
-            this.imageList1.Images.SetKeyName(23, "Rust");
-            this.imageList1.Images.SetKeyName(24, "Ready or Not");
-            this.imageList1.Images.SetKeyName(25, "Sea of Thieves");
-            this.imageList1.Images.SetKeyName(26, "Raft");
-            this.imageList1.Images.SetKeyName(27, "Stardew Valley");
-            this.imageList1.Images.SetKeyName(28, "Dead by Daylight");
-            this.imageList1.Images.SetKeyName(29, "Dying Light 2");
-            this.imageList1.Images.SetKeyName(30, "It Takes Two");
-            this.imageList1.Images.SetKeyName(31, "God of War");
-            this.imageList1.Images.SetKeyName(32, "Squad");
-            this.imageList1.Images.SetKeyName(33, "Resident Evil 3");
-            this.imageList1.Images.SetKeyName(34, "Valheim");
-            this.imageList1.Images.SetKeyName(35, "The Forest");
-            this.imageList1.Images.SetKeyName(36, "Red Dead Redemption 2");
-            this.imageList1.Images.SetKeyName(37, "Terraria");
-            this.imageList1.Images.SetKeyName(38, "Grounded");
-            this.imageList1.Images.SetKeyName(39, "A Way Out");
-            this.imageList1.Images.SetKeyName(40, "Factorio");
-            this.imageList1.Images.SetKeyName(41, "Resident Evil 2");
-            this.imageList1.Images.SetKeyName(42, "Satisfactory");
-            this.imageList1.Images.SetKeyName(43, "No Mans Sky");
-            this.imageList1.Images.SetKeyName(44, "The Elder Scrolls Online");
-            this.imageList1.Images.SetKeyName(45, "FIFA 22");
-            this.imageList1.Images.SetKeyName(46, "ARK Survival Evolved");
-            this.imageList1.Images.SetKeyName(47, "Call of Duty Black Ops III");
-            this.imageList1.Images.SetKeyName(48, "Teardown");
-            this.imageList1.Images.SetKeyName(49, "Hades");
-            this.imageList1.Images.SetKeyName(50, "Dont Starve Together");
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.menuStrip1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(953, 536);
-            this.panel2.TabIndex = 2;
+            this.panel3.AutoScroll = true;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.menuStrip1);
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.pbMain);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1172, 1061);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.pbQueue1);
+            this.panel1.Controls.Add(this.pbQueue2);
+            this.panel1.Controls.Add(this.pbQueue3);
+            this.panel1.Controls.Add(this.pbQueue4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(131, 887);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(941, 235);
+            this.panel1.TabIndex = 7;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(77, 99);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(782, 51);
+            this.pictureBox6.TabIndex = 5;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pbQueue1
+            // 
+            this.pbQueue1.Location = new System.Drawing.Point(5, 31);
+            this.pbQueue1.Name = "pbQueue1";
+            this.pbQueue1.Size = new System.Drawing.Size(396, 192);
+            this.pbQueue1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQueue1.TabIndex = 1;
+            this.pbQueue1.TabStop = false;
+            this.pbQueue1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pbQueue2
+            // 
+            this.pbQueue2.Location = new System.Drawing.Point(205, 43);
+            this.pbQueue2.Name = "pbQueue2";
+            this.pbQueue2.Size = new System.Drawing.Size(384, 167);
+            this.pbQueue2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQueue2.TabIndex = 2;
+            this.pbQueue2.TabStop = false;
+            this.pbQueue2.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pbQueue3
+            // 
+            this.pbQueue3.Location = new System.Drawing.Point(451, 57);
+            this.pbQueue3.Name = "pbQueue3";
+            this.pbQueue3.Size = new System.Drawing.Size(306, 133);
+            this.pbQueue3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQueue3.TabIndex = 3;
+            this.pbQueue3.TabStop = false;
+            this.pbQueue3.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pbQueue4
+            // 
+            this.pbQueue4.Location = new System.Drawing.Point(669, 71);
+            this.pbQueue4.Name = "pbQueue4";
+            this.pbQueue4.Size = new System.Drawing.Size(260, 106);
+            this.pbQueue4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQueue4.TabIndex = 4;
+            this.pbQueue4.TabStop = false;
+            this.pbQueue4.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(218, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "YOUR DISCOVERY QUEUE";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(128, 405);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "FEATURED AND RECCOMENDED";
             // 
             // menuStrip1
             // 
@@ -244,7 +368,7 @@ namespace NotSteam
             this.newsToolStripMenuItem,
             this.labsToolStripMenuItem,
             this.toolStripTextBox1});
-            this.menuStrip1.Location = new System.Drawing.Point(9, 19);
+            this.menuStrip1.Location = new System.Drawing.Point(156, 9);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(935, 34);
             this.menuStrip1.TabIndex = 0;
@@ -1043,136 +1167,333 @@ namespace NotSteam
             this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1155, 383);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Angle = 0F;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BottomColor = System.Drawing.Color.Empty;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(84, 541);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(38, 97);
+            this.button2.TabIndex = 4;
+            this.button2.TopColor = System.Drawing.Color.Empty;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(20)))), ((int)(((byte)(29)))));
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lbGamePrice);
+            this.panel4.Controls.Add(this.pbSS4);
+            this.panel4.Controls.Add(this.pbSS2);
+            this.panel4.Controls.Add(this.pbSS3);
+            this.panel4.Controls.Add(this.pbSS1);
+            this.panel4.Controls.Add(this.lbGameName);
+            this.panel4.Location = new System.Drawing.Point(745, 424);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(324, 353);
+            this.panel4.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(22, 221);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "NOW AVAILABLE";
+            // 
+            // lbGamePrice
+            // 
+            this.lbGamePrice.AutoSize = true;
+            this.lbGamePrice.Location = new System.Drawing.Point(29, 329);
+            this.lbGamePrice.Name = "lbGamePrice";
+            this.lbGamePrice.Size = new System.Drawing.Size(35, 13);
+            this.lbGamePrice.TabIndex = 5;
+            this.lbGamePrice.Text = "label2";
+            // 
+            // pbSS4
+            // 
+            this.pbSS4.Location = new System.Drawing.Point(163, 154);
+            this.pbSS4.Name = "pbSS4";
+            this.pbSS4.Size = new System.Drawing.Size(152, 60);
+            this.pbSS4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSS4.TabIndex = 4;
+            this.pbSS4.TabStop = false;
+            this.pbSS4.MouseEnter += new System.EventHandler(this.swappics);
+            this.pbSS4.MouseLeave += new System.EventHandler(this.swapback);
+            // 
+            // pbSS2
+            // 
+            this.pbSS2.Location = new System.Drawing.Point(163, 88);
+            this.pbSS2.Name = "pbSS2";
+            this.pbSS2.Size = new System.Drawing.Size(152, 60);
+            this.pbSS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSS2.TabIndex = 3;
+            this.pbSS2.TabStop = false;
+            this.pbSS2.MouseEnter += new System.EventHandler(this.swappics);
+            this.pbSS2.MouseLeave += new System.EventHandler(this.swapback);
+            // 
+            // pbSS3
+            // 
+            this.pbSS3.Location = new System.Drawing.Point(3, 154);
+            this.pbSS3.Name = "pbSS3";
+            this.pbSS3.Size = new System.Drawing.Size(152, 60);
+            this.pbSS3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSS3.TabIndex = 2;
+            this.pbSS3.TabStop = false;
+            this.pbSS3.MouseEnter += new System.EventHandler(this.swappics);
+            this.pbSS3.MouseLeave += new System.EventHandler(this.swapback);
+            // 
+            // pbSS1
+            // 
+            this.pbSS1.Location = new System.Drawing.Point(5, 88);
+            this.pbSS1.Name = "pbSS1";
+            this.pbSS1.Size = new System.Drawing.Size(152, 60);
+            this.pbSS1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSS1.TabIndex = 1;
+            this.pbSS1.TabStop = false;
+            this.pbSS1.MouseEnter += new System.EventHandler(this.swappics);
+            this.pbSS1.MouseLeave += new System.EventHandler(this.swapback);
+            // 
+            // lbGameName
+            // 
+            this.lbGameName.AutoSize = true;
+            this.lbGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGameName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbGameName.Location = new System.Drawing.Point(27, 23);
+            this.lbGameName.Name = "lbGameName";
+            this.lbGameName.Size = new System.Drawing.Size(70, 25);
+            this.lbGameName.TabIndex = 0;
+            this.lbGameName.Text = "label1";
+            // 
+            // button1
+            // 
+            this.button1.Angle = 0F;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BottomColor = System.Drawing.Color.Empty;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1075, 541);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 97);
+            this.button1.TabIndex = 1;
+            this.button1.TopColor = System.Drawing.Color.Empty;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pbMain
+            // 
+            this.pbMain.Location = new System.Drawing.Point(128, 424);
+            this.pbMain.Name = "pbMain";
+            this.pbMain.Size = new System.Drawing.Size(616, 353);
+            this.pbMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMain.TabIndex = 0;
+            this.pbMain.TabStop = false;
+            this.pbMain.Click += new System.EventHandler(this.pbMain_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1172, 1061);
+            this.panel2.TabIndex = 2;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "dw.png");
+            // 
             // Store
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(953, 536);
+            this.ClientSize = new System.Drawing.Size(1172, 1061);
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Name = "Store";
             this.Text = "Store";
-            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQueue4)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSS1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMain)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem yourStoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem followedGamesSoftwareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem subscriptionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageSubscriptionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem preferanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem recommendationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem discoveryQueueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newReleaseQueueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem communityRecommendationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem interactiveRecommenderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem popularAmongFriendsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem steamCuratorsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newNoteWorthyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topSellersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newTrendingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem currentSpecialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem recentlyUpdatedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem popularUpcomingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem specialSectionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem freeToPlayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem demosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem earlyAccessToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem controllerFriendlyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem remotePlayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem soundtracksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vRTitlesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vRHardwareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notSteamDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem greatOnDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem macOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notSteamOSLinuxToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem forPCCafesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem genresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ActionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actionRogueLikeToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem arcadeAndRhythmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem beatEmUpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fightingAndMartialArtsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem firstPersonShooterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem platformerAndRunnerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thirdPersonShooterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adventureAndCasualToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adventureToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adventureRPGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem casualToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem metroidvanaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem puzzleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem storyRichToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visualNovelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rolePlayingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actionRPGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adventureRPGToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem jRPGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem partyBasedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rogueLijkeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem strategyRPGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem turnBasedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem simulationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buildingAndAutomationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem datingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem farmingAndCraftingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hobbyAndJobToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lifeAndImmersiveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sandboxNadPhysicsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem spaceAndFlightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem strategyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cardAndBoardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cityAndSettlementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem grandAnd4XToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem militaryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem realTimeStrategyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem towerDefenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem turnBasedStrategyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sportsAndRacingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allSportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fishingAndHuntingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem individualSportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem racingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem racingSimToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sportsSimToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teamSportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem themesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adultOnlyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem goingRogueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem horrorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mysteryAndDetectiveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openWorldToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sciFiAndCyberpunkToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem spaceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem playerSupportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem coOperativeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lANToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem localAndPartyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mMOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem multiplayerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem onlineCompetitiveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem singleplayerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pointsShopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem labsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private Timer timer1;
+        private Panel panel3;
+        private Label label1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem yourStoreToolStripMenuItem;
+        private ToolStripMenuItem followedGamesSoftwareToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem subscriptionsToolStripMenuItem;
+        private ToolStripMenuItem manageSubscriptionsToolStripMenuItem;
+        private ToolStripMenuItem preferanceToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem recommendationsToolStripMenuItem;
+        private ToolStripMenuItem discoveryQueueToolStripMenuItem;
+        private ToolStripMenuItem newReleaseQueueToolStripMenuItem;
+        private ToolStripMenuItem communityRecommendationsToolStripMenuItem;
+        private ToolStripMenuItem interactiveRecommenderToolStripMenuItem;
+        private ToolStripMenuItem popularAmongFriendsToolStripMenuItem;
+        private ToolStripMenuItem steamCuratorsToolStripMenuItem;
+        private ToolStripMenuItem newNoteWorthyToolStripMenuItem;
+        private ToolStripMenuItem topSellersToolStripMenuItem;
+        private ToolStripMenuItem newTrendingToolStripMenuItem;
+        private ToolStripMenuItem currentSpecialsToolStripMenuItem;
+        private ToolStripMenuItem recentlyUpdatedToolStripMenuItem;
+        private ToolStripMenuItem popularUpcomingToolStripMenuItem;
+        private ToolStripMenuItem categoriesToolStripMenuItem;
+        private ToolStripMenuItem specialSectionsToolStripMenuItem;
+        private ToolStripMenuItem freeToPlayToolStripMenuItem;
+        private ToolStripMenuItem demosToolStripMenuItem;
+        private ToolStripMenuItem earlyAccessToolStripMenuItem;
+        private ToolStripMenuItem controllerFriendlyToolStripMenuItem;
+        private ToolStripMenuItem remotePlayToolStripMenuItem;
+        private ToolStripMenuItem softwareToolStripMenuItem;
+        private ToolStripMenuItem soundtracksToolStripMenuItem;
+        private ToolStripMenuItem vRTitlesToolStripMenuItem;
+        private ToolStripMenuItem vRHardwareToolStripMenuItem;
+        private ToolStripMenuItem notSteamDeckToolStripMenuItem;
+        private ToolStripMenuItem greatOnDeckToolStripMenuItem;
+        private ToolStripMenuItem macOSToolStripMenuItem;
+        private ToolStripMenuItem notSteamOSLinuxToolStripMenuItem;
+        private ToolStripMenuItem forPCCafesToolStripMenuItem;
+        private ToolStripMenuItem genresToolStripMenuItem;
+        private ToolStripMenuItem ActionToolStripMenuItem;
+        private ToolStripMenuItem actionRogueLikeToolStripMenuItem1;
+        private ToolStripMenuItem arcadeAndRhythmToolStripMenuItem;
+        private ToolStripMenuItem beatEmUpToolStripMenuItem;
+        private ToolStripMenuItem fightingAndMartialArtsToolStripMenuItem;
+        private ToolStripMenuItem firstPersonShooterToolStripMenuItem;
+        private ToolStripMenuItem platformerAndRunnerToolStripMenuItem;
+        private ToolStripMenuItem thirdPersonShooterToolStripMenuItem;
+        private ToolStripMenuItem adventureAndCasualToolStripMenuItem;
+        private ToolStripMenuItem adventureToolStripMenuItem;
+        private ToolStripMenuItem adventureRPGToolStripMenuItem;
+        private ToolStripMenuItem casualToolStripMenuItem;
+        private ToolStripMenuItem metroidvanaToolStripMenuItem;
+        private ToolStripMenuItem puzzleToolStripMenuItem;
+        private ToolStripMenuItem storyRichToolStripMenuItem;
+        private ToolStripMenuItem visualNovelToolStripMenuItem;
+        private ToolStripMenuItem rolePlayingToolStripMenuItem;
+        private ToolStripMenuItem actionRPGToolStripMenuItem;
+        private ToolStripMenuItem adventureRPGToolStripMenuItem1;
+        private ToolStripMenuItem jRPGToolStripMenuItem;
+        private ToolStripMenuItem partyBasedToolStripMenuItem;
+        private ToolStripMenuItem rogueLijkeToolStripMenuItem;
+        private ToolStripMenuItem strategyRPGToolStripMenuItem;
+        private ToolStripMenuItem turnBasedToolStripMenuItem;
+        private ToolStripMenuItem simulationToolStripMenuItem;
+        private ToolStripMenuItem buildingAndAutomationToolStripMenuItem;
+        private ToolStripMenuItem datingToolStripMenuItem;
+        private ToolStripMenuItem farmingAndCraftingToolStripMenuItem;
+        private ToolStripMenuItem hobbyAndJobToolStripMenuItem;
+        private ToolStripMenuItem lifeAndImmersiveToolStripMenuItem;
+        private ToolStripMenuItem sandboxNadPhysicsToolStripMenuItem;
+        private ToolStripMenuItem spaceAndFlightToolStripMenuItem;
+        private ToolStripMenuItem strategyToolStripMenuItem;
+        private ToolStripMenuItem cardAndBoardToolStripMenuItem;
+        private ToolStripMenuItem cityAndSettlementToolStripMenuItem;
+        private ToolStripMenuItem grandAnd4XToolStripMenuItem;
+        private ToolStripMenuItem militaryToolStripMenuItem;
+        private ToolStripMenuItem realTimeStrategyToolStripMenuItem;
+        private ToolStripMenuItem towerDefenseToolStripMenuItem;
+        private ToolStripMenuItem turnBasedStrategyToolStripMenuItem;
+        private ToolStripMenuItem sportsAndRacingToolStripMenuItem;
+        private ToolStripMenuItem allSportsToolStripMenuItem;
+        private ToolStripMenuItem fishingAndHuntingToolStripMenuItem;
+        private ToolStripMenuItem individualSportsToolStripMenuItem;
+        private ToolStripMenuItem racingToolStripMenuItem;
+        private ToolStripMenuItem racingSimToolStripMenuItem;
+        private ToolStripMenuItem sportsSimToolStripMenuItem;
+        private ToolStripMenuItem teamSportsToolStripMenuItem;
+        private ToolStripMenuItem themesToolStripMenuItem;
+        private ToolStripMenuItem adultOnlyToolStripMenuItem;
+        private ToolStripMenuItem animeToolStripMenuItem;
+        private ToolStripMenuItem goingRogueToolStripMenuItem;
+        private ToolStripMenuItem horrorToolStripMenuItem;
+        private ToolStripMenuItem mysteryAndDetectiveToolStripMenuItem;
+        private ToolStripMenuItem openWorldToolStripMenuItem;
+        private ToolStripMenuItem sciFiAndCyberpunkToolStripMenuItem;
+        private ToolStripMenuItem spaceToolStripMenuItem;
+        private ToolStripMenuItem survivalToolStripMenuItem;
+        private ToolStripMenuItem playerSupportToolStripMenuItem;
+        private ToolStripMenuItem coOperativeToolStripMenuItem;
+        private ToolStripMenuItem lANToolStripMenuItem;
+        private ToolStripMenuItem localAndPartyToolStripMenuItem;
+        private ToolStripMenuItem mMOToolStripMenuItem;
+        private ToolStripMenuItem multiplayerToolStripMenuItem;
+        private ToolStripMenuItem onlineCompetitiveToolStripMenuItem;
+        private ToolStripMenuItem singleplayerToolStripMenuItem;
+        private ToolStripMenuItem pointsShopToolStripMenuItem;
+        private ToolStripMenuItem newsToolStripMenuItem;
+        private ToolStripMenuItem labsToolStripMenuItem;
+        private ToolStripTextBox toolStripTextBox1;
+        private PictureBox pictureBox1;
+        private CustomButtonRenderer button2;
+        private Panel panel4;
+        private Label label2;
+        private Label lbGamePrice;
+        private PictureBox pbSS4;
+        private PictureBox pbSS2;
+        private PictureBox pbSS3;
+        private PictureBox pbSS1;
+        private Label lbGameName;
+        private CustomButtonRenderer button1;
+        private PictureBox pbMain;
+        private Panel panel2;
+        private Panel panel1;
+        private PictureBox pictureBox6;
+        private PictureBox pbQueue1;
+        private PictureBox pbQueue2;
+        private PictureBox pbQueue3;
+        private PictureBox pbQueue4;
+        private Label label3;
+        private ImageList imageList1;
     }
 }

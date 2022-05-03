@@ -26,8 +26,8 @@ namespace NotSteam
 
         public void btLogin_Click(object sender, EventArgs e)
         {
-            string username = this.tbUsername.Text;
-            string password = this.tbPassword.Text;
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
 
             if (username.Length == 0 || password.Length == 0)
             {
@@ -57,7 +57,7 @@ namespace NotSteam
                         money = reader.GetInt32(6)
                     };
                     con.Close();
-                    this.Close();
+                    Close();
                 }
                 else
                 {
