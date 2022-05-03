@@ -293,9 +293,9 @@ namespace NotSteam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Kingdom_Come__Deliverance {
+        public static System.Drawing.Bitmap Kingdom_Come_Deliverance {
             get {
-                object obj = ResourceManager.GetObject("Kingdom Come: Deliverance", resourceCulture);
+                object obj = ResourceManager.GetObject("Kingdom Come Deliverance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

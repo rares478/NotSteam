@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace NotSteam
 {
@@ -52,17 +52,17 @@ namespace NotSteam
                 {
                     if (form is Store)
                     {
-                        panel1.Width = 400;    
+                        panel1.Width = 400;
                         break;
                     }
                     else panel1.Width = 0;
                 }
                 Library.max = true;
-                            
+
             }
             Library.max = false;
         }
-        
+
         #endregion
 
         #region switch
@@ -187,8 +187,12 @@ namespace NotSteam
                 }
                 if (AddFunds.completed)
                 {
+                    bool maximized = false;
+                    if(WindowState == FormWindowState.Maximized)
+                        maximized = true;
                     Controls.Clear();
                     InitializeComponent();
+
                     AddFunds.completed = false;
 
                     if (loggeduser.admin != 1)
@@ -202,6 +206,9 @@ namespace NotSteam
 
                     con.Close();
                     toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + money;
+                    if (maximized)
+                        WindowState = FormWindowState.Maximized;
+
                 }
 
                 activeform = form;
@@ -239,7 +246,7 @@ namespace NotSteam
                             Profile--;
                             thisform.Close();
                         }
-                        if (thisform.Name == "Store" && (Store > 1 ||  activeform.Name != "Store"))///memory leak da idk
+                        if (thisform.Name == "Store" && (Store > 1 || activeform.Name != "Store"))///memory leak da idk
                         {
                             Store--;
                             thisform.Close();
@@ -265,7 +272,7 @@ namespace NotSteam
             }
             catch (Exception ex)
             {
-                Form mainform = new Store(loggeduser,storeceva,null);
+                Form mainform = new Store(loggeduser, storeceva, null);
                 openform(mainform);
             }
         }
@@ -279,14 +286,14 @@ namespace NotSteam
         }
 
         private void label2_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Library(loggeduser));
             panel1.Width = 0;
         }
 
 
-        private void label4_Click(object sender, EventArgs e) 
-        { 
+        private void label4_Click(object sender, EventArgs e)
+        {
             openform(new Profile(loggeduser, false));
             panel1.Width = 0;
         }
@@ -309,7 +316,7 @@ namespace NotSteam
         private void label20_Click(object sender, EventArgs e)
         {
             string free = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
-            Form mainform = new Store(loggeduser, free,null);
+            Form mainform = new Store(loggeduser, free, null);
             freetoplay = true;
             openform(mainform);
         }
@@ -317,7 +324,7 @@ namespace NotSteam
         private void label21_Click(object sender, EventArgs e)
         {
             string Early = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
-            Form mainform = new Store(loggeduser, Early,null);
+            Form mainform = new Store(loggeduser, Early, null);
             early = true;
             openform(mainform);
         }
@@ -325,7 +332,7 @@ namespace NotSteam
         private void label22_Click(object sender, EventArgs e)
         {
             string action = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
-            Form mainform = new Store(loggeduser, action,null);
+            Form mainform = new Store(loggeduser, action, null);
             actionb = true;
             openform(mainform);
         }
@@ -333,7 +340,7 @@ namespace NotSteam
         private void label23_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             adventure = true;
             openform(mainform);
         }
@@ -341,7 +348,7 @@ namespace NotSteam
         private void label24_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             casual = true;
             openform(mainform);
         }
@@ -349,7 +356,7 @@ namespace NotSteam
         private void label25_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             indie = true;
             openform(mainform);
         }
@@ -357,7 +364,7 @@ namespace NotSteam
         private void label26_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             multiplayer = true;
             openform(mainform);
         }
@@ -365,7 +372,7 @@ namespace NotSteam
         private void label27_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             racing = true;
             openform(mainform);
         }
@@ -373,15 +380,15 @@ namespace NotSteam
         private void label28_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
-            rpg= true;
+            Form mainform = new Store(loggeduser, query, null);
+            rpg = true;
             openform(mainform);
         }
-        public static bool simulation= false;
+        public static bool simulation = false;
         private void label29_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             simulation = true;
             openform(mainform);
         }
@@ -389,7 +396,7 @@ namespace NotSteam
         private void label30_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             sports = true;
             openform(mainform);
         }
@@ -397,14 +404,14 @@ namespace NotSteam
         private void label31_Click(object sender, EventArgs e)
         {
             string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
             string query = "select name from Games order by Games.[number bought] DESC";
-            Form mainform = new Store(loggeduser, query,null);
+            Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
 
@@ -422,13 +429,13 @@ namespace NotSteam
         private void label32_Click(object sender, EventArgs e)
         {
             var rand = new Random();
-            int id = rand.Next(1,12);
+            int id = rand.Next(1,56);
             con.Open();
             string query = "select name from Games where Id = '" + id + "'";
-            SqlCommand cmd = new SqlCommand(query,con);
+            SqlCommand cmd = new SqlCommand(query, con);
             string name = cmd.ExecuteScalar().ToString();
             con.Close();
-            Form mainform = new Store(loggeduser, query,name);
+            Form mainform = new Store(loggeduser, query, name);
             openform(mainform);
         }
 
@@ -500,7 +507,7 @@ namespace NotSteam
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Settings(loggeduser));
             panel1.Width = 0;
         }
@@ -514,19 +521,19 @@ namespace NotSteam
         }
 
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Library(loggeduser));
             panel1.Width = 0;
         }
 
         private void toolStripMenuItem28_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Settings(loggeduser));
-            panel1.Width= 0;
+            panel1.Width = 0;
         }
 
         private void toolStripMenuItem32_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Profile(loggeduser, true));
             panel1.Width = 0;
         }
@@ -540,7 +547,7 @@ namespace NotSteam
         private void toolStripMenuItem48_Click(object sender, EventArgs e) => MessageBox.Show("NotSteam client application" + "\n" + "\n" + "Built: Azi" + "\n" + "\n" + "NotSteam API: v001" + "\n" + "\n" + "rares478@gmail.com", "About NotSteam", MessageBoxButtons.OK);
 
         private void toolStripMenuItem53_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new Profile(loggeduser, false));
             panel1.Width = 0;
         }
@@ -555,7 +562,7 @@ namespace NotSteam
         }
 
         private void toolStripMenuItem57_Click(object sender, EventArgs e)
-        { 
+        {
             openform(new AddFunds(loggeduser));
             panel1.Width = 0;
         }
