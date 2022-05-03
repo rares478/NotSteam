@@ -54,19 +54,7 @@ namespace NotSteam
             }
         }
 
-        public class CustomPanelRendererButton : Panel
-        {
-            public Color TopColor { get; set; }
-            public Color BottomColor { get; set; }
-            public float Angle { get; set; }
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(23, 38, 53), Color.FromArgb(18, 29, 41), 180);
-                Graphics g = e.Graphics;
-                g.FillRectangle(brush, this.ClientRectangle);
-                base.OnPaint(e);
-            }
-        }
+
 
         public class CustomButtonRenderer : Button
         {
@@ -104,6 +92,10 @@ namespace NotSteam
             this.pbQueue4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel2 = new Store.CustomPanelRenderer();
+
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yourStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.followedGamesSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1363,6 +1355,7 @@ namespace NotSteam
         }
 
         #endregion
+
         private Timer timer1;
         private Panel panel3;
         private Label label1;
@@ -1495,5 +1488,116 @@ namespace NotSteam
         private PictureBox pbQueue4;
         private Label label3;
         private ImageList imageList1;
+
+        private System.Windows.Forms.ImageList imageList1;
+        private CustomPanelRenderer panel2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem yourStoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem followedGamesSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem subscriptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSubscriptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem recommendationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem discoveryQueueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newReleaseQueueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem communityRecommendationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interactiveRecommenderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem popularAmongFriendsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem steamCuratorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newNoteWorthyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topSellersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newTrendingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem currentSpecialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recentlyUpdatedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem popularUpcomingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem specialSectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem freeToPlayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem demosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem earlyAccessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controllerFriendlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem remotePlayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem soundtracksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vRTitlesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vRHardwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notSteamDeckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem greatOnDeckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem macOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notSteamOSLinuxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forPCCafesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ActionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actionRogueLikeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem arcadeAndRhythmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beatEmUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fightingAndMartialArtsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem firstPersonShooterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem platformerAndRunnerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thirdPersonShooterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adventureAndCasualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adventureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adventureRPGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem metroidvanaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem puzzleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem storyRichToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visualNovelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rolePlayingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actionRPGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adventureRPGToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem jRPGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem partyBasedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rogueLijkeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem strategyRPGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnBasedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem simulationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildingAndAutomationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem datingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem farmingAndCraftingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hobbyAndJobToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lifeAndImmersiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sandboxNadPhysicsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spaceAndFlightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem strategyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cardAndBoardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cityAndSettlementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grandAnd4XToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem militaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realTimeStrategyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem towerDefenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnBasedStrategyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sportsAndRacingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allSportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fishingAndHuntingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem individualSportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem racingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem racingSimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sportsSimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teamSportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem themesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adultOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goingRogueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horrorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mysteryAndDetectiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openWorldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sciFiAndCyberpunkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playerSupportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coOperativeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lANToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localAndPartyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mMOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem multiplayerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onlineCompetitiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem singleplayerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pointsShopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
