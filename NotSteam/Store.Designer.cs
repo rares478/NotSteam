@@ -40,6 +40,20 @@ namespace NotSteam
             }
         }
 
+        public class CustomPanelRenderer : Panel
+        {
+            public Color TopColor { get; set; }
+            public Color BottomColor { get; set; }
+            public float Angle { get; set; }
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(27, 40, 56), Color.FromArgb(42, 71, 94), 90);
+                Graphics g = e.Graphics;
+                g.FillRectangle(brush, this.ClientRectangle);
+                base.OnPaint(e);
+            }
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -51,7 +65,7 @@ namespace NotSteam
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Store));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel2 = new Store.CustomPanelRenderer();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yourStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.followedGamesSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1065,7 +1079,7 @@ namespace NotSteam
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel2;
+        private CustomPanelRenderer panel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem yourStoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem followedGamesSoftwareToolStripMenuItem;
