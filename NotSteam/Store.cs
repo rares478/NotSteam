@@ -193,139 +193,212 @@ namespace NotSteam
             con.Close();
         }
 
+        private void switchimagesgame(object sender,EventArgs e, PictureBox pbMain)
+        {
+            PictureBox nus = sender as PictureBox;
+            pbMain.Image = nus.Image;
+        }
+
         private void switchtogame(string name, bool queue)
         {
+            timer1.Stop();
             Controls.Clear();
-
-            Label lbNameGame = new Label();
-            Controls.Add(lbNameGame);
-            lbNameGame.Location = new Point(15, 90);
-            lbNameGame.AutoSize = true;
-            lbNameGame.Font = new Font("Microsoft Sans Serif", 15);
-
-            PictureBox pbGame = new PictureBox();
-            Controls.Add(pbGame);
-            pbGame.Location = new Point(12, 120);
-            pbGame.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbGame.Name = "pbGame";
-            pbGame.Size = new Size(231, 87);
-            pbGame.TabIndex = 1;
-            pbGame.TabStop = false;
-
-            Button btBuyGame = new Button();
-            btBuyGame.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
-            btBuyGame.Location = new Point(512, 49);
-            btBuyGame.FlatStyle = FlatStyle.Flat;
-            btBuyGame.ForeColor = SystemColors.ActiveCaption;
-            btBuyGame.BackColor = SystemColors.ControlText;
-            btBuyGame.Name = "btBuyGame";
-            btBuyGame.Size = new Size(75, 23);
-            btBuyGame.TabIndex = 16;
-            btBuyGame.Text = "button1";
-            btBuyGame.UseVisualStyleBackColor = true;
-            btBuyGame.Click += new EventHandler(btBuy_Click);
-
-            RichTextBox tbGame = new RichTextBox();
-            Controls.Add(tbGame);
-            tbGame.BackColor = SystemColors.GradientActiveCaption;
-            tbGame.ForeColor = SystemColors.ActiveCaptionText;
-            tbGame.Location = new Point(317, 120);
-            tbGame.Name = "tbGame";
-            tbGame.ReadOnly = true;
-            tbGame.Size = new Size(397, 126);
-            tbGame.TabIndex = 11;
-            tbGame.Text = "";
-
-            Label lbDevGame = new Label();
-            Controls.Add(lbDevGame);
-            lbDevGame.AutoSize = true;
-            lbDevGame.Location = new Point(314, 258);
-            lbDevGame.Name = "lbDevGame";
-            lbDevGame.Size = new Size(41, 13);
-            lbDevGame.TabIndex = 12;
-            lbDevGame.Text = "label17";
-
-            Label lbRelease = new Label();
-            Controls.Add(lbRelease);
-            lbRelease.AutoSize = true;
-            lbRelease.Location = new Point(314, 286);
-            lbRelease.Name = "lbRelease";
-            lbRelease.Size = new Size(41, 13);
-            lbRelease.TabIndex = 17;
-            lbRelease.Text = "label19";
-
-            Label lbGameNameBuy = new Label();
-            lbGameNameBuy.AutoSize = true;
-            lbGameNameBuy.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            lbGameNameBuy.Location = new Point(3, 0);
-            lbGameNameBuy.Name = "lbGameNameBuy";
-            lbGameNameBuy.Size = new Size(70, 24);
-            lbGameNameBuy.TabIndex = 15;
-            lbGameNameBuy.Text = "label18";
-
-            Label lbMissingGame = new Label();
-            Controls.Add(lbMissingGame);
-            lbMissingGame.AutoSize = true;
-            lbMissingGame.Location = new Point(76, 322);
-            lbMissingGame.Name = "lbMissingGame";
-            lbMissingGame.Size = new Size(74, 13);
-            lbMissingGame.TabIndex = 19;
-            lbMissingGame.Text = "Missing Image";
-            lbMissingGame.Visible = false;
 
             if (queue)
             {
                 PictureBox pbqueue = new PictureBox();
-                pbqueue.Location = new Point(95, 250);
+                pbqueue.Location = new Point(900, 500);
                 Controls.Add(pbqueue);
                 pbqueue.Click += new EventHandler(queueclick);
                 pbqueue.Image = imageList1.Images[0];
                 pbqueue.Size = new Size(147, 47);
             }
 
+            PictureBox pbMainBig = new PictureBox();
+            pbMainBig.Location = new Point(111, 106);
+            pbMainBig.Size = new Size(598, 336);
 
+            Label lbGameNameSolo = new Label();
+            lbGameNameSolo.Text = name;
+            lbGameNameSolo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            lbGameNameSolo.ForeColor = SystemColors.ButtonFace;
+            lbGameNameSolo.Location = new Point(106, 74);
+            lbGameNameSolo.AutoSize = true;
 
-            TableLayoutPanel tableLayoutPanel1 = new TableLayoutPanel();
-            Controls.Add(tableLayoutPanel1);
-            tableLayoutPanel1.BackColor = Color.DeepSkyBlue;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(lbGameNameBuy, 0, 0);
-            tableLayoutPanel1.Controls.Add(btBuyGame, 1, 1);
-            tableLayoutPanel1.Location = new Point(95, 363);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 56.97675F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 43.02325F));
-            tableLayoutPanel1.Size = new Size(590, 75);
-            tableLayoutPanel1.TabIndex = 18;
+            PictureBox pbHeader = new PictureBox();
+            pbHeader.Location = new Point(729, 106);
+            pbHeader.Size = new Size(321, 151);
 
-            lbNameGame.Text = name;
+            RichTextBox tbDescription = new RichTextBox();
+            tbDescription.Location = new Point(729, 264);
+            tbDescription.Size = new Size(321, 97);
+            tbDescription.ForeColor = SystemColors.ButtonFace;
+            tbDescription.BackColor = Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            tbDescription.BorderStyle = BorderStyle.None;
+            tbDescription.ReadOnly = true;
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.ForeColor = Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(114)))));
+            label1.Location = new Point(729, 360);
+            label1.Size = new Size(75, 13);
+            label1.TabIndex = 4;
+            label1.Text = "Release Date:";
+
+            Label label2 = new Label();
+            label2.AutoSize = true;
+            label2.ForeColor = Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(114)))));
+            label2.Location = new Point(729, 386);
+            label2.Size = new Size(62, 13);
+            label2.TabIndex = 5;
+            label2.Text = "Developer: ";
+
+            Label lbDate = new Label();
+            lbDate.AutoSize = true;
+            lbDate.ForeColor = Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(152)))), ((int)(((byte)(160)))));
+            lbDate.Location = new Point(823, 360);
+            lbDate.Size = new Size(35, 13);
+            lbDate.TabIndex = 6;
+            lbDate.Text = "label3";
+
+            Label lbDeveloper = new Label();
+            lbDeveloper.AutoSize = true;
+            lbDeveloper.ForeColor = Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(162)))), ((int)(((byte)(206)))));
+            lbDeveloper.Location = new Point(826, 386);
+            lbDeveloper.Size = new Size(35, 13);
+            lbDeveloper.TabIndex = 7;
+            lbDeveloper.Text = "label3";
+            
+            Label lbGameNameBuy = new Label();
+            lbGameNameBuy.AutoSize = true;
+            lbGameNameBuy.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            lbGameNameBuy.ForeColor = SystemColors.ButtonFace;
+            lbGameNameBuy.Location = new Point(18, 21);
+            lbGameNameBuy.Size = new Size(70, 25);
+            lbGameNameBuy.TabIndex = 0;
+
+            Panel panel5 = new Panel();
+            panel5.Controls.Add(lbGameNameBuy);
+            panel5.Location = new Point(111, 558);
+            panel5.Size = new Size(598, 68);
+            panel5.BackColor = Color.FromArgb(66, 81, 95);
+            panel5.TabIndex = 8;
+
+            Button btBuy = new Button();
+            btBuy.BackColor = Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(166)))), ((int)(((byte)(33)))));
+            btBuy.FlatAppearance.BorderSize = 0;
+            btBuy.FlatStyle = FlatStyle.Flat;
+            btBuy.ForeColor = SystemColors.ButtonFace;
+            btBuy.Location = new Point(83, 3);
+            btBuy.Size = new Size(102, 35);
+            btBuy.TabIndex = 0;
+            btBuy.Text = "Buy";
+            btBuy.UseVisualStyleBackColor = false;
+
+            Label lbPrice = new Label();
+            lbPrice.AutoSize = true;
+            lbPrice.ForeColor = SystemColors.ButtonFace;
+            lbPrice.Location = new Point(14, 14);
+            lbPrice.Name = "lbPrice";
+            lbPrice.Size = new Size(35, 13);
+            lbPrice.TabIndex = 1;
+
+            Panel panelbuy = new Panel();
+            panelbuy.BackColor = Color.Black;
+            panelbuy.Controls.Add(lbPrice);
+            panelbuy.Controls.Add(btBuy);
+            panelbuy.Location = new Point(502, 608);
+            panelbuy.Size = new Size(188, 41);
+            panelbuy.TabIndex = 9;
+
+            PictureBox pbPic1 = new PictureBox();
+            pbPic1.Location = new Point(125, 448);
+            pbPic1.Size = new Size(109, 58);
+            pbPic1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic1.TabIndex = 10;
+            pbPic1.TabStop = false;
+            pbPic1.Click += new EventHandler((sender,e) => switchimagesgame(sender,e, pbMainBig));
+
+            PictureBox pbPic2 = new PictureBox();
+            pbPic2.Location = new Point(240, 448);
+            pbPic2.Size = new Size(109, 58);
+            pbPic2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic2.TabIndex = 11;
+            pbPic2.TabStop = false;
+            pbPic2.Click += new EventHandler((sender, e) => switchimagesgame(sender, e, pbMainBig));
+
+            PictureBox pbPic3 = new PictureBox();
+            pbPic3.Location = new Point(355, 448);
+            pbPic3.Size = new Size(109, 58);
+            pbPic3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic3.TabIndex = 12;
+            pbPic3.TabStop = false;
+            pbPic3.Click += new EventHandler((sender, e) => switchimagesgame(sender, e, pbMainBig));
+
+            PictureBox pbPic4 = new PictureBox();
+            pbPic4.Location = new Point(470, 448);
+            pbPic4.Size = new Size(109, 58);
+            pbPic4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic4.TabIndex = 13;
+            pbPic4.TabStop = false;
+            pbPic4.Click += new EventHandler((sender, e) => switchimagesgame(sender, e, pbMainBig));
+
+            PictureBox pbPic5 = new PictureBox();
+            pbPic5.Location = new Point(585, 448);
+            pbPic5.Size = new Size(109, 58);
+            pbPic5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic5.TabIndex = 14;
+            pbPic5.TabStop = false;
+            pbPic5.Click += new EventHandler((sender, e) => switchimagesgame(sender, e, pbMainBig));
+
+            Controls.Add(panelbuy);
+            Controls.Add(panel5);
+            Controls.Add(lbDeveloper);
+            Controls.Add(lbDate);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(tbDescription);
+            Controls.Add(pbHeader);
+            Controls.Add(lbGameNameSolo);
+            Controls.Add(pbMainBig);
+            Controls.Add(pbPic1);
+            Controls.Add(pbPic2);
+            Controls.Add(pbPic3);
+            Controls.Add(pbPic4);
+            Controls.Add(pbPic5);
+
             con.Open();
 
-
-            string idquery = "select developer,date,description,price from Games where name = '" + name + "'";
-            SqlCommand cmdid = new SqlCommand(idquery, con);
-            SqlDataReader reader = cmdid.ExecuteReader();
-            if (reader.Read())
+            string que = "SELECT developer,date,description,price FROM Games WHERE name = '" + name + "'";
+            SqlCommand cmd = new SqlCommand(que, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
             {
-                lbDevGame.Text = "Developer: " + reader.GetString(0);
-                lbRelease.Text = "released on: " + reader.GetDateTime(1).ToString("MM/dd/yyyy");
-                tbGame.Text = reader.GetString(2);
-                btBuyGame.Text = Convert.ToString(reader.GetInt32(3));
+                lbDeveloper.Text = reader.GetString(0);
+                lbDate.Text = reader.GetDateTime(1).ToString("MM/dd/yyyy");
+                tbDescription.Text = reader.GetString(2);
+                lbPrice.Text = reader.GetInt32(3).ToString(); ;
+                if (lbPrice.Text == "0")
+                    lbPrice.Text = "FREE";
             }
-            else
-                reader.Close();
-
-
-            if (name.Contains(" "))
-                name.Replace(" ", "_");
-            object obj = Properties.Store.ResourceManager.GetObject(name);
-            pbGame.Image = (Bitmap)obj;
-
             con.Close();
-            lbGameNameBuy.Text = "Buy " + lbNameGame.Text;
+
+            lbGameNameBuy.Text = name;
+
+            pbPic1.Load(Properties.Store.ResourceManager.GetString(name + " ss1"));
+            pbPic2.Load(Properties.Store.ResourceManager.GetString(name + " ss2"));
+            pbPic3.Load(Properties.Store.ResourceManager.GetString(name + " ss3"));
+            pbPic4.Load(Properties.Store.ResourceManager.GetString(name + " ss4"));
+            pbPic5.Load(Properties.Store.ResourceManager.GetString(name + " ss5"));
+            pbMainBig.Load(Properties.Store.ResourceManager.GetString(name + " ss1"));
+            pbMainBig.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            object obj = Properties.Store.ResourceManager.GetObject(name);
+            pbHeader.Image = (Bitmap)obj;
+            pbHeader.SizeMode = PictureBoxSizeMode.StretchImage;
+
+
+
         }
 
 
