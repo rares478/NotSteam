@@ -116,6 +116,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1222700/ss_106cea596e17899b75cc76901d6f67afa11d6fd3.jpg.
+        /// </summary>
+        internal static string A_Way_Out_ss5 {
+            get {
+                return ResourceManager.GetString("A Way Out ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ARK_Survival_Evolved {
@@ -167,6 +176,15 @@ namespace NotSteam.Properties {
         internal static string ARK_Survival_Evolved_ss4 {
             get {
                 return ResourceManager.GetString("ARK Survival Evolved ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/346110/ss_ffe9f0e2e23892f3bb6188e5a3eed0f60a08baf4.jpg.
+        /// </summary>
+        internal static string ARK_Survival_Evolved_ss5 {
+            get {
+                return ResourceManager.GetString("ARK Survival Evolved ss5", resourceCulture);
             }
         }
         
@@ -226,6 +244,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/960090/ss_b0fdd7a04a6682726c6a0e51018a5a96e1b2505d.jpg.
+        /// </summary>
+        internal static string BTD_6_ss5 {
+            get {
+                return ResourceManager.GetString("BTD 6 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Call_of_Duty_Black_Ops_III {
@@ -277,6 +304,15 @@ namespace NotSteam.Properties {
         internal static string Call_of_Duty_Black_Ops_III_ss4 {
             get {
                 return ResourceManager.GetString("Call of Duty Black Ops III ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/311210/ss_5f7f870196c956da97f37b066310e963643a63a8.jpg.
+        /// </summary>
+        internal static string Call_of_Duty_Black_Ops_III_ss5 {
+            get {
+                return ResourceManager.GetString("Call of Duty Black Ops III ss5", resourceCulture);
             }
         }
         
@@ -336,6 +372,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/10/0000000136.jpg.
+        /// </summary>
+        internal static string CS_1_6_ss5 {
+            get {
+                return ResourceManager.GetString("CS 1.6 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap CSGO {
@@ -387,6 +432,15 @@ namespace NotSteam.Properties {
         internal static string CSGO_ss4 {
             get {
                 return ResourceManager.GetString("CSGO ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_855c016cde14b7cec5c3d2523589b9054c030010.jpg.
+        /// </summary>
+        internal static string CSGO_ss5 {
+            get {
+                return ResourceManager.GetString("CSGO ss5", resourceCulture);
             }
         }
         
@@ -446,6 +500,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_429db1d013a0366417d650d84f1eff02d1a18c2d.jpg.
+        /// </summary>
+        internal static string Cyberpunk_2077_ss5 {
+            get {
+                return ResourceManager.GetString("Cyberpunk 2077 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap DayZ {
@@ -497,6 +560,15 @@ namespace NotSteam.Properties {
         internal static string DayZ_ss4 {
             get {
                 return ResourceManager.GetString("DayZ ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/221100/ss_de716ef45826665559b5fef34391d5ef0e00452a.jpg.
+        /// </summary>
+        internal static string DayZ_ss5 {
+            get {
+                return ResourceManager.GetString("DayZ ss5", resourceCulture);
             }
         }
         
@@ -556,6 +628,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/381210/ss_42f2866b00cf92cbe84bc8bb32c1fe65911c074c.jpg.
+        /// </summary>
+        internal static string Dead_by_Daylight_ss5 {
+            get {
+                return ResourceManager.GetString("Dead by Daylight ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Dont_Starve_Together {
@@ -611,6 +692,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/322330/ss_9a7730946f2e060457b5c19ac2d870a78ab0f20b.jpg.
+        /// </summary>
+        internal static string Dont_Starve_Together_ss5 {
+            get {
+                return ResourceManager.GetString("Dont Starve Together ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Dread_Hunger {
@@ -662,6 +752,15 @@ namespace NotSteam.Properties {
         internal static string Dread_Hunger_ss4 {
             get {
                 return ResourceManager.GetString("Dread Hunger ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1418630/ss_29b061592b89e74818378551f053a13ee61c9dbb.jpg.
+        /// </summary>
+        internal static string Dread_Hunger_ss5 {
+            get {
+                return ResourceManager.GetString("Dread Hunger ss5", resourceCulture);
             }
         }
         
@@ -731,6 +830,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/534380/ss_ff38bf9182b04020a92211be2ef2e59f14e59159.jpg.
+        /// </summary>
+        internal static string Dying_Light_2_ss5 {
+            get {
+                return ResourceManager.GetString("Dying Light 2 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/239140/capsule_616x353.jpg?t=1644831616.
         /// </summary>
         internal static string Dying_Light_capsule616x353 {
@@ -772,6 +880,15 @@ namespace NotSteam.Properties {
         internal static string Dying_Light_ss4 {
             get {
                 return ResourceManager.GetString("Dying Light ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/239140/ss_8bf1e0e5333f5899b413f90d67a3cfe8b8b8f8e1.jpg.
+        /// </summary>
+        internal static string Dying_Light_ss5 {
+            get {
+                return ResourceManager.GetString("Dying Light ss5", resourceCulture);
             }
         }
         
@@ -831,6 +948,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_8b58d96262fb0d62a482621b86c6ff85f4f57997.jpg.
+        /// </summary>
+        internal static string Elden_Ring_ss5 {
+            get {
+                return ResourceManager.GetString("Elden Ring ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Factorio {
@@ -882,6 +1008,15 @@ namespace NotSteam.Properties {
         internal static string Factorio_ss4 {
             get {
                 return ResourceManager.GetString("Factorio ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/427520/ss_57665be6cc629906ae7004799e90699c69c07c97.jpg.
+        /// </summary>
+        internal static string Factorio_ss5 {
+            get {
+                return ResourceManager.GetString("Factorio ss5", resourceCulture);
             }
         }
         
@@ -941,6 +1076,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1248130/ss_eb1ec9bc8eb9fc4978d873dbf8efad71aa4f5a5a.jpg.
+        /// </summary>
+        internal static string Farming_Simulator_2022_ss5 {
+            get {
+                return ResourceManager.GetString("Farming Simulator 2022 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap FIFA_22 {
@@ -992,6 +1136,15 @@ namespace NotSteam.Properties {
         internal static string FIFA_22_ss4 {
             get {
                 return ResourceManager.GetString("FIFA 22 ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/ss_a744fe858eb67516e46bd045e165147d866a0dbd.jpg.
+        /// </summary>
+        internal static string FIFA_22_ss5 {
+            get {
+                return ResourceManager.GetString("FIFA 22 ss5", resourceCulture);
             }
         }
         
@@ -1051,6 +1204,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_0bc32360d32b21abdf889422385cd753862dd73e.jpg.
+        /// </summary>
+        internal static string Forza_Horizon_5_ss5 {
+            get {
+                return ResourceManager.GetString("Forza Horizon 5 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap God_of_War {
@@ -1102,6 +1264,15 @@ namespace NotSteam.Properties {
         internal static string God_of_War_ss4 {
             get {
                 return ResourceManager.GetString("God of War ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_1bd99270dcbd4ff9fe9c94b0d9c8ffc50ebb42c7.jpg.
+        /// </summary>
+        internal static string God_of_War_ss5 {
+            get {
+                return ResourceManager.GetString("God of War ss5", resourceCulture);
             }
         }
         
@@ -1161,6 +1332,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/962130/ss_9116324cd0843d2962554d833684a4ce57ac75db.jpg.
+        /// </summary>
+        internal static string Grounded_ss5 {
+            get {
+                return ResourceManager.GetString("Grounded ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap GTA_V {
@@ -1212,6 +1392,15 @@ namespace NotSteam.Properties {
         internal static string GTA_V_ss4 {
             get {
                 return ResourceManager.GetString("GTA V ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_ea78dfa1d7d81c3781287cab165f64ca70f1f2ea.jpg.
+        /// </summary>
+        internal static string GTA_V_ss5 {
+            get {
+                return ResourceManager.GetString("GTA V ss5", resourceCulture);
             }
         }
         
@@ -1271,6 +1460,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_5e52844b891b54608eb51a850d6b53313eeed0f7.jpg.
+        /// </summary>
+        internal static string Hades_ss5 {
+            get {
+                return ResourceManager.GetString("Hades ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap It_Takes_Two {
@@ -1322,6 +1520,15 @@ namespace NotSteam.Properties {
         internal static string It_Takes_Two_ss4 {
             get {
                 return ResourceManager.GetString("It Takes Two ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_6f7b65b8613afbcb2616bff8ed0283d0629b6572.jpg.
+        /// </summary>
+        internal static string It_Takes_Two_ss5 {
+            get {
+                return ResourceManager.GetString("It Takes Two ss5", resourceCulture);
             }
         }
         
@@ -1381,6 +1588,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/379430/ss_3c205f4c6b09f7838aa003cac2bdf3842629e50a.jpg.
+        /// </summary>
+        internal static string Kingdom_Come_Deliverance_ss5 {
+            get {
+                return ResourceManager.GetString("Kingdom Come Deliverance ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap New_World {
@@ -1432,6 +1648,15 @@ namespace NotSteam.Properties {
         internal static string New_World_ss4 {
             get {
                 return ResourceManager.GetString("New World ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/ss_f8158701a669fe19245e986f34cbdef49afa1c2a.jpg.
+        /// </summary>
+        internal static string New_World_ss5 {
+            get {
+                return ResourceManager.GetString("New World ss5", resourceCulture);
             }
         }
         
@@ -1491,6 +1716,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/275850/ss_e2d97826c4ea01f207bc0ca1d70506da041f162f.jpg.
+        /// </summary>
+        internal static string No_Mans_Sky_ss5 {
+            get {
+                return ResourceManager.GetString("No Mans Sky ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Phasmophobia {
@@ -1542,6 +1776,15 @@ namespace NotSteam.Properties {
         internal static string Phasmophobia_ss4 {
             get {
                 return ResourceManager.GetString("Phasmophobia ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_9c7fe5b357b4e9fd07b07dfdc29f721876e41d2f.jpg.
+        /// </summary>
+        internal static string Phasmophobia_ss5 {
+            get {
+                return ResourceManager.GetString("Phasmophobia ss5", resourceCulture);
             }
         }
         
@@ -1601,6 +1844,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_8814c071f0cce53821d8e1b1a96de78d00e5d4d1.jpg.
+        /// </summary>
+        internal static string PUBG_ss5 {
+            get {
+                return ResourceManager.GetString("PUBG ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Raft {
@@ -1652,6 +1904,15 @@ namespace NotSteam.Properties {
         internal static string Raft_ss4 {
             get {
                 return ResourceManager.GetString("Raft ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/648800/ss_c885b2df8492951552fe4ef00ca23a81321f0bb3.jpg.
+        /// </summary>
+        internal static string Raft_ss5 {
+            get {
+                return ResourceManager.GetString("Raft ss5", resourceCulture);
             }
         }
         
@@ -1711,6 +1972,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1144200/ss_44ba45b015599691f551ce6de81204d5acd93d06.jpg.
+        /// </summary>
+        internal static string Ready_or_Not_ss5 {
+            get {
+                return ResourceManager.GetString("Ready or Not ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Red_Dead_Redemption_2 {
@@ -1762,6 +2032,15 @@ namespace NotSteam.Properties {
         internal static string Red_Dead_Redemption_2_ss4 {
             get {
                 return ResourceManager.GetString("Red Dead Redemption 2 ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.jpg.
+        /// </summary>
+        internal static string Red_Dead_Redemption_2_ss5 {
+            get {
+                return ResourceManager.GetString("Red Dead Redemption 2 ss5", resourceCulture);
             }
         }
         
@@ -1821,6 +2100,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/883710/ss_a4adb597c2d4387df495fd997a3636d58ffeeac1.jpg.
+        /// </summary>
+        internal static string Resident_Evil_2_ss5 {
+            get {
+                return ResourceManager.GetString("Resident Evil 2 ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Resident_Evil_3 {
@@ -1851,27 +2139,36 @@ namespace NotSteam.Properties {
         /// <summary>
         ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_ef618256720e6e665f4b8b5dd11726a561e0b16e.jpg.
         /// </summary>
-        internal static string Resident_Evil_ss2 {
+        internal static string Resident_Evil_3_ss2 {
             get {
-                return ResourceManager.GetString("Resident Evil ss2", resourceCulture);
+                return ResourceManager.GetString("Resident Evil 3 ss2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_34f01910d65fb171a27e058cb74623c0eb53ba69.jpg.
         /// </summary>
-        internal static string Resident_Evil_ss3 {
+        internal static string Resident_Evil_3_ss3 {
             get {
-                return ResourceManager.GetString("Resident Evil ss3", resourceCulture);
+                return ResourceManager.GetString("Resident Evil 3 ss3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_bec8b7cef716135ea5bbd726a3342ed9ca475b31.jpg.
         /// </summary>
-        internal static string Resident_Evil_ss4 {
+        internal static string Resident_Evil_3_ss4 {
             get {
-                return ResourceManager.GetString("Resident Evil ss4", resourceCulture);
+                return ResourceManager.GetString("Resident Evil 3 ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/952060/ss_3cad66e33d8bb3030e958a48a236bb1d65031c0e.jpg.
+        /// </summary>
+        internal static string Resident_Evil_3_ss5 {
+            get {
+                return ResourceManager.GetString("Resident Evil 3 ss5", resourceCulture);
             }
         }
         
@@ -1931,6 +2228,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/ss_e2bdaa9a0eeae714b3ad3ba49c9ae83a3930f08e.jpg.
+        /// </summary>
+        internal static string Resident_Evil_Village_ss5 {
+            get {
+                return ResourceManager.GetString("Resident Evil Village ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Rust {
@@ -1982,6 +2288,15 @@ namespace NotSteam.Properties {
         internal static string Rust_ss4 {
             get {
                 return ResourceManager.GetString("Rust ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/252490/ss_b6cfe69db0aa6e4e7885efbe3acbe17ea2c24d0f.jpg.
+        /// </summary>
+        internal static string Rust_ss5 {
+            get {
+                return ResourceManager.GetString("Rust ss5", resourceCulture);
             }
         }
         
@@ -2041,6 +2356,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/526870/ss_7ecd31e76adf3bddbe16f54e1e355eb0b326c5c7.jpg.
+        /// </summary>
+        internal static string Satisfactory_ss5 {
+            get {
+                return ResourceManager.GetString("Satisfactory ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Sea_of_Thieves {
@@ -2092,6 +2416,15 @@ namespace NotSteam.Properties {
         internal static string Sea_of_Thieves_ss4 {
             get {
                 return ResourceManager.GetString("Sea of Thieves ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/ss_ca74afdf9d361c1dff16e784a5d435c66c8a81ab.jpg.
+        /// </summary>
+        internal static string Sea_of_Thieves_ss5 {
+            get {
+                return ResourceManager.GetString("Sea of Thieves ss5", resourceCulture);
             }
         }
         
@@ -2151,6 +2484,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_3d6b38c382c0eafb02dc90d22f33fd292e4e5cf3.jpg.
+        /// </summary>
+        internal static string Sekiro__Shadow_Die_Twice_ss5 {
+            get {
+                return ResourceManager.GetString("Sekiro: Shadow Die Twice ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Squad {
@@ -2202,6 +2544,15 @@ namespace NotSteam.Properties {
         internal static string Squad_ss4 {
             get {
                 return ResourceManager.GetString("Squad ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/393380/ss_b256c427c3dc178a04fb54c92d563aae12c0ea36.jpg.
+        /// </summary>
+        internal static string Squad_ss5 {
+            get {
+                return ResourceManager.GetString("Squad ss5", resourceCulture);
             }
         }
         
@@ -2261,6 +2612,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_64d942a86eb527ac817f30cc04406796860a6fc1.jpg.
+        /// </summary>
+        internal static string Stardew_Valley_ss5 {
+            get {
+                return ResourceManager.GetString("Stardew Valley ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Teardown {
@@ -2312,6 +2672,15 @@ namespace NotSteam.Properties {
         internal static string Teardown_ss4 {
             get {
                 return ResourceManager.GetString("Teardown ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1167630/ss_4e43fc5c0302825007c35f51e03964726a06e984.jpg.
+        /// </summary>
+        internal static string Teardown_ss5 {
+            get {
+                return ResourceManager.GetString("Teardown ss5", resourceCulture);
             }
         }
         
@@ -2371,6 +2740,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/105600/ss_26c4a091c482be28efe1ecf4dfb498273e5a9107.jpg.
+        /// </summary>
+        internal static string Terraria_ss5 {
+            get {
+                return ResourceManager.GetString("Terraria ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap The_Elder_Scrolls_Online {
@@ -2422,6 +2800,15 @@ namespace NotSteam.Properties {
         internal static string The_Elder_Scrolls_Online_ss4 {
             get {
                 return ResourceManager.GetString("The Elder Scrolls Online ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/306130/ss_5e0c14f9b39283bafbcd37fb33a1c79a87757154.jpg.
+        /// </summary>
+        internal static string The_Elder_Scrolls_Online_ss5 {
+            get {
+                return ResourceManager.GetString("The Elder Scrolls Online ss5", resourceCulture);
             }
         }
         
@@ -2481,6 +2868,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/242760/ss_e50b7c8bc2f4720859ba13aa32703661192f4d62.jpg.
+        /// </summary>
+        internal static string The_Forest_ss5 {
+            get {
+                return ResourceManager.GetString("The Forest ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap The_Sims_4 {
@@ -2532,6 +2928,15 @@ namespace NotSteam.Properties {
         internal static string The_Sims_4_ss4 {
             get {
                 return ResourceManager.GetString("The Sims 4 ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_7d9baea1aedeeb41cb197a9e45a30f0b91b4baf9.jpg.
+        /// </summary>
+        internal static string The_Sims_4_ss5 {
+            get {
+                return ResourceManager.GetString("The Sims 4 ss5", resourceCulture);
             }
         }
         
@@ -2591,6 +2996,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/207610/ss_044086628ad6b406be3f75d9bbb9656512d5ff18.jpg.
+        /// </summary>
+        internal static string The_Walking_Dead_ss5 {
+            get {
+                return ResourceManager.GetString("The Walking Dead ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap The_Witcher_3 {
@@ -2642,6 +3056,15 @@ namespace NotSteam.Properties {
         internal static string The_Witcher_3_ss4 {
             get {
                 return ResourceManager.GetString("The Witcher 3 ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_b74d60ee215337d765e4d20c8ca6710ae2362cc2.jpg.
+        /// </summary>
+        internal static string The_Witcher_3_ss5 {
+            get {
+                return ResourceManager.GetString("The Witcher 3 ss5", resourceCulture);
             }
         }
         
@@ -2701,6 +3124,15 @@ namespace NotSteam.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.jpg.
+        /// </summary>
+        internal static string Unturned_ss5 {
+            get {
+                return ResourceManager.GetString("Unturned ss5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Valheim {
@@ -2752,6 +3184,15 @@ namespace NotSteam.Properties {
         internal static string Valheim_ss4 {
             get {
                 return ResourceManager.GetString("Valheim ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/892970/ss_3db385fc1223914dadb199ac8682683a8c59454e.jpg.
+        /// </summary>
+        internal static string Valheim_ss5 {
+            get {
+                return ResourceManager.GetString("Valheim ss5", resourceCulture);
             }
         }
         
@@ -2817,6 +3258,15 @@ namespace NotSteam.Properties {
         internal static string who_daddy_ss4 {
             get {
                 return ResourceManager.GetString("who daddy ss4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://cdn.cloudflare.steamstatic.com/steam/apps/427730/ss_6c3d3c24323e0310cd325c7539cb7d594e00e5ec.jpg.
+        /// </summary>
+        internal static string who_daddy_ss5 {
+            get {
+                return ResourceManager.GetString("who daddy ss5", resourceCulture);
             }
         }
     }

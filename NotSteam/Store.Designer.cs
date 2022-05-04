@@ -388,35 +388,35 @@ namespace NotSteam
             // 
             // followedGamesSoftwareToolStripMenuItem
             // 
-            this.followedGamesSoftwareToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.followedGamesSoftwareToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.followedGamesSoftwareToolStripMenuItem.Name = "followedGamesSoftwareToolStripMenuItem";
-            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.followedGamesSoftwareToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.followedGamesSoftwareToolStripMenuItem.Text = "Followed Games & Software";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(241, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(293, 6);
             // 
             // subscriptionsToolStripMenuItem
             // 
-            this.subscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subscriptionsToolStripMenuItem.Name = "subscriptionsToolStripMenuItem";
-            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.subscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.subscriptionsToolStripMenuItem.Text = "Subscriptions";
             // 
             // manageSubscriptionsToolStripMenuItem
             // 
-            this.manageSubscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageSubscriptionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageSubscriptionsToolStripMenuItem.Name = "manageSubscriptionsToolStripMenuItem";
-            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.manageSubscriptionsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.manageSubscriptionsToolStripMenuItem.Text = "Manage Subscriptions";
             // 
             // preferanceToolStripMenuItem
             // 
-            this.preferanceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.preferanceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preferanceToolStripMenuItem.Name = "preferanceToolStripMenuItem";
-            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.preferanceToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.preferanceToolStripMenuItem.Text = "Preferances";
             this.preferanceToolStripMenuItem.Click += new System.EventHandler(this.preferanceToolStripMenuItem_Click);
             // 
@@ -424,56 +424,56 @@ namespace NotSteam
             // 
             this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(244, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(296, 26);
             this.toolStripMenuItem2.Text = " ";
             // 
             // recommendationsToolStripMenuItem
             // 
-            this.recommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recommendationsToolStripMenuItem.Name = "recommendationsToolStripMenuItem";
-            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.recommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.recommendationsToolStripMenuItem.Text = "Recommendations";
             // 
             // discoveryQueueToolStripMenuItem
             // 
-            this.discoveryQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discoveryQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discoveryQueueToolStripMenuItem.Name = "discoveryQueueToolStripMenuItem";
-            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.discoveryQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.discoveryQueueToolStripMenuItem.Text = "Discovery Queue";
             // 
             // newReleaseQueueToolStripMenuItem
             // 
-            this.newReleaseQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newReleaseQueueToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newReleaseQueueToolStripMenuItem.Name = "newReleaseQueueToolStripMenuItem";
-            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.newReleaseQueueToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.newReleaseQueueToolStripMenuItem.Text = "New Release Queue";
             // 
             // communityRecommendationsToolStripMenuItem
             // 
-            this.communityRecommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.communityRecommendationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.communityRecommendationsToolStripMenuItem.Name = "communityRecommendationsToolStripMenuItem";
-            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.communityRecommendationsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.communityRecommendationsToolStripMenuItem.Text = "Community Recommendations";
             // 
             // interactiveRecommenderToolStripMenuItem
             // 
-            this.interactiveRecommenderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interactiveRecommenderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interactiveRecommenderToolStripMenuItem.Name = "interactiveRecommenderToolStripMenuItem";
-            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.interactiveRecommenderToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.interactiveRecommenderToolStripMenuItem.Text = "Interactive Recommender";
             // 
             // popularAmongFriendsToolStripMenuItem
             // 
-            this.popularAmongFriendsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popularAmongFriendsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.popularAmongFriendsToolStripMenuItem.Name = "popularAmongFriendsToolStripMenuItem";
-            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.popularAmongFriendsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.popularAmongFriendsToolStripMenuItem.Text = "Popular Among Friends";
             // 
             // steamCuratorsToolStripMenuItem
             // 
-            this.steamCuratorsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.steamCuratorsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.steamCuratorsToolStripMenuItem.Name = "steamCuratorsToolStripMenuItem";
-            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.steamCuratorsToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.steamCuratorsToolStripMenuItem.Text = "Steam Curators";
             // 
             // newNoteWorthyToolStripMenuItem

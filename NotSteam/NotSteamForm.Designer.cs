@@ -306,7 +306,7 @@ namespace NotSteam
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1015, 70);
+            this.panel2.Size = new System.Drawing.Size(1149, 70);
             this.panel2.TabIndex = 16;
             this.panel2.TopColor = System.Drawing.Color.Empty;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -328,7 +328,7 @@ namespace NotSteam
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1015, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1149, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip2";
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveform);
@@ -1409,7 +1409,7 @@ namespace NotSteam
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(288, 70);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(727, 685);
+            this.panel3.Size = new System.Drawing.Size(861, 685);
             this.panel3.TabIndex = 18;
             // 
             // NotSteamForm
@@ -1417,7 +1417,7 @@ namespace NotSteam
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1015, 755);
+            this.ClientSize = new System.Drawing.Size(1149, 755);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
