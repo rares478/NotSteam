@@ -170,7 +170,7 @@ namespace NotSteam
 
         #region Main Buttons
 
-        string storeceva = "select Games.name from Games";
+        string storeceva = "select name,price from Games";
 
         private Form activeform = null;
         private Form formerform = null;
@@ -315,7 +315,7 @@ namespace NotSteam
 
         private void label20_Click(object sender, EventArgs e)
         {
-            string free = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
+            string free = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
             Form mainform = new Store(loggeduser, free, null);
             freetoplay = true;
             openform(mainform);
@@ -323,7 +323,7 @@ namespace NotSteam
         public static bool early = false;
         private void label21_Click(object sender, EventArgs e)
         {
-            string Early = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
+            string Early = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
             Form mainform = new Store(loggeduser, Early, null);
             early = true;
             openform(mainform);
@@ -331,7 +331,7 @@ namespace NotSteam
         public static bool actionb = false;
         private void label22_Click(object sender, EventArgs e)
         {
-            string action = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
+            string action = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
             Form mainform = new Store(loggeduser, action, null);
             actionb = true;
             openform(mainform);
@@ -339,7 +339,7 @@ namespace NotSteam
         public static bool adventure = false;
         private void label23_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             adventure = true;
             openform(mainform);
@@ -347,7 +347,7 @@ namespace NotSteam
         public static bool casual = false;
         private void label24_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             casual = true;
             openform(mainform);
@@ -355,7 +355,7 @@ namespace NotSteam
         public static bool indie = false;
         private void label25_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             indie = true;
             openform(mainform);
@@ -363,7 +363,7 @@ namespace NotSteam
         public static bool multiplayer = false;
         private void label26_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             multiplayer = true;
             openform(mainform);
@@ -371,7 +371,7 @@ namespace NotSteam
         public static bool racing = false;
         private void label27_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             racing = true;
             openform(mainform);
@@ -379,7 +379,7 @@ namespace NotSteam
         public static bool rpg = false;
         private void label28_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             rpg = true;
             openform(mainform);
@@ -387,7 +387,7 @@ namespace NotSteam
         public static bool simulation = false;
         private void label29_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             simulation = true;
             openform(mainform);
@@ -395,7 +395,7 @@ namespace NotSteam
         public static bool sports = false;
         private void label30_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             sports = true;
             openform(mainform);
@@ -403,14 +403,14 @@ namespace NotSteam
 
         private void label31_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
+            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
             Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games order by Games.[number bought] DESC";
+            string query = "select name,price from Games order by Games.[number bought] DESC";
             Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
@@ -441,14 +441,14 @@ namespace NotSteam
 
         private void label33_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games where Games.date >= DATEADD(day, -31, getdate())";
+            string query = "select name,price from Games where Games.date >= DATEADD(day, -31, getdate())";
             Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
 
         private void label15_Click(object sender, EventArgs e)
         {
-            string query = "select name from Games where Games.date >= DATEADD(day, -31, getdate())";
+            string query = "select name,price from Games where Games.date >= DATEADD(day, -31, getdate())";
             Form mainform = new Store(loggeduser, query, null);
             openform(mainform);
         }
