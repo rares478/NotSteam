@@ -94,8 +94,10 @@ namespace NotSteam
             {
                 initialize();
             }
-            CustomToolStripRenderer r = new CustomToolStripRenderer();
-            r.RoundedEdges = true;
+            CustomToolStripRenderer r = new CustomToolStripRenderer
+            {
+                RoundedEdges = true
+            };
             menuStrip1.Renderer = r;
             panel3.Scroll += (s, e) =>
             {
@@ -115,20 +117,10 @@ namespace NotSteam
         int queuelcoation = 0;
 
 
-        int count = 0;
         int z = 0;
         int cz = 0;
 
-        private void changefeature(int i)
-        {
-            lbGameName.Text = b[i];
-            lbGamePrice.Text = c[i].ToString();
-            pbMain.Load(Properties.Store.ResourceManager.GetString(b[i] + " capsule616x353"));
-            pbSS1.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss1"));
-            pbSS2.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss2"));
-            pbSS3.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss3"));
-            pbSS4.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss4"));
-        }
+
 
         private void initialize()
         {
@@ -138,65 +130,163 @@ namespace NotSteam
             con.Open();
             SqlCommand cmdid = new SqlCommand(query, con);
             SqlDataReader reader = cmdid.ExecuteReader();
-            count = reader.FieldCount;
 
 
             while (reader.Read() && z <= cz + 10)
             {
 
                 string name = reader.GetString(0);
-                Label lbl = new Label();
-                Label lbl2 = new Label();
-                PictureBox pictureBox = new PictureBox();
-                RichTextBox richTextBox = new RichTextBox();
 
-                lbl.ForeColor = SystemColors.ActiveCaption;
-                lbl2.ForeColor = SystemColors.ActiveCaption;
-                richTextBox.BackColor = Color.FromArgb(16, 25, 35);
-                richTextBox.ForeColor = SystemColors.ActiveCaption;
-                richTextBox.BorderStyle = BorderStyle.None;
+                Label lbName = new Label();
+                lbName.AutoSize = true;
+                lbName.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                lbName.Location = new Point(12, 10);
+                lbName.Size = new Size(70, 25);
+                lbName.TabIndex = 0;
 
-                panel3.Controls.Add(lbl);
-                panel3.Controls.Add(lbl2);
-                panel3.Controls.Add(pictureBox);
-                panel3.Controls.Add(richTextBox);
+                PictureBox pb1 = new PictureBox();
+                pb1.Location = new Point(13, 67);
+                pb1.Size = new Size(280, 141);
+                pb1.TabIndex = 1;
+                pb1.TabStop = false;
+                pb1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                ///adaug 700px
+                PictureBox pb2 = new PictureBox();
+                pb2.Location = new Point(287, 79);
+                pb2.Size = new Size(212, 119);
+                pb2.TabIndex = 2;
+                pb2.TabStop = false;
+                pb2.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                lbl.Location = new Point(303, 1260 + (z * 260));
-                lbl2.Location = new Point(303, 1300 + (z * 260));
-                richTextBox.Location = new Point(308, 1075 + ((z + 1) * 260));
-                pictureBox.Location = new Point(6, 1260 + (z * 260));
+                PictureBox pb3 = new PictureBox();
+                pb3.Location = new Point(495, 79);
+                pb3.Size = new Size(212, 119);
+                pb3.TabIndex = 3;
+                pb3.TabStop = false;
+                pb3.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                pictureBox.Size = new Size(231, 87);
-                richTextBox.Size = new Size(397, 126);
+                PictureBox pb4 = new PictureBox();
+                pb4.Location = new Point(704, 79);
+                pb4.Size = new Size(212, 119);
+                pb4.TabIndex = 4;
+                pb4.TabStop = false;
+                pb4.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                lbl.Click += new EventHandler(lbl_click);
-                lbl.AutoSize = true;
-                lbl2.AutoSize = true;
-                lbl2.Text = developer(name);
-                lbl.Font = new Font("Microsoft Sans Serif", 16);
-                richTextBox.Text = description(name);
+                Label lbPrice = new Label();
+                lbPrice.AutoSize = true;
+                lbPrice.ForeColor = Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(162)))), ((int)(((byte)(206)))));
+                lbPrice.Location = new Point(13, 215);
+                lbPrice.Size = new Size(35, 13);
+                lbPrice.TabIndex = 5;
+                lbPrice.Text = "label2";
+
+
+                Button btSwitch = new Button();
+                btSwitch.BackColor = Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
+                btSwitch.FlatAppearance.BorderSize = 0;
+                btSwitch.FlatStyle = FlatStyle.Flat;
+                btSwitch.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                btSwitch.ForeColor = Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(162)))), ((int)(((byte)(206)))));
+                btSwitch.Location = new Point(6, 6);
+                btSwitch.Size = new Size(122, 23);
+                btSwitch.TabIndex = 0;
+                btSwitch.Text = "Visit Product Page";
+                btSwitch.UseVisualStyleBackColor = false;
+
+
+                Panel panel2 = new Panel();
+                panel2.Controls.Add(btSwitch);
+                panel2.Dock = DockStyle.Bottom;
+                panel2.Location = new Point(0, 244);
+                panel2.Name = "panel2";
+                panel2.Size = new Size(933, 38);
+                panel2.TabIndex = 6;
+                panel2.BackColor = Color.FromArgb(22, 32, 45);
+
+
+                Panel panel = new Panel();
+                panel.BackColor = Color.FromArgb(22, 32, 45);
+                panel.Controls.Add(panel2);
+                panel.Controls.Add(lbPrice);
+                panel.Controls.Add(pb4);
+                panel.Controls.Add(pb3);
+                panel.Controls.Add(pb1);
+                panel.Controls.Add(pb2);
+                panel.Controls.Add(lbName);
+                panel.Location = new Point(88, 1260 + (z * 300));
+                panel.Size = new Size(933, 282);
+                panel.TabIndex = 0;
+
+                panel3.Controls.Add(panel);
+
+
+                lbName.Text = name;
+                lbPrice.Text = reader.GetInt32(1).ToString();
+                int newHeight = 212;
+                int newWidth = 119;
+
+
+                ///bitmap1.Dispose(); throws error in Program.cs ??????  invalid parameter ????
+                pb1.Load(Properties.Store.ResourceManager.GetString(name + " ss1"));
+
+                Bitmap original1 = new Bitmap(pb1.Image);
+                Bitmap bitmap1 = new Bitmap(original1, 424, 238);
+                Graphics g1 = Graphics.FromImage(bitmap1);
+                pb1.Image = bitmap1;
+                g1.Dispose();
+                original1.Dispose();
+
+
+                pb2.Load(Properties.Store.ResourceManager.GetString(name + " ss2"));
+
+                Bitmap original2 = new Bitmap(pb2.Image);
+                Bitmap bitmap2 = new Bitmap(original2, newWidth, newHeight);
+                Graphics g2 = Graphics.FromImage(bitmap2);
+                pb2.Image = bitmap2;
+                g2.Dispose();
+                original2.Dispose();
+
+
+                pb3.Load(Properties.Store.ResourceManager.GetString(name + " ss3"));
+
+                Bitmap original3 = new Bitmap(pb3.Image);
+                Bitmap bitmap3 = new Bitmap(original3, newWidth, newHeight);
+                Graphics g3 = Graphics.FromImage(bitmap3);
+                pb3.Image = bitmap3;
+                g3.Dispose();
+                original3.Dispose();
+
+
+                pb4.Load(Properties.Store.ResourceManager.GetString(name + " ss4"));
+
+                Bitmap original4 = new Bitmap(pb4.Image);
+                Bitmap bitmap4 = new Bitmap(original4, newWidth, newHeight);
+                Graphics g4 = Graphics.FromImage(bitmap4);
+                pb4.Image = bitmap4;
+                g4.Dispose();
+                original4.Dispose();
+
+
+                lbName.Click += new EventHandler((sender, e) => switchtogame(lbName.Text, false));
+
+                pb1.Click += new EventHandler((sender, e) => switchtogame(lbName.Text, false));
+                pb2.Click += new EventHandler((sender, e) => switchtogame(lbName.Text, false));
+                pb3.Click += new EventHandler((sender, e) => switchtogame(lbName.Text, false));
+                pb4.Click += new EventHandler((sender, e) => switchtogame(lbName.Text, false));
+
+                pb2.MouseEnter += new EventHandler((sender, e) => onhoverimage(sender, e, lbName.Text, Properties.Store.ResourceManager.GetString(name + " ss2")));
+                pb2.MouseLeave += new EventHandler((sender, e) => onexitimage(sender, e, Properties.Store.ResourceManager.GetString(name + " ss2"), pb1));
+
+                pb3.MouseEnter += new EventHandler((sender, e) => onhoverimage(sender, e, lbName.Text, Properties.Store.ResourceManager.GetString(name + " ss3")));
+                pb3.MouseLeave += new EventHandler((sender, e) => onexitimage(sender, e, Properties.Store.ResourceManager.GetString(name + " ss3"), pb1));
+
+                pb4.MouseEnter += new EventHandler((sender, e) => onhoverimage(sender, e, lbName.Text, Properties.Store.ResourceManager.GetString(name + " ss4")));
+                pb4.MouseLeave += new EventHandler((sender, e) => onexitimage(sender, e, Properties.Store.ResourceManager.GetString(name + " ss4"), pb1));
 
                 z++;
-                lbl.Text = name;
-
-
-                if (name.Contains(" "))
-                    name.Replace(" ", "_");
-                object obj = Properties.Store.ResourceManager.GetObject(name);
-
-                pictureBox.Image = (Bitmap)obj;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             }
             con.Close();
-        }
-
-        private void switchimagesgame(object sender,EventArgs e, PictureBox pbMain)
-        {
-            PictureBox nus = sender as PictureBox;
-            pbMain.Image = nus.Image;
         }
 
         private void switchtogame(string name, bool queue)
@@ -248,7 +338,7 @@ namespace NotSteam
             Label label2 = new Label();
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(114)))));
-            label2.Location = new Point(729, 386);
+            label2.Location = new Point(729, 380);
             label2.Size = new Size(62, 13);
             label2.TabIndex = 5;
             label2.Text = "Developer: ";
@@ -264,11 +354,42 @@ namespace NotSteam
             Label lbDeveloper = new Label();
             lbDeveloper.AutoSize = true;
             lbDeveloper.ForeColor = Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(162)))), ((int)(((byte)(206)))));
-            lbDeveloper.Location = new Point(826, 386);
+            lbDeveloper.Location = new Point(826, 380);
             lbDeveloper.Size = new Size(35, 13);
             lbDeveloper.TabIndex = 7;
             lbDeveloper.Text = "label3";
-            
+
+
+            Button category1 = new Button();
+            category1.Location = new Point(729, 410);
+            category1.Text = "label1";
+            category1.BackColor = Color.FromArgb(33, 58, 77);
+            category1.ForeColor = Color.FromArgb(87, 162, 206);
+            category1.AutoSize = true;
+            category1.FlatStyle = FlatStyle.Flat;
+            category1.FlatAppearance.BorderSize = 0;
+            category1.Click += new EventHandler(category);
+
+            Button category2 = new Button();
+            category2.Location = new Point(729 + category1.Width + 3, 410);
+            category2.Text = "label2";
+            category2.BackColor = Color.FromArgb(33, 58, 77);
+            category2.ForeColor = Color.FromArgb(87, 162, 206);
+            category2.AutoSize = true;
+            category2.FlatStyle = FlatStyle.Flat;
+            category2.FlatAppearance.BorderSize = 0;
+            category2.Click += new EventHandler(category);
+
+            Button category3 = new Button();
+            category3.Location = new Point(729 + 2 * (category2.Width + 4), 410);
+            category3.Text = "label3";
+            category3.BackColor = Color.FromArgb(33, 58, 77);
+            category3.ForeColor = Color.FromArgb(87, 162, 206);
+            category3.AutoSize = true;
+            category3.FlatStyle = FlatStyle.Flat;
+            category3.FlatAppearance.BorderSize = 0;
+            category3.Click += new EventHandler(category);
+
             Label lbGameNameBuy = new Label();
             lbGameNameBuy.AutoSize = true;
             lbGameNameBuy.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -317,7 +438,7 @@ namespace NotSteam
             pbPic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic1.TabIndex = 10;
             pbPic1.TabStop = false;
-            pbPic1.Click += new EventHandler((sender,e) => switchimagesgame(sender,e, pbMainBig));
+            pbPic1.Click += new EventHandler((sender, e) => switchimagesgame(sender, e, pbMainBig));
 
             PictureBox pbPic2 = new PictureBox();
             pbPic2.Location = new Point(240, 448);
@@ -366,13 +487,18 @@ namespace NotSteam
             Controls.Add(pbPic3);
             Controls.Add(pbPic4);
             Controls.Add(pbPic5);
+            Controls.Add(category1);
+            Controls.Add(category2);
+            Controls.Add(category3);
 
             con.Open();
 
-            string que = "SELECT developer,date,description,price FROM Games WHERE name = '" + name + "'";
+            int id = 0;
+
+            string que = "SELECT developer,date,description,price,id FROM Games WHERE name = '" + name + "'";
             SqlCommand cmd = new SqlCommand(que, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 lbDeveloper.Text = reader.GetString(0);
                 lbDate.Text = reader.GetDateTime(1).ToString("MM/dd/yyyy");
@@ -380,7 +506,321 @@ namespace NotSteam
                 lbPrice.Text = reader.GetInt32(3).ToString(); ;
                 if (lbPrice.Text == "0")
                     lbPrice.Text = "FREE";
+                id = reader.GetInt32(4);
             }
+
+            string querycategory = "SELECT [Free to Play],[Early Access],Action,Adventure,Casual,Indie,[Massively Multiplayer],Racing,RPG,Simulation,Sports,Strategy,Arcade,[Open World],Space,Horror,Survival from Genres where Id = '" + id + "'";
+            SqlCommand cmdcategory = new SqlCommand(querycategory, con);
+            SqlDataReader reader1 = cmdcategory.ExecuteReader();
+            while (reader1.Read())
+            {
+                int count = 0;
+                if (reader1.GetInt32(0) == 1)
+                {
+                    category1.Text = "Free to Play";
+                    count++;
+                }
+
+                if (reader1.GetInt32(1) == 1)
+                {
+                    if (count == 1)
+                    {
+                        category2.Text = "Early Access";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Early Access";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(2) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Action";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Action";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Action";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(3) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Adventure";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Adventure";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Adventure";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(4) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Casual";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Casual";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Casual";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(5) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Indie";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Indie";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Indie";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(6) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Massively Multiplayer";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Massively Multiplayer";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Massively Multiplayer";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(7) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Racing";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Racing";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Racing";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(8) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "RPG";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "RPG";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "RPG";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(9) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Simulation";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Simulation";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Simulation";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(10) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Sports";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Sports";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Sports";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(11) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Strategy";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Strategy";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Strategy";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(12) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Arcade";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Arcade";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Arcade";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(13) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Open World";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Open World";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Open World";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(14) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Space";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Space";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Space";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(15) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Horror";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Horror";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Horror";
+                        count++;
+                    }
+                }
+
+                if (reader1.GetInt32(16) == 1)
+                {
+                    if (count == 2)
+                    {
+                        category3.Text = "Survival";
+                        break;
+                    }
+                    else if (count == 1)
+                    {
+                        category2.Text = "Survival";
+                        count++;
+                    }
+                    else
+                    {
+                        category1.Text = "Survival";
+                        count++;
+                    }
+                }
+            }
+
             con.Close();
 
             lbGameNameBuy.Text = name;
@@ -396,15 +836,274 @@ namespace NotSteam
             object obj = Properties.Store.ResourceManager.GetObject(name);
             pbHeader.Image = (Bitmap)obj;
             pbHeader.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
 
+        private void category(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            switch (button.Text)
+            {
+                case "Free to Play":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
+                    NotSteamForm.freetoplay = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Early Access":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
+                    NotSteamForm.early = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Action":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
+                    NotSteamForm.actionb = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Adventure":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
+                    NotSteamForm.adventure = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Casual":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
+                    NotSteamForm.casual = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Indie":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
+                    NotSteamForm.indie = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Massively Multiplayer":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
+                    NotSteamForm.multiplayer = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Racing":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
+                    NotSteamForm.racing = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "RPG":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
+                    NotSteamForm.rpg = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Simulation":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
+                    NotSteamForm.simulation = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Sports":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
+                    NotSteamForm.sports = true;
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Strategy":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Arcade":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Arcade] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Open World":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Open World] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Space":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Space] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Horror":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Horror] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+                case "Survival":
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Survival] = '1'";
+                    Controls.Clear();
+                    z = 0;
+                    cz = 0;
+                    InitializeComponent();
+                    initialize();
+                    pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+                    pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+                    pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+                    pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+                    break;
+            }
 
 
         }
 
+        #region pic functions
+        private void onexitimage(object sender, EventArgs e, string url, PictureBox pbmain)
+        {
+            PictureBox pb = sender as PictureBox;
 
+            pb.Load(url);
 
-        #region swap pics
+            pb.Size = new Size(212, 119);
+            pb.Location = new Point(pb.Location.X + 15, pb.Location.Y + 30);
+            Bitmap original3 = new Bitmap(pb.Image);
+            Bitmap bitmap3 = new Bitmap(original3, 212, 199);
+            Graphics g3 = Graphics.FromImage(bitmap3);
+            pb.Image = bitmap3;
+            g3.Dispose();
+            original3.Dispose();
+            pbmain.BringToFront();
+        }
 
+        private void onhoverimage(object sender, EventArgs e, string name, string url)
+        {
+            PictureBox pb = sender as PictureBox;
+
+            pb.Load(url);
+
+            pb.Size = new Size(424, 238);
+            pb.Location = new Point(pb.Location.X - 15, pb.Location.Y - 30);
+            Bitmap original3 = new Bitmap(pb.Image);
+            Bitmap bitmap3 = new Bitmap(original3, 424, 238);
+            Graphics g3 = Graphics.FromImage(bitmap3);
+            pb.Image = bitmap3;
+            g3.Dispose();
+            original3.Dispose();
+            pb.BringToFront();
+
+        }
+
+        private void switchimagesgame(object sender, EventArgs e, PictureBox pbMain)
+        {
+            PictureBox nus = sender as PictureBox;
+            pbMain.Image = nus.Image;
+        }
         private void swappics(object pb2, EventArgs e)
         {
             PictureBox image = pb2 as PictureBox;
@@ -432,6 +1131,7 @@ namespace NotSteam
 
         public string selected = null;
 
+        ///refa butonu
         private void btBuy_Click(object sender, EventArgs e)
         {
 
@@ -512,56 +1212,12 @@ namespace NotSteam
             con.Close();
         }
 
-        private void queueclick(object sender, EventArgs e)
-        {
-            if (queuelcoation == 10)
-            {
-                Controls.Clear();
-                InitializeComponent();
-                initialize();
-                WindowState = FormWindowState.Maximized;
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                queuelcoation++;
-                switchtogame(queuepic[queuelcoation], true);
-            }
-        }
         #endregion
-
-        #region dev + desc
-        private string description(string name)
-        {
-            string nimic = "";
-            string devquery = "select description from Games where name = '" + name + "'";
-            SqlCommand cmddev = new SqlCommand(devquery, con);
-            SqlDataReader readerdev = cmddev.ExecuteReader();
-            if (readerdev.Read())
-            {
-                return readerdev.GetString(0);
-            }
-            else return nimic;
-        }
-
-        private string developer(string name)
-        {
-            string devquery = "select developer from Games where name = '" + name + "'";
-            SqlCommand cmddev = new SqlCommand(devquery, con);
-            SqlDataReader readerdev = cmddev.ExecuteReader();
-            if (readerdev.Read())
-            {
-                return readerdev.GetString(0);
-            }
-            else return null;
-        }
 
         private void preferanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
-        #endregion
 
         #region searchbox
         private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
@@ -593,6 +1249,8 @@ namespace NotSteam
                 {
                     query = "select name from Games where name like '" + name + "%'";
                     Controls.Clear();
+                    z = 0;
+                    cz = 0;
                     InitializeComponent();
                     initialize();
                     WindowState = FormWindowState.Maximized;
@@ -611,123 +1269,33 @@ namespace NotSteam
         private void HandleScroll()
 
         {
-            if (panel3.VerticalScroll.Value > 2000 && ceva == 0)
+            if (panel3.VerticalScroll.Value > 2400 && ceva == 0)
             {
                 cz = cz + z;
                 if (NotSteamForm.freetoplay)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.early)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.actionb)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.adventure)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' Games.AND Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' Games.AND Id >'" + cz + "'";
                 else if (NotSteamForm.casual)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.indie)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.multiplayer)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.racing)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.rpg)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.simulation)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.sports)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
-                else query = "select name from Games where Id >'" + cz + "'";
+                    query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
+                else query = "select name,price from Games where Id >'" + cz + "'";
 
-                z = 3;
-                initialize();
-                ceva++;
-            }
-            if (panel3.VerticalScroll.Value > 7000 && ceva == 1)
-            {
-                cz = cz + z + 1;
-                if (NotSteamForm.freetoplay)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.early)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.actionb)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.adventure)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.casual)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.indie)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.multiplayer)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.racing)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.rpg)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.simulation)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.sports)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
-                else query = "select name from Games where Id >'" + cz + "'";
-                z = 3;
-                initialize();
-                ceva++;
-            }
-            if (panel3.VerticalScroll.Value > 12000 && ceva == 2)
-            {
-                cz = cz + z + 2;
-                if (NotSteamForm.freetoplay)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.early)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.actionb)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.adventure)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.casual)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.indie)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.multiplayer)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.racing)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.rpg)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.simulation)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.sports)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
-                else query = "select name from Games where Id >'" + cz + "'";
-                z = 3;
-                initialize();
-                ceva++;
-            }
-            if (cz < count && ceva == 3)
-            {
-                cz = count - cz;
-                if (NotSteamForm.freetoplay)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.early)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.actionb)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.adventure)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.casual)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.indie)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.multiplayer)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.racing)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.rpg)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.simulation)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1' AND Games.Id >'" + cz + "'";
-                else if (NotSteamForm.sports)
-                    query = "select name from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1' AND Games.Id >'" + cz + "'";
-                else query = "select name from Games where Id >'" + cz + "'";
                 z = 3;
                 initialize();
                 ceva++;
@@ -735,6 +1303,36 @@ namespace NotSteam
 
         }
 
+        #region slide
+        private void changefeature(int i)
+        {
+            lbGameName.Text = b[i];
+            lbGamePrice.Text = c[i].ToString();
+            pbMain.Load(Properties.Store.ResourceManager.GetString(b[i] + " capsule616x353"));
+            pbSS1.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss1"));
+            pbSS2.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss2"));
+            pbSS3.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss3"));
+            pbSS4.Load(Properties.Store.ResourceManager.GetString(b[i] + " ss4"));
+        }
+
+        private void queueclick(object sender, EventArgs e)
+        {
+            if (queuelcoation == 10)
+            {
+                Controls.Clear();
+                InitializeComponent();
+                initialize();
+                z = 0;
+                cz = 0;
+                WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                queuelcoation++;
+                switchtogame(queuepic[queuelcoation], true);
+            }
+        }
         private void pbMain_Click(object sender, EventArgs e)
         {
             switchtogame(lbGameName.Text, false);
@@ -778,5 +1376,6 @@ namespace NotSteam
         {
             queueclick(sender, e);
         }
+        #endregion
     }
 }
