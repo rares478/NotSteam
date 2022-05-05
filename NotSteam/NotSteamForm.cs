@@ -205,7 +205,7 @@ namespace NotSteam
                     string money = cmdmoney.ExecuteScalar().ToString();
 
                     con.Close();
-                    toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + money;
+                    toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + money+"$";
                     if (maximized)
                         WindowState = FormWindowState.Maximized;
 
@@ -259,6 +259,8 @@ namespace NotSteam
                     }
                 }
                 #endregion
+
+                toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + Store.money + "$";
 
                 form.TopLevel = false;
                 form.FormBorderStyle = FormBorderStyle.None;
