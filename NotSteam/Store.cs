@@ -11,7 +11,7 @@ namespace NotSteam
     public partial class Store : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
-        int money;
+        public static int money;
         int userid;
         string query = null;
 
@@ -221,7 +221,9 @@ namespace NotSteam
 
 
                 lbName.Text = name;
-                lbPrice.Text = reader.GetInt32(1).ToString();
+                lbPrice.Text = reader.GetInt32(1).ToString() + "$";
+                if (lbPrice.Text == "0$")
+                    lbPrice.Text = "Free";
                 int newHeight = 212;
                 int newWidth = 119;
 
@@ -405,6 +407,14 @@ namespace NotSteam
             panel5.BackColor = Color.FromArgb(66, 81, 95);
             panel5.TabIndex = 8;
 
+            Label lbPrice = new Label();
+            lbPrice.AutoSize = true;
+            lbPrice.ForeColor = SystemColors.ButtonFace;
+            lbPrice.Location = new Point(14, 14);
+            lbPrice.Name = "lbPrice";
+            lbPrice.Size = new Size(35, 13);
+            lbPrice.TabIndex = 1;
+            
             Button btBuy = new Button();
             btBuy.BackColor = Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(166)))), ((int)(((byte)(33)))));
             btBuy.FlatAppearance.BorderSize = 0;
@@ -415,14 +425,7 @@ namespace NotSteam
             btBuy.TabIndex = 0;
             btBuy.Text = "Buy";
             btBuy.UseVisualStyleBackColor = false;
-
-            Label lbPrice = new Label();
-            lbPrice.AutoSize = true;
-            lbPrice.ForeColor = SystemColors.ButtonFace;
-            lbPrice.Location = new Point(14, 14);
-            lbPrice.Name = "lbPrice";
-            lbPrice.Size = new Size(35, 13);
-            lbPrice.TabIndex = 1;
+            btBuy.Click += new EventHandler((sender,e)=> btBuy_Click(lbGameNameBuy.Text,Convert.ToInt32(lbPrice.Text)));
 
             Panel panelbuy = new Panel();
             panelbuy.BackColor = Color.Black;
@@ -503,9 +506,12 @@ namespace NotSteam
                 lbDeveloper.Text = reader.GetString(0);
                 lbDate.Text = reader.GetDateTime(1).ToString("MM/dd/yyyy");
                 tbDescription.Text = reader.GetString(2);
-                lbPrice.Text = reader.GetInt32(3).ToString(); ;
-                if (lbPrice.Text == "0")
+                lbPrice.Text = reader.GetInt32(3).ToString() + "$";
+                if (lbPrice.Text == "0$")
+                {
                     lbPrice.Text = "FREE";
+                    btBuy.Text = "Add to Library";
+                }
                 id = reader.GetInt32(4);
             }
 
@@ -1125,22 +1131,15 @@ namespace NotSteam
         private void lbl_click(object sender, EventArgs e)
         {
             Label label = sender as Label;
-            selected = label.Text;
             switchtogame(label.Text, false);
         }
 
-        public string selected = null;
-
-        ///refa butonu
-        private void btBuy_Click(object sender, EventArgs e)
+        private void btBuy_Click(string name,int price)
         {
-
-            Button btnBuy = sender as Button;
-
             con.Open();
 
             string id;
-            string idquery = "select Games.Id from Games where Games.name = '" + selected + "';";
+            string idquery = "select Games.Id from Games where Games.name = '" + name + "';";
             SqlCommand cmdid = new SqlCommand(idquery, con);
             SqlDataReader reader = cmdid.ExecuteReader();
             if (reader.Read())
@@ -1165,19 +1164,18 @@ namespace NotSteam
             {
                 if (id != null)
                 {
-                    if (money > Convert.ToInt32(btnBuy.Text))
+                    if (money > price)
                     {
                         SqlCommand cmd = con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
                         DateTime dateTime = DateTime.Now;
                         var dateValue1 = dateTime.ToString("MM/dd/yyyy");
-                        cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + selected + "', '" + userid + "', '" + dateValue1 + "')";
+                        cmd.CommandText = "INSERT INTO dbo.[List of owned games](GameID,name,UserId,date_bought) VALUES ('" + id + "', '" + name + "', '" + userid + "', '" + dateValue1 + "')";
                         cmd.ExecuteNonQuery();
                         int money1 = money;
-                        int money2 = Convert.ToInt32(btnBuy.Text);
-                        int moneyfinal = money1 - money2;
-                        int owners = 0;
+                        int moneyfinal = money1 - price;
 
+                        int owners = 0;
 
                         string cmdownerss = "SELECT dbo.[Games].[number bought] from Games WHERE Id = '" + id + "'";
                         SqlCommand cmdownersget = new SqlCommand(cmdownerss, con);
@@ -1194,13 +1192,15 @@ namespace NotSteam
 
                         SqlCommand cmdowners = con.CreateCommand();
                         cmdowners.CommandType = CommandType.Text;
-                        cmdowners.CommandText = "UPDATE Games Set [number bought] = '" + owners + "'";
+                        cmdowners.CommandText = "UPDATE Games Set [number bought] = '" + owners + "' WHERE Id = '" + id + "'";
 
                         SqlCommand cmdmoney = con.CreateCommand();
                         cmdmoney.CommandType = CommandType.Text;
                         cmdmoney.CommandText = "UPDATE Users SET money = '" + moneyfinal + "' WHERE Id = '" + userid + "'";
                         cmdmoney.ExecuteNonQuery();
                         money = moneyfinal;
+
+                        MessageBox.Show("Thank you for your purchase", "Purchase succesful", MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -1213,11 +1213,6 @@ namespace NotSteam
         }
 
         #endregion
-
-        private void preferanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         #region searchbox
         private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
@@ -1320,10 +1315,11 @@ namespace NotSteam
             if (queuelcoation == 10)
             {
                 Controls.Clear();
-                InitializeComponent();
-                initialize();
                 z = 0;
                 cz = 0;
+                InitializeComponent();
+                initialize();
+                
                 WindowState = FormWindowState.Maximized;
                 WindowState = FormWindowState.Normal;
             }
@@ -1376,6 +1372,199 @@ namespace NotSteam
         {
             queueclick(sender, e);
         }
+        #endregion
+
+        private void discoveryQueueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            queueclick(sender, e);
+        }
+        #region menu strip
+        private void newTrendingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games where Games.date >= DATEADD(day, -31, getdate())";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void topSellersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games order by Games.[number bought] DESC";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void freeToPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
+            NotSteamForm.freetoplay = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void earlyAccessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
+            NotSteamForm.early = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void adventureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
+            NotSteamForm.adventure = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void casualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
+            NotSteamForm.casual = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void racingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
+            NotSteamForm.racing = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void horrorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Horror] = '1'";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void openWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Open World] = '1'";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void spaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Space] = '1'";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void survivalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Survival] = '1'";
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void mMOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
+            NotSteamForm.multiplayer = true;
+            Controls.Clear();
+            z = 0;
+            cz = 0;
+            InitializeComponent();
+            initialize();
+            pbQueue1.Load(Properties.Store.ResourceManager.GetString(queuepic[1] + " capsule616x353"));
+            pbQueue2.Load(Properties.Store.ResourceManager.GetString(queuepic[2] + " capsule616x353"));
+            pbQueue3.Load(Properties.Store.ResourceManager.GetString(queuepic[3] + " capsule616x353"));
+            pbQueue4.Load(Properties.Store.ResourceManager.GetString(queuepic[4] + " capsule616x353"));
+        }
+
+        private void recommendationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var rand = new Random();
+            int id = rand.Next(1, 56);
+            con.Open();
+            string query = "select name from Games where Id = '" + id + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            string name = cmd.ExecuteScalar().ToString();
+            con.Close();
+            switchtogame(name, false);
+        }
+
         #endregion
     }
 }
