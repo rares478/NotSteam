@@ -8,7 +8,8 @@ namespace NotSteam
     public partial class Library : Form
     {
         int userid;
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
+        static string path = System.IO.Path.GetFullPath(@"..\..\");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         public Library(user user)
         {
             userid = user.id;
