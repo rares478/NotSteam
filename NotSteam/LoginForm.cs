@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -16,10 +10,12 @@ namespace NotSteam
         public LoginForm()
         {
             InitializeComponent();
+            MessageBox.Show(path);
             pictureBox1.Image = imageList1.Images[0];
             DoubleBuffered = true;
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rares\Documents\notsteam.mdf;Integrated Security=True;Connect Timeout=30");
+        static string path = System.IO.Path.GetFullPath(@"..\..\");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         public static user user = null;
         public static bool switchtoRegister = false;
 
