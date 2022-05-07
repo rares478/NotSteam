@@ -39,20 +39,6 @@ namespace NotSteam
             }
         }
 
-        public class CustomPanelRenderer : Panel
-        {
-            public Color TopColor { get; set; }
-            public Color BottomColor { get; set; }
-            public float Angle { get; set; }
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(27, 40, 56), Color.FromArgb(42, 71, 94), 270);
-                Graphics g = e.Graphics;
-                g.FillRectangle(brush, this.ClientRectangle);
-                base.OnPaint(e);
-            }
-        }
-
 
 
         public class CustomButtonRenderer : Button

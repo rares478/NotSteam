@@ -10,7 +10,6 @@ namespace NotSteam
         public LoginForm()
         {
             InitializeComponent();
-            MessageBox.Show(path);
             pictureBox1.Image = imageList1.Images[0];
             DoubleBuffered = true;
         }
