@@ -72,12 +72,17 @@
     <Compile Include="AddFunds.Designer.cs">
       <DependentUpon>AddFunds.cs</DependentUpon>
     </Compile>
-    <Compile Include="Color.cs" />
     <Compile Include="AddGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddGame.Designer.cs">
       <DependentUpon>AddGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProfile.Designer.cs">
+      <DependentUpon>EditProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Library.cs">
       <SubType>Form</SubType>
@@ -132,12 +137,21 @@
     <Compile Include="Store.Designer.cs">
       <DependentUpon>Store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Support.Designer.cs">
+      <DependentUpon>Support.cs</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <EmbeddedResource Include="AddFunds.resx">
       <DependentUpon>AddFunds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddGame.resx">
       <DependentUpon>AddGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Library.resx">
       <DependentUpon>Library.cs</DependentUpon>
@@ -169,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Store.resx">
       <DependentUpon>Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Support.resx">
+      <DependentUpon>Support.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -658,7 +675,7 @@
     <None Include="Resources\webm_page_bg_english.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="notsteam.mdf" />
+    <Content Include="notsteam.mdf" />
     <Content Include="notsteam_log.ldf">
       <DependentUpon>notsteam.mdf</DependentUpon>
     </Content>

@@ -19,6 +19,7 @@ namespace NotSteam
             loggeduser = user;
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
+            label4.Text = user.username;
 
             toolStripMenuItem3.Text = user.username.ToString() + "    " + user.money.ToString() + "$";
             Form mainform = new Store(loggeduser, storeceva, null);
@@ -27,7 +28,33 @@ namespace NotSteam
             menuStrip1.Renderer = new MyRenderer();
             if (WindowState != FormWindowState.Maximized)
                 panel1.Width = 0;
+
+            Library.OpenStoreClick += new EventHandler((sender, e) =>
+            { 
+                Button bt = sender as Button;
+                string gamename = bt.Name;
+                openform(new Store(user, null, gamename));
+            });
+            AddFunds.FundsAdded += new EventHandler((sender, e) => { Button bt = sender as Button; toolStripMenuItem3.Text = user.username.ToString() + "    " + bt.Name + "$"; });
+            Library.OpenSupport += new EventHandler((sender, e) => { Button bt = sender as Button; string name = bt.Name; openform(new Support(name,user)); });
+            Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Store(user, null, name)); });
+            Support.ViewinLibrary += new EventHandler((sender, e) => { Label bt = sender as Label; string name = bt.Name; openform(new Library(user, name)); });
+            Profile.EditProfile += new EventHandler((sender, e) => { openform(new EditProfile(user)); });
+            EditProfile.GoBack += new EventHandler((sender, e) =>
+            { 
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select username, money from Users WHERE Id = '" + user.id + "'",con); 
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    toolStripMenuItem3.Text = reader.GetString(0) + "    " + reader.GetInt32(1).ToString() + "$";
+                }
+                openform(new Profile(user));
+            });
         }
+
+        public static event EventHandler Normal;
+        public static event EventHandler Maximized;
 
         #region Move Form
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -49,7 +76,9 @@ namespace NotSteam
             Point point = new Point(Cursor.Position.X, 0);
             if (Cursor.Position == point)
             {
+                
                 WindowState = FormWindowState.Maximized;
+                Maximized?.Invoke(sender, e);
                 foreach (Form form in Application.OpenForms)
                 {
                     if (form is Store)
@@ -59,10 +88,8 @@ namespace NotSteam
                     }
                     else panel1.Width = 0;
                 }
-                Library.max = true;
 
             }
-            Library.max = false;
         }
 
         #endregion
@@ -172,6 +199,10 @@ namespace NotSteam
 
         #region Main Buttons
 
+
+        
+
+
         string storeceva = "select name,price from Games";
 
         private Form activeform = null;
@@ -187,31 +218,6 @@ namespace NotSteam
                     formerform = activeform;
                     activeform.Hide();
                 }
-                if (AddFunds.completed)
-                {
-                    bool maximized = false;
-                    if(WindowState == FormWindowState.Maximized)
-                        maximized = true;
-                    Controls.Clear();
-                    InitializeComponent();
-
-                    AddFunds.completed = false;
-
-                    if (loggeduser.admin != 1)
-                        addGameToNotSteamToolStripMenuItem.Visible = false;
-
-                    con.Open();
-
-                    string cmmoney = "select money from Users where id = " + loggeduser.id + "";
-                    SqlCommand cmdmoney = new SqlCommand(cmmoney, con);
-                    string money = cmdmoney.ExecuteScalar().ToString();
-
-                    con.Close();
-                    toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + money+"$";
-                    if (maximized)
-                        WindowState = FormWindowState.Maximized;
-
-                }
 
                 activeform = form;
 
@@ -226,6 +232,7 @@ namespace NotSteam
                     int Profile = Application.OpenForms.OfType<Profile>().Count();
                     int Settings = Application.OpenForms.OfType<Settings>().Count();
                     int Store = Application.OpenForms.OfType<Store>().Count();
+                    int Support = Application.OpenForms.OfType<Support>().Count();
                     foreach (Form thisform in forms)
                     {
                         if (thisform.Name == "AddFunds" && (addfunds >= 1 || (formerform.Name != "AddFunds" && activeform.Name != "AddFunds")))
@@ -258,11 +265,15 @@ namespace NotSteam
                             Settings--;
                             thisform.Close();
                         }
+                        if(thisform.Name == "Support"&& (Support>=1 || (formerform.Name != "Support" && activeform.Name != "Support")))
+                        {
+                            Support--;
+                            thisform.Close();
+                        }
                     }
                 }
                 #endregion
 
-                toolStripMenuItem3.Text = loggeduser.username.ToString() + "    " + Store.money + "$";
 
                 form.TopLevel = false;
                 form.FormBorderStyle = FormBorderStyle.None;
@@ -291,14 +302,14 @@ namespace NotSteam
 
         private void label2_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser));
+            openform(new Library(loggeduser,null));
             panel1.Width = 0;
         }
 
 
         private void label4_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser, false));
+            openform(new Profile(loggeduser));
             panel1.Width = 0;
         }
 
@@ -473,14 +484,14 @@ namespace NotSteam
             {
                 if (WindowState == FormWindowState.Maximized)
                 {
+                    Normal?.Invoke(sender, e);
                     WindowState = FormWindowState.Normal;
                     panel1.Width = 0;
-                    Library.max = false;
                 }
                 else
                 {
+                    Maximized?.Invoke(sender, e);
                     WindowState = FormWindowState.Maximized;
-                    Library.max = true;
                     panel1.Width = 400;
                 }
             }
@@ -488,13 +499,13 @@ namespace NotSteam
             {
                 if (WindowState == FormWindowState.Maximized)
                 {
+                    Normal?.Invoke(sender, e);
                     WindowState = FormWindowState.Normal;
-                    Library.max = false;
                 }
                 else
                 {
+                    Maximized?.Invoke(sender, e);
                     WindowState = FormWindowState.Maximized;
-                    Library.max = true;
                 }
             }
         }
@@ -526,7 +537,7 @@ namespace NotSteam
 
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser));
+            openform(new Library(loggeduser,null));
             panel1.Width = 0;
         }
 
@@ -538,13 +549,13 @@ namespace NotSteam
 
         private void toolStripMenuItem32_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser, true));
+            openform(new Profile(loggeduser));
             panel1.Width = 0;
         }
 
         private void toolStripMenuItem38_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser));
+            openform(new Library(loggeduser,null));
             panel1.Width = 0;
         }
 
@@ -552,7 +563,7 @@ namespace NotSteam
 
         private void toolStripMenuItem53_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser, false));
+            openform(new Profile(loggeduser));
             panel1.Width = 0;
         }
 

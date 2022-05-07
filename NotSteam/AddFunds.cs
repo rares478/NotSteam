@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace NotSteam
 {
@@ -19,7 +18,8 @@ namespace NotSteam
             userid = user.id;
             DoubleBuffered = true;
         }
-        public static bool completed = false;
+
+        public static event EventHandler FundsAdded;
         private void button1_Click(object sender, EventArgs e)
         {
             int money1 = Convert.ToInt32(cbMoney.SelectedItem);
@@ -34,7 +34,9 @@ namespace NotSteam
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                completed = true;
+                button1.Name = money.ToString();
+
+                FundsAdded?.Invoke(sender, e);
 
             }
         }

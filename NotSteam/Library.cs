@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace NotSteam
 {
@@ -10,12 +10,14 @@ namespace NotSteam
         int userid;
         static string path = System.IO.Path.GetFullPath(@"..\..\");
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
-        public Library(user user)
+        public Library(user user, string name)
         {
             userid = user.id;
-             InitializeComponent();
+            InitializeComponent();
             DoubleBuffered = true;
             lbAfis.Items.Clear();
+            panel1.Parent = pbAfis;
+
             con.Open();
             string query = "select [List of owned games].name from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
 
@@ -29,8 +31,23 @@ namespace NotSteam
             con.Close();
             lbAfis.SelectedIndex = 0;
 
+            NotSteamForm.Maximized += new EventHandler((sender, e) =>
+            {
+                pbAfis.Size = new Size(pbAfis.Width, 400);
+                pbLogo.Size = new Size(280, 175);
+                pbLogo.Location = new Point(6, 100);
+            });
+            NotSteamForm.Normal += new EventHandler((sender, e) =>
+            {
+                pbAfis.Size = new Size(pbAfis.Width, 350);
+                pbLogo.Size = new Size(256, 144);
+                pbLogo.Location = new Point(6, 134);
+            });
+
+            if (name != null)
+                lbAfis.SelectedItem = name;
+
         }
-        public static bool max = false;
         private void lbAfis_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string name = lbAfis.GetItemText(lbAfis.SelectedItem);
@@ -41,26 +58,19 @@ namespace NotSteam
                     name.Replace(" ", "_");
                 object obj = Properties.Resources.ResourceManager.GetObject(name);
                 object logo = Properties.logo.ResourceManager.GetObject(name);
-                if (max)
-                {
-                    pbAfis.Size = new Size(pbAfis.Width, 400);
-                    pbLogo.Size = new Size(300, 190);
-                }
-                else
-                {
-                    pbAfis.Size = new Size(pbAfis.Width, 350);
-                    pbLogo.Size = new Size(256, 144);
-                }
+
                 pbAfis.Image = (Bitmap)obj;
                 pbLogo.Image = (Bitmap)logo;
-                pbLogo.Location = new Point(0, 200);
+
+                button1.Name = name;
+
 
             }
             catch (Exception)
             {
                 pbAfis.Image = imageList1.Images[0];
             }
-            if(pbAfis.Image == null)
+            if (pbAfis.Image == null)
                 pbAfis.Image = imageList1.Images[0];
             int id = 0;
             con.Open();
@@ -87,9 +97,24 @@ namespace NotSteam
             con.Close();
         }
 
+
+
         private void btPlay_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public static event EventHandler OpenStoreClick;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenStoreClick?.Invoke(sender, e);
+        }
+
+        public static event EventHandler OpenSupport;
+        private void button7_Click(object sender, EventArgs e)
+        {
+            button7.Name = lbAfis.SelectedItem.ToString();
+            OpenSupport?.Invoke(sender, e);
         }
     }
 }
