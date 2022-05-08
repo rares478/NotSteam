@@ -54,6 +54,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelShowcase = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbPic = new System.Windows.Forms.TextBox();
             this.btCancel2 = new NotSteam.CustomPanelRenderer();
             this.labelcancel2 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.customPanelRenderer1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -419,8 +419,22 @@
             this.panel8.Size = new System.Drawing.Size(723, 622);
             this.panel8.TabIndex = 7;
             // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(150)))), ((int)(((byte)(143)))));
+            this.label10.Location = new System.Drawing.Point(14, 480);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(157, 19);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Insert link to picture.\r\n";
+            // 
             // tbPic
             // 
+            this.tbPic.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(68)))), ((int)(((byte)(80)))));
             this.tbPic.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPic.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -503,6 +517,7 @@
             // 
             // cbShowcases
             // 
+            this.cbShowcases.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbShowcases.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(68)))), ((int)(((byte)(80)))));
             this.cbShowcases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbShowcases.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -560,18 +575,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(144, 1061);
             this.panel1.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(150)))), ((int)(((byte)(143)))));
-            this.label10.Location = new System.Drawing.Point(14, 480);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(157, 19);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Insert link to picture.\r\n";
             // 
             // EditProfile
             // 

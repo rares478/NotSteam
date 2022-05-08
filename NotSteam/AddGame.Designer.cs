@@ -43,6 +43,7 @@
             // 
             // pbAdd
             // 
+            this.pbAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbAdd.Location = new System.Drawing.Point(581, 98);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(177, 153);
@@ -52,6 +53,7 @@
             // 
             // rbDesc
             // 
+            this.rbDesc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbDesc.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.rbDesc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbDesc.Location = new System.Drawing.Point(264, 230);
@@ -62,6 +64,7 @@
             // 
             // tbName
             // 
+            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbName.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tbName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbName.Location = new System.Drawing.Point(264, 98);
@@ -71,6 +74,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +87,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,6 +100,7 @@
             // 
             // tbDev
             // 
+            this.tbDev.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbDev.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tbDev.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbDev.Location = new System.Drawing.Point(264, 139);
@@ -104,6 +110,7 @@
             // 
             // tbPrice
             // 
+            this.tbPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPrice.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tbPrice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbPrice.Location = new System.Drawing.Point(264, 181);
@@ -113,6 +120,7 @@
             // 
             // label20
             // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -125,6 +133,7 @@
             // 
             // btPic
             // 
+            this.btPic.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(150)))), ((int)(((byte)(6)))));
             this.btPic.FlatAppearance.BorderColor = System.Drawing.Color.RosyBrown;
             this.btPic.FlatAppearance.BorderSize = 0;
@@ -141,6 +150,7 @@
             // 
             // btAddNew
             // 
+            this.btAddNew.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAddNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(150)))), ((int)(((byte)(6)))));
             this.btAddNew.FlatAppearance.BorderSize = 0;
             this.btAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
