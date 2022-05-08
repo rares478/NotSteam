@@ -34,11 +34,18 @@ namespace NotSteam
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Games(name,developer,date,description,price) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "', '" + price + "')";
+                    cmd.CommandText = "INSERT INTO Games(name,developer,date,description,price, [number bought]) Values ('" + tbName.Text + "', '" + tbDev.Text + "','" + now + "', '" + rbDesc.Text + "', '" + price + "', '0')";
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Game Added", "You did it", MessageBoxButtons.OK);
                     con.Close();
+
+
+                    con.Open();
+                    string query1 = "Select Id from Games WHERE name = '" + tbName.Text + "'";
+                    SqlCommand cmd2 = new SqlCommand(query1, con);
+                    int id = Convert.ToInt32(cmd2.ExecuteScalar());
+
 
                 }
             }

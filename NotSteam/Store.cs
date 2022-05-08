@@ -399,7 +399,7 @@ namespace NotSteam
         private void HandleScroll()
 
         {
-            if (panel3.VerticalScroll.Value > 2400 && ceva == 0)
+            if (panel3.VerticalScroll.Value > 2300 && ceva == 0)
             {
                 cz = cz + z;
                 if (NotSteamForm.freetoplay)
