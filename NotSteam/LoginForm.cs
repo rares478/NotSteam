@@ -12,12 +12,33 @@ namespace NotSteam
             InitializeComponent();
             pictureBox1.Image = imageList1.Images[0];
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
         }
         static string path = System.IO.Path.GetFullPath(@"..\..\");
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         public static user user = null;
         public static bool switchtoRegister = false;
 
+
+        #region Move Form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void moveform(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        #endregion
 
         public void btLogin_Click(object sender, EventArgs e)
         {
@@ -101,6 +122,28 @@ namespace NotSteam
                 money = 0
             };
             this.Close();
+        }
+
+        private void toolStripMenuItem49_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem50_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void toolStripMenuItem51_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

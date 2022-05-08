@@ -57,11 +57,11 @@ namespace NotSteam
             base.Dispose(disposing);
         }
 
-        private class MyRenderer : ToolStripProfessionalRenderer
+        public class MyRenderer : ToolStripProfessionalRenderer
         {
             public MyRenderer(): base(new MyColors()) { }
         }
-        private class MyColors : ProfessionalColorTable
+        public class MyColors : ProfessionalColorTable
         {
             #region MenuItem color
             public override Color MenuItemSelected => Color.FromArgb(54, 58, 65);
