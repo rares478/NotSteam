@@ -30,27 +30,31 @@ namespace NotSteam
                 panel1.Width = 0;
 
             Library.OpenStoreClick += new EventHandler((sender, e) =>
-            { 
+            {
                 Button bt = sender as Button;
                 string gamename = bt.Name;
                 openform(new Store(user, null, gamename));
             });
             AddFunds.FundsAdded += new EventHandler((sender, e) => { Button bt = sender as Button; toolStripMenuItem3.Text = user.username.ToString() + "    " + bt.Name + "$"; });
-            Library.OpenSupport += new EventHandler((sender, e) => { Button bt = sender as Button; string name = bt.Name; openform(new Support(name,user)); });
+            Library.OpenSupport += new EventHandler((sender, e) => { Button bt = sender as Button; string name = bt.Name; openform(new Support(name, user)); });
             Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Store(user, null, name)); });
             Support.ViewinLibrary += new EventHandler((sender, e) => { Label bt = sender as Label; string name = bt.Name; openform(new Library(user, name)); });
             Profile.EditProfile += new EventHandler((sender, e) => { openform(new EditProfile(user)); });
             EditProfile.GoBack += new EventHandler((sender, e) =>
-            { 
+            {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select username, money from Users WHERE Id = '" + user.id + "'",con); 
+                SqlCommand cmd = new SqlCommand("Select username, money from Users WHERE Id = '" + user.id + "'", con);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
                     toolStripMenuItem3.Text = reader.GetString(0) + "    " + reader.GetInt32(1).ToString() + "$";
                 }
                 openform(new Profile(user));
             });
+            Store.Switchtogame += new EventHandler((sender, e) => { string st = sender as string; openform(new Game(user, st,false)); });
+            Store.Switchtoqueue += new EventHandler((sender, e) => {openform(new Game(user, Store.queuepic[Store.queuelcoation+1], true)); });
+            Game.NextQueue += new EventHandler((sender, e) => { openform(new Game(user, Store.queuepic[Store.queuelcoation+1],true)); });
+            Game.EndQueue += new EventHandler((sender, e) => { openform(new Store(user, storeceva, null)); });
         }
 
         public static event EventHandler Normal;
@@ -76,7 +80,7 @@ namespace NotSteam
             Point point = new Point(Cursor.Position.X, 0);
             if (Cursor.Position == point)
             {
-                
+
                 WindowState = FormWindowState.Maximized;
                 Maximized?.Invoke(sender, e);
                 foreach (Form form in Application.OpenForms)
@@ -94,113 +98,10 @@ namespace NotSteam
 
         #endregion
 
-        #region switch
-        /*public void ChangeTheme(Control.ControlCollection container)
-        {
-            foreach (Control component in container)
-            {
-                if (component is Button)
-                {
-                    component.BackColor = Colorscheme.ButtonBG;
-
-                }
-                else if (component is TextBox)
-                {
-                    component.BackColor = Colorscheme.ButtonBG;
-                    component.ForeColor = Colorscheme.ButtonFG;
-                }
-                else if (component is ComboBox)
-                {
-                    component.BackColor = Colorscheme.ComboBG;
-                    component.ForeColor = Colorscheme.ComboFG;
-                }
-                else if (component is RadioButton)
-                {
-                    component.BackColor = Colorscheme.ButtonBG;
-                    component.ForeColor = Colorscheme.ButtonFG;
-                }
-                else if (component is TabPage)
-                {
-                    component.BackColor = Colorscheme.TabBG;
-                }
-                else if (component is RichTextBox)
-                {
-                    component.BackColor = Colorscheme.ButtonBG;
-                    component.ForeColor = Colorscheme.ButtonFG;
-                }
-                else if (component is ListView)
-                {
-                    component.BackColor = Colorscheme.ListBoxBG;
-                    component.ForeColor = Colorscheme.ListBoxFG;
-                }
-                else if (component is Label)
-                {
-                    component.ForeColor = Colorscheme.TabFG;
-                }
-                else if (component is RadioButton)
-                {
-                    component.ForeColor = Colorscheme.TabFG;
-                }
-            }
-        }
-
-        public void ChangeThemeOrig(Control.ControlCollection container)
-        {
-            foreach (Control component in container)
-            {
-                if (component is Button)
-                {
-                    component.BackColor = ColorOriginal.ButtonBG;
-
-                }
-                else if (component is TextBox)
-                {
-                    component.BackColor = ColorOriginal.RichTextBox;
-                    component.ForeColor = ColorOriginal.ButtonFG;
-                }
-                else if (component is ComboBox)
-                {
-                    component.BackColor = ColorOriginal.RichTextBox;
-                    component.ForeColor = ColorOriginal.ComboFG;
-                }
-                else if (component is RadioButton)
-                {
-                    component.BackColor = ColorOriginal.ButtonBG;
-                    component.ForeColor = ColorOriginal.ButtonFG;
-                }
-                else if (component is TabPage)
-                {
-                    component.BackColor = ColorOriginal.TabBG;
-                    component.ForeColor = ColorOriginal.TabFG;
-                }
-                else if (component is RichTextBox)
-                {
-                    component.BackColor = ColorOriginal.RichTextBox;
-                    component.ForeColor = ColorOriginal.ButtonFG;
-                }
-                else if (component is ListView)
-                {
-                    component.BackColor = ColorOriginal.RichTextBox;
-                    component.ForeColor = ColorOriginal.ListBoxFG;
-                }
-                else if (component is Label)
-                {
-                    component.ForeColor = ColorOriginal.ButtonFG;
-                }
-                else if (component is RadioButton)
-                {
-                    component.ForeColor = ColorOriginal.ButtonFG;
-                }
-            }
-        }*/
-
-
-        #endregion
-
         #region Main Buttons
 
 
-        
+
 
 
         string storeceva = "select name,price from Games";
@@ -233,6 +134,8 @@ namespace NotSteam
                     int Settings = Application.OpenForms.OfType<Settings>().Count();
                     int Store = Application.OpenForms.OfType<Store>().Count();
                     int Support = Application.OpenForms.OfType<Support>().Count();
+                    int Game = Application.OpenForms.OfType<Game>().Count();
+                    int EditProfile = Application.OpenForms.OfType<EditProfile>().Count();
                     foreach (Form thisform in forms)
                     {
                         if (thisform.Name == "AddFunds" && (addfunds >= 1 || (formerform.Name != "AddFunds" && activeform.Name != "AddFunds")))
@@ -255,7 +158,7 @@ namespace NotSteam
                             Profile--;
                             thisform.Close();
                         }
-                        if (thisform.Name == "Store" && (Store > 1 || activeform.Name != "Store"))///memory leak da idk
+                        if (thisform.Name == "Store" && (Store > 1 || (activeform.Name != "Store" && formerform.Name != "Store")))///memory leak da idk
                         {
                             Store--;
                             thisform.Close();
@@ -265,9 +168,19 @@ namespace NotSteam
                             Settings--;
                             thisform.Close();
                         }
-                        if(thisform.Name == "Support"&& (Support>=1 || (formerform.Name != "Support" && activeform.Name != "Support")))
+                        if (thisform.Name == "Support" && (Support >= 1 || (formerform.Name != "Support" && activeform.Name != "Support")))
                         {
                             Support--;
+                            thisform.Close();
+                        }
+                        if (thisform.Name == "Game" && (Game >= 1 || (formerform.Name != "Game" && activeform.Name != "Game")))
+                        {
+                            Game--;
+                            thisform.Close();
+                        }
+                        if (thisform.Name == "EditProfile" && (EditProfile >= 1 || (formerform.Name != "EditProfile" && activeform.Name != "EditProfile")))
+                        {
+                            EditProfile--;
                             thisform.Close();
                         }
                     }
@@ -302,7 +215,7 @@ namespace NotSteam
 
         private void label2_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser,null));
+            openform(new Library(loggeduser, null));
             panel1.Width = 0;
         }
 
@@ -444,7 +357,7 @@ namespace NotSteam
         private void label32_Click(object sender, EventArgs e)
         {
             var rand = new Random();
-            int id = rand.Next(1,56);
+            int id = rand.Next(1, 56);
             con.Open();
             string query = "select name from Games where Id = '" + id + "'";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -537,7 +450,7 @@ namespace NotSteam
 
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser,null));
+            openform(new Library(loggeduser, null));
             panel1.Width = 0;
         }
 
@@ -555,7 +468,7 @@ namespace NotSteam
 
         private void toolStripMenuItem38_Click(object sender, EventArgs e)
         {
-            openform(new Library(loggeduser,null));
+            openform(new Library(loggeduser, null));
             panel1.Width = 0;
         }
 

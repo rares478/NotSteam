@@ -30,6 +30,7 @@
         {
             this.customPanelRenderer1 = new NotSteam.CustomPanelRenderer();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.btCancel = new NotSteam.CustomPanelRenderer();
             this.btCancelLabel = new System.Windows.Forms.Label();
@@ -53,6 +54,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelShowcase = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.tbPic = new System.Windows.Forms.TextBox();
+            this.btCancel2 = new NotSteam.CustomPanelRenderer();
+            this.labelcancel2 = new System.Windows.Forms.Label();
+            this.customPanelRenderer2 = new NotSteam.CustomPanelRenderer();
+            this.labelsave2 = new System.Windows.Forms.Label();
             this.pbShowcase = new System.Windows.Forms.PictureBox();
             this.DescriptionShowcase = new System.Windows.Forms.RichTextBox();
             this.cbShowcases = new System.Windows.Forms.ComboBox();
@@ -60,23 +66,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.customPanelRenderer2 = new NotSteam.CustomPanelRenderer();
-            this.labelsave2 = new System.Windows.Forms.Label();
-            this.btCancel2 = new NotSteam.CustomPanelRenderer();
-            this.labelcancel2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.customPanelRenderer1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panelGeneral.SuspendLayout();
             this.btCancel.SuspendLayout();
             this.btSave.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panelShowcase.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.btCancel2.SuspendLayout();
+            this.customPanelRenderer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowcase)).BeginInit();
             this.btSave2.SuspendLayout();
-            this.customPanelRenderer2.SuspendLayout();
-            this.btCancel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // customPanelRenderer1
@@ -97,7 +102,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.panelGeneral);
+            this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(144, 111);
@@ -105,10 +110,18 @@
             this.panel5.Size = new System.Drawing.Size(893, 950);
             this.panel5.TabIndex = 4;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.panelGeneral);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(170, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(723, 950);
+            this.panel6.TabIndex = 16;
+            // 
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.panelGeneral.Controls.Add(this.panelShowcase);
             this.panelGeneral.Controls.Add(this.btCancel);
             this.panelGeneral.Controls.Add(this.label2);
             this.panelGeneral.Controls.Add(this.btSave);
@@ -120,7 +133,7 @@
             this.panelGeneral.Controls.Add(this.label7);
             this.panelGeneral.Controls.Add(this.label6);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGeneral.Location = new System.Drawing.Point(170, 0);
+            this.panelGeneral.Location = new System.Drawing.Point(0, 0);
             this.panelGeneral.Name = "panelGeneral";
             this.panelGeneral.Size = new System.Drawing.Size(723, 950);
             this.panelGeneral.TabIndex = 15;
@@ -348,6 +361,7 @@
             this.btGeneral.Text = "General";
             this.btGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btGeneral.UseVisualStyleBackColor = false;
+            this.btGeneral.Click += new System.EventHandler(this.btGeneral_Click);
             // 
             // panel3
             // 
@@ -373,6 +387,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.panelShowcase);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1037, 0);
             this.panel2.Name = "panel2";
@@ -383,7 +398,7 @@
             // 
             this.panelShowcase.Controls.Add(this.panel8);
             this.panelShowcase.Controls.Add(this.btSave2);
-            this.panelShowcase.Location = new System.Drawing.Point(3, 144);
+            this.panelShowcase.Location = new System.Drawing.Point(17, 272);
             this.panelShowcase.Name = "panelShowcase";
             this.panelShowcase.Size = new System.Drawing.Size(723, 711);
             this.panelShowcase.TabIndex = 15;
@@ -391,6 +406,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(59)))));
+            this.panel8.Controls.Add(this.label10);
+            this.panel8.Controls.Add(this.tbPic);
             this.panel8.Controls.Add(this.btCancel2);
             this.panel8.Controls.Add(this.customPanelRenderer2);
             this.panel8.Controls.Add(this.pbShowcase);
@@ -401,6 +418,63 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(723, 622);
             this.panel8.TabIndex = 7;
+            // 
+            // tbPic
+            // 
+            this.tbPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(68)))), ((int)(((byte)(80)))));
+            this.tbPic.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPic.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPic.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.tbPic.Location = new System.Drawing.Point(15, 502);
+            this.tbPic.Name = "tbPic";
+            this.tbPic.Size = new System.Drawing.Size(685, 19);
+            this.tbPic.TabIndex = 25;
+            // 
+            // btCancel2
+            // 
+            this.btCancel2.Angle = 90F;
+            this.btCancel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(77)))), ((int)(((byte)(88)))));
+            this.btCancel2.Controls.Add(this.labelcancel2);
+            this.btCancel2.Location = new System.Drawing.Point(306, 527);
+            this.btCancel2.Name = "btCancel2";
+            this.btCancel2.Size = new System.Drawing.Size(194, 39);
+            this.btCancel2.TabIndex = 24;
+            this.btCancel2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(77)))), ((int)(((byte)(88)))));
+            // 
+            // labelcancel2
+            // 
+            this.labelcancel2.AutoSize = true;
+            this.labelcancel2.BackColor = System.Drawing.Color.Transparent;
+            this.labelcancel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcancel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelcancel2.Location = new System.Drawing.Point(74, 11);
+            this.labelcancel2.Name = "labelcancel2";
+            this.labelcancel2.Size = new System.Drawing.Size(45, 16);
+            this.labelcancel2.TabIndex = 0;
+            this.labelcancel2.Text = "Cancel";
+            // 
+            // customPanelRenderer2
+            // 
+            this.customPanelRenderer2.Angle = 180F;
+            this.customPanelRenderer2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(190)))), ((int)(((byte)(255)))));
+            this.customPanelRenderer2.Controls.Add(this.labelsave2);
+            this.customPanelRenderer2.Location = new System.Drawing.Point(506, 527);
+            this.customPanelRenderer2.Name = "customPanelRenderer2";
+            this.customPanelRenderer2.Size = new System.Drawing.Size(194, 39);
+            this.customPanelRenderer2.TabIndex = 23;
+            this.customPanelRenderer2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(130)))), ((int)(((byte)(225)))));
+            // 
+            // labelsave2
+            // 
+            this.labelsave2.AutoSize = true;
+            this.labelsave2.BackColor = System.Drawing.Color.Transparent;
+            this.labelsave2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsave2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelsave2.Location = new System.Drawing.Point(80, 11);
+            this.labelsave2.Name = "labelsave2";
+            this.labelsave2.Size = new System.Drawing.Size(35, 16);
+            this.labelsave2.TabIndex = 1;
+            this.labelsave2.Text = "Save";
             // 
             // pbShowcase
             // 
@@ -452,6 +526,7 @@
             this.btSave2.Name = "btSave2";
             this.btSave2.Size = new System.Drawing.Size(723, 89);
             this.btSave2.TabIndex = 6;
+            this.btSave2.Visible = false;
             // 
             // label9
             // 
@@ -486,51 +561,17 @@
             this.panel1.Size = new System.Drawing.Size(144, 1061);
             this.panel1.TabIndex = 0;
             // 
-            // customPanelRenderer2
+            // label10
             // 
-            this.customPanelRenderer2.Angle = 180F;
-            this.customPanelRenderer2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(190)))), ((int)(((byte)(255)))));
-            this.customPanelRenderer2.Controls.Add(this.labelsave2);
-            this.customPanelRenderer2.Location = new System.Drawing.Point(506, 527);
-            this.customPanelRenderer2.Name = "customPanelRenderer2";
-            this.customPanelRenderer2.Size = new System.Drawing.Size(194, 39);
-            this.customPanelRenderer2.TabIndex = 23;
-            this.customPanelRenderer2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(130)))), ((int)(((byte)(225)))));
-            // 
-            // labelsave2
-            // 
-            this.labelsave2.AutoSize = true;
-            this.labelsave2.BackColor = System.Drawing.Color.Transparent;
-            this.labelsave2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsave2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelsave2.Location = new System.Drawing.Point(80, 11);
-            this.labelsave2.Name = "labelsave2";
-            this.labelsave2.Size = new System.Drawing.Size(35, 16);
-            this.labelsave2.TabIndex = 1;
-            this.labelsave2.Text = "Save";
-            // 
-            // btCancel2
-            // 
-            this.btCancel2.Angle = 90F;
-            this.btCancel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(77)))), ((int)(((byte)(88)))));
-            this.btCancel2.Controls.Add(this.labelcancel2);
-            this.btCancel2.Location = new System.Drawing.Point(306, 527);
-            this.btCancel2.Name = "btCancel2";
-            this.btCancel2.Size = new System.Drawing.Size(194, 39);
-            this.btCancel2.TabIndex = 24;
-            this.btCancel2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(77)))), ((int)(((byte)(88)))));
-            // 
-            // labelcancel2
-            // 
-            this.labelcancel2.AutoSize = true;
-            this.labelcancel2.BackColor = System.Drawing.Color.Transparent;
-            this.labelcancel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcancel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelcancel2.Location = new System.Drawing.Point(74, 11);
-            this.labelcancel2.Name = "labelcancel2";
-            this.labelcancel2.Size = new System.Drawing.Size(45, 16);
-            this.labelcancel2.TabIndex = 0;
-            this.labelcancel2.Text = "Cancel";
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(150)))), ((int)(((byte)(143)))));
+            this.label10.Location = new System.Drawing.Point(14, 480);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(157, 19);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Insert link to picture.\r\n";
             // 
             // EditProfile
             // 
@@ -542,6 +583,7 @@
             this.Text = "EditProfile";
             this.customPanelRenderer1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panelGeneral.ResumeLayout(false);
             this.panelGeneral.PerformLayout();
             this.btCancel.ResumeLayout(false);
@@ -551,15 +593,17 @@
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.panelShowcase.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.btCancel2.ResumeLayout(false);
+            this.btCancel2.PerformLayout();
+            this.customPanelRenderer2.ResumeLayout(false);
+            this.customPanelRenderer2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowcase)).EndInit();
             this.btSave2.ResumeLayout(false);
             this.btSave2.PerformLayout();
-            this.customPanelRenderer2.ResumeLayout(false);
-            this.customPanelRenderer2.PerformLayout();
-            this.btCancel2.ResumeLayout(false);
-            this.btCancel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -602,5 +646,8 @@
         private System.Windows.Forms.Label labelcancel2;
         private CustomPanelRenderer customPanelRenderer2;
         private System.Windows.Forms.Label labelsave2;
+        private System.Windows.Forms.TextBox tbPic;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label10;
     }
 }

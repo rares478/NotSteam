@@ -18,18 +18,38 @@ namespace NotSteam
             label1.Text = user.username;
             tbUsername.Text = user.username;
             tbDesc.Text = "";
+            panelShowcase.Visible = false;
+
+            int showcase = 0;
 
             con.Open();
-            string query = "select description from Users where Id = '" + user.id + "'";
+            string query = "select description,showcase from Users where Id = '" + user.id + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader dr = cmd.ExecuteReader();
-            if(dr.Read())
+            if (dr.Read())
             {
-                if(dr.IsDBNull(0) == false)
-                tbDesc.Text = dr.GetString(0);
+                if (dr.IsDBNull(0) == false)
+                    tbDesc.Text = dr.GetString(0);
                 description = tbDesc.Text;
+                showcase = dr.GetInt32(1);
             }
             con.Close();
+
+            if(showcase == 1)
+            {
+                DescriptionShowcase.Visible = false;
+                pbShowcase.Visible = true;
+                tbPic.Visible = true;
+                cbShowcases.SelectedItem = "Artwork Showcase";
+            }
+            if(showcase == 1)
+            {
+                DescriptionShowcase.Visible = true;
+                pbShowcase.Visible = false;
+                tbPic.Visible = false;
+                cbShowcases.SelectedItem = "Custom Info Box";
+            }
+
             btSave.Click += new EventHandler(Save);
             btSaveLabel.Click += new EventHandler(Save);
             btCancel.Click += new EventHandler(Cancel);
@@ -48,13 +68,13 @@ namespace NotSteam
         private void Save(object sender, EventArgs e)
         {
             con.Open();
-            if(tbUsername.Text != loggeduser.username)
+            if (tbUsername.Text != loggeduser.username)
             {
                 string query = "UPDATE Users SET username = '" + tbUsername.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
-            if(description != tbDesc.Text)
+            if (description != tbDesc.Text)
             {
                 string query = "UPDATE Users SET description = '" + tbDesc.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -62,15 +82,54 @@ namespace NotSteam
             }
         }
 
-        private static void Save2(object sender,EventArgs e)
+        private void Save2(object sender,EventArgs e)
         {
-            
-        }
+            if(cbShowcases.SelectedIndex == 0)
+            {
+                con.Open();
+                string query1 = "UPDATE Users SET showcase = '1' WHERE Id = '" + loggeduser.id + "'";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                cmd1.ExecuteNonQuery();
 
+                string query2 = "UPDATE Users SET PictureBox = '"+tbPic.Text+"' WHERE Id = '" + loggeduser.id + "'";
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                cmd2.ExecuteNonQuery();
+                con.Close();
+            }
+            if(cbShowcases.SelectedIndex == 1)
+            {
+                con.Open();
+                string query = "UPDATE Users SET showcase = '2 WHERE Id = '" + loggeduser.id + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+
+                string query2 = "UPDATE Users SET DescriptionBox = '" + DescriptionShowcase.Text + "' WHERE Id = '" + loggeduser.id + "'";
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                cmd2.ExecuteNonQuery();
+                con.Close();
+            }
+        }
 
         private void Cancel(object sender, EventArgs e)
         {
             GoBack?.Invoke(sender, e);
+        }
+
+        private void cbShowcases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbShowcases.SelectedIndex == 0)
+            {
+                DescriptionShowcase.Visible = false;
+                pbShowcase.Visible = true;
+                tbPic.Visible = true;
+            }
+            else
+            {
+                DescriptionShowcase.Visible = true;
+                pbShowcase.Visible = false;
+                tbPic.Visible = false;
+
+            }
         }
 
         private void btShowcase_Click(object sender, EventArgs e)
@@ -78,21 +137,17 @@ namespace NotSteam
             panelGeneral.Visible = false;
             panelGeneral.Dock = DockStyle.None;
             panelShowcase.Visible = true;
-            panelShowcase.Parent = panel5;
-            panelShowcase.Location = new System.Drawing.Point(314, 111);
+            panelShowcase.Parent = panel6;
             panelShowcase.Dock = DockStyle.Fill;
         }
 
-        private void cbShowcases_SelectedIndexChanged(object sender, EventArgs e)
+        private void btGeneral_Click(object sender, EventArgs e)
         {
-            if(cbShowcases.SelectedIndex == 0)
-            {
-                pbShowcase.Visible = true;
-            }
-            else
-            {
-                DescriptionShowcase.Visible = true;
-            }
+            panelShowcase.Visible = false;
+            panelShowcase.Dock = DockStyle.None;
+            panelGeneral.Visible = true;
+            panelGeneral.Parent = panel6;
+            panelGeneral.Dock = DockStyle.Fill;
         }
     }
 }
