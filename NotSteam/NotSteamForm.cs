@@ -20,6 +20,7 @@ namespace NotSteam
             if (user.admin != 1)
                 addGameToNotSteamToolStripMenuItem.Visible = false;
             label4.Text = user.username;
+            StartPosition = FormStartPosition.CenterScreen;
 
             toolStripMenuItem3.Text = user.username.ToString() + "    " + user.money.ToString() + "$";
             Form mainform = new Store(loggeduser, storeceva, null);

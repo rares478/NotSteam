@@ -129,9 +129,8 @@ namespace NotSteam
             SqlDataReader reader = cmdid.ExecuteReader();
 
 
-            while (reader.Read() && z <= cz + 10)
+            while (reader.Read() && z <= cz + 15)
             {
-
                 string name = reader.GetString(0);
 
                 Label lbName = new Label();
@@ -399,9 +398,11 @@ namespace NotSteam
         private void HandleScroll()
 
         {
-            if (panel3.VerticalScroll.Value > 2300 && ceva == 0)
+            if (panel3.VerticalScroll.Value > 4000 && ceva == 0)
             {
                 cz = cz + z;
+                timer1.Stop();
+                
                 if (NotSteamForm.freetoplay)
                     query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.early)
@@ -429,6 +430,8 @@ namespace NotSteam
                 z = 3;
                 initialize();
                 ceva++;
+                timer1.Start();
+                
             }
 
         }
