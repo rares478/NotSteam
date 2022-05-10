@@ -13,6 +13,7 @@ namespace NotSteam
             pictureBox1.Image = imageList1.Images[0];
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            StartPosition = FormStartPosition.CenterScreen;
         }
         static string path = System.IO.Path.GetFullPath(@"..\..\");
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
