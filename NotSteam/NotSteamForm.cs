@@ -11,7 +11,7 @@ namespace NotSteam
 
         static string path = System.IO.Path.GetFullPath(@"..\..\");
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
-        static user loggeduser = new user();
+        public static user loggeduser = new user();
         public NotSteamForm(user user)
         {
 
@@ -30,23 +30,23 @@ namespace NotSteam
             if (WindowState != FormWindowState.Maximized)
                 panel1.Width = 0;
 
-            Library.OpenStoreClick += new EventHandler((sender, e) => { Button bt = sender as Button; string gamename = bt.Name; openform(new Game(user,gamename,false));});
+            Library.OpenStoreClick += new EventHandler((sender, e) => { Button bt = sender as Button; string gamename = bt.Name; openform(new Game(user, gamename, false)); });
             AddFunds.FundsAdded += new EventHandler((sender, e) => { Button bt = sender as Button; toolStripMenuItem3.Text = user.username.ToString() + "    " + bt.Name + "$"; });
             Library.OpenSupport += new EventHandler((sender, e) => { Button bt = sender as Button; string name = bt.Name; openform(new Support(name, user)); });
-            Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Game(user,name,false)); });
-            Support.ViewinLibrary += new EventHandler((sender, e) => 
+            Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Game(user, name, false)); });
+            Support.ViewinLibrary += new EventHandler((sender, e) =>
             {
                 Label lb;
                 Panel pn;
                 if (sender is Label)
-                { 
+                {
                     lb = (Label)sender;
                     openform(new Library(user, lb.Name));
                 }
-                if(sender is Panel)
+                if (sender is Panel)
                 {
                     pn = (Panel)sender;
-                    openform(new Library(user,pn.Name));
+                    openform(new Library(user, pn.Name));
                 }
             });
             Profile.EditProfile += new EventHandler((sender, e) => { openform(new EditProfile(user)); });
@@ -59,13 +59,13 @@ namespace NotSteam
                 {
                     toolStripMenuItem3.Text = reader.GetString(0) + "    " + reader.GetInt32(1).ToString() + "$";
                 }
-                openform(new Profile(user));
+                openform(new Profile(user,false));
             });
-            Store.Switchtogame += new EventHandler((sender, e) => { string st = sender as string; openform(new Game(user, st,false)); });
-            Store.Switchtoqueue += new EventHandler((sender, e) => {openform(new Game(user, Store.queuepic[Store.queuelcoation+1], true)); });
-            Game.NextQueue += new EventHandler((sender, e) => { openform(new Game(user, Store.queuepic[Store.queuelcoation+1],true)); });
+            Store.Switchtogame += new EventHandler((sender, e) => { string st = sender as string; openform(new Game(user, st, false)); });
+            Store.Switchtoqueue += new EventHandler((sender, e) => { openform(new Game(user, Store.queuepic[Store.queuelcoation + 1], true)); });
+            Game.NextQueue += new EventHandler((sender, e) => { openform(new Game(user, Store.queuepic[Store.queuelcoation + 1], true)); });
             Game.EndQueue += new EventHandler((sender, e) => { openform(new Store(user, storeceva, null)); });
-            Game.category += new EventHandler((sender, e) => 
+            Game.category += new EventHandler((sender, e) =>
             {
                 Button bt = sender as Button;
                 switch (bt.Text)
@@ -120,6 +120,7 @@ namespace NotSteam
                         break;
                 }
             });
+            Community.friend += new EventHandler((sender, e) => { RichTextBox richText = sender as RichTextBox; int id = Convert.ToInt32(richText.Name); user friend = new user(); friend.id = id; openform(new Profile(friend,true)); });
         }
 
         #region category strings
@@ -186,10 +187,6 @@ namespace NotSteam
         #endregion
 
         #region Main Buttons
-
-
-
-
 
         string storeceva = "select name,price from Games";
 
@@ -285,7 +282,7 @@ namespace NotSteam
                 nimicToolStripMenuItem.Text = Application.OpenForms.Count.ToString();
                 former = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Form mainform = new Store(loggeduser, storeceva, null);
                 openform(mainform);
@@ -306,10 +303,15 @@ namespace NotSteam
             panel1.Width = 0;
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+            panel1.Width = 0;
+            openform(new Community(loggeduser));
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser));
+            openform(new Profile(loggeduser,false));
             panel1.Width = 0;
         }
 
@@ -536,7 +538,7 @@ namespace NotSteam
 
         private void toolStripMenuItem32_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser));
+            openform(new Profile(loggeduser,false));
             panel1.Width = 0;
         }
 
@@ -550,7 +552,7 @@ namespace NotSteam
 
         private void toolStripMenuItem53_Click(object sender, EventArgs e)
         {
-            openform(new Profile(loggeduser));
+            openform(new Profile(loggeduser, false));
             panel1.Width = 0;
         }
 
@@ -569,6 +571,5 @@ namespace NotSteam
             panel1.Width = 0;
         }
         #endregion
-
     }
 }

@@ -35,14 +35,14 @@ namespace NotSteam
             }
             con.Close();
 
-            if(showcase == 1)
+            if (showcase == 1)
             {
                 DescriptionShowcase.Visible = false;
                 pbShowcase.Visible = true;
                 tbPic.Visible = true;
                 cbShowcases.SelectedItem = "Artwork Showcase";
             }
-            if(showcase == 1)
+            if (showcase == 1)
             {
                 DescriptionShowcase.Visible = true;
                 pbShowcase.Visible = false;
@@ -82,21 +82,21 @@ namespace NotSteam
             }
         }
 
-        private void Save2(object sender,EventArgs e)
+        private void Save2(object sender, EventArgs e)
         {
-            if(cbShowcases.SelectedIndex == 0)
+            if (cbShowcases.SelectedIndex == 0)
             {
                 con.Open();
                 string query1 = "UPDATE Users SET showcase = '1' WHERE Id = '" + loggeduser.id + "'";
                 SqlCommand cmd1 = new SqlCommand(query1, con);
                 cmd1.ExecuteNonQuery();
 
-                string query2 = "UPDATE Users SET PictureBox = '"+tbPic.Text+"' WHERE Id = '" + loggeduser.id + "'";
+                string query2 = "UPDATE Users SET PictureBox = '" + tbPic.Text + "' WHERE Id = '" + loggeduser.id + "'";
                 SqlCommand cmd2 = new SqlCommand(query2, con);
                 cmd2.ExecuteNonQuery();
                 con.Close();
             }
-            if(cbShowcases.SelectedIndex == 1)
+            if (cbShowcases.SelectedIndex == 1)
             {
                 con.Open();
                 string query = "UPDATE Users SET showcase = '2 WHERE Id = '" + loggeduser.id + "'";

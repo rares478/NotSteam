@@ -42,7 +42,7 @@ namespace NotSteam
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             money = money + 10;
-            cmd.CommandText = "UPDATE Users SET money = '" + money  + "' WHERE Id = '" + userid + "'";
+            cmd.CommandText = "UPDATE Users SET money = '" + money + "' WHERE Id = '" + userid + "'";
             cmd.ExecuteNonQuery();
             con.Close();
 

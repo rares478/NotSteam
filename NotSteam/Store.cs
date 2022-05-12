@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -402,7 +401,7 @@ namespace NotSteam
             {
                 cz = cz + z;
                 timer1.Stop();
-                
+
                 if (NotSteamForm.freetoplay)
                     query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1' AND Games.Id >'" + cz + "'";
                 else if (NotSteamForm.early)
@@ -431,7 +430,7 @@ namespace NotSteam
                 initialize();
                 ceva++;
                 timer1.Start();
-                
+
             }
 
         }

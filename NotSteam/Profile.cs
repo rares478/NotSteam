@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,14 +11,31 @@ namespace NotSteam
         static string path = System.IO.Path.GetFullPath(@"..\..\");
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "notsteam.mdf;Integrated Security=True;Connect Timeout=30; MultipleActiveResultSets=true");
         int userid;
-        string username;
-        public Profile(user user)
+        bool friends = false;
+        public Profile(user user, bool friend)
         {
             InitializeComponent();
             userid = user.id;
-            username = user.username;
+
             DoubleBuffered = true;
             DescriptionShowcase.Visible = false;
+
+            if (friend)
+            {
+                friends = true;
+                con.Open();
+                int id = NotSteamForm.loggeduser.id;
+                string query1 = "Select FriendId From Friends Where UserId = '" + id + "' and FriendId = '" + userid + "'";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                SqlDataReader sqlData = cmd1.ExecuteReader();
+                if (sqlData.Read())
+                {
+                    btEdit.Text = "Message";
+                }
+                else btEdit.Text = "Add Friend";
+                con.Close();
+            }
+
 
 
 
@@ -33,12 +49,16 @@ namespace NotSteam
 
 
             con.Open();
+
+            string usern = "select username from Users where Id = '" + userid + "'";
+            SqlCommand cmdname = new SqlCommand(usern, con);
+            label1.Text = cmdname.ExecuteScalar().ToString();
+
             string desc = "select description from Users where id = " + userid + "";
             SqlCommand cmddesc = new SqlCommand(desc, con);
             tbDesc.Text = cmddesc.ExecuteScalar().ToString();
             if (tbDesc.Text.Length == 0)
                 tbDesc.Text = "Add a description";
-            label1.Text = username;
 
             string longquery = "Select showcase from Users where Id = '" + userid + "'";
             SqlCommand cmdlong = new SqlCommand(longquery, con);
@@ -89,90 +109,27 @@ namespace NotSteam
         }
 
 
-        string changename = null;
-        string description = null;
-
-        private void updatename(object sender, EventArgs e)
-        {
-            TextBox tb = sender as TextBox;
-            changename = tb.Text;
-        }
-
-        private void updatedesc(object sender, EventArgs e)
-        {
-            RichTextBox tb = sender as RichTextBox;
-            if (tb != null)
-                description = tb.Text.ToString();
-        }
-
-        private void btSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                con.Open();
-                if (changename.Length > 0)
-                {
-
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE Users SET username = '" + changename + "', description = '" + description + "' WHERE Id = '" + userid + "'";
-                    cmd.ExecuteNonQuery();
-                    string desc = "select description from Users where Id = " + userid + "";
-                    SqlCommand cmddesc = new SqlCommand(desc, con);
-                    tbDesc.Text = cmddesc.ExecuteScalar().ToString();
-                    if (tbDesc.Text.Length == 0)
-                        tbDesc.Text = "Add a description";
-                    con.Close();
-                }
-                else
-                    con.Close();
-                Controls.Clear();
-                InitializeComponent();
-                tbDesc.Text = description;
-                label1.Text = changename;
-
-                con.Open();
-                lvLibrary.Clear();
-                lvLibrary.View = View.Details;
-                lvLibrary.AllowColumnReorder = true;
-                lvLibrary.Columns.Add(new ColumnHeader());
-                lvLibrary.Columns[0].Text = "nimic-nu sterge ca bubuie";
-                lvLibrary.Columns[0].Width = 0;
-                lvLibrary.Columns.Add(new ColumnHeader());
-                lvLibrary.Columns[1].Text = "Game";
-                lvLibrary.Columns[1].Width = 130;
-                lvLibrary.Columns.Add(new ColumnHeader());
-                lvLibrary.Columns[2].Text = "Date bought";
-                lvLibrary.Columns[2].Width = 100;
-                lvLibrary.LabelEdit = true;
-                string query = "select [List of owned games].name, [List of owned games].[date_bought] from dbo.[List of owned games] inner join Games on Games.Id = [List of owned games].GameID inner join Users on Users.Id = [List of owned games].UserId WHERE[List of owned games].UserId = " + userid + "";
-
-                SqlCommand cmde = new SqlCommand(query, con);
-
-                SqlDataReader reader = cmde.ExecuteReader();
-                while (reader.Read())
-                {
-                    ListViewItem lvgame = new ListViewItem();
-                    lvgame.SubItems.Add(reader.GetString(0));
-                    var dateValue1 = reader.GetDateTime(1).ToString("MM/dd/yyyy");
-                    lvgame.SubItems.Add(dateValue1);
-                    lvLibrary.Items.Add(lvgame);
-                }
-                con.Close();
-
-            }
-            catch (Exception)
-            {
-            }
-        }
 
         public static event EventHandler EditProfile;
 
         private void btEdit_Click(object sender, EventArgs e)
         {
+            if (friends)
+            {
+                con.Open();
+                int id = NotSteamForm.loggeduser.id;
+                string query1 = "insert into Friends(UserId,FriendId) Values('" + id + "','" + userid + "')";
+                string query2 = "insert into Friends(UserId,FriendId) Values('" + userid + "','" + id + "')";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                cmd1.ExecuteNonQuery();
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                cmd2.ExecuteNonQuery();
+                con.Close();
+                btEdit.Text = "Message";
 
-            EditProfile?.Invoke(sender, e);
-            ///EditProfile();
+            }
+            else
+                EditProfile?.Invoke(sender, e);
         }
 
         public int c = 0;

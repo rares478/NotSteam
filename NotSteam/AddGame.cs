@@ -56,42 +56,42 @@ namespace NotSteam
                     SqlCommand cmd2 = new SqlCommand(query1, con);
                     int id = Convert.ToInt32(cmd2.ExecuteScalar());
                     int free = 0, early = 0, action = 0, adventure = 0, casual = 0, indie = 0, MMO = 0, racing = 0, RPG = 0, simulation = 0, sports = 0, strategy = 0, arcade = 0, open = 0, space = 0, horror = 0, survival = 0;
-                    if(cbFree.Checked)
+                    if (cbFree.Checked)
                         free = 1;
-                    if(cbEarly.Checked)
+                    if (cbEarly.Checked)
                         early = 1;
-                    if(cbAction.Checked)
+                    if (cbAction.Checked)
                         action = 1;
-                    if(cbAdventure.Checked)
+                    if (cbAdventure.Checked)
                         adventure = 1;
-                    if(cbCasual.Checked)
+                    if (cbCasual.Checked)
                         casual = 1;
-                    if(cbIndie.Checked)
+                    if (cbIndie.Checked)
                         indie = 1;
-                    if(cbMMO.Checked)
+                    if (cbMMO.Checked)
                         MMO = 1;
-                    if(cbRacing.Checked)
+                    if (cbRacing.Checked)
                         racing = 1;
-                    if(cbRPG.Checked)
+                    if (cbRPG.Checked)
                         RPG = 1;
-                    if(cbSimulation.Checked)
+                    if (cbSimulation.Checked)
                         simulation = 1;
-                    if(cbSports.Checked)
+                    if (cbSports.Checked)
                         sports = 1;
-                    if(cbStrategy.Checked)
+                    if (cbStrategy.Checked)
                         strategy = 1;
-                    if(cbArcade.Checked)
+                    if (cbArcade.Checked)
                         arcade = 1;
                     if (cbOpen.Checked)
                         open = 1;
-                    if(cbSpace.Checked)
+                    if (cbSpace.Checked)
                         space = 1;
-                    if(cbHorror.Checked)
+                    if (cbHorror.Checked)
                         horror = 1;
-                    if(cbSurvival.Checked)
+                    if (cbSurvival.Checked)
                         survival = 1;
                     string query2 = "INSERT INTO Genres(Id,[Free to Play],[Early Access],Action,Adventure,Casual,Indie,Massively Multiplayer,Racing,RPG,Simulation,Sports,Strategy,Arcade,[Open World],Space,Horror,Survival) Values ('" + free + "','" + early + "','" + action + "','" + adventure + "','" + casual + "','" + indie + "','" + MMO + "','" + racing + "','" + RPG + "','" + simulation + "','" + sports + "','" + strategy + "','" + arcade + "','" + open + "','" + space + "','" + horror + "','" + survival + "')";
-                    SqlCommand cmd3 = new SqlCommand(query2,con);
+                    SqlCommand cmd3 = new SqlCommand(query2, con);
                     cmd3.ExecuteNonQuery();
                     con.Close();
 
