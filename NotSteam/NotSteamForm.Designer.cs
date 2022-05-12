@@ -1369,6 +1369,7 @@ namespace NotSteam
             this.label3.TabIndex = 2;
             this.label3.Text = "Community";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuClick);
             // 
             // label2

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace NotSteam
 {
@@ -54,7 +54,7 @@ namespace NotSteam
             }
 
             try
-            { 
+            {
                 string loginquery = "SELECT * FROM Users WHERE username=@username AND password=@password";
                 SqlCommand cmd = new SqlCommand(loginquery, con);
 
@@ -63,7 +63,7 @@ namespace NotSteam
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                if(reader.Read())
+                if (reader.Read())
                 {
                     user = new user
                     {

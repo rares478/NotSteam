@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace NotSteam
@@ -15,7 +13,7 @@ namespace NotSteam
         string password;
         public Settings(user user)
         {
-            userid = user.id; 
+            userid = user.id;
             password = user.password;
             InitializeComponent();
             DoubleBuffered = true;

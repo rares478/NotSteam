@@ -14,16 +14,16 @@ namespace NotSteam
         static user loggeduser = new user();
 
         int money = 0;
-        public Game(user user, string name,bool queue)
+        public Game(user user, string name, bool queue)
         {
             loggeduser = user;
             money = user.money;
             InitializeComponent();
 
-            if(Store.queuelcoation+1 < 10)
-               pbqueue.Image = imageList1.Images[0];
+            if (Store.queuelcoation + 1 < 10)
+                pbqueue.Image = imageList1.Images[0];
             else pbqueue.Image = imageList1.Images[1];
-            if(queue)
+            if (queue)
                 pbqueue.Visible = true;
 
             con.Open();
@@ -441,7 +441,7 @@ namespace NotSteam
                             owners = readerowners.GetInt32(0);
                             owners = owners + 1;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             owners = 1;
                         }
@@ -471,9 +471,9 @@ namespace NotSteam
         public static event EventHandler EndQueue;
         public static event EventHandler NextQueue;
 
-        public void queueclick (object sender,EventArgs e)
+        public void queueclick(object sender, EventArgs e)
         {
-            if(Store.queuelcoation+1 == 10)
+            if (Store.queuelcoation + 1 == 10)
                 EndQueue?.Invoke(sender, e);
             else
             {
@@ -496,7 +496,7 @@ namespace NotSteam
 
         private void category3_Click(object sender, EventArgs e)
         {
-            category?.Invoke(sender,e);
+            category?.Invoke(sender, e);
         }
     }
 }
