@@ -483,5 +483,20 @@ namespace NotSteam
             }
         }
 
+        public static EventHandler category;
+        public void category1_Click(object sender, EventArgs e)
+        {
+            category?.Invoke(sender, e);
+        }
+
+        private void category2_Click(object sender, EventArgs e)
+        {
+            category?.Invoke(sender, e);
+        }
+
+        private void category3_Click(object sender, EventArgs e)
+        {
+            category?.Invoke(sender,e);
+        }
     }
 }

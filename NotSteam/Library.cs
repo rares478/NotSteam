@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
 
 namespace NotSteam
 {
@@ -101,7 +102,23 @@ namespace NotSteam
 
         private void btPlay_Click(object sender, EventArgs e)
         {
+            string name = lbAfis.GetItemText(lbAfis.SelectedItem);
+            int id = 0;
+            con.Open();
+            string devquery = "select id from Games where name = '" + name + "'";
+            SqlCommand cmddev = new SqlCommand(devquery, con);
+            SqlDataReader readerdev = cmddev.ExecuteReader();
+            if (readerdev.Read())
+                id = readerdev.GetInt32(0);
 
+
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            DateTime dateTime = DateTime.Now;
+            var dateValue1 = dateTime.ToString("MM/dd/yyyy");
+            cmd.CommandText = "UPDATE [dbo].[List of owned games] SET [last played] = '" + dateValue1 + "' WHERE (UserId = '" + userid + "' and GameID = '" + id + "')";
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public static event EventHandler OpenStoreClick;

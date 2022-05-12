@@ -30,16 +30,25 @@ namespace NotSteam
             if (WindowState != FormWindowState.Maximized)
                 panel1.Width = 0;
 
-            Library.OpenStoreClick += new EventHandler((sender, e) =>
-            {
-                Button bt = sender as Button;
-                string gamename = bt.Name;
-                openform(new Store(user, null, gamename));
-            });
+            Library.OpenStoreClick += new EventHandler((sender, e) => { Button bt = sender as Button; string gamename = bt.Name; openform(new Game(user,gamename,false));});
             AddFunds.FundsAdded += new EventHandler((sender, e) => { Button bt = sender as Button; toolStripMenuItem3.Text = user.username.ToString() + "    " + bt.Name + "$"; });
             Library.OpenSupport += new EventHandler((sender, e) => { Button bt = sender as Button; string name = bt.Name; openform(new Support(name, user)); });
-            Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Store(user, null, name)); });
-            Support.ViewinLibrary += new EventHandler((sender, e) => { Label bt = sender as Label; string name = bt.Name; openform(new Library(user, name)); });
+            Support.ViewinStore += new EventHandler((sender, e) => { Label bt = sender as Label; panel1.Width = 400; string name = bt.Name; openform(new Game(user,name,false)); });
+            Support.ViewinLibrary += new EventHandler((sender, e) => 
+            {
+                Label lb;
+                Panel pn;
+                if (sender is Label)
+                { 
+                    lb = (Label)sender;
+                    openform(new Library(user, lb.Name));
+                }
+                if(sender is Panel)
+                {
+                    pn = (Panel)sender;
+                    openform(new Library(user,pn.Name));
+                }
+            });
             Profile.EditProfile += new EventHandler((sender, e) => { openform(new EditProfile(user)); });
             EditProfile.GoBack += new EventHandler((sender, e) =>
             {
@@ -56,7 +65,84 @@ namespace NotSteam
             Store.Switchtoqueue += new EventHandler((sender, e) => {openform(new Game(user, Store.queuepic[Store.queuelcoation+1], true)); });
             Game.NextQueue += new EventHandler((sender, e) => { openform(new Game(user, Store.queuepic[Store.queuelcoation+1],true)); });
             Game.EndQueue += new EventHandler((sender, e) => { openform(new Store(user, storeceva, null)); });
+            Game.category += new EventHandler((sender, e) => 
+            {
+                Button bt = sender as Button;
+                switch (bt.Text)
+                {
+                    case "Free to Play":
+                        openform(new Store(user, free, null));
+                        break;
+                    case "Early Access":
+                        openform(new Store(user, Early, null));
+                        break;
+                    case "Action":
+                        openform(new Store(user, action, null));
+                        break;
+                    case "Casual":
+                        openform(new Store(user, Casual, null));
+                        break;
+                    case "Indie":
+                        openform(new Store(user, Indie, null));
+                        break;
+                    case "Massively Multiplayer":
+                        openform(new Store(user, Multiplayer, null));
+                        break;
+                    case "Racing":
+                        openform(new Store(user, Racing, null));
+                        break;
+                    case "RPG":
+                        openform(new Store(user, RPG, null));
+                        break;
+                    case "Simulation":
+                        openform(new Store(user, Simulation, null));
+                        break;
+                    case "Sports":
+                        openform(new Store(user, Sports, null));
+                        break;
+                    case "Strategy":
+                        openform(new Store(user, Strategy, null));
+                        break;
+                    case "Arcade":
+                        openform(new Store(user, Arcade, null));
+                        break;
+                    case "Open World":
+                        openform(new Store(user, OpenWorld, null));
+                        break;
+                    case "Space":
+                        openform(new Store(user, Space, null));
+                        break;
+                    case "Horror":
+                        openform(new Store(user, Horror, null));
+                        break;
+                    case "Survival":
+                        openform(new Store(user, Survival, null));
+                        break;
+                }
+            });
         }
+
+        #region category strings
+
+        string Arcade = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Arcade] = '1'";
+        string OpenWorld = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Open World] = '1'";
+        string Space = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Space] = '1'";
+        string Horror = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Horror] = '1'";
+        string Survival = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Survival] = '1'";
+        string free = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
+        string Early = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
+        string action = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
+        string Adventure = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
+        string Casual = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
+        string Indie = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
+        string Multiplayer = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
+        string Racing = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
+        string RPG = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
+        string Simulation = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
+        string Sports = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
+        string Strategy = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
+
+        #endregion
 
         public static event EventHandler Normal;
         public static event EventHandler Maximized;
@@ -244,7 +330,6 @@ namespace NotSteam
 
         private void label20_Click(object sender, EventArgs e)
         {
-            string free = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Free to Play] = '1'";
             Form mainform = new Store(loggeduser, free, null);
             freetoplay = true;
             openform(mainform);
@@ -252,7 +337,6 @@ namespace NotSteam
         public static bool early = false;
         private void label21_Click(object sender, EventArgs e)
         {
-            string Early = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Early Access] = '1'";
             Form mainform = new Store(loggeduser, Early, null);
             early = true;
             openform(mainform);
@@ -260,7 +344,6 @@ namespace NotSteam
         public static bool actionb = false;
         private void label22_Click(object sender, EventArgs e)
         {
-            string action = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Action] = '1'";
             Form mainform = new Store(loggeduser, action, null);
             actionb = true;
             openform(mainform);
@@ -268,72 +351,62 @@ namespace NotSteam
         public static bool adventure = false;
         private void label23_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Adventure] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Adventure, null);
             adventure = true;
             openform(mainform);
         }
         public static bool casual = false;
         private void label24_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Casual] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Casual, null);
             casual = true;
             openform(mainform);
         }
         public static bool indie = false;
         private void label25_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Indie] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Indie, null);
             indie = true;
             openform(mainform);
         }
         public static bool multiplayer = false;
         private void label26_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Massively Multiplayer] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Multiplayer, null);
             multiplayer = true;
             openform(mainform);
         }
         public static bool racing = false;
         private void label27_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Racing] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Racing, null);
             racing = true;
             openform(mainform);
         }
         public static bool rpg = false;
         private void label28_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [RPG] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, RPG, null);
             rpg = true;
             openform(mainform);
         }
         public static bool simulation = false;
         private void label29_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Simulation] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Simulation, null);
             simulation = true;
             openform(mainform);
         }
         public static bool sports = false;
         private void label30_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Sports] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Sports, null);
             sports = true;
             openform(mainform);
         }
-
         private void label31_Click(object sender, EventArgs e)
         {
-            string query = "select name,price from Games inner join Genres on Genres.Id = Games.Id WHERE [Strategy] = '1'";
-            Form mainform = new Store(loggeduser, query, null);
+            Form mainform = new Store(loggeduser, Strategy, null);
             openform(mainform);
         }
 

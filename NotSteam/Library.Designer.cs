@@ -143,6 +143,7 @@
             this.btPlay.TabIndex = 11;
             this.btPlay.Text = "Play";
             this.btPlay.UseVisualStyleBackColor = false;
+            this.btPlay.Click += new System.EventHandler(this.btPlay_Click);
             // 
             // pbAfis
             // 

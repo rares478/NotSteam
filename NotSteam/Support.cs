@@ -86,7 +86,16 @@ namespace NotSteam
         public static event EventHandler ViewinLibrary;
         private void btLibrary_Click(object sender, EventArgs e)
         {
-            btLibrary.Name = lbName.Text;
+            if(sender is Panel)
+            {
+                Panel panel = (Panel)sender;
+                panel.Name = lbName.Text;
+            }
+            if(sender is Label)
+            {
+                Label label = (Label)sender;
+                label.Name = lbName.Text;
+            }
             ViewinLibrary?.Invoke(sender,e);
         }
     }
