@@ -71,6 +71,7 @@ namespace NotSteam
             // 
             // pbMainBig
             // 
+            this.pbMainBig.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbMainBig.Location = new System.Drawing.Point(111, 106);
             this.pbMainBig.Name = "pbMainBig";
             this.pbMainBig.Size = new System.Drawing.Size(598, 336);
@@ -79,6 +80,7 @@ namespace NotSteam
             // 
             // lbGameNameSolo
             // 
+            this.lbGameNameSolo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbGameNameSolo.AutoSize = true;
             this.lbGameNameSolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGameNameSolo.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -90,6 +92,7 @@ namespace NotSteam
             // 
             // pbHeader
             // 
+            this.pbHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbHeader.Location = new System.Drawing.Point(729, 106);
             this.pbHeader.Name = "pbHeader";
             this.pbHeader.Size = new System.Drawing.Size(321, 151);
@@ -98,6 +101,7 @@ namespace NotSteam
             // 
             // tbDescription
             // 
+            this.tbDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbDescription.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -110,6 +114,7 @@ namespace NotSteam
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(114)))));
             this.label1.Location = new System.Drawing.Point(729, 360);
@@ -120,6 +125,7 @@ namespace NotSteam
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(103)))), ((int)(((byte)(114)))));
             this.label2.Location = new System.Drawing.Point(729, 380);
@@ -130,6 +136,7 @@ namespace NotSteam
             // 
             // lbDate
             // 
+            this.lbDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbDate.AutoSize = true;
             this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(152)))), ((int)(((byte)(160)))));
             this.lbDate.Location = new System.Drawing.Point(823, 360);
@@ -140,6 +147,7 @@ namespace NotSteam
             // 
             // lbDeveloper
             // 
+            this.lbDeveloper.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbDeveloper.AutoSize = true;
             this.lbDeveloper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(162)))), ((int)(((byte)(206)))));
             this.lbDeveloper.Location = new System.Drawing.Point(826, 380);
@@ -150,6 +158,7 @@ namespace NotSteam
             // 
             // category1
             // 
+            this.category1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.category1.AutoSize = true;
             this.category1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(77)))));
             this.category1.FlatAppearance.BorderSize = 0;
@@ -161,9 +170,11 @@ namespace NotSteam
             this.category1.TabIndex = 2;
             this.category1.Text = "label1";
             this.category1.UseVisualStyleBackColor = false;
+            this.category1.Click += new System.EventHandler(this.category1_Click);
             // 
             // category2
             // 
+            this.category2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.category2.AutoSize = true;
             this.category2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(77)))));
             this.category2.FlatAppearance.BorderSize = 0;
@@ -175,9 +186,11 @@ namespace NotSteam
             this.category2.TabIndex = 1;
             this.category2.Text = "label2";
             this.category2.UseVisualStyleBackColor = false;
+            this.category2.Click += new System.EventHandler(this.category2_Click);
             // 
             // category3
             // 
+            this.category3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.category3.AutoSize = true;
             this.category3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(77)))));
             this.category3.FlatAppearance.BorderSize = 0;
@@ -189,6 +202,7 @@ namespace NotSteam
             this.category3.TabIndex = 0;
             this.category3.Text = "label3";
             this.category3.UseVisualStyleBackColor = false;
+            this.category3.Click += new System.EventHandler(this.category3_Click);
             // 
             // lbGameNameBuy
             // 
@@ -202,6 +216,7 @@ namespace NotSteam
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(81)))), ((int)(((byte)(95)))));
             this.panel5.Controls.Add(this.lbGameNameBuy);
             this.panel5.Location = new System.Drawing.Point(111, 558);
@@ -233,6 +248,7 @@ namespace NotSteam
             // 
             // panelbuy
             // 
+            this.panelbuy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelbuy.BackColor = System.Drawing.Color.Black;
             this.panelbuy.Controls.Add(this.btBuy);
             this.panelbuy.Controls.Add(this.lbPrice);
@@ -243,6 +259,7 @@ namespace NotSteam
             // 
             // pbPic1
             // 
+            this.pbPic1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPic1.Location = new System.Drawing.Point(125, 448);
             this.pbPic1.Name = "pbPic1";
             this.pbPic1.Size = new System.Drawing.Size(109, 58);
@@ -252,6 +269,7 @@ namespace NotSteam
             // 
             // pbPic2
             // 
+            this.pbPic2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPic2.Location = new System.Drawing.Point(240, 448);
             this.pbPic2.Name = "pbPic2";
             this.pbPic2.Size = new System.Drawing.Size(109, 58);
@@ -261,6 +279,7 @@ namespace NotSteam
             // 
             // pbPic3
             // 
+            this.pbPic3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPic3.Location = new System.Drawing.Point(355, 448);
             this.pbPic3.Name = "pbPic3";
             this.pbPic3.Size = new System.Drawing.Size(109, 58);
@@ -270,6 +289,7 @@ namespace NotSteam
             // 
             // pbPic4
             // 
+            this.pbPic4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPic4.Location = new System.Drawing.Point(470, 448);
             this.pbPic4.Name = "pbPic4";
             this.pbPic4.Size = new System.Drawing.Size(109, 58);
@@ -279,6 +299,7 @@ namespace NotSteam
             // 
             // pbPic5
             // 
+            this.pbPic5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPic5.Location = new System.Drawing.Point(585, 448);
             this.pbPic5.Name = "pbPic5";
             this.pbPic5.Size = new System.Drawing.Size(109, 58);
@@ -288,6 +309,7 @@ namespace NotSteam
             // 
             // pbqueue
             // 
+            this.pbqueue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbqueue.Location = new System.Drawing.Point(900, 500);
             this.pbqueue.Name = "pbqueue";
             this.pbqueue.Size = new System.Drawing.Size(147, 47);
