@@ -120,7 +120,8 @@ namespace NotSteam
                         break;
                 }
             });
-            Community.friend += new EventHandler((sender, e) => { RichTextBox richText = sender as RichTextBox; int id = Convert.ToInt32(richText.Name); user friend = new user(); friend.id = id; openform(new Profile(friend,true)); });
+            Community.friend += new EventHandler((sender, e) => { RichTextBox richText = sender as RichTextBox; string name = richText.Name; openform(new Friends(user,name)); });
+            Friends.Profile += new EventHandler((sender, e) => { Label label = sender as Label; user friend = new user(); friend.id = Convert.ToInt32(label.Name); friend.username = label.Text;openform(new Profile(friend, true)); });
         }
 
         #region category strings
@@ -220,6 +221,7 @@ namespace NotSteam
                     int Support = Application.OpenForms.OfType<Support>().Count();
                     int Game = Application.OpenForms.OfType<Game>().Count();
                     int EditProfile = Application.OpenForms.OfType<EditProfile>().Count();
+                    int Community = Application.OpenForms.OfType<Community>().Count();
                     foreach (Form thisform in forms)
                     {
                         if (thisform.Name == "AddFunds" && (addfunds >= 1 || (formerform.Name != "AddFunds" && activeform.Name != "AddFunds")))
@@ -265,6 +267,11 @@ namespace NotSteam
                         if (thisform.Name == "EditProfile" && (EditProfile >= 1 || (formerform.Name != "EditProfile" && activeform.Name != "EditProfile")))
                         {
                             EditProfile--;
+                            thisform.Close();
+                        }
+                        if(thisform.Name == "Community" && (Community >= 1 || (formerform.Name != "Community" && activeform.Name != "Community")))
+                        {
+                            Community--;
                             thisform.Close();
                         }
                     }
