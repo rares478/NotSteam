@@ -31,6 +31,7 @@ namespace NotSteam
                 if (sqlData.Read())
                 {
                     btEdit.Text = "Message";
+
                 }
                 else btEdit.Text = "Add Friend";
                 con.Close();

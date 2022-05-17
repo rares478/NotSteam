@@ -30,7 +30,6 @@ namespace NotSteam
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.lvLibrary = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@ namespace NotSteam
             this.label9 = new System.Windows.Forms.Label();
             this.btEdit = new System.Windows.Forms.Button();
             this.pbProfile = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pbShowcase = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -227,13 +225,6 @@ namespace NotSteam
             this.pbProfile.TabIndex = 12;
             this.pbProfile.TabStop = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "back-arrow-icon-image-free-download-searchpng-arrow-gray-world-of-warcraft-transp" +
-        "arent-png-530549_ccexpress.png");
-            // 
             // pbShowcase
             // 
             this.pbShowcase.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -353,7 +344,6 @@ namespace NotSteam
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.PictureBox pbProfile;
-        private ImageList imageList1;
         private PictureBox pbShowcase;
         private Panel panel2;
         private Panel panel3;
